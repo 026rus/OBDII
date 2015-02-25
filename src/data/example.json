@@ -1,0 +1,14 @@
+{
+    all : {
+        name: "init"
+	, mode: ["read"]
+        , sendString: "0xCABFAC77"
+	}
+
+    bmw : {
+	name: "rearlug"
+	, mode: ["read", "reset"]
+	, sendString: "0xDEADBEEF"
+	}
+
+}
