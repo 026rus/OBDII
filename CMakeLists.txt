@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8.11)
+project(obdii-query)
+find_package(Qt5Core REQUIRED)
+add_executable( carcomm src/main.cpp )
+target_link_libraries(carcomm Qt5::Core)
