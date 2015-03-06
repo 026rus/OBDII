@@ -8,3 +8,5 @@ add_library(jsoncpp STATIC src/jsoncpp/jsoncpp.cpp)
 add_executable(carcomm src/main.cpp)
 target_link_libraries(carcomm Qt5::Core)
 target_link_libraries(carcomm jsoncpp)
+
+add_executable(carcomm src/connect/main.cpp)
