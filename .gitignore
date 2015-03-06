@@ -4,3 +4,4 @@ CmakeFiles/
 *.vcxproj.filters
 *.cmake
 *.sln
+*.user
