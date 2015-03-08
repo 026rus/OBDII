@@ -21,64 +21,64 @@
 	"description" : "Fuel Shutoff Valve ‘A’ Control Circuit (High)"
      },
      "P0008" : {
-	"description" : ""
+	"description" : "(Bank 1) Engine Positions System Performance"
      },
      "P0009" : {
-	"description" : ""
+	"description" : "(Bank 2) Engine Positions System Performance"
      },
      "P0010" : {
-	"description" : ""
+	"description" : "(Bank 1) 'A' Camshaft Voltage (Low)"
      },
      "P0011" : {
-	"description" : ""
+	"description" : "(Bank 1) 'A' Camshaft Timing (Over Limit)"
      },
      "P0012" : {
-	"description" : ""
+	"description" : "(Bank 1) 'A' Camshaft Timing (Over-retarded)"
      },
      "P0013" : {
-	"description" : ""
+	"description" : "(Bank 1) 'B' Camshaft Voltage (Low)"
      },
      "P0014" : {
-	"description" : ""
+	"description" : "(Bank 1) 'B' Camshaft Timing (Over Limit)"
      },
      "P0015" : {
-	"description" : ""
+	"description" : "(Bank 1) 'B' Camshaft Timing (Over-retarded)"
      },
      "P0016" : {
-	"description" : ""
+	"description" : "(Bank 1) Camshaft Positon Sensor (A) out of Sync"
      },
      "P0017" : {
-	"description" : ""
+	"description" : "(Bank 1) Camshaft Positon Sensor (B) out of Sync"
      },
      "P0018" : {
-	"description" : ""
+	"description" : "(Bank 2) Camshaft Positon Sensor (A) out of Sync"
      },
      "P0019" : {
-	"description" : ""
+	"description" : "(Bank 2) Camshaft Positon Sensor (B) out of Sync"
      },
      "P0020" : {
-	"description" : ""
+	"description" : "(Bank 2) 'B' Camshaft Voltage (Low)"
      },
      "P0021" : {
-	"description" : ""
+	"description" : "(Bank 2) 'A' Camshaft Timing (Over Limit)"
      },
      "P0022" : {
-	"description" : ""
+	"description" : "(Bank 2) 'A' Camshaft Timing (Over-retarded)"
      },
      "P0023" : {
-	"description" : ""
+	"description" : "(Bank 2) 'B' Camshaft Voltage (Low)"
      },
      "P0024" : {
-	"description" : ""
+	"description" : "(Bank 2) 'B' Camshaft Timing (Over Limit)"
      },
      "P0025" : {
-	"description" : ""
+	"description" : "(Bank 2) 'B' Camshaft Timing (Over-retarded)"
      },
      "P0026" : {
-	"description" : ""
+	"description" : "(Bank 1) Intake Camshaft Voltage Out of Spec*"
      },
      "P0027" : {
-	"description" : ""
+	"description" : "(Bank 1) Exhaust Valve Control Circuit Out of Spec"
      },
      "P0028" : {
 	"description" : ""
