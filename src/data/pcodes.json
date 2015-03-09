@@ -75,227 +75,214 @@
 	"description" : "(Bank 2) 'B' Camshaft Timing (Over-retarded)"
      },
      "P0026" : {
-	"description" : "(Bank 1) Intake Camshaft Voltage Out of Spec*"
+	"description" : "(Bank 1) Intake Valve Control Circuit Out of Spec"
      },
      "P0027" : {
 	"description" : "(Bank 1) Exhaust Valve Control Circuit Out of Spec"
      },
      "P0028" : {
-	"description" : ""
+	"description" : "(Bank 2) Exhaust Valve Control Circuit Out of Spec"
      },
      "P0029" : {
-	"description" : ""
+	"description" : "(Bank 2) Exhaust Valve Control Circuit Out of Spec"
      },
      "P0030" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor Sensor 1 Fault"
      },
      "P0031" : {
-	"description" : ""
+	"description" : "Oxygen Sensor Heater Voltage (Low) "
      },
      "P0032" : {
-	"description" : ""
+	"description" : "Oxygen Sensor Heather Voltage (High)"
      },
      "P0033" : {
-	"description" : ""
+	"description" : "Turbo Charge Bypass Valve Voltage (Fault)"
      },
      "P0034" : {
-	"description" : ""
+	"description" : "Turbo Charge Bypass Valve Voltage (Low)"
      },
      "P0035" : {
-	"description" : ""
+	"description" : "Turbo Charge Bypass Valve Voltage (High)"
      },
      "P0036" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen (Heater) Sensor 2 Voltage Fault"
      },
      "P0037" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen (Heater) Sensor 2 Voltage (Low)"
      },
      "P0038" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen (Heater) Sensor 2 Voltage (High)"
      },
      "P0039" : {
-	"description" : ""
+	"description" : "Turbo/Super Charger Bypass Valve Voltage (Range/Performace)"
      },
      "P0040" : {
-	"description" : ""
+	"description" : "Upstream Oxygen Sensor (Swapped Banks)"
      },
      "P0041" : {
-	"description" : ""
+	"description" : "Downstream Oxygen Sensors (Swapped Banks)"
      },
      "P0042" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor (Heater) Sensor 3 Voltage Fault"
      },
      "P0043" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor (Heater) Sensor 3 Voltage (Low)"
      },
      "P0044" : {
-	"description" : ""
-     },
-     "P0045" : {
-	"description" : ""
-     },
-     "P0046" : {
-	"description" : ""
-     },
-     "P0047" : {
-	"description" : ""
-     },
-     "P0048" : {
-	"description" : ""
-     },
-     "P0049" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor (Heater) Sensor 3 Voltage (High)"
      },
      "P0050" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor (Heater) Sensor 1 Voltage "
      },
      "P0051" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor (Heater) Sensor 1 Voltage (Low)"
      },
      "P0052" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor (Heater) Sensor 1 Voltage (High)"
      },
      "P0053" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor (Heater Resistance) Sensor 1 Fault"
      },
      "P0054" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor (Heater Resistance) Sensor 2 Fault"
      },
      "P0055" : {
-	"description" : ""
+	"description" : "(Bank 1) Heated Oxygen Sensor (Heater Resistance) Sensor 3 Fault"
      },
      "P0056" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage Fault"
      },
      "P0057" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage (Low)"
      },
      "P0058" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage (High)"
      },
      "P0059" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor (Heater Resistance) Sensor 1 Fault"
      },
      "P0060" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor (Heater Resistance) Sensor 2 Fault"
      },
      "P0061" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor (Heater Resistance) Sensor 3 Fault"
      },
      "P0062" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor Heater Sensor 3 Voltage Fault"
      },
      "P0063" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor Heater Sensor 3 Voltage (Low)"
      },
      "P0064" : {
-	"description" : ""
+	"description" : "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage (High)"
      },
      "P0065" : {
-	"description" : ""
+	"description" : "Air Assisted Injector Control (Range/Performance)"
      },
      "P0066" : {
-	"description" : ""
+	"description" : "Air Assisted Injector Voltage (Low)"
      },
      "P0067" : {
-	"description" : ""
+	"description" : "Air Assisted Injector Voltage (High)"
      },
      "P0068" : {
-	"description" : ""
+	"description" : "Manifold Pressure Sensor Fault ****"
      },
      "P0069" : {
-	"description" : ""
+	"description" : "Manifold Absolute Pressure (Barometric Pressur Correlation"
      },
      "P0070" : {
-	"description" : ""
+	"description" : "Ambient Air Temperature Voltage Fault"
      },
      "P0071" : {
-	"description" : ""
+	"description" : "Ambient Air Temperature Voltage (Range/Performance)"
      },
      "P0072" : {
-	"description" : ""
+	"description" : "Ambient Air Temperature Sensor Voltage (Low)"
      },
      "P0073" : {
-	"description" : ""
+	"description" : "Ambient Air Temperature Sensor Voltage (High)"
      },
      "P0074" : {
-	"description" : ""
+	"description" : "Ambient Air Tempterature Sensor Voltage (Intermittent)"
      },
      "P0075" : {
-	"description" : ""
+	"description" : "(Bank 1) Intake Valve Voltage Fault (Solenoid)"
      },
      "P0076" : {
-	"description" : ""
+	"description" : "(Bank 1) Intake Valve Control Voltage (Low) (Solenoid)"
      },
      "P0077" : {
-	"description" : ""
+	"description" : "(Bank 1) Intake Valve Control Voltage (High) (Solenoid)"
      },
      "P0078" : {
-	"description" : ""
+	"description" : "(Bank 1) Exhaust Valve Circuit Fault (Solenoid)"
      },
      "P0079" : {
-	"description" : ""
+	"description" : "(Bank 1) Exhaust Valve Voltage (Low) (Solenoid)"
      },
      "P0080" : {
-	"description" : ""
+	"description" : "(Bank 1) Exhaust Valve Voltage (High) (Solenoid)"
      },
      "P0081" : {
-	"description" : ""
+	"description" : "(Bank 2) Intake Valve Voltage Fault (Solenoid)"
      },
      "P0082" : {
-	"description" : ""
+	"description" : "(Bank 2) Intake Valve Voltage (Low) (Solenoid)"
      },
      "P0083" : {
-	"description" : ""
+	"description" : "(Bank 2) Intake Valve Voltage (High) (Solenoid)"
      },
      "P0084" : {
-	"description" : ""
+	"description" : "(Bank 2) Exhaust Valve Voltage Fault (Solenoid)"
      },
      "P0085" : {
-	"description" : ""
+	"description" : "(Bank 2) Exhaust Valve Voltage (Low) (Solenoid)"
      },
      "P0086" : {
-	"description" : ""
+	"description" : "(Bank 2) Exhaust Valve Voltage (High) (Solenoid)"
      },
      "P0087" : {
-	"description" : ""
+	"description" : "Fuel Rail/System Pressure (Low)"
      },
      "P0088" : {
-	"description" : ""
+	"description" : "Fuel Rail/System Pressure (High)"
      },
      "P0089" : {
-	"description" : ""
+	"description" : "Fuel Pressure Regulator 1 (Performance)"
      },
      "P0090" : {
-	"description" : ""
+	"description" : "Fuel Pressure Regulator 1 Voltage Fault"
      },
      "P0091" : {
-	"description" : ""
+	"description" : "Fuel Pressure Regulator 1 (Low)"
      },
      "P0092" : {
-	"description" : ""
+	"description" : "Fuel Pressure Regulator 1 (High)"
      },
      "P0093" : {
-	"description" : ""
+	"description" : "Fuel System Leak (Large)"
      },
      "P0094" : {
-	"description" : ""
+	"description" : "Fuel System Leak (Small)"
      },
      "P0095" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Sensor 2 Voltage Fault"
      },
      "P0096" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Sensor 2 Voltage (Range/Performance)"
      },
      "P0097" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Sensor 2 Voltage (Low)"
      },
      "P0098" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Sensor 2 Voltage (High)"
      },
      "P0099" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Sensor 2 Voltage (Intermittent)"
      },
+
+
      "P0100" : {
 	"description" : ""
      },
