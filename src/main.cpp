@@ -1,3 +1,4 @@
+#include "CarCoreApp.h"
 #include "serialcomms.h"
 
 #include <QtCore/QCoreApplication>
@@ -8,7 +9,7 @@ using namespace serial;
 
 int main(int argc, char **argv)
 {
-    QCoreApplication app(argc, argv);
+    CarCoreApp app = CarCoreApp(argc, argv);
 
     SerialComms conn = SerialComms();
 
