@@ -6,20 +6,22 @@
 
 using namespace serial;
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     QString buff = "";
     QCoreApplication app(argc, argv);
-    std::cout << "It works!" << std::endl;
+    cout << "It works!" << endl;
 
     SerialComms conn = SerialComms();
-    if (!conn.serialConnect()) {
+    if (!conn.serialConnect())
+    {
         qDebug() << "Could not connect!";
         return 1;
     }
 
     conn.sendCommand(QByteArray("ATI"));
     buff = conn.readCommand();
-    std::cout << buff.toStdString() << std::endl;
+    cout << buff.toStdString() << endl;
 
     return app.exec();
 }
