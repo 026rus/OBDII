@@ -10,21 +10,28 @@ namespace serial {
     class SerialComms {
 
     public:
-	SerialComms();
-	~SerialComms();
+        SerialComms();
+        ~SerialComms();
 
-    bool serialConnect(void);
-    bool sendCommand(const QByteArray &data);
+        // Sets up the Serial Connection
+        bool serialConnect(void);
 
-    int decodeRPM(const QByteArray line_data);
-    int decodeTempEngin(const QByteArray line_data);
-    QString decodeErr(const QByteArray line_data);
+        // Convieniece functions for determining state
+        bool isConnected();
+        QString getConnectedPortName();
 
-    QByteArray readLine();
+        // Low-Level interfaces to communicate via serial
+        bool sendCommand(const QByteArray &data);
+        QByteArray readLine();
+
+
+        // High-Lever interfaces for specific OBDII data
+        int decodeRPM(const QByteArray line_data);
+        int decodeTempEngin(const QByteArray line_data);
+        QString decodeErr(const QByteArray line_data);
 
     private:
-	QSerialPort *port;
-
+        QSerialPort *port;
     };
 }
 
