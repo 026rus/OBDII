@@ -26,11 +26,10 @@ namespace serial
     bool SerialComms::serialConnect(void)
 	{ 
         string input_device = "";
-        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
-        {
-               cout << "Name        : " << info.portName().toStdString() << endl;
-               cout << "Description : " << info.description().toStdString() << endl;
-               cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
+        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
+        cout << "Name        : " << info.portName().toStdString() << endl;
+        cout << "Description : " << info.description().toStdString() << endl;
+        cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
         }
         cout << "Which serial device Name should we use?" << endl;
         cin >> input_device;
@@ -44,22 +43,19 @@ namespace serial
         return false;
 	}
 
-    bool SerialComms::sendCommand(const QByteArray &data)
-    {
+    bool SerialComms::sendCommand(const QByteArray &data) {
         if (!this->port->isOpen()) { return false; }
         if (-1 < port->write(data)) { return true; }
         return false;
-	}
+    }
 
-    QString SerialComms::readCommand()
-    {
+    QByteArray SerialComms::readLine() {
         if (!this->port->isOpen()) { return ""; }
-	    return QString("That One!");
-	}
+        return this->port->readLine();
+    }
 
 /***********************************************/
-    int SerialComms::getRPM()
-    {
+    int SerialComms::decodeRPM(const QByteArray line_data) {
         //QString comm = "01 0C"; // the code for rpm
 
         QString retval = "1af8";
@@ -72,8 +68,7 @@ namespace serial
         else return -1;
     }
 
-    int SerialComms::getTempEngin()
-    {
+    int SerialComms::decodeTempEngin(const QByteArray line_data) {
 
         //QString comm = "01 05 1"; // the code Enginr Tempereture
 
@@ -87,8 +82,7 @@ namespace serial
         else return -1;
     }
 
-    QString SerialComms::getErr()
-    {
+    QString SerialComms::decodeErr(const QByteArray line_data) {
 
         //QString comm = "01 01"; // the code for Error code
         /*
@@ -129,13 +123,9 @@ namespace serial
          */
 
 
-
         retval.replace(" ","");
-
         str = retval.replace(" ","");
-
         r_str = retval.left(4);
-
         str = retval;
 
         return str;

@@ -8,29 +8,41 @@ using namespace serial;
 
 int main(int argc, char **argv)
 {
-    QString buff = "";
     QCoreApplication app(argc, argv);
-
 
     SerialComms conn = SerialComms();
 
-    /*
-    if (!conn.serialConnect())
-    {
+    if (!conn.serialConnect()) {
         qDebug() << "Could not connect!";
-        return 1;
+        app.exit(1);
     }
 
-    conn.sendCommand(QByteArray("ATI"));
-    buff = conn.readCommand();
-    cout << buff.toStdString() << endl;
-    */
+    { // Test sending characters, The device should identify itself
+        conn.sendCommand(QByteArray("AT I"));
+        QByteArray buff = conn.readLine();
+        cout << buff.toStdString() << endl;
+    }
 
-    int x = conn.getRPM();
+    qDebug() << "Connected to serial port" << endl;
 
-    cout << "RPM : "<< x <<endl;
+    int rpmVal = 0;
+    { // Try to get the RPM
+        conn.sendCommand("01 0C");
+        QByteArray buff = conn.readLine();
+        rpmVal = conn.decodeRPM(buff);
+    }
 
-    cout << "Trobel code : "<< conn.getErr().toStdString() <<endl;
+    QString trobelCode = "";
+    { // Try to get the Trouble Code
+        conn.sendCommand("STUFF");
+        // TODO: Needs to be multiline aware
+        QByteArray buff = conn.readLine();
+        trobelCode = conn.decodeErr(buff);
+    }
 
+    cout << "RPM : " << rpmVal << endl;
+    cout << "Trobel code : " << trobelCode.toStdString() << endl;
+
+    app.quit();
     return app.exec();
 }
