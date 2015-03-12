@@ -9,8 +9,11 @@
 
 using namespace std;
 
-namespace serial {
-    SerialComms::SerialComms(void) {
+namespace serial
+{
+
+    SerialComms::SerialComms(void)
+    {
         this->port = nullptr;
     }
 

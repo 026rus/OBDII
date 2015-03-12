@@ -5,17 +5,25 @@
 
 using namespace std;
 
-namespace serial {
-    class SerialComms {
+namespace serial
+{
+    class SerialComms
+    {
+
     public:
 	SerialComms();
 	~SerialComms();
-        bool serialConnect(void);
+
+    bool serialConnect(void);
+
 	QString readCommand();
+
 	bool sendCommand(const QByteArray &data);
+
     private:
 	QSerialPort *port;
+
     };
-};
+}
 
 #endif
