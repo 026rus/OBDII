@@ -13,7 +13,7 @@ public:
     void run();
 
 private:
-    serial::SerialComms conn;
+    serial::PortReaderWriter conn;
 
 signals:
     void done();
