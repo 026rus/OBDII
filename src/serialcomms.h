@@ -5,27 +5,22 @@
 
 using namespace std;
 
-namespace serial
-{
-    class SerialComms
-    {
+namespace serial {
+
+    class SerialComms {
 
     public:
 	SerialComms();
 	~SerialComms();
 
     bool serialConnect(void);
+    bool sendCommand(const QByteArray &data);
 
-	QString readCommand();
+    int decodeRPM(const QByteArray line_data);
+    int decodeTempEngin(const QByteArray line_data);
+    QString decodeErr(const QByteArray line_data);
 
-	bool sendCommand(const QByteArray &data);
-
-    /**************************/
-    int getRPM();
-    int getTempEngin();
-    QString getErr();
-
-    /**************************/
+    QByteArray readLine();
 
     private:
 	QSerialPort *port;
