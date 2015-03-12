@@ -14,23 +14,42 @@ using namespace std;
 namespace serial
 {
 
-    SerialComms::SerialComms(void)
+    PortReaderWriter::PortReaderWriter(QSerialPort *reqPort
+                                       , const QByteArray *dataForWrite
+                                       , QObject *parent)
+        : QObject(parent)
+        , port(reqPort)
+        , writeData(dataForWrite)
     {
-        this->port = nullptr;
+        connect(port
+                , SIGNAL( readReady() )
+                , SLOT( handleReadReady() )
+                , Qt::QueuedConnection);
+
+        connect(port
+                , SIGNAL( error(QSerialPort::SerialPortError) )
+                , SLOT(handleError(QSerialPort::SerialPortError) )
+                , Qt::QueuedConnection);
+
+        connect(&m_timer
+                , SIGNAL( timeout() )
+                , SLOT( handleTimeout() )
+                , Qt::QueuedConnection);
+
+        this->m_timer.start(5000); // 5 seconds, value in millis
     }
 
-    SerialComms::~SerialComms(void) {
+    PortReaderWriter::~PortReaderWriter(void) {
         if (this->port != nullptr) { this->port->close(); }
     }
 
-    bool SerialComms::serialConnect(void)
+    bool PortReaderWriter::serialConnect(void)
 	{ 
         string input_device = "";
-        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
-        {
-               cout << "Name        : " << info.portName().toStdString() << endl;
-               cout << "Description : " << info.description().toStdString() << endl;
-               cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
+        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
+            cout << "Name        : " << info.portName().toStdString() << endl;
+            cout << "Description : " << info.description().toStdString() << endl;
+            cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
         }
         cout << "Which serial device Name should we use?" << endl;
         cin >> input_device;
@@ -44,22 +63,19 @@ namespace serial
         return false;
 	}
 
-    bool SerialComms::sendCommand(const QByteArray &data)
-    {
+    bool PortReaderWriter::sendCommand(const QByteArray &data) {
         if (!this->port->isOpen()) { return false; }
         if (-1 < port->write(data)) { return true; }
         return false;
-	}
+    }
 
-    QString SerialComms::readCommand()
-    {
+    QByteArray PortReaderWriter::readLine() {
         if (!this->port->isOpen()) { return ""; }
-	    return QString("That One!");
-	}
+        return this->port->readLine();
+    }
 
 /***********************************************/
-    int SerialComms::getRPM()
-    {
+    int PortReaderWriter::decodeRPM(const QByteArray line_data) {
         //QString comm = "01 0C"; // the code for rpm
 
         QString retval = "1af8";
@@ -72,8 +88,7 @@ namespace serial
         else return -1;
     }
 
-    int SerialComms::getTempEngin()
-    {
+    int PortReaderWriter::decodeTempEngin(const QByteArray line_data) {
 
         //QString comm = "01 05 1"; // the code Enginr Tempereture
 
@@ -87,8 +102,7 @@ namespace serial
         else return -1;
     }
 
-    QString SerialComms::getErr()
-    {
+    QString PortReaderWriter::decodeErr(const QByteArray line_data) {
 
         //QString comm = "01 01"; // the code for Error code
         /*
@@ -129,45 +143,23 @@ namespace serial
          */
 
 
-
         retval.replace(" ","");
-
         str = retval.replace(" ","");
-
         r_str = retval.left(4);
-
         str = retval;
 
         return str;
     }
 
-/***********************************************/
+    QString PortReaderWriter::getConnectedPortName() {
+        if (nullptr == this->port) return "";
+        if (!this->port->isOpen()) return "";
+        return this->port->portName();
+    }
+
+    bool PortReaderWriter::isConnected(){
+        if (nullptr == this->port) return false;
+        if (this->port->isOpen()) return true;
+        return false;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

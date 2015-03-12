@@ -5,30 +5,47 @@
 
 using namespace std;
 
-namespace serial
-{
-    class SerialComms
-    {
+namespace serial {
+
+    class PortReaderWriter : public QObject {
+        Q_OBJECT
 
     public:
-	SerialComms();
-	~SerialComms();
+        QSerialPort *port;
+        QByteArray  readData;
+        const QByteArray  *writeData;
 
-    bool serialConnect(void);
+        PortReaderWriter( QSerialPort *reqPort = nullptr
+                        , const QByteArray *data = 0
+                        , QObject *parent = 0);
+        ~PortReaderWriter();
 
-	QString readCommand();
+        // Sets up the Serial Connection
+        bool serialConnect(void);
 
-	bool sendCommand(const QByteArray &data);
+        // Convieniece functions for determining state
+        bool isConnected();
+        QString getConnectedPortName();
 
-    /**************************/
-    int getRPM();
-    int getTempEngin();
-    QString getErr();
+        // Low-Level interfaces to communicate via serial
+        bool sendCommand(const QByteArray &data);
+        QByteArray readLine();
 
-    /**************************/
+
+        // High-Lever interfaces for specific OBDII data
+        int decodeRPM(const QByteArray line_data);
+        int decodeTempEngin(const QByteArray line_data);
+        QString decodeErr(const QByteArray line_data);
+
+    private slots:
+        void handleReadReady();
+        void handleWriteReady(const QByteArray data);
+        void handleTimeout();
+        void handleError(QSerialPort::SerialPortError err);
+        void shutdown();
 
     private:
-	QSerialPort *port;
+        QTimer m_timer;
 
     };
 }
