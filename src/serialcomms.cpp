@@ -27,9 +27,9 @@ namespace serial
 	{ 
         string input_device = "";
         foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
-        cout << "Name        : " << info.portName().toStdString() << endl;
-        cout << "Description : " << info.description().toStdString() << endl;
-        cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
+            cout << "Name        : " << info.portName().toStdString() << endl;
+            cout << "Description : " << info.description().toStdString() << endl;
+            cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
         }
         cout << "Which serial device Name should we use?" << endl;
         cin >> input_device;
