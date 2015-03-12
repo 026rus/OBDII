@@ -10,9 +10,11 @@ int main(int argc, char **argv)
 {
     QString buff = "";
     QCoreApplication app(argc, argv);
-    cout << "It works!" << endl;
+
 
     SerialComms conn = SerialComms();
+
+    /*
     if (!conn.serialConnect())
     {
         qDebug() << "Could not connect!";
@@ -22,6 +24,13 @@ int main(int argc, char **argv)
     conn.sendCommand(QByteArray("ATI"));
     buff = conn.readCommand();
     cout << buff.toStdString() << endl;
+    */
+
+    int x = conn.getRPM();
+
+    cout << "RPM : "<< x <<endl;
+
+    cout << "Trobel code : "<< conn.getErr().toStdString() <<endl;
 
     return app.exec();
 }

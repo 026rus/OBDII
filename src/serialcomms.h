@@ -20,6 +20,13 @@ namespace serial
 
 	bool sendCommand(const QByteArray &data);
 
+    /**************************/
+    int getRPM();
+    int getTempEngin();
+    QString getErr();
+
+    /**************************/
+
     private:
 	QSerialPort *port;
 
