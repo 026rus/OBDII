@@ -7,9 +7,9 @@
 
 using namespace serial;
 
-int main(int argc, char **argv)
-{
-    CarCoreApp app = CarCoreApp(argc, argv);
-
+int main(int argc, char **argv) {
+    CarCoreApp app = CarCoreApp(argc, &argv);
+    qDebug() << "Application has launched.";
+    app.run();
     return app.exec();
 }
