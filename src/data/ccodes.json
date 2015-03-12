@@ -1,0 +1,677 @@
+{
+    "C0000" : {
+	"description" : "Vehicle Speed Information Circuit Malfunction"
+    },
+    "C0035" : {
+	"description" : "Left Front Wheel Speed Circuit Malfunction"
+    },
+	"C0040" : {
+	"description" : "Right Front Wheel Speed Circuit Malfunction"
+    },
+	"C0041" : {
+	"description" : "Right Front Wheel Speed Sensor Circuit Range/Performance(EBCM)" 
+    },
+	"C0045" : {
+	"description" : "Left Rear Wheel Speed Circuit Malfunction"
+    },
+	"C0046" : {
+	"description" : "Left Rear Wheel Speed Sensor Circuit Range/Performance (EBCM)"
+    },
+	"C0050" : {
+	"description" : "Right Rear Wheel Speed Circuit Malfunction"
+    },
+	"C0051" : {
+	"description" : "Left Front Wheel Speed Sensor Circuit Range/Performance (EBCM)"
+    },
+	"C0060" : {
+	"description" : "Left Front ABS Solenoid #1 Circuit Malfunction"
+    },
+	"C0065" : {
+	"description" : "Left Front ABS Solenoid #2 Circuit Malfunction"
+    },
+	"C0070" : {
+	"description" : "Right Front ABS Solenoid #1 Circuit Malfunction"
+    },
+	"C0075" : {
+	"description" : "Right Front ABS Solenoid #2 Circuit Malfunction"
+    },
+	"C0080" : {
+	"description" : "Left Rear ABS Solenoid #1 Circuit Malfunction"
+    },
+	"C0085" : {
+	"description" : "Left Rear ABS Solenoid #2 Circuit Malfunction"
+    },
+	"C0090" : {
+	"description" : "Right Rear ABS Solenoid #1 Circuit Malfunction"
+    },
+	"C0095" : {
+	"description" : "Right Rear ABS Solenoid #2 Circuit Malfunction"
+    },
+	"C0110" : {
+	"description" : "Pump Motor Circuit Malfunction"
+    },
+	"C0121" : {
+	"description" : "Valve Relay Circuit Malfunction"
+    },
+	"C0128" : {
+	"description" : "Low Break Fluid Circuit Low"
+    },
+	"C0141" : {
+	"description" : "Left TCS Solenoid #1 Circuit Malfunction"
+    },
+	"C0146" : {
+	"description" : "Left TCS Solenoid #2 Circuit Malfunction"
+    },
+	"C0151" : {
+	"description" : "Right TCS Solenoid #1 Circuit Malfunction"
+    },
+	"C0156" : {
+	"description" : "Right TCS Solenoid #2 Circuit Malfunction"
+    },
+	"C0161" : {
+	"description" : "ABS/TCS Brake Switch Circuit Malfunction"
+    },
+	"C0221" : {
+	"description" : "Right Front Wheel Speed Sensor Circuit Open"
+    },
+	"C0222" : {
+	"description" : "Right Front Wheel Speed Signal Missing"
+    },
+	"C0223" : {
+	"description" : "Right Front Wheel Speed Signal Erratic"
+    },
+	"C0225" : {
+	"description" : "Left Front Wheel Speed Sensor Circuit Open"
+    },
+	"C0226" : {
+	"description" : "Left Front Wheel Speed Signal Missing"
+    },
+	"C0227" : {
+	"description" : "Left Front Wheel Speed Signal Erratic"
+    },
+	"C0229" : {
+	"description" : "Drop Out of Front Wheel Speed Signals"
+    },
+	"C0235" : {
+	"description" : "Rear Wheel Speed Signal Circuit Open"
+    },
+	"C0236" : {
+	"description" : "Rear Wheel Speed Signal Circuit Missing"
+    },
+	"C0237" : {
+	"description" : "Rear Wheel Speed Signal Erratic"
+    },
+	"C0238" : {
+	"description" : "Wheel Speed Mismatch"
+    },
+	"C0241" : {
+	"description" : "EBCM Control Valve Circuit"
+    },
+	"C0245" : {
+	"description" : "Wheel Speed Sensor Frequency Error"
+    },
+	"C0254" : {
+	"description" : "EBCM Control Valve Circuit"
+    },
+	"C0265" : {
+	"description" : "EBCM Relay Circuit"
+    },
+	"C0266" : {
+	"description" : "EBCM Relay Circuit"
+    },
+	"C0267" : {
+	"description" : "Pump Motor Circuit Open/Shorted"
+    },
+	"C0268" : {
+	"description" : "Pump Motor Circuit Open/Shorted"
+    },
+	"C0269" : {
+	"description" : "Excessive Dump/Isolation Time"
+    },
+	"C0271" : {
+	"description" : "EBCM Malfunction"
+    },
+	"C0272" : {
+	"description" : "EBCM Malfunction"
+    },
+	"C0273" : {
+	"description" : "EBCM Malfunction"
+    },
+	"C0274" : {
+	"description" : "Excessive Dump/Isolation Time"
+    },
+	"C0279" : {
+	"description" : "Powertrain Configuration Not Valid"
+    },
+	"C0281" : {
+	"description" : "Brake Switch Circuit"
+    },
+	"C0283" : {
+	"description" : "Traction Switch Shorted To Ground"
+    },
+	"C0284" : {
+	"description" : "EBCM Malfunction"
+    },
+	"C0286" : {
+	"description" : "ABS Indicator Lamp Circuit Shorted To B+"
+    },
+	"C0287" : {
+	"description" : "Delivered Torque Circuit"
+    },
+	"C0288" : {
+	"description" : "Brake Warning Lamp Circuit Shorted To B+"
+    },
+	"C0290" : {
+	"description" : "Lost Communications With PCM"
+    },
+	"C0292" : {
+	"description" : "Lost Communications With PCM"
+    },
+	"C0291" : {
+	"description" : "Lost Communications With BCM"
+    },
+	"C0297" : {
+	"description" : "Powertrain Configuration Data Not Received"
+    },
+	"C0298" : {
+	"description" : "Powertrain Indicated Traction Control Malfunction"
+    },
+	"C0300" : {
+	"description" : "Rear Speed Sensor Malfunction"
+    },
+	"C0305" : {
+	"description" : "Front Speed Sensor Malfunction"
+    },
+	"C0306" : {
+	"description" : "Motor A or B Circuit"
+    },
+	"C0308" : {
+	"description" : "Motor A/B Circuit Low"
+    },
+	"C0309" : {
+	"description" : "Motor A/B Circuit High"
+    },
+	"C0310" : {
+	"description" : "Motor A/B Circuit Open"
+    },
+	"C0315" : {
+	"description" : "Motor Ground Circuit Open"
+    },
+	"C0321" : {
+	"description" : "Transfer Case Lock Circuit"
+    },
+	"C0323" : {
+	"description" : "T-Case Lock Circuit Low"
+    },
+	"C0324" : {
+	"description" : "T-Case Lock Circuit High"
+    },
+	"C0327" : {
+	"description" : "Encoder Circuit Malfunction"
+    },
+	"C0357" : {
+	"description" : "Park Switch Circuit High"
+    },
+	"C0359" : {
+	"description" : "Four Wheel Drive Low Range Discrete Output Circuit"
+    },
+	"C0362" : {
+	"description" : "4LO Discrete Output Circuit High"
+    },
+	"C0367" : {
+	"description" : "Front Axle Control Circuit High"
+    },
+	"C0374" : {
+	"description" : "General System Malfunction"
+    },
+	"C0376" : {
+	"description" : "Front/Rear Shaft Speed Mismatch"
+    },
+	"C0379" : {
+	"description" : "Front Axle System"
+    },
+	"C0387" : {
+	"description" : "Unable to Perform Shift"
+    },
+	"C0472" : {
+	"description" : "Steering Handwhell Speed Sensor Signal V Low"
+    },
+	"C0473" : {
+	"description" : "Steering Handwhell Speed Sensor Signal V High"
+    },
+	"C0495" : {
+	"description" : "EVO Tracking Error"
+    },
+	"C0498" : {
+	"description" : "Steering Assist Control Actuator Feed Circuit Low"
+    },
+	"C0499" : {
+	"description" : "Steering Assist Control Solenoid Feed Circuit High"
+    },
+	"C0503" : {
+	"description" : "Steering Assist Control Solenoid Return Circuit Low"
+    },
+	"C0504" : {
+	"description" : "Steering Assist Control Solenoid Return Circuit High"
+    },
+	"C0550" : {
+	"description" : "ECU Malfunction - Internal Wire/Checksum Malfunction"
+    },
+	"C0559" : {
+	"description" : "EEPROM Checksum Error"
+    },
+	"C0563" : {
+	"description" : "Calibration ROM Checksum Error"
+    },
+	"C0577" : {
+	"description" : "Left Front Solenoid Circuit Low"
+    },
+	"C0578" : {
+	"description" : "Left Front Solenoid Circuit High"
+    },
+	"C0579" : {
+	"description" : "Left Front Solenoid Circuit Open"
+    },
+	"C0582" : {
+	"description" : "Right Front Solenoid Circuit Low"
+    },
+	"C0583" : {
+	"description" : "Right Front Solenoid Circuit High"
+    },
+	"C0584" : {
+	"description" : "Right Front Solenoid Circuit Open"
+    },
+	"C0587" : {
+	"description" : "Left Rear Solenoid Circuit Low"
+    },
+	"C0588" : {
+	"description" : "Left Rear Solenoid Circuit High"
+    },
+	"C0599" : {
+	"description" : "Left Rear Solenoid Circuit Open"
+    },
+	"C0592" : {
+	"description" : "Right Rear Solenoid Circuit Low"
+    },
+	"C0593" : {
+	"description" : "Right Rear Solenoid Circuit High"
+    },
+	"C0594" : {
+	"description" : "Right Rear Solenoid Circuit Open"
+    },
+	"C0611" : {
+	"description" : "VIN Information Error"
+    },
+	"C0615" : {
+	"description" : "Left Front Position Sensor Malfunction"
+    },
+	"C0620" : {
+	"description" : "Right Front Position Sensor Malfunction"
+    },
+	"C0625" : {
+	"description" : "Left Rear Position Sensor Malfunction"
+    },
+	"C0628" : {
+	"description" : "Level Control Position Sensor Circuit High"
+    },
+	"C0630" : {
+	"description" : "Right Rear Position Sensor Malfunction"
+    },
+	"C0635" : {
+	"description" : "Left Front Normal Force Circuit Malfunction"
+    },
+	"C0638" : {
+	"description" : "Left Front Normal Force Circuit High"
+    },
+	"C0640" : {
+	"description" : "Right Front Normal Force Circuit Malfunction"
+    },
+	"C0643" : {
+	"description" : "Right Front Normal Force High"
+    },
+	"C0655" : {
+	"description" : "Level Control Compressor Relay Malfunction"
+    },
+	"C0657" : {
+	"description" : "Level Control Compressor Circuit Low"
+    },
+	"C0658" : {
+	"description" : "Level Control Compressor Circuit High"
+    },
+	"C0660" : {
+	"description" : "Level Control Exhaust Valve Circuit Malfunction"
+    },
+	"C0662" : {
+	"description" : "Level Control Exhaust Valve Circuit Low"
+    },
+	"C0663" : {
+	"description" : "Level Control Exhaust Valve Circuit High"
+    },
+	"C0665" : {
+	"description" : "Chassis Pitch Signal Circuit"
+    },
+	"C0690" : {
+	"description" : "Damper Control Relay Circuit Malfunction"
+    },
+	"C0691" : {
+	"description" : "Damper Control Relay Circuit Range"
+    },
+	"C0693" : {
+	"description" : "Damper Control Relay Circuit High"
+    },
+	"C0695" : {
+	"description" : "Position Sensor Overcurrent (8 Volt Supply)"
+    },
+	"C0696" : {
+	"description" : "Position Sensor Overcurrent (5 Volt Supply)"
+    },
+	"C0710" : {
+	"description" : "Steering Position Signal Malfunction"
+    },
+	"C0750" : {
+	"description" : "Tire Pressure Monitor System Sensor Not Transmitting"
+    },
+	"C0755" : {
+	"description" : "Tire Pressure Monitor System Sensor Not Transmitting"
+    },
+	"C0760" : {
+	"description" : "Tire Pressure Monitor System Sensor Not Transmitting"
+    },
+	"C0765" : {
+	"description" : "Tire Pressure Monitor System Sensor Not Transmitting"
+    },
+	"C0800" : {
+	"description" : "Device Power #1 Circuit Malfunction"
+    },
+	"C0896" : {
+	"description" : "Electronic Suspension Control Voltage is Outside the Normal Range of 9 to 15.5 Volts"
+    },
+	"C1211" : {
+	"description" : "ABS Indicator Lamp Circuit Malfunction"
+    },
+	"C1214" : {
+	"description" : "System Relay Contact or Coil Circuit Open"
+    },
+	"C1217" : {
+	"description" : "Pump Motor Shorted to Ground"
+    },
+	"C1218" : {
+	"description" : "Pump Motor Circuit Shorted to Voltage or Motor Ground Open"
+    },
+	"C1221" : {
+	"description" : "Left Front Wheel Speed Sensor Input Signal is 0"
+    },
+	"C1222" : {
+	"description" : "Right Front Wheel Speed Sensor Input Signal is 0"
+    },
+	"C1223" : {
+	"description" : "Left Rear Wheel Speed Sensor Input Signal is 0"
+    },
+	"C1224" : {
+	"description" : "Right Rear Wheel Speed Sensor Input Signal is 0"
+    },
+	"C1225" : {
+	"description" : "Left Front Excessive Wheel Speed Variation"
+    },
+	"C1226" : {
+	"description" : "Right Front Excessive Wheel Speed Variation"
+    },
+	"C1227" : {
+	"description" : "Left Rear Excessive Wheel Speed Variation"
+    },
+	"C1228" : {
+	"description" : "Right Rear Excessive Wheel Speed Variation"
+    },
+	"C1232" : {
+	"description" : "Left Front Wheel Speed Circuit Open or Shorted"
+    },
+	"C1233" : {
+	"description" : "Right Front Wheel Speed Circuit Open or Shorted"
+    },
+	"C1234" : {
+	"description" : "Left Rear Wheel Speed Circuit Open or Shorted"
+    },
+	"C1235" : {
+	"description" : "Right Rear Wheel Speed Circuit Open or Shorted"
+    },
+	"C1236" : {
+	"description" : "Low System Supply Voltage"
+    },
+	"C1237" : {
+	"description" : "High System Supply Voltage"
+    },
+	"C1238" : {
+	"description" : "Brake Thermal Mode Exceeded"
+    },
+	"C1241" : {
+	"description" : "Variable Effort Steering Circuit Malfunction"
+    },
+	"C1242" : {
+	"description" : "Pump Motor Circuit Open"
+    },
+	"C1243" : {
+	"description" : "BPMV Pump Motor Stalled"
+    },
+	"C1244" : {
+	"description" : "Powertrain Indicated Engine Drag Control Malfunction"
+    },
+	"C1246" : {
+	"description" : "Brake Lining Wear Circuit Open"
+    },
+	"C1248" : {
+	"description" : "EBCM Turned the Red Brake Warning Indicator On"
+    },
+	"C1251" : {
+	"description" : "RSS Indicated Malfunction"
+    },
+	"C1252" : {
+	"description" : "Left Front Normal Force Malfunction"
+    },
+	"C1253" : {
+	"description" : "Right Front Normal Force Malfunction"
+    },
+	"C1254" : {
+	"description" : "Abnormal Shutdown Detected"
+    },
+	"C1255" : {
+	"description" : "EBCM Internal Malfunction"
+    },
+	"C1256" : {
+	"description" : "EBCM Internal Malfunction"
+    },
+	"C1261" : {
+	"description" : "Left Front Inlet Valve Solenoid Malfunction"
+    },
+	"C1262" : {
+	"description" : "Left Front Outlet Valve Solenoid Malfunction"
+    },
+	"C1263" : {
+	"description" : "Right Front Inlet Valve Solenoid Malfunction"
+    },
+	"C1264" : {
+	"description" : "Right Front Outlet Valve Solenoid Malfunction"
+    },
+	"C1265" : {
+	"description" : "Left Rear Inlet Valve Solenoid Malfunction"
+    },
+	"C1266" : {
+	"description" : "Left Rear Outlet Valve Solenoid Malfunction"
+    },
+	"C1267" : {
+	"description" : "Right Rear Inlet Valve Solenoid Malfunction"
+    },
+	"C1268" : {
+	"description" : "Right Rear Outlet Valve Solenoid Malfunction"
+    },
+	"C1271" : {
+	"description" : "Left Front TCS Master Cylinder Isolation Valve Malfunction"
+    },
+	"C1272" : {
+	"description" : "Left Front TCS Prime Valve Malfunction"
+    },
+	"C1273" : {
+	"description" : "Right Front TCS Master Cylinder Isolation Valve Malfunction"
+    },
+	"C1274" : {
+	"description" : "Right Front TCS Prime Valve Malfunction"
+    },
+	"C1276" : {
+	"description" : "Delivered Torque Signal Circuit Malfunction"
+    },
+	"C1277" : {
+	"description" : "Requested Torque Signal Circuit Malfunction"
+    },
+	"C1278" : {
+	"description" : "TCS Temporarily Inhibited by PCM"
+    },
+	"C1281" : {
+	"description" : "VSES Sensors Uncorrelated"
+    },
+	"C1282" : {
+	"description" : "Yaw Rate Sensor Bias Circuit Malfunction"
+    },
+	"C1283" : {
+	"description" : "Excessive Time to Center Steering"
+    },
+	"C1284" : {
+	"description" : "Lateral Accelerometer Sensor Bias Malfunction"
+    },
+	"C1285" : {
+	"description" : "Lateral Accelerometer Sensor Circuit Malfunction"
+    },
+	"C1286" : {
+	"description" : "Steering Sensor Bias Malfunction"
+    },
+	"C1287" : {
+	"description" : "Steering Sensor Rate Malfunction"
+    },
+	"C1288" : {
+	"description" : "Steering Sensor Circuit Malfunction"
+    },
+	"C1291" : {
+	"description" : "Open Brake Lamp Switch Contacts During Deceleration"
+    },
+	"C1292" : {
+	"description" : "Brake Fluid Pressure Sensor Circuit"
+    },
+	"C1293" : {
+	"description" : "Code C1291 Set in Previous Ignition Cycle"
+    },
+	"C1294" : {
+	"description" : "Brake Lamp Switch Circuit Always Active"
+    },
+	"C1295" : {
+	"description" : "Brake Lamp Switch Circuit Open"
+    },
+	"C1296" : {
+	"description" : "Brake Fluid Pressure Sensor Circuit"
+    },
+	"C1297" : {
+	"description" : "PCM Indicated Brake Extended Travel Switch Failure"
+    },
+	"C1298" : {
+	"description" : "PCM Class 2 Serial Data Link Malfunction"
+    },
+	"C1326" : {
+	"description" : "Battery Out of Range"
+    },
+	"C1650" : {
+	"description" : "RSS Control Module Fault"
+    },
+	"C1658" : {
+	"description" : "RSS Control Module Calibration Fault"
+    },
+	"C1710" : {
+	"description" : "Left Front Damper Actuator Short Circuit to Battery"
+    },
+	"C1711" : {
+	"description" : "Left Front Damper Actuator Short Circuit to Ground"
+    },
+	"C1712" : {
+	"description" : "Left Front Damper Actuator Open Circuit"
+    },
+	"C1715" : {
+	"description" : "Right Front Damper Actuator Short Circuit to Battery"
+    },
+	"C1716" : {
+	"description" : "Right Front Damper Actuator Short Circuit to Ground"
+    },
+	"C1717" : {
+	"description" : "Right Front Damper Actuator Open Circuit"
+    },
+	"C1720" : {
+	"description" : "Left Rear Damper Actuator Short Circuit to Battery"
+    },
+	"C1721" : {
+	"description" : "Left Rear Damper Actuator Short Circuit to Ground"
+    },
+	"C1722" : {
+	"description" : "Left Rear Damper Actuator Open Circuit"
+    },
+	"C1725" : {
+	"description" : "Right Rear Damper Actuator Short Circuit to Battery"
+    },
+	"C1726" : {
+	"description" : "Right Rear Damper Actuator Short Circuit to Ground"
+    },
+	"C1727" : {
+	"description" : "Right Rear Damper Actuator Open Circuit"
+    },
+	"C1735" : {
+	"description" : "Compressor Relay Short to Battery"
+    },
+	"C1736" : {
+	"description" : "Compressor Relay Short to Ground / Open Circuit"
+    },
+	"C1737" : {
+	"description" : "Exhaust Solenoid Valve Short to Battery"
+    },
+	"C1738" : {
+	"description" : "Exhaust Solenoid Valve Short to Ground"
+    },
+	"C1743" : {
+	"description" : "Speed Signal Fault"
+    },
+	"C1744" : {
+	"description" : "Lift/Drive Signal Discrete Fault"
+    },
+	"C1760" : {
+	"description" : "Left Front Position Sensor Input Fault"
+    },
+	"C1761" : {
+	"description" : "Right Front Position Sensor Input Fault"
+    },
+	"C1762" : {
+	"description" : "Left Rear Position Sensor Input Fault"
+    },
+	"C1763" : {
+	"description" : "Right Rear Position Sensor Input Fault"
+    },
+	"C1768" : {
+	"description" : "Position Sensor Supply Fault"
+    },
+	"C1780" : {
+	"description" : "Loss of Steering Position Signal"
+    },
+	"C1782" : {
+	"description" : "ICCS2 DL Left Output Short Circuit to Battery"
+    },
+	"C1783" : {
+	"description" : "ICCS2 DL Left Output Short Circuit to Ground"
+    },
+	"C1784" : {
+	"description" : "ICCS2 DL Right Output Short Circuit to Battery"
+    },
+	"C1785" : {
+	"description" : "ICCS2 DL Right Output Short Circuit to Ground"
+    },
+	"C1786" : {
+	"description" : "Damper Control Relay Fault"
+    },
+	"C1787" : {
+	"description" : "Damper Control Relay Short to Ground"
+    },
+	"C1788" : {
+	"description" : "Damper Control Relay Short to Battery"
+    }
+}
