@@ -1,12 +1,12 @@
 #include "CarCoreApp.h"
 
-CarCoreApp::CarCoreApp(int &argc, char** argv) : QCoreApplication(argc, argv) {
-    connect(this, SIGNAL( aboutToQuit() ), SLOT( cleanupProgramAtExit() ) );
+CarCoreApp::CarCoreApp(int &argc, char** argv[]) : QCoreApplication(argc, *argv) {
+    connect(this, SIGNAL( aboutToQuit() ), SLOT( cleanupProgramAtExit() ), Qt::QueuedConnection );
+    connect(this, SIGNAL( done() ), this, SLOT( quit() ), Qt::QueuedConnection );
 }
 
 CarCoreApp::~CarCoreApp(){
-    // Make sure we close our open port before exiting.
-    conn.~SerialComms();
+    // Nothing to do here after Port cleanup
 }
 
 void CarCoreApp::run() {
@@ -49,9 +49,10 @@ void CarCoreApp::run() {
     qDebug() << "RPM : " << rpmVal;
     qDebug() << "Trobel code : " << trobelCode;
 
-    this->quit();
+    emit done();
 }
 
 void CarCoreApp::cleanupProgramAtExit(){
-    // Nothing for now
+    // Close down any open ports so we can GTFO
+    conn.~SerialComms();
 }
