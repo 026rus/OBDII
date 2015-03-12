@@ -7,11 +7,18 @@ using namespace std;
 
 namespace serial {
 
-    class SerialComms {
+    class PortReaderWriter : public QObject {
+        Q_OBJECT
 
     public:
-        SerialComms();
-        ~SerialComms();
+        QSerialPort *port;
+        QByteArray  readData;
+        const QByteArray  *writeData;
+
+        PortReaderWriter( QSerialPort *reqPort = nullptr
+                        , const QByteArray *data = 0
+                        , QObject *parent = 0);
+        ~PortReaderWriter();
 
         // Sets up the Serial Connection
         bool serialConnect(void);
@@ -30,8 +37,16 @@ namespace serial {
         int decodeTempEngin(const QByteArray line_data);
         QString decodeErr(const QByteArray line_data);
 
+    private slots:
+        void handleReadReady();
+        void handleWriteReady(const QByteArray data);
+        void handleTimeout();
+        void handleError(QSerialPort::SerialPortError err);
+        void shutdown();
+
     private:
-        QSerialPort *port;
+        QTimer m_timer;
+
     };
 }
 

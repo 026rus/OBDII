@@ -10,7 +10,7 @@ CarCoreApp::~CarCoreApp(){
 }
 
 void CarCoreApp::run() {
-    this->conn = serial::SerialComms();
+    this->conn = serial::PortReaderWriter();
 
     if (!conn.serialConnect()) {
         qDebug() << "Could not connect!";
@@ -54,5 +54,5 @@ void CarCoreApp::run() {
 
 void CarCoreApp::cleanupProgramAtExit(){
     // Close down any open ports so we can GTFO
-    conn.~SerialComms();
+    conn.~PortReaderWriter();
 }
