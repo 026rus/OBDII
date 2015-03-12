@@ -131,33 +131,15 @@ namespace serial
         return str;
     }
 
-/***********************************************/
+    QString SerialComms::getConnectedPortName() {
+        if (nullptr == this->port) return "";
+        if (!this->port->isOpen()) return "";
+        return this->port->portName();
+    }
+
+    bool SerialComms::isConnected(){
+        if (nullptr == this->port) return false;
+        if (this->port->isOpen()) return true;
+        return false;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
