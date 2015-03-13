@@ -21,6 +21,11 @@ namespace serial
         , port(reqPort)
         , writeData(dataForWrite)
     {
+	if ( 0 == this->port ) { 
+	    this->m_timer.start(timeoutMillis);
+	    return;
+	}
+
         connect(port
                 , SIGNAL( readReady() )
                 , SLOT( handleReadReady() )
@@ -36,7 +41,7 @@ namespace serial
                 , SLOT( handleTimeout() )
                 , Qt::QueuedConnection);
 
-        this->m_timer.start(5000); // 5 seconds, value in millis
+	this->m_timer.start(timeoutMillis);
     }
 
     PortReaderWriter::~PortReaderWriter(void) {
@@ -75,19 +80,44 @@ namespace serial
         port->setBaudRate(QSerialPort::Baud38400);
         this->port->open(QIODevice::ReadWrite);
 
-        if (port->isOpen()) return true;
-        return false;
+        if (port->isOpen()){
+	    connect(port
+		    , SIGNAL( readReady() )
+		    , SLOT( handleReadReady() )
+		    , Qt::QueuedConnection);
+
+	    connect(port
+		    , SIGNAL( error(QSerialPort::SerialPortError) )
+		    , SLOT(handleError(QSerialPort::SerialPortError) )
+		    , Qt::QueuedConnection);
+
+	    connect(&m_timer
+		    , SIGNAL( timeout() )
+		    , SLOT( handleTimeout() )
+		    , Qt::QueuedConnection);
+
+	    return true;
 	}
+        return false;
+    }
 
     bool PortReaderWriter::sendCommand(const QByteArray &data) {
+	if (0 == this->port) { return false; }
+
+	this->port->open(QIODevice::ReadWrite);
         if (!this->port->isOpen()) { return false; }
         if (-1 < port->write(data)) { return true; }
+	if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
         return false;
     }
 
     QByteArray PortReaderWriter::readLine() {
-        if (!this->port->isOpen()) { return ""; }
-        return this->port->readLine();
+	if (0 == this->port) { return "No port set!"; }
+
+	this->port->open(QIODevice::ReadWrite);
+        if (!this->port->isOpen()) { return "Could not open port for write"; }
+	if (this->port->waitForReadyRead(timeoutMillis)) { return this->port->readLine(); }
+	return "Timeout time exceeded!";
     }
 
     /***********************************************/
