@@ -15,7 +15,7 @@ namespace serial
 {
 
     PortReaderWriter::PortReaderWriter(QSerialPort *reqPort
-                                       , const QByteArray *dataForWrite
+                                       , QByteArray *dataForWrite
                                        , QObject *parent)
         : QObject(parent)
         , port(reqPort)
@@ -40,7 +40,7 @@ namespace serial
     }
 
     PortReaderWriter::~PortReaderWriter(void) {
-        if (this->port != nullptr) { this->port->close(); }
+        if (this->port != 0) { this->port->close(); }
     }
 
     bool PortReaderWriter::serialConnect(void)
@@ -152,13 +152,13 @@ namespace serial
     }
 
     QString PortReaderWriter::getConnectedPortName() {
-        if (nullptr == this->port) return "";
+        if (0 == this->port) return "";
         if (!this->port->isOpen()) return "";
         return this->port->portName();
     }
 
     bool PortReaderWriter::isConnected(){
-        if (nullptr == this->port) return false;
+        if (0 == this->port) return false;
         if (this->port->isOpen()) return true;
         return false;
     }
