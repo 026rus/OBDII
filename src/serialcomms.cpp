@@ -46,17 +46,33 @@ namespace serial
     bool PortReaderWriter::serialConnect(void)
 	{ 
         string input_device = "";
+        bool gotit= false;
+        QStringList str;
         foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
-            cout << "Name        : " << info.portName().toStdString() << endl;
-            cout << "Description : " << info.description().toStdString() << endl;
-            cout << "Manufacturer: " << info.manufacturer().toStdString() << endl;
+            str.append( "Name        : " + info.portName());
+            if (info.manufacturer().contains("FTDI"))
+            {
+                input_device = info.portName().toStdString();
+                gotit = true;
+            }
+            str.append("Description : " + info.description());
+            str.append("Manufacturer: " + info.manufacturer() );
         }
-        cout << "Which serial device Name should we use?" << endl;
-        cin >> input_device;
+
+        if(!gotit)
+        {
+            foreach(const QString elem, str)
+            {
+                qDebug() << elem << endl;
+                cout << "Which serial device Name should we use?" << endl;
+                cin >> input_device;
+            }
+        }
+
         // Just try it!
         this->port = new QSerialPort(QString(input_device.c_str()));
         // Default for the device under test is 10400 baud
-        port->setBaudRate(10400);
+        port->setBaudRate(QSerialPort::Baud38400);
         this->port->open(QIODevice::ReadWrite);
 
         if (port->isOpen()) return true;
@@ -74,7 +90,7 @@ namespace serial
         return this->port->readLine();
     }
 
-/***********************************************/
+    /***********************************************/
     int PortReaderWriter::decodeRPM(const QByteArray line_data) {
         //QString comm = "01 0C"; // the code for rpm
 
@@ -102,7 +118,8 @@ namespace serial
         else return -1;
     }
 
-    QString PortReaderWriter::decodeErr(const QByteArray line_data) {
+    QString PortReaderWriter::decodeErr(const QByteArray line_data)
+    {
 
         //QString comm = "01 01"; // the code for Error code
         /*
@@ -110,31 +127,22 @@ namespace serial
          *  81 number of corrent troble codes
          * 	81 - 80 or (129)- 120
          * 	most segnificant bit indicate that the  Ceck Engine Light on or of.
-         *
-         *
          */
 
-        QString retval = "41 01 81 07 65 04";
-        QString str;
-
+        QString retval = line_data;
         QString r_str;
-        QString num_of_Errs;
-        QString err_codes;
-        QString str1;
-        QString str2;
-        QString str3;
+        QString *errors;
+        bool ok;
+        QString str;
+        int x=0;
 
-        retval = "41 01 83 07 65 04";
 
         /*
          * > 03 is will give you all the actual troble codes
          *  like 01 33 00 00 00 00
          *  most of it is junk we need only  0133
          * 	and 0 = P0 and rest is as is
-         *
          * 	 so the code will be P0133
-         *
-         *
          */
 
         /*
@@ -142,13 +150,29 @@ namespace serial
          * to do
          */
 
-
         retval.replace(" ","");
         str = retval.replace(" ","");
-        r_str = retval.left(4);
-        str = retval;
+        r_str = str.mid(4,2);
 
-        return str;
+        x = (r_str.toInt(&ok, 16)) - 128;
+
+        errors = new QString[x];
+
+        for (int i=0; i<x; i++)
+        {
+            // send 03 to serial;
+            // reas
+            errorCodes[i];
+        }
+
+        /*   Just testing
+        for (int i=0; i<x; i++)
+        {
+            qDebug() << "Error Code "<< i << " : "  << errors[i];
+        }
+        */
+
+        return r_str;
     }
 
     QString PortReaderWriter::getConnectedPortName() {
