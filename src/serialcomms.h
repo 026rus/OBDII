@@ -13,10 +13,11 @@ namespace serial {
     public:
         QSerialPort *port;
         QByteArray  readData;
-        const QByteArray  *writeData;
+        QByteArray  *writeData;
+        QTimer m_timer;
 
-        PortReaderWriter( QSerialPort *reqPort = nullptr
-                        , const QByteArray *data = 0
+        PortReaderWriter( QSerialPort *reqPort = 0
+                        , QByteArray *data = 0
                         , QObject *parent = 0);
         ~PortReaderWriter();
 
@@ -39,13 +40,8 @@ namespace serial {
 
     private slots:
         void handleReadReady();
-        void handleWriteReady(const QByteArray data);
         void handleTimeout();
         void handleError(QSerialPort::SerialPortError err);
-        void shutdown();
-
-    private:
-        QTimer m_timer;
 
     };
 }
