@@ -77,18 +77,13 @@ namespace serial
         // Just try it!
         this->port = new QSerialPort(QString(input_device.c_str()));
         // Default for the device under test is 10400 baud
-        port->setBaudRate(QSerialPort::Baud38400);
         this->port->open(QIODevice::ReadWrite);
+        port->setBaudRate(QSerialPort::Baud38400);
 
         if (port->isOpen()){
 	    connect(port
-		    , SIGNAL( readReady() )
+		    , SIGNAL( readyRead() )
 		    , SLOT( handleReadReady() )
-		    , Qt::QueuedConnection);
-
-	    connect(port
-		    , SIGNAL( error(QSerialPort::SerialPortError) )
-		    , SLOT(handleError(QSerialPort::SerialPortError) )
 		    , Qt::QueuedConnection);
 
 	    connect(&m_timer
