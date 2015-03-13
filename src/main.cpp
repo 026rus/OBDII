@@ -1,3 +1,4 @@
+#include "CarCoreApp.h"
 #include "serialcomms.h"
 
 #include <QtCore/QCoreApplication>
@@ -7,19 +8,8 @@
 using namespace serial;
 
 int main(int argc, char **argv) {
-    QString buff = "";
-    QCoreApplication app(argc, argv);
-    std::cout << "It works!" << std::endl;
-
-    SerialComms conn = SerialComms();
-    if (!conn.serialConnect()) {
-        qDebug() << "Could not connect!";
-        return 1;
-    }
-
-    conn.sendCommand(QByteArray("ATI"));
-    buff = conn.readCommand();
-    std::cout << buff.toStdString() << std::endl;
-
-    return app.exec();
+    CarCoreApp *app = new CarCoreApp(argc, &argv);
+    qDebug() << "Application has launched.";
+    app->run();
+    return app->exec();
 }
