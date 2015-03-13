@@ -111,8 +111,10 @@ namespace serial
 
 	this->port->open(QIODevice::ReadWrite);
         if (!this->port->isOpen()) { return "Could not open port for write"; }
-	if (this->port->waitForReadyRead(timeoutMillis)) { return this->port->readLine(); }
-	return "Timeout time exceeded!";
+	this->port->waitForReadyRead(timeoutMillis);
+	QByteArray scratch = this->port->readAll();
+	while (this->port->waitForReadyRead(timeoutMillis) ) { scratch.append(this->port->readAll()); }
+	return scratch;
     }
 
     /***********************************************/
