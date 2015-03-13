@@ -18,8 +18,8 @@ Simple Design\n
 Refactoring\n
 Pair Programming at weekly meetings\n
 Continuous Integration\n
-Collective Ownership\n
-On-Site Customer\n
+Collective Ownership/n
+On-Site Customer
 
 # Test Cases Used
 Connecting serial device to car that has the check engine light on, pulling inputs from car ECU. Expecting readable error code. 
