@@ -12,7 +12,7 @@ CarCoreApp::~CarCoreApp(){
 void CarCoreApp::run() {
 
     this->conn = new serial::PortReaderWriter();
-/*
+/* */
     if (!conn->serialConnect()) {
         qDebug() << "Could not connect!";
         this->exit(1);
@@ -46,8 +46,8 @@ void CarCoreApp::run() {
         QByteArray buff = conn->readLine();
         trobelCode = conn->decodeErr(buff);
     }
-  */
-    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
+/*  */
+//    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 
     emit done();
 }
