@@ -12,14 +12,14 @@ Along with connecting to the device and probing sensors a description file will 
 The program should be able to get the error code causing the check engine light to come on
 
 # XP Practices Used
-Incremental Planning
-Small Releases
-Simple Design
-Refactoring
-Pair Programming at weekly meetings
-Continuous Integration
-Collective Ownership
-On-Site Customer
+Incremental Planning\n
+Small Releases\n
+Simple Design\n
+Refactoring\n
+Pair Programming at weekly meetings\n
+Continuous Integration\n
+Collective Ownership\n
+On-Site Customer\n
 
 # Test Cases Used
 Connecting serial device to car that has the check engine light on, pulling inputs from car ECU. Expecting readable error code. 
