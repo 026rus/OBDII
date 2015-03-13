@@ -58,7 +58,7 @@ namespace serial
             str.append("Description : " + info.description());
             str.append("Manufacturer: " + info.manufacturer() );
         }
-
+        // If did not finde ask user for input
         if(!gotit)
         {
             foreach(const QString elem, str)
@@ -93,6 +93,10 @@ namespace serial
     /***********************************************/
     int PortReaderWriter::decodeRPM(const QByteArray line_data) {
         //QString comm = "01 0C"; // the code for rpm
+
+        sendCommand(line_data);
+
+
 
         QString retval = "1af8";
         int x = 0;
@@ -129,6 +133,8 @@ namespace serial
          * 	most segnificant bit indicate that the  Ceck Engine Light on or of.
          */
 
+        QByteArray teststr = "a133";
+        QString newtest;
         QString retval = line_data;
         QString r_str;
         QString *errors;
@@ -158,11 +164,54 @@ namespace serial
 
         errors = new QString[x];
 
+
+
+
         for (int i=0; i<x; i++)
         {
-            // send 03 to serial;
-            // reas
-            errorCodes[i];
+            sendCommand("03");
+            teststr = readLine();
+            if(r_str.left(1) == "0")
+            {
+                newtest = r_str.mid(1);
+
+                if (teststr.left(1) == "0")
+                    newtest.prepend("P0"); else
+                if (teststr.left(1) == "1")
+                    newtest.prepend("P1"); else
+                if (teststr.left(1) == "2")
+                    newtest.prepend("P2");  else
+                if (teststr.left(1) == "3")
+                    newtest.prepend("P3"); else
+                ///////////////////////////////////////
+                if (teststr.left(1) == "4")
+                    newtest.prepend("C0"); else
+                if (teststr.left(1) == "5")
+                    newtest.prepend("C1"); else
+                if (teststr.left(1) == "6")
+                    newtest.prepend("C2"); else
+                if (teststr.left(1) == "7")
+                    newtest.prepend("C3"); else
+                    ///////////////////////////////////////
+                if (teststr.left(1) == "8")
+                    newtest.prepend("B0"); else
+                if (teststr.left(1) == "9")
+                    newtest.prepend("B1"); else
+                if (teststr.left(1) == "A" || teststr.left(1) == "a")
+                    newtest.prepend("B2"); else
+                if (teststr.left(1) == "B" || teststr.left(1) == "b")
+                    newtest.prepend("B3"); else
+                    ////////////////////////////////////////
+                if (teststr.left(1) == "C" || teststr.left(1) == "c")
+                    newtest.prepend("U0");else
+                if (teststr.left(1) == "D" || teststr.left(1) == "d")
+                    newtest.prepend("U1");else
+                if (teststr.left(1) == "E" || teststr.left(1) == "e")
+                    newtest.prepend("U2");else
+                if (teststr.left(1) == "F" || teststr.left(1) == "f")
+                    newtest.prepend("U3");
+            }
+            errorCodes[i] = newtest;
         }
 
         /*   Just testing
@@ -172,7 +221,8 @@ namespace serial
         }
         */
 
-        return r_str;
+
+        return newtest;
     }
 
     QString PortReaderWriter::getConnectedPortName() {
