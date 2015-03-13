@@ -3,7 +3,7 @@
  * 
  */
 
-#include "serialcomms.h"
+#include "PortReaderWriter.h"
 #include <iostream>
 #include <string>
 #include <QString>
@@ -21,6 +21,11 @@ namespace serial
         , port(reqPort)
         , writeData(dataForWrite)
     {
+	if ( 0 == this->port ) { 
+	    this->m_timer.start(timeoutMillis);
+	    return;
+	}
+
         connect(port
                 , SIGNAL( readReady() )
                 , SLOT( handleReadReady() )
@@ -36,7 +41,7 @@ namespace serial
                 , SLOT( handleTimeout() )
                 , Qt::QueuedConnection);
 
-        this->m_timer.start(5000); // 5 seconds, value in millis
+	this->m_timer.start(timeoutMillis);
     }
 
     PortReaderWriter::~PortReaderWriter(void) {
@@ -72,22 +77,44 @@ namespace serial
         // Just try it!
         this->port = new QSerialPort(QString(input_device.c_str()));
         // Default for the device under test is 10400 baud
-        port->setBaudRate(QSerialPort::Baud38400);
         this->port->open(QIODevice::ReadWrite);
+        port->setBaudRate(QSerialPort::Baud38400);
 
-        if (port->isOpen()) return true;
-        return false;
+        if (port->isOpen()){
+	    connect(port
+		    , SIGNAL( readyRead() )
+		    , SLOT( handleReadReady() )
+		    , Qt::QueuedConnection);
+
+	    connect(&m_timer
+		    , SIGNAL( timeout() )
+		    , SLOT( handleTimeout() )
+		    , Qt::QueuedConnection);
+
+	    return true;
 	}
+        return false;
+    }
 
     bool PortReaderWriter::sendCommand(const QByteArray &data) {
+	if (0 == this->port) { return false; }
+
+	this->port->open(QIODevice::ReadWrite);
         if (!this->port->isOpen()) { return false; }
         if (-1 < port->write(data)) { return true; }
+	if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
         return false;
     }
 
     QByteArray PortReaderWriter::readLine() {
-        if (!this->port->isOpen()) { return ""; }
-        return this->port->readLine();
+	if (0 == this->port) { return "No port set!"; }
+
+	this->port->open(QIODevice::ReadWrite);
+        if (!this->port->isOpen()) { return "Could not open port for write"; }
+	this->port->waitForReadyRead(timeoutMillis);
+	QByteArray scratch = this->port->readAll();
+	while (this->port->waitForReadyRead(timeoutMillis) ) { scratch.append(this->port->readAll()); }
+	return scratch;
     }
 
     /***********************************************/
