@@ -42,8 +42,6 @@ namespace serial {
         void handleReadReady();
         void handleTimeout();
         void handleError(QSerialPort::SerialPortError err);
-        void shutdown();
-
 
     };
 }
