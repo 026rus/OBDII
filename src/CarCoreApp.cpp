@@ -10,8 +10,9 @@ CarCoreApp::~CarCoreApp(){
 }
 
 void CarCoreApp::run() {
-    this->conn = new serial::PortReaderWriter();
 
+    this->conn = new serial::PortReaderWriter();
+/* */
     if (!conn->serialConnect()) {
         qDebug() << "Could not connect!";
         this->exit(1);
@@ -40,14 +41,13 @@ void CarCoreApp::run() {
 
     QString trobelCode = "";
     { // Try to get the Trouble Code
-        conn->sendCommand("STUFF");
+        conn->sendCommand("01 01");
         // TODO: Needs to be multiline aware
         QByteArray buff = conn->readLine();
         trobelCode = conn->decodeErr(buff);
     }
-
-    qDebug() << "RPM : " << rpmVal;
-    qDebug() << "Trobel code : " << trobelCode;
+/*  */
+//    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 
     emit done();
 }

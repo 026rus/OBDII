@@ -43,6 +43,10 @@ namespace serial {
         void handleTimeout();
         void handleError(QSerialPort::SerialPortError err);
 
+    private:
+        QList<QString> errorCodes;
+
+
     };
 }
 
