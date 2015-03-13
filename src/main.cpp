@@ -1,5 +1,5 @@
 #include "CarCoreApp.h"
-#include "serialcomms.h"
+#include "PortReaderWriter.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>

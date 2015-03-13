@@ -1,4 +1,4 @@
-#include "serialcomms.h"
+#include "PortReaderWriter.h"
 
 #include <QtCore/QCoreApplication>
 

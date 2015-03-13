@@ -1,5 +1,5 @@
-#ifndef CARSERIAL_H
-#define CARSERIAL_H
+#ifndef PORTREADERWRITER_H
+#define PORTREADERWRITER_H
 #include <QtSerialPort/QtSerialPort>
 #include <QString>
 

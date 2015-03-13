@@ -3,7 +3,7 @@
  * 
  */
 
-#include "serialcomms.h"
+#include "PortReaderWriter.h"
 #include <iostream>
 #include <string>
 #include <QString>
