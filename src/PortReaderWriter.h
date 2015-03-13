@@ -1,5 +1,5 @@
-#ifndef CARSERIAL_H
-#define CARSERIAL_H
+#ifndef PORTREADERWRITER_H
+#define PORTREADERWRITER_H
 #include <QtSerialPort/QtSerialPort>
 #include <QString>
 
@@ -11,6 +11,7 @@ namespace serial {
         Q_OBJECT
 
     public:
+	static const int timeoutMillis = 5000;
         QSerialPort *port;
         QByteArray  readData;
         QByteArray  *writeData;
