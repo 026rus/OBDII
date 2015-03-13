@@ -152,14 +152,28 @@ namespace serial
     }
 
     QString PortReaderWriter::getConnectedPortName() {
-        if (0 == this->port) return "";
+        if (0 == port) return "";
         if (!this->port->isOpen()) return "";
         return this->port->portName();
     }
 
     bool PortReaderWriter::isConnected(){
-        if (0 == this->port) return false;
+        if (0 == port) return false;
         if (this->port->isOpen()) return true;
         return false;
+    }
+
+    void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
+	// What to do with this error?
+
+    }
+
+    void PortReaderWriter::handleTimeout() {
+	// Hrm...  A Timeout
+
+    }
+
+    void PortReaderWriter::handleReadReady() {
+	// Read data
     }
 }
