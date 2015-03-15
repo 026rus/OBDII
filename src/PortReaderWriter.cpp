@@ -21,7 +21,8 @@ namespace serial
         , port(reqPort)
         , writeData(dataForWrite)
     {
-	if ( 0 == this->port ) { 
+    if ( 0 == this->port )
+    {
 	    this->m_timer.start(timeoutMillis);
 	    return;
 	}
@@ -96,25 +97,42 @@ namespace serial
         return false;
     }
 
-    bool PortReaderWriter::sendCommand(const QByteArray &data) {
-	if (0 == this->port) { return false; }
+    bool PortReaderWriter::sendCommand(const QByteArray &data)
+    {
+        QByteArray tend = data + "\r\n";
 
-	this->port->open(QIODevice::ReadWrite);
+        if (0 == this->port) { return false; }
+
+        this->port->open(QIODevice::ReadWrite);
+
         if (!this->port->isOpen()) { return false; }
-        if (-1 < port->write(data)) { return true; }
-	if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
+        if (-1 < port->write(tend)) { return true; }
+
+        if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
+
         return false;
     }
 
-    QByteArray PortReaderWriter::readLine() {
-	if (0 == this->port) { return "No port set!"; }
+    QByteArray PortReaderWriter::readLine()
+    {
+        QString resoult;
 
-	this->port->open(QIODevice::ReadWrite);
-        if (!this->port->isOpen()) { return "Could not open port for write"; }
-	this->port->waitForReadyRead(timeoutMillis);
-	QByteArray scratch = this->port->readAll();
-	while (this->port->waitForReadyRead(timeoutMillis) ) { scratch.append(this->port->readAll()); }
-	return scratch;
+        if (0 == this->port) { return "No port set!"; }
+
+        this->port->open(QIODevice::ReadWrite);
+            if (!this->port->isOpen()) { return "Could not open port for write"; }
+
+        this->port->waitForReadyRead(timeoutMillis);
+        QByteArray scratch = this->port->readAll();
+
+        while (this->port->waitForReadyRead(timeoutMillis) )
+        {
+            qDebug() << " >> " << this->port->readAll();
+        }
+
+        qDebug() << "( " << scratch << " )!";
+
+        return scratch;
     }
 
     /***********************************************/

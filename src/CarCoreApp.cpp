@@ -18,11 +18,6 @@ void CarCoreApp::run() {
         this->exit(1);
     }
 
-    { // Test sending characters, The device should identify itself
-        conn->sendCommand(QByteArray("AT I"));
-        QByteArray buff = conn->readLine();
-        qDebug() << buff << endl;
-    }
 
     if (this->conn->isConnected()) {
         qDebug() << "Connected to serial port "
@@ -32,6 +27,13 @@ void CarCoreApp::run() {
         this->exit(2);
     }
 
+
+    { // Test sending characters, The device should identify itself
+        conn->sendCommand(QByteArray("AT I"));
+        QByteArray buff = conn->readLine();
+        qDebug() << "1: " <<buff << endl;
+    }
+/*
     int rpmVal = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0C");
