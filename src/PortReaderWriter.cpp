@@ -125,7 +125,7 @@ namespace serial
 
         while (this->port->waitForReadyRead(timeoutMillis) )
         {
-           returnstr +=  this->port->readAll();
+           scratch +=  this->port->readAll();
         }
 
 //        qDebug() << returnstr.size();
@@ -134,12 +134,12 @@ namespace serial
         for(int i=1; i< returnstr.size()-1; i++)
             RR += returnstr.at(i);
 
-        scratch = returnstr.mid(2,returnstr.size()-3).toUtf8();
+//        scratch = returnstr.mid(2,returnstr.size()-3).toUtf8();
 
         qDebug() << RR.size();
         qDebug() << RR;
 
-        return RR;
+        return scratch;
     }
 
     /***********************************************/
