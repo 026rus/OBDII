@@ -107,7 +107,7 @@ namespace serial
 
         if (!this->port->isOpen()) { return false; }
         if (-1 < port->write(tend)) { return true; }
-
+        port->flush();
         if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
 
         return false;
@@ -115,24 +115,31 @@ namespace serial
 
     QByteArray PortReaderWriter::readLine()
     {
-        QString resoult;
+        QString returnstr = "";
 
         if (0 == this->port) { return "No port set!"; }
-
         this->port->open(QIODevice::ReadWrite);
             if (!this->port->isOpen()) { return "Could not open port for write"; }
-
         this->port->waitForReadyRead(timeoutMillis);
         QByteArray scratch = this->port->readAll();
 
         while (this->port->waitForReadyRead(timeoutMillis) )
         {
-            qDebug() << " >> " << this->port->readAll();
+           returnstr +=  this->port->readAll();
         }
 
-        qDebug() << "( " << scratch << " )!";
+//        qDebug() << returnstr.size();
 
-        return scratch;
+        QByteArray RR="";
+        for(int i=1; i< returnstr.size()-1; i++)
+            RR += returnstr.at(i);
+
+        scratch = returnstr.mid(2,returnstr.size()-3).toUtf8();
+
+        qDebug() << RR.size();
+        qDebug() << RR;
+
+        return RR;
     }
 
     /***********************************************/

@@ -29,9 +29,14 @@ void CarCoreApp::run() {
 
 
     { // Test sending characters, The device should identify itself
-        conn->sendCommand(QByteArray("AT I"));
+        if(!conn->sendCommand(QByteArray("AT I")))
+        {
+            qDebug() << "Problem writing !!!!";
+        }
         QByteArray buff = conn->readLine();
-        qDebug() << "1: " <<buff << endl;
+        qDebug() << "#######################";
+        for (int i=0; i < buff.size(); i++)
+        qDebug() << buff.at(i);
     }
 /*
     int rpmVal = 0;
