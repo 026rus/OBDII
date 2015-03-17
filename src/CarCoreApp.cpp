@@ -36,23 +36,26 @@ void CarCoreApp::run() {
 
         bool go = true;
         while (go)
-    {
-        go = QString::compare(instr, "000000", Qt::CaseInsensitive);
-        if (go) break;
-
-        cout << "?: ";
-        qtin >> instr;
-
-
-        QByteArray qbin = instr.toUtf8();
-        if(!conn->sendCommand( qbin ))
         {
-            qDebug() << "Problem writing !!!!";
-        }
-        QByteArray buff = conn->readLine();
+            go = QString::compare(instr, "exit", Qt::CaseInsensitive);
 
-
-        qDebug() << buff;
+            if (!go) QCoreApplication::quit();
+            else
+            {
+                cout << ":=> ";
+                qtin >> instr;
+                QByteArray qbin = instr.toUtf8();
+                if(!conn->sendCommand( qbin ))
+                {
+                 qDebug() << "Problem writing !!!!";
+                }
+                cout << "_____________________________________\n";
+                QByteArray buff = conn->readLine();
+                cout <<"Buff size 1: "<<buff.size()<<endl;
+                buff.remove(0, instr.size()+1);
+                cout << "Buff size 2: "<<buff.size()<<endl;
+                cout <<"("<<buff.toStdString()<<")"<<endl;
+            }
         }
 
     }
