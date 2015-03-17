@@ -115,7 +115,7 @@ namespace serial
 
     QByteArray PortReaderWriter::readLine()
     {
-        QString returnstr = "";
+
 
         if (0 == this->port) { return "No port set!"; }
         this->port->open(QIODevice::ReadWrite);
@@ -128,18 +128,18 @@ namespace serial
            scratch +=  this->port->readAll();
         }
 
-//        qDebug() << returnstr.size();
+/* *************************************************
+        for (int i=0; i<scratch.size(); i++)
+        {
+            qDebug()<<i<<"\t"<< scratch.toHex().at(i)<<"\t"<<strint[i] << "\t"<< strchar[i];
+        }
+**************************************************** */
 
-        QByteArray RR="";
-        for(int i=1; i< returnstr.size()-1; i++)
-            RR += returnstr.at(i);
+        QByteArray qbr = scratch;
+//        qbr.remove(0,5);
+        qbr.remove(qbr.size()-3,3);
 
-//        scratch = returnstr.mid(2,returnstr.size()-3).toUtf8();
-
-        qDebug() << RR.size();
-        qDebug() << RR;
-
-        return scratch;
+        return qbr;
     }
 
     /***********************************************/

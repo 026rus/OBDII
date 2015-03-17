@@ -1,4 +1,5 @@
 #include "CarCoreApp.h"
+#include <iostream>
 
 CarCoreApp::CarCoreApp(int &argc, char** argv[]) : QCoreApplication(argc, *argv) {
     connect(this, SIGNAL( aboutToQuit() ), SLOT( cleanupProgramAtExit() ), Qt::QueuedConnection );
@@ -29,14 +30,31 @@ void CarCoreApp::run() {
 
 
     { // Test sending characters, The device should identify itself
-        if(!conn->sendCommand(QByteArray("AT I")))
+
+        QString instr="ATI";
+        QTextStream qtin(stdin);
+
+        bool go = true;
+        while (go)
+    {
+        go = QString::compare(instr, "000000", Qt::CaseInsensitive);
+        if (go) break;
+
+        cout << "?: ";
+        qtin >> instr;
+
+
+        QByteArray qbin = instr.toUtf8();
+        if(!conn->sendCommand( qbin ))
         {
             qDebug() << "Problem writing !!!!";
         }
         QByteArray buff = conn->readLine();
-        qDebug() << "#######################";
-        for (int i=0; i < buff.size(); i++)
-        qDebug() << buff.at(i);
+
+
+        qDebug() << buff;
+        }
+
     }
 /*
     int rpmVal = 0;
