@@ -34,6 +34,7 @@ void CarCoreApp::run() {
         QString instr="ATI";
         QTextStream qtin(stdin);
 
+        /********************************************************
         bool go = true;
         while (go)
         {
@@ -42,7 +43,7 @@ void CarCoreApp::run() {
             if (!go) QCoreApplication::quit();
             else
             {
-                cout << ":=> ";
+                cout << ":) => ";
                 qtin >> instr;
                 QByteArray qbin = instr.toUtf8();
                 if(!conn->sendCommand( qbin ))
@@ -57,26 +58,30 @@ void CarCoreApp::run() {
                 cout <<"("<<buff.toStdString()<<")"<<endl;
             }
         }
+        /*********************************************************/
 
     }
-/*
+/* *
     int rpmVal = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0C");
         QByteArray buff = conn->readLine();
         rpmVal = conn->decodeRPM(buff);
     }
-
+/* *
     QString trobelCode = "";
     { // Try to get the Trouble Code
         conn->sendCommand("01 01");
         // TODO: Needs to be multiline aware
         QByteArray buff = conn->readLine();
         trobelCode = conn->decodeErr(buff);
+
     }
 /*  */
-//    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 
+    qDebug().noquote() << this->conn->decodeErr("41 01 83 07 65 04");
+
+/* */
     emit done();
 }
 

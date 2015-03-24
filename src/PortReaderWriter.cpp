@@ -185,14 +185,15 @@ namespace serial
          * 	most segnificant bit indicate that the  Ceck Engine Light on or of.
          */
 
-        QByteArray teststr = "a133";
+        QByteArray teststr = "48 6B 10 43 03 25 01 10 11 05 55";
         QString newtest;
         QString retval = line_data;
-        QString r_str;
+        QString str_num_of_cods;
+
         QString *errors;
         bool ok;
         QString str;
-        int x=0;
+        int num_of_cods=0;
 
 
         /*
@@ -206,72 +207,97 @@ namespace serial
         /*
          * here I just plaing around trying to see how it will work and what
          * to do
+         *
+         *  0101
+         *	41 01 83 07 E5 A5 "
+         *	ATH1
+         *	OK"H1
+         *	03
+         *  48 6B 10 43 03 25 01 10 11 05 55
+         *  0325 0110 1105 55
          */
 
         retval.replace(" ","");
         str = retval.replace(" ","");
-        r_str = str.mid(4,2);
+        str_num_of_cods = str.mid(4,2);
 
-        x = (r_str.toInt(&ok, 16)) - 128;
+        num_of_cods = (str_num_of_cods.toInt(&ok, 16)) - 128;
 
-        errors = new QString[x];
-
-
-
-
-        for (int i=0; i<x; i++)
+        errors = new QString[num_of_cods];
+/*  turn the headers on if we have more then one error code *
+        if(num_of_cods>1)
         {
-            sendCommand("03");
+            sendCommand("ATH1");
             teststr = readLine();
-            if(r_str.left(1) == "0")
-            {
-                newtest = r_str.mid(1);
+            teststr.remove(0,5);
+            if(!teststr.contains("OK"))
+               qDebug() << "ERROR!!!";
+        }
+/* reading all errors *
+        sendCommand("03");
+        teststr = readLine();
+        teststr = teststr.remove(0,3);
+/* */
+        teststr = teststr.replace(" ","");
+        teststr = teststr.remove(0,8);
 
-                if (teststr.left(1) == "0")
+
+        for (int i=0; i<num_of_cods; i++)
+        {
+
+            str = teststr.left(4);
+            if (teststr.size() >= 4 ) teststr = teststr.remove(0,4);
+
+                newtest = str.mid(1);
+
+                if (str.left(1) == "0")
                     newtest.prepend("P0"); else
-                if (teststr.left(1) == "1")
+                if (str.left(1) == "1")
                     newtest.prepend("P1"); else
-                if (teststr.left(1) == "2")
+                if (str.left(1) == "2")
                     newtest.prepend("P2");  else
-                if (teststr.left(1) == "3")
+                if (str.left(1) == "3")
                     newtest.prepend("P3"); else
                 ///////////////////////////////////////
-                if (teststr.left(1) == "4")
+                if (str.left(1) == "4")
                     newtest.prepend("C0"); else
-                if (teststr.left(1) == "5")
+                if (str.left(1) == "5")
                     newtest.prepend("C1"); else
-                if (teststr.left(1) == "6")
+                if (str.left(1) == "6")
                     newtest.prepend("C2"); else
-                if (teststr.left(1) == "7")
+                if (str.left(1) == "7")
                     newtest.prepend("C3"); else
                     ///////////////////////////////////////
-                if (teststr.left(1) == "8")
+                if (str.left(1) == "8")
                     newtest.prepend("B0"); else
-                if (teststr.left(1) == "9")
+                if (str.left(1) == "9")
                     newtest.prepend("B1"); else
-                if (teststr.left(1) == "A" || teststr.left(1) == "a")
+                if (str.left(1) == "A" || str.left(1) == "a")
                     newtest.prepend("B2"); else
-                if (teststr.left(1) == "B" || teststr.left(1) == "b")
+                if (str.left(1) == "B" || str.left(1) == "b")
                     newtest.prepend("B3"); else
                     ////////////////////////////////////////
-                if (teststr.left(1) == "C" || teststr.left(1) == "c")
+                if (str.left(1) == "C" || str.left(1) == "c")
                     newtest.prepend("U0");else
-                if (teststr.left(1) == "D" || teststr.left(1) == "d")
+                if (str.left(1) == "D" || str.left(1) == "d")
                     newtest.prepend("U1");else
-                if (teststr.left(1) == "E" || teststr.left(1) == "e")
+                if (str.left(1) == "E" || str.left(1) == "e")
                     newtest.prepend("U2");else
-                if (teststr.left(1) == "F" || teststr.left(1) == "f")
+                if (str.left(1) == "F" || str.left(1) == "f")
                     newtest.prepend("U3");
-            }
-            errorCodes[i] = newtest;
+
+            errors[i] = newtest;
+
+                //qDebug() << newtest;
         }
 
-        /*   Just testing
-        for (int i=0; i<x; i++)
+        /*   Just testing */
+        newtest ="";
+        for (int i=0; i<num_of_cods; i++)
         {
-            qDebug() << "Error Code "<< i << " : "  << errors[i];
+            newtest += errors[i] + "\n";
         }
-        */
+        /*  */
 
 
         return newtest;
