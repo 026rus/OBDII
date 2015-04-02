@@ -1,4 +1,4 @@
-#include "serialcomms.h"
+#include "PortReaderWriter.h"
 
 #include <QtCore/QCoreApplication>
 
@@ -13,7 +13,7 @@ public:
     void run();
 
 private:
-    serial::PortReaderWriter conn;
+    serial::PortReaderWriter *conn;
 
 signals:
     void done();

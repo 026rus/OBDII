@@ -1,5 +1,5 @@
 #include "CarCoreApp.h"
-#include "serialcomms.h"
+#include "PortReaderWriter.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
@@ -8,8 +8,8 @@
 using namespace serial;
 
 int main(int argc, char **argv) {
-    CarCoreApp app = CarCoreApp(argc, &argv);
+    CarCoreApp *app = new CarCoreApp(argc, &argv);
     qDebug() << "Application has launched.";
-    app.run();
-    return app.exec();
+    app->run();
+    return app->exec();
 }

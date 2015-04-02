@@ -10,22 +10,23 @@ CarCoreApp::~CarCoreApp(){
 }
 
 void CarCoreApp::run() {
-    this->conn = serial::PortReaderWriter();
 
-    if (!conn.serialConnect()) {
+    this->conn = new serial::PortReaderWriter();
+/* */
+    if (!conn->serialConnect()) {
         qDebug() << "Could not connect!";
         this->exit(1);
     }
 
     { // Test sending characters, The device should identify itself
-        conn.sendCommand(QByteArray("AT I"));
-        QByteArray buff = conn.readLine();
+        conn->sendCommand(QByteArray("AT I"));
+        QByteArray buff = conn->readLine();
         qDebug() << buff << endl;
     }
 
-    if (this->conn.isConnected()) {
+    if (this->conn->isConnected()) {
         qDebug() << "Connected to serial port "
-                 << this->conn.getConnectedPortName();
+                 << this->conn->getConnectedPortName();
     } else {
         qDebug() << "Not connected to a serial port!";
         this->exit(2);
@@ -33,26 +34,25 @@ void CarCoreApp::run() {
 
     int rpmVal = 0;
     { // Try to get the RPM
-        conn.sendCommand("01 0C");
-        QByteArray buff = conn.readLine();
-        rpmVal = conn.decodeRPM(buff);
+        conn->sendCommand("01 0C");
+        QByteArray buff = conn->readLine();
+        rpmVal = conn->decodeRPM(buff);
     }
 
     QString trobelCode = "";
     { // Try to get the Trouble Code
-        conn.sendCommand("STUFF");
+        conn->sendCommand("01 01");
         // TODO: Needs to be multiline aware
-        QByteArray buff = conn.readLine();
-        trobelCode = conn.decodeErr(buff);
+        QByteArray buff = conn->readLine();
+        trobelCode = conn->decodeErr(buff);
     }
-
-    qDebug() << "RPM : " << rpmVal;
-    qDebug() << "Trobel code : " << trobelCode;
+/*  */
+//    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 
     emit done();
 }
 
 void CarCoreApp::cleanupProgramAtExit(){
     // Close down any open ports so we can GTFO
-    conn.~PortReaderWriter();
+    conn->~PortReaderWriter();
 }
