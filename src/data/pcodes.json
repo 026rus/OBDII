@@ -281,550 +281,589 @@
      "P0099" : {
 	"description" : "Intake Air Temperature Sensor 2 Voltage (Intermittent)"
      },
-
-
      "P0100" : {
-	"description" : ""
+	"description" : “Mass of Volume Air Flow Circuit Malfunction“
      },
      "P0101" : {
-	"description" : ""
+	"description" : “Mass or Volume Air Flow Circuit Range/Performance Problem“
      },
      "P0102" : {
-	"description" : ""
+	"description" : "Mass or Volume Air Flow Circuit Low Input"
      },
      "P0103" : {
-	"description" : ""
+	"description" : "Mass or Volume Air Flow Circuit High Input"
      },
      "P0104" : {
-	"description" : ""
+	"description" : "Mass or Volume Air Flow Circuit Intermittent"
      },
      "P0105" : {
-	"description" : ""
+	"description" : "Manifold Absolute Pressure/Barometric Pressure Circuit Malfunction"
      },
      "P0106" : {
-	"description" : ""
+	"description" : "Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance Problem"
      },
      "P0107" : {
-	"description" : ""
+	"description" : "Manifold Absolute Pressure/Barometric Pressure Circuit Low Input"
      },
      "P0108" : {
-	"description" : ""
+	"description" : "Manifold Absolute Pressure/Barometric Pressure Circuit High Input"
      },
      "P0109" : {
-	"description" : ""
+	"description" : "Manifold Absolute Pressure/Barometric Pressure Circuit Intermittent"
      },
      "P0110" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Circuit Malfunction"
      },
      "P0111" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Circuit Range/Performance Problem"
      },
      "P0112" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Circuit Low Input"
      },
      "P0113" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Circuit High Input"
      },
      "P0114" : {
-	"description" : ""
+	"description" : "Intake Air Temperature Circuit Intermittent"
      },
      "P0115" : {
-	"description" : ""
+	"description" : "Engine Coolant Temperature Circuit Malfunction"
      },
      "P0116" : {
-	"description" : ""
+	"description" : "Engine Coolant Temperature Circuit Range/Performance Problem"
      },
      "P0117" : {
-	"description" : ""
+	"description" : "Engine Coolant Temperature Circuit Low Input"
      },
      "P0118" : {
-	"description" : ""
+	"description" : "Engine Coolant Temperature Circuit High Input"
      },
      "P0119" : {
-	"description" : ""
+	"description" : "Engine Coolant Temperature Circuit Intermittent"
      },
      "P0120" : {
-	"description" : ""
+	"description" : "Throttle Position Sensor/Switch A Circuit Malfunction"
      },
      "P0121" : {
-	"description" : ""
+	"description" : "Throttle Position Sensor/Switch A Circuit Range/Performance 
+    Problem"
      },
      "P0122" : {
-	"description" : ""
+	"description" : "Throttle Position Sensor/Switch A Circuit Low Input"
      },
      "P0123" : {
-	"description" : ""
+	"description" : " Throttle Position Sensor/Switch A Circuit High Input"
      },
      "P0124" : {
-	"description" : ""
+	"description" : "Throttle Position Sensor/Switch A Circuit Intermittent"
      },
      "P0125" : {
-	"description" : ""
+	"description" : "Insufficient Coolant Temperature for Closed Loop Fuel Control"
      },
      "P0126" : {
-	"description" : ""
-     },
-     "P0127" : {
-	"description" : ""
+	"description" : "Insufficient Coolant Temperature for Stable Operation"
      },
      "P0128" : {
-	"description" : ""
-     },
-     "P0129" : {
-	"description" : ""
+	"description" : "Coolant Thermostat (Coolant Temperature Below Thermostat 
+    Regulating Temperature)"
      },
      "P0130" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit Malfunction (Bank I Sensor 1)"
      },
      "P0131" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit Low Voltage (Bank I Sensor I)"
      },
      "P0132" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit High Voltage (Bank I Sensor 1)"
      },
      "P0133" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit Slow Response (Bank 1 Sensor 1)"
+     },
+     "P0134" : {
+	"description" : “O2 Sensor Circuit No Activity Detected (Bank I Sensor 
+    1)"
+     },
+     "P0135" : {
+	"description" : “O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 1)"
+     },
+     "P0136" : {
+	"description" : “O2 Sensor Circuit Malfunction (Bank I Sensor 2)"
+     },
+     "P0137" : {
+	"description" : “O2 Sensor Circuit Low Voltage (Bank I Sensor 2)"
+     },
+     "P0138" : {
+	"description" : “O2 Sensor Circuit High Voltage (Bank I Sensor 2)"
+     },
+     "P0139" : {
+	"description" : “O2 Sensor Circuit Slow Response (Bank 1 Sensor 2)"
+     },
+     "P0140” : {
+	"description" : “O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 
+    2)"
+     },
+     "P0141” : {
+	"description" : “O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 
+    2)"
+     },
+     "P0142” : {
+	"description" : “O2 Sensor Circuit Malfunction (Bank I Sensor 3)"
+     },
+     "P0143” : {
+	"description" : “O2 Sensor Circuit Low Voltage (Bank I Sensor 3)"
      },
      "P0144" : {
-	"description" : ""
-     },
-     "P0145" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit High Voltage (Bank I Sensor 3)"
      },
      "P0146" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit No Activity Detected (Bank I Sensor 3)"
      },
      "P0147" : {
-	"description" : ""
-     },
-     "P0148" : {
-	"description" : ""
-     },
-     "P0149" : {
-	"description" : ""
+	"description" : “O2 Sensor Heater Circuit Malfunction (Bank I Sensor 3)"
      },
      "P0150" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit Malfunction (Bank 2 Sensor I)"
      },
      "P0151" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit Low Voltage (Bank 2 Sensor I)"
      },
      "P0152" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit High Voltage (Bank 2 Sensor 1)"
      },
      "P0153" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit Slow Response (Bank 2 Sensor 1)"
      },
      "P0154" : {
-	"description" : ""
+	"description" : “O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 1)"
      },
      "P0155" : {
-	"description" : ""
+	"description" : “O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 1)"
      },
      "P0156" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit Malfunction (Bank 2 Sensor 2)"
      },
      "P0157" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit Low Voltage (Bank 2 Sensor 2)"
      },
      "P0158" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit High Voltage (Bank 2 Sensor 2)"
      },
      "P0159" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit Slow Response (Bank 2 Sensor 2)"
      },
      "P0160" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit No Activity Detected (Bank 2 Sensor 2)"
      },
      "P0161" : {
-	"description" : ""
+	"description" : "02 Sensor Heater Circuit Malfunction (Bank 2 Sensor 2)"
      },
      "P0162" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit Malfunction (Bank 2 Sensor 3)"
      },
      "P0163" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit Low Voltage (Bank 2 Sensor 3)"
      },
      "P0164" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit High Voltage (Bank 2 Sensor 3"
      },
      "P0165" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit Slow Response (Bank 2 Sensor 3)"
      },
      "P0166" : {
-	"description" : ""
+	"description" : "02 Sensor Circuit No Activity Detected (Bank 2 Sensor 3)"
      },
      "P0167" : {
-	"description" : ""
-     },
-     "P0168" : {
-	"description" : ""
-     },
-     "P0169" : {
-	"description" : ""
+	"description" : "02 Sensor Heater Circuit Malfunction (Bank 2 Sensor 3)"
      },
      "P0170" : {
-	"description" : ""
+	"description" : "Fuel Trim Malfunction (Bank 1)"
      },
      "P0171" : {
-	"description" : ""
+	"description" : "System too Lean (Bank 1)"
      },
      "P0172" : {
-	"description" : ""
+	"description" : "System too Rich (Bank 1)"
      },
      "P0173" : {
-	"description" : ""
+	"description" : "Fuel Trim Malfunction (Bank 2)"
      },
      "P0174" : {
-	"description" : ""
+	"description" : "System too Lean (Bank 2)"
      },
      "P0175" : {
-	"description" : ""
+	"description" : "System too Rich (Bank 2)"
      },
      "P0176" : {
-	"description" : ""
+	"description" : "Fuel Composition Sensor Circuit Malfunction"
      },
      "P0177" : {
-	"description" : ""
+	"description" : "Fuel Composition Sensor Circuit Range/Performance"
      },
      "P0178" : {
-	"description" : ""
+	"description" : "Fuel Composition Sensor Circuit Low Input"
      },
      "P0179" : {
-	"description" : ""
+	"description" : "Fuel Composition Sensor Circuit High Input"
      },
      "P0180" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor A Circuit Malfunction"
      },
      "P0181" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor A Circuit Range/Performance"
      },
      "P0182" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor A Circuit Low Input"
      },
      "P0183" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor A Circuit High Input"
      },
      "P0184" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor A Circuit Intermittent"
      },
      "P0185" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor B Circuit Malfunction"
      },
      "P0186" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor B Circuit Range/Performance"
      },
      "P0187" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor B Circuit Low Input"
      },
      "P0188" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor B Circuit High Input"
      },
      "P0189" : {
-	"description" : ""
+	"description" : "Fuel Temperature Sensor B Circuit Intermittent"
      },
      "P0190" : {
-	"description" : ""
+	"description" : "Fuel Rail Pressure Sensor Circuit Malfunction"
      },
      "P0191" : {
-	"description" : ""
+	"description" : "Fuel Rail Pressure Sensor Circuit Range/Performance"
      },
      "P0192" : {
-	"description" : ""
+	"description" : "Fuel Rail Pressure Sensor Circuit Low Input"
      },
      "P0193" : {
-	"description" : ""
+	"description" : "Fuel Rail Pressure Sensor Circuit High Input"
      },
      "P0194" : {
-	"description" : ""
+	"description" : "Fuel Rail Pressure Sensor Circuit Intermittent"
      },
      "P0195" : {
-	"description" : ""
+	"description" : "Engine Oil Temperature Sensor Malfunction"
      },
      "P0196" : {
-	"description" : ""
+	"description" : "Engine Oil Temperature Sensor Range/Performance"
      },
      "P0197" : {
-	"description" : ""
+	"description" : "Engine Oil Temperature Sensor Low"
      },
      "P0198" : {
-	"description" : ""
+	"description" : "Engine Oil Temperature Sensor High"
      },
      "P0199" : {
-	"description" : ""
+	"description" : "Engine Oil Temperature Sensor Intermittent"
      },
      "P0200" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction"
      },
      "P0201" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 1"
      },
      "P0202" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 2"
      },
      "P0203" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 3"
      },
      "P0204" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 4"
      },
      "P0205" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 5"
      },
      "P0206" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 6"
      },
      "P0207" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 7”
      },
      "P0208" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 8”
      },
      "P0209" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 9”
      },
      "P0210" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 10”
      },
      "P0211" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 11”
      },
      "P0212" : {
-	"description" : ""
+	"description" : "Injector Circuit Malfunction - Cylinder 12”
      },
      "P0213" : {
-	"description" : ""
+	"description" : "Cold Start Injector 1 Malfunction"
      },
      "P0214" : {
-	"description" : ""
+	"description" : "Cold Start Injector 2 Malfunction"
      },
      "P0215" : {
-	"description" : ""
+	"description" : "Engine Shutoff Solenoid Malfunction"
      },
      "P0216" : {
-	"description" : ""
+	"description" : "Injection Timing Control Circuit Malfunction"
      },
      "P0217" : {
-	"description" : ""
+	"description" : "Engine Overtemp Condition"
      },
      "P0218" : {
-	"description" : ""
+	"description" : "Transmission Over Temperature Condition"
      },
      "P0219" : {
-	"description" : ""
+	"description" : "Engine Overspeed Condition"
      },
      "P0220" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch B Circuit Malfunction"
      },
      "P0221" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch B Circuit Range/Performance Problem"
      },
      "P0222" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch B Circuit Low Input"
      },
      "P0223" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch B Circuit High Input"
      },
      "P0224" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch B Circuit Intermittent"
      },
      "P0225" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch C Circuit Malfunction"
      },
      "P0226" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch C Circuit Range/Performance Problem"
      },
      "P0227" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch C Circuit Low Input"
      },
-     "P2280" : {
-	"description" : ""
+     "P0228" : {
+	"description" : "Throttle/Petal Position Sensor/Switch C Circuit High Input"
      },
      "P0229" : {
-	"description" : ""
+	"description" : "Throttle/Petal Position Sensor/Switch C Circuit Intermittent"
      },
      "P0230" : {
-	"description" : ""
+	"description" : "Fuel Pump Primary Circuit Malfunction"
      },
      "P0231" : {
-	"description" : ""
+	"description" : "Fuel Pump Secondary Circuit Low"
      },
      "P0232" : {
-	"description" : ""
+	"description" : "Fuel Pump Secondary Circuit High"
      },
      "P0233" : {
-	"description" : ""
+	"description" : "Fuel Pump Secondary Circuit Intermittent"
      },
      "P0234" : {
-	"description" : ""
+	"description" : "Engine Turbocharger/Supercharger Overboost Condition"
      },
      "P0235" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor A Circuit Malfunction"
      },
      "P0236" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor A Circuit Range/Performance"
      },
      "P0237" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor A Circuit Low"
      },
      "P0238" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor A Circuit High"
      },
      "P0239" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor B Circuit Malfunction"
      },
      "P0240" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor B Circuit Range/Performance"
      },
      "P0241" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor B Circuit Low"
      },
      "P0242" : {
-	"description" : ""
+	"description" : "Turbocharger Boost Sensor B Circuit High"
      },
      "P0243" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid A Malfunction"
      },
      "P0244" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid A Range/Performance"
      },
      "P0245" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid A Lo"
      },
      "P0246" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid A High"
      },
      "P0247" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid B Malfunction"
      },
      "P0248" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid B Range/Performance"
      },
      "P0249" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid B Low"
      },
      "P0250" : {
-	"description" : ""
+	"description" : "Turbocharger Wastegate Solenoid B High"
+     },
+     "P0251" : {
+	"description" : "Injection Pump Fuel Metering Control "A" Malfunction (Cam/Rotor/Injector)"
+     },
+     "P0252" : {
+	"description" : "Injection Pump Fuel Metering Control "A" Range/Performance (Cam/Rotor/Injector)"
+     },
+     "P0253" : {
+	"description" : "Injection Pump Fuel Metering Control "A" Low (Cam/Rotor/Injector)"
+     },
+     "P0254" : {
+	"description" : "Injection Pump Fuel Metering Control "A" High (Cam/Rotor/Injector)"
+     },
+     "P0255" : {
+	"description" : "Injection Pump Fuel Metering Control "A" Intermittent (Cam/Rotor/Injector)"
+     },
+     "P0256" : {
+	"description" : "Injection Pump Fuel Metering Control "B" Malfunction (Cam/Rotor/Injector)"
+     },
+     "P0257" : {
+	"description" : "Injection Pump Fuel Metering Control "B" Range/Performance Injector)"
+     },
+     "P0258" : {
+	"description" : "Injection Pump Fuel Metering Control "B" Low (Cam/R)”
+     },
+     "P0259" : {
+	"description" : "Injection Pump Fuel Metering Control "B" High (Cam/R)”
      },
      "P0260" : {
-	"description" : ""
+	"description" : "Injection Pump Fuel Metering Control "B" Intermittent Injector)"
      },
      "P0261" : {
-	"description" : ""
+	"description" : "Cylinder 1 Injector Circuit Low"
      },
      "P0262" : {
-	"description" : ""
+	"description" : "Cylinder 1 Injector Circuit High"
      },
      "P0263" : {
-	"description" : ""
+	"description" : "Cylinder 1 Contribution/Balance Fault"
      },
      "P0264" : {
-	"description" : ""
+	"description" : "Cylinder 2 Injector Circuit Low"
      },
      "P0265" : {
-	"description" : ""
+	"description" : "Cylinder 2 Injector Circuit High"
      },
      "P0266" : {
-	"description" : ""
+	"description" : "Cylinder 2 Contribution/Balance Fault"
      },
      "P0267" : {
-	"description" : ""
+	"description" : "Cylinder 3 Injector Circuit Low"
      },
      "P0268" : {
-	"description" : ""
+	"description" : "Cylinder 3 Injector Circuit High"
      },
      "P0269" : {
-	"description" : ""
+	"description" : "Cylinder 3 Contribution/Balance Fault"
      },
      "P0270" : {
-	"description" : ""
+	"description" : "Cylinder 4 Injector Circuit Low"
      },
      "P0271" : {
-	"description" : ""
+	"description" : "Cylinder 4 Injector Circuit High"
      },
      "P0272" : {
-	"description" : ""
+	"description" : "Cylinder 4 Contribution/Balance Fault"
      },
      "P0273" : {
-	"description" : ""
+	"description" : "Cylinder 5 Injector Circuit Low"
      },
      "P0274" : {
-	"description" : ""
+	"description" : "Cylinder 5 Injector Circuit High"
      },
      "P0275" : {
-	"description" : ""
+	"description" : "Cylinder 5 Contribution/Balance Fault"
      },
      "P0276" : {
-	"description" : ""
+	"description" : "Cylinder 6 Injector Circuit Low"
      },
      "P0277" : {
-	"description" : ""
+	"description" : "Cylinder 6 Injector Circuit High"
      },
      "P0278" : {
-	"description" : ""
+	"description" : "Cylinder 6 Contribution/Balance Fault"
      },
      "P0279" : {
-	"description" : ""
+	"description" : "Cylinder 7 Injector Circuit Low"
      },
      "P0280" : {
-	"description" : ""
+	"description" : "Cylinder 7 Injector Circuit High"
      },
      "P0281" : {
-	"description" : ""
+	"description" : "Cylinder 7 Contribution/Balance Fault"
      },
      "P0282" : {
-	"description" : ""
+	"description" : "Cylinder 8 Injector Circuit Low"
      },
      "P0283" : {
-	"description" : ""
+	"description" : "Cylinder 8 Injector Circuit High"
      },
      "P0284" : {
-	"description" : ""
+	"description" : "Cylinder 8 Contribution/Balance Fault"
      },
      "P0285" : {
-	"description" : ""
+	"description" : "Cylinder 9 Injector Circuit Low"
      },
      "P0286" : {
-	"description" : ""
+	"description" : "Cylinder 9 Injector Circuit High"
      },
      "P0287" : {
-	"description" : ""
+	"description" : "Cylinder 9 Contribution/Balance Fault"
      },
      "P0288" : {
-	"description" : ""
+	"description" : "Cylinder 10 Injector Circuit Lo"
      },
      "P0289" : {
-	"description" : ""
+	"description" : "Cylinder 10 Injector Circuit High"
      },
      "P0290" : {
-	"description" : ""
+	"description" : "Cylinder 10 Contribution/Balance Fault"
      },
      "P0291" : {
-	"description" : ""
+	"description" : "Cylinder 11 Injector Circuit Low"
      },
      "P0292" : {
-	"description" : ""
+	"description" : "Cylinder 11 Injector Circuit High"
      },
      "P0293" : {
-	"description" : ""
+	"description" : "Cylinder 11 Contribution/Balance Fault"
      },
      "P0294" : {
-	"description" : ""
+	"description" : "Cylinder 12 Injector Circuit Low"
      },
      "P0295" : {
-	"description" : ""
+	"description" : "Cylinder 12 Injector Circuit High"
      },
      "P0296" : {
-	"description" : ""
+	"description" : "Cylinder 12 Contribution/Range Fault"
      },
      "P0297" : {
-	"description" : ""
+	"description" : "Vehicle Overspeed Condition"
      },
      "P0298" : {
-	"description" : ""
+	"description" : "Engine Oil Over Temperature Condition"
      },
      "P0299" : {
-	"description" : ""
+	"description" : "Turbocharger/Supercharger (Underboost Condition)”
      },
      "P0300" : {
 	"description" : ""
