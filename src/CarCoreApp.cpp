@@ -89,13 +89,23 @@ void CarCoreApp::run() {
     }
 
 
-/* */
+/* *
     int vehicleSpeed = 0;
     { // Try to get the RPM
-        conn->sendCommand("01 04");
+        conn->sendCommand("01 0D");
         QByteArray buff = conn->readLine();
         vehicleSpeed = conn->decodeVehicleSpeed(buff);
         cout << "Speed : "<< vehicleSpeed << " km/h" << endl;
+    }
+
+
+/* */
+    int fuelLevel = 0;
+    { // Try to get the RPM
+        conn->sendCommand("01 0D");
+        QByteArray buff = conn->readLine();
+        fuelLevel = conn->decodeFuelLevelin(buff);
+        cout << "fuel : "<< fuelLevel << " \%" << endl;
     }
 /* *
     QString trobelCode = "";

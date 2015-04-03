@@ -338,8 +338,8 @@ namespace serial
 
         //QString comm = "01 05 1"; // the code Enginr Tempereture
 
-        QString retval = "01 04 f8";
-        //QString retval = line_data;
+        //QString retval = "01 04 f8";
+        QString retval = line_data;
         retval = retval.replace(" ","");
         retval = retval.mid(4);
 
@@ -353,6 +353,28 @@ namespace serial
         if(ok) return x;
         else return -1;
     }
+
+    int PortReaderWriter::decodeFuelLevelin(const QByteArray line_data)
+    {
+
+        //QString comm = "01 05 1"; // the code Enginr Tempereture
+
+        //QString retval = "01 04 f8";
+        QString retval = line_data;
+        retval = retval.replace(" ","");
+        retval = retval.mid(4);
+
+        //qDebug() << retval;
+
+        int x = 0;
+        bool ok;
+
+        x = ( (retval.toInt(&ok, 16)) * 100)/255 ;
+
+        if(ok) return x;
+        else return -1;
+    }
+
 
     /********************************************************/
 
