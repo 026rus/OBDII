@@ -99,7 +99,7 @@ void CarCoreApp::run() {
     }
 
 
-/* *
+/* */
     int fuelLevel = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0D");
@@ -116,9 +116,14 @@ void CarCoreApp::run() {
         trobelCode = conn->decodeErr(buff);
 
     }
+<<<<<<< HEAD
+/*  */
+    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
+//=======
 /*  *
 
     qDebug().noquote() << this->conn->decodeErr("41 01 83 07 65 04");
+>>>>>>> origin
 
 /* */
     emit done();
