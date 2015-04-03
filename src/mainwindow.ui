@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Speed</string>
+     <string>Check Speed</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>RPM</string>
+     <string>Check RPM</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
