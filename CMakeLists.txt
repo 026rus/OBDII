@@ -9,7 +9,7 @@ find_package(Qt5Bluetooth REQUIRED)
 find_package(Qt5Test REQUIRED)
 find_package(Qt5Widgets)
 
-add_executable(carcomm src/main.cpp src/PortReaderWriter.cpp src/CarCoreApp.cpp GUI2/mainwindow.cpp GUI2/mainwindow.h GUI/ui_mainwindow.h GUI2/mainwindow.ui)
+add_executable(carcomm src/main.cpp src/PortReaderWriter.cpp src/CarCoreApp.cpp GUI2/mainwindow.cpp GUI2/mainwindow.h GUI2/ui_mainwindow.h GUI2/mainwindow.ui)
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)
 target_link_libraries(carcomm Qt5::Core)
 target_link_libraries(carcomm Qt5::SerialPort)
