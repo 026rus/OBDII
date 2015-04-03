@@ -6,21 +6,21 @@
 #include <iostream>
 
 #include <QtWidgets/QApplication>
-#include "GUI2/mainwindow.h"
+#include "mainwindow.h"
 
 using namespace serial;
 
 int main(int argc, char **argv) {
     CarCoreApp *app = new CarCoreApp(argc, &argv);
     qDebug() << "Application has launched.";
-    app->run();
+//    app->run();
 
 //#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 //  QApplication::setGraphicsSystem("raster");
 //#endif
-//  QApplication a(argc, argv);
-//  MainWindow w;
-//  w.show();
-
-    return app->exec();
+  QApplication a(argc, argv);
+  MainWindow w;
+  w.show();
+  return a.exec();
+//    return app->exec();
 }
