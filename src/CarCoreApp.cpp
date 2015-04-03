@@ -1,4 +1,5 @@
 #include "CarCoreApp.h"
+#include "ParseJson.h"
 
 CarCoreApp::CarCoreApp(int &argc, char** argv[]) : QCoreApplication(argc, *argv) {
     connect(this, SIGNAL( aboutToQuit() ), SLOT( cleanupProgramAtExit() ), Qt::QueuedConnection );
@@ -11,6 +12,7 @@ CarCoreApp::~CarCoreApp(){
 
 void CarCoreApp::run() {
 
+    ParseJson *parser = new ParseJson();
     this->conn = new serial::PortReaderWriter();
 /* */
     if (!conn->serialConnect()) {
