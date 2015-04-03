@@ -15,23 +15,23 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->textBrowser->setText("Not connected to divise!");
+    ui->textBrowser->setText("Not connected to device!");
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    ui->textBrowser->setText("Not connected to divise!");
+    ui->textBrowser->setText("Not connected to device!");
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    ui->textBrowser->setText("Not connected to divise!");
+    ui->textBrowser->setText("Not connected to device!");
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
     QString input = ui->lineEdit->text();
-    ui->textBrowser->setText("Not connected to divise!\nThe entered text was: " + input);
+    ui->textBrowser->setText("Not connected to device!\nThe entered text was: " + input);
     ui->lineEdit->setText("");
 }
 
