@@ -99,7 +99,7 @@ void CarCoreApp::run() {
     }
 
 
-/* */
+/* *
     int fuelLevel = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0D");
