@@ -10,16 +10,20 @@
 
 using namespace serial;
 
-int main(int argc, char **argv) {
-    CarCoreApp *app = new CarCoreApp(argc, &argv);
-    qDebug() << "Application has launched.";
+int main(int argc, char **argv)
+{
+
+  QApplication a(argc, argv);
+  MainWindow w;
+//    CarCoreApp *app = new CarCoreApp(argc, &argv);
+//    qDebug() << "Application has launched.";
 //    app->run();
+serial::PortReaderWriter *conn;
+    conn = new serial::PortReaderWriter();
 
 //#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 //  QApplication::setGraphicsSystem("raster");
 //#endif
-  QApplication a(argc, argv);
-  MainWindow w;
   w.show();
   return a.exec();
 //    return app->exec();
