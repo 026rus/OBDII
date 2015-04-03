@@ -15,23 +15,23 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->textBrowser->setText("The 'Read Error Code' button has been pressed");
+    ui->textBrowser->setText("Not connected to divise!");
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    ui->textBrowser->setText("The 'Check Speed' button has been pressed");
+    ui->textBrowser->setText("Not connected to divise!");
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    ui->textBrowser->setText("The 'Check RPM' button has been pressed");
+    ui->textBrowser->setText("Not connected to divise!");
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
     QString input = ui->lineEdit->text();
-    ui->textBrowser->setText("The 'Submit' button has been pressed.\nThe entered text was: " + input);
+    ui->textBrowser->setText("Not connected to divise!\nThe entered text was: " + input);
     ui->lineEdit->setText("");
 }
 
