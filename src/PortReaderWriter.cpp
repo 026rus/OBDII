@@ -143,20 +143,20 @@ namespace serial
     }
 
     /***********************************************/
-    int PortReaderWriter::decodeRPM(const QByteArray line_data) {
+    int PortReaderWriter::decodeRPM(const QByteArray line_data)
+    {
         //QString comm = "01 0C"; // the code for rpm
-
         sendCommand(line_data);
 
+        // QString retval = "1af8";
+        QString retval = line_data;
 
-
-        QString retval = "1af8";
         int x = 0;
         bool ok;
-
         x = (retval.toInt(&ok, 16))/4;
 
         if(ok) return x;
+
         else return -1;
     }
 
@@ -164,7 +164,14 @@ namespace serial
 
         //QString comm = "01 05 1"; // the code Enginr Tempereture
 
-        QString retval = "1af8";
+        //QString retval = "41 05 7B";
+        QString retval = line_data;
+
+        // get rid of all the spases in the onput
+        retval = retval.replace(" ","");
+
+        retval =  retval.mid(4);
+
         int x = 0;
         bool ok;
 
@@ -302,6 +309,52 @@ namespace serial
 
         return newtest;
     }
+
+
+    int PortReaderWriter::decodeEnginLoad(const QByteArray line_data)
+    {
+
+        //QString comm = "01 05 1"; // the code Enginr Tempereture
+
+        //QString retval = "01 04 f8";
+        QString retval = line_data;
+        retval = retval.replace(" ","");
+        retval = retval.mid(4);
+
+        //qDebug() << retval;
+
+        int x = 0;
+        bool ok;
+
+        x = ( (retval.toInt(&ok, 16)) * 100)/255 ;
+
+        if(ok) return x;
+        else return -1;
+    }
+
+
+    int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
+    {
+
+        //QString comm = "01 05 1"; // the code Enginr Tempereture
+
+        QString retval = "01 04 f8";
+        //QString retval = line_data;
+        retval = retval.replace(" ","");
+        retval = retval.mid(4);
+
+        //qDebug() << retval;
+
+        int x = 0;
+        bool ok;
+
+        x = (retval.toInt(&ok, 16));
+
+        if(ok) return x;
+        else return -1;
+    }
+
+    /********************************************************/
 
     QString PortReaderWriter::getConnectedPortName() {
         if (0 == port) return "";

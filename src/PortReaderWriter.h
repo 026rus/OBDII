@@ -37,6 +37,8 @@ namespace serial {
         // High-Lever interfaces for specific OBDII data
         int decodeRPM(const QByteArray line_data);
         int decodeTempEngin(const QByteArray line_data);
+        int decodeEnginLoad(const QByteArray line_data);
+        int decodeVehicleSpeed(const QByteArray line_data);
         QString decodeErr(const QByteArray line_data);
 
     private slots:
