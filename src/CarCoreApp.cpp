@@ -99,13 +99,13 @@ void CarCoreApp::run() {
     }
 
 
-/* *
+/* */
     int fuelLevel = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0D");
         QByteArray buff = conn->readLine();
         fuelLevel = conn->decodeFuelLevelin(buff);
-        cout << "fuel : "<< fuelLevel << " \%" << endl;
+        cout << "fuel : "<< fuelLevel << " %" << endl;
     }
 /* *
     QString trobelCode = "";
@@ -116,9 +116,14 @@ void CarCoreApp::run() {
         trobelCode = conn->decodeErr(buff);
 
     }
+<<<<<<< HEAD
+/*  */
+    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
+//=======
 /*  *
 
     qDebug().noquote() << this->conn->decodeErr("41 01 83 07 65 04");
+>>>>>>> origin
 
 /* */
     emit done();
