@@ -1,12 +1,17 @@
 #include "CarCoreApp.h"
 #include <iostream>
 
-CarCoreApp::CarCoreApp(int &argc, char** argv[]) : QCoreApplication(argc, *argv) {
-    connect(this, SIGNAL( aboutToQuit() ), SLOT( cleanupProgramAtExit() ), Qt::QueuedConnection );
+CarCoreApp::CarCoreApp(int &argc, char** argv[]) : QCoreApplication(argc, *argv)
+{
+    connect(this, SIGNAL( aboutToQuit() ),
+            SLOT( cleanupProgramAtExit() ),
+            Qt::QueuedConnection );
+
     connect(this, SIGNAL( done() ), this, SLOT( quit() ), Qt::QueuedConnection );
 }
 
-CarCoreApp::~CarCoreApp(){
+CarCoreApp::~CarCoreApp()
+{
     // Nothing to do here after Port cleanup
 }
 
