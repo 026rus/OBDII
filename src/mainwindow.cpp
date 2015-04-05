@@ -52,35 +52,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    QString tempstr="";
-    ui->textBrowser->setText("");
-
-    QString instr = ui->lineEdit->text();
-    QByteArray qbin = instr.toUtf8();
-
-    if(!conn->sendCommand( qbin ))
-    {
-        ui->textBrowser->setText( "Problem writing !!!!");
-    }
-    QByteArray buff = conn->readLine();
-    tempstr = "Buff size 1: ";
-    tempstr += QString::number(buff.size());
-    ui->textBrowser->append( tempstr );
-
-    buff.remove(0, instr.size()+1);
-
-    tempstr = "Buff size 2: ";
-    tempstr += QString::number( buff.size() );
-
-    ui->textBrowser->append( tempstr );
-
-    tempstr = "(";
-    tempstr += buff;
-    tempstr += ")" ;
-
-    ui->textBrowser->append( tempstr );
-
-    ui->lineEdit->setText("");
+    sendcommand();
 }
 
 void MainWindow::connect()
@@ -103,4 +75,37 @@ void MainWindow::connect()
         ui->textBrowser->setText("Not connected to a serial port!");
     }
 
+}
+
+void MainWindow::sendcommand()
+{
+
+    QString tempstr="";
+
+    QString instr = ui->lineEdit->text();
+    QByteArray qbin = instr.toUtf8();
+
+    if(!conn->sendCommand( qbin ))
+    {
+        ui->textBrowser->append( "Problem writing !!!!");
+    }
+    QByteArray buff = conn->readLine();
+    tempstr = "Buff size 1: ";
+    tempstr += QString::number(buff.size());
+    ui->textBrowser->append( tempstr );
+
+    buff.remove(0, instr.size()+1);
+
+    tempstr = "Buff size 2: ";
+    tempstr += QString::number( buff.size() );
+
+    ui->textBrowser->append( tempstr );
+
+    tempstr = "(";
+    tempstr += buff;
+    tempstr += ")" ;
+
+    ui->textBrowser->append( tempstr );
+
+    ui->lineEdit->setText("");
 }

@@ -28,6 +28,7 @@ private slots:
     void on_pushButton_4_clicked();
 
     void connect();
+    void sendcommand();
 
 
 
