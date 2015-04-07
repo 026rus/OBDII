@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     c[0] = 0;
     d[0] = 0;
 
-    setupQuadraticDemo(ui->customPlot);
+//    setupQuadraticDemo(ui->customPlot);
 }
 
 MainWindow::~MainWindow()
@@ -103,7 +103,7 @@ void MainWindow::on_pushButton_3_clicked()
         rpmVal = conn->decodeRPM(buff);
     }
     ui->textBrowser->setText( QString::number(rpmVal) );
-    b[rpmCount] = rpmVal;
+    b[rpmCount] = rpmVal/1000;
     rpmCount++;
 }
 
@@ -185,14 +185,15 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
       c[i] = i;
   }
   // create graph and assign data to it:
-  ui->customPlot->replot();
+  //ui->customPlot->replot();
+  customPlot->addGraph();
   customPlot->graph(0)->setData(c, d);
   // give the axes some labels:
   customPlot->xAxis->setLabel("Count");
-  customPlot->yAxis->setLabel("Value");
+  customPlot->yAxis->setLabel("Speed (MPH)");
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, speedCount - 1);
-  customPlot->yAxis->setRange(-2, 7);
+  customPlot->yAxis->setRange(-2, 80);
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
   ui->customPlot->replot();
@@ -205,14 +206,15 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
       a[i] = i;
   }
   // create graph and assign data to it:
-  ui->customPlot->replot();
+  //ui->customPlot->replot();
+  customPlot->addGraph();
   customPlot->graph(0)->setData(a, b);
   // give the axes some labels:
   customPlot->xAxis->setLabel("Count");
-  customPlot->yAxis->setLabel("Value");
+  customPlot->yAxis->setLabel("RPM (x1000)");
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, rpmCount - 1);
-  customPlot->yAxis->setRange(-2, 7);
+  customPlot->yAxis->setRange(-2, 10);
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
   ui->customPlot->replot();
