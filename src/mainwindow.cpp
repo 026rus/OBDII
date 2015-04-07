@@ -3,6 +3,9 @@
 #include <iostream>
 #include "qcustomplot.h"
 
+QVector<double> a(101), b(101);
+QVector<double> c(101), d(101);
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,8 +15,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect();
 
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
+    speedCount = 1;
+    rpmCount = 1;
+    a[0] = 0;
+    b[0] = 0;
+    c[0] = 0;
+    d[0] = 0;
 
-    setupQuadraticDemo(ui->customPlot);
+//    setupQuadraticDemo(ui->customPlot);
 }
 
 MainWindow::~MainWindow()
@@ -81,6 +90,8 @@ void MainWindow::on_pushButton_2_clicked()
        vehicleSpeed = conn->decodeVehicleSpeed(buff);
    }
    ui->textBrowser->setText(  QString::number(vehicleSpeed)  );
+   d[speedCount] = vehicleSpeed;
+   speedCount++;
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -92,6 +103,8 @@ void MainWindow::on_pushButton_3_clicked()
         rpmVal = conn->decodeRPM(buff);
     }
     ui->textBrowser->setText( QString::number(rpmVal) );
+    b[rpmCount] = rpmVal/1000;
+    rpmCount++;
 }
 
 void MainWindow::on_pushButton_4_clicked()
@@ -99,14 +112,14 @@ void MainWindow::on_pushButton_4_clicked()
     sendcommand();
 }
 
-void MainWindow::on_pushButton_5_clicked()
+void MainWindow::on_radioButton_clicked()
 {
-
+    setupSpeedGraph(ui->customPlot);
 }
 
-void MainWindow::on_pushButton_6_clicked()
+void MainWindow::on_radioButton_2_clicked()
 {
-
+    setupRPMGraph(ui->customPlot);
 }
 
 void MainWindow::connect()
@@ -162,4 +175,54 @@ void MainWindow::sendcommand()
     ui->textBrowser->append( tempstr );
 
     ui->lineEdit->setText("");
+}
+
+void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
+{
+  for (int i=0; i<=speedCount; i++)
+  {
+      c[i] = i;
+  }
+  // create graph and assign data to it:
+  //ui->customPlot->replot();
+  customPlot->addGraph();
+  customPlot->graph(0)->setData(c, d);
+  // give the axes some labels:
+  customPlot->xAxis->setLabel("Count");
+  customPlot->yAxis->setLabel("Speed (MPH)");
+  // set axes ranges, so we see all data:
+  customPlot->xAxis->setRange(0, speedCount - 1);
+  customPlot->yAxis->setRange(-2, 80);
+  customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
+  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+  ui->customPlot->replot();
+}
+
+void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
+{
+  for (int i=0; i<=speedCount; i++)
+  {
+      a[i] = i;
+  }
+  // create graph and assign data to it:
+  //ui->customPlot->replot();
+  customPlot->addGraph();
+  customPlot->graph(0)->setData(a, b);
+  // give the axes some labels:
+  customPlot->xAxis->setLabel("Count");
+  customPlot->yAxis->setLabel("RPM (x1000)");
+  // set axes ranges, so we see all data:
+  customPlot->xAxis->setRange(0, rpmCount - 1);
+  customPlot->yAxis->setRange(-2, 10);
+  customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
+  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+  ui->customPlot->replot();
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QFont font;
+    font.setPointSize(12);
+    ui->label->setText("Connection Status: (Dis)Connected");
+    ui->label->setFont(font);
 }
