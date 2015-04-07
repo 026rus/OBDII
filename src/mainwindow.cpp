@@ -219,3 +219,11 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
   ui->customPlot->replot();
 }
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QFont font;
+    font.setPointSize(12);
+    ui->label->setText("Connection Status: (Dis)Connected");
+    ui->label->setFont(font);
+}
