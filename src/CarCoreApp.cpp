@@ -39,17 +39,19 @@ void CarCoreApp::run() {
         QString instr="ATI";
         QTextStream qtin(stdin);
 
-        /********************************************************
+        /********************************************************/
         bool go = true;
         while (go)
         {
+
+            cout << ":) => ";
+            qtin >> instr;
+
             go = QString::compare(instr, "exit", Qt::CaseInsensitive);
 
             if (!go) QCoreApplication::quit();
             else
             {
-                cout << ":) => ";
-                qtin >> instr;
                 QByteArray qbin = instr.toUtf8();
                 if(!conn->sendCommand( qbin ))
                 {
@@ -104,7 +106,7 @@ void CarCoreApp::run() {
     }
 
 
-/* */
+/* *
     int fuelLevel = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0D");
@@ -122,7 +124,7 @@ void CarCoreApp::run() {
 
     }
 <<<<<<< HEAD
-/*  */
+/*  *
     qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 //=======
 /*  *
