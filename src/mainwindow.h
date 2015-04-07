@@ -21,6 +21,10 @@ public:
 
     void setupQuadraticDemo(QCustomPlot *customPlot);
 
+    void setupSpeedGraph(QCustomPlot *customPlot);
+
+    void setupRPMGraph(QCustomPlot *customPlot);
+
 private slots:
 
     void on_pushButton_clicked();
@@ -42,6 +46,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     serial::PortReaderWriter *conn;
+    int speedCount;
+    int rpmCount;
 };
 
 #endif // MAINWINDOW_H
