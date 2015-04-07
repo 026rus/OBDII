@@ -19,6 +19,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
@@ -48,8 +49,8 @@ public:
     QCustomPlot *customPlot;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_3;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_6;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
     QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
@@ -123,15 +124,15 @@ public:
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton_5 = new QPushButton(layoutWidget1);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        radioButton = new QRadioButton(layoutWidget1);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
 
-        verticalLayout_3->addWidget(pushButton_5);
+        verticalLayout_3->addWidget(radioButton);
 
-        pushButton_6 = new QPushButton(layoutWidget1);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        radioButton_2 = new QRadioButton(layoutWidget1);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
 
-        verticalLayout_3->addWidget(pushButton_6);
+        verticalLayout_3->addWidget(radioButton_2);
 
         tabWidget->addTab(tab_2, QString());
         layoutWidget2 = new QWidget(centralWidget);
@@ -159,7 +160,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -174,8 +175,8 @@ public:
         pushButton_3->setText(QApplication::translate("MainWindow", "RPM", 0));
         pushButton_7->setText(QApplication::translate("MainWindow", "Connect", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Quick Commands", 0));
-        pushButton_5->setText(QApplication::translate("MainWindow", "Graph Speed", 0));
-        pushButton_6->setText(QApplication::translate("MainWindow", "Graph RPM", 0));
+        radioButton->setText(QApplication::translate("MainWindow", "Speed", 0));
+        radioButton_2->setText(QApplication::translate("MainWindow", "RPM", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Historic Data", 0));
         label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Connection Status:</span></p><p><br/></p></body></html>", 0));
     } // retranslateUi

@@ -39,11 +39,15 @@ private slots:
 
     void sendcommand();
 
-    void on_pushButton_5_clicked();
+    //void on_pushButton_5_clicked();
 
-    void on_pushButton_6_clicked();
+    //void on_pushButton_6_clicked();
 
     void on_pushButton_7_clicked();
+
+    void on_radioButton_clicked();
+
+    void on_radioButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

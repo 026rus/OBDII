@@ -112,12 +112,12 @@ void MainWindow::on_pushButton_4_clicked()
     sendcommand();
 }
 
-void MainWindow::on_pushButton_5_clicked()
+void MainWindow::on_radioButton_clicked()
 {
     setupSpeedGraph(ui->customPlot);
 }
 
-void MainWindow::on_pushButton_6_clicked()
+void MainWindow::on_radioButton_2_clicked()
 {
     setupRPMGraph(ui->customPlot);
 }
@@ -176,7 +176,6 @@ void MainWindow::sendcommand()
 
     ui->lineEdit->setText("");
 }
-
 
 void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 {
