@@ -192,37 +192,20 @@ namespace serial
          * 	most segnificant bit indicate that the  Ceck Engine Light on or of.
          */
 
+
         QByteArray teststr = "48 6B 10 43 03 25 01 10 11 05 55";
         QString newtest;
         QString retval = line_data;
         QString str_num_of_cods;
 
+        // cheking if data was not found
+        if (retval.contains("unable", Qt::CaseInsensitive))
+            return retval;
+
         QString *errors;
         bool ok;
         QString str;
         int num_of_cods=0;
-
-
-        /*
-         * > 03 is will give you all the actual troble codes
-         *  like 01 33 00 00 00 00
-         *  most of it is junk we need only  0133
-         * 	and 0 = P0 and rest is as is
-         * 	 so the code will be P0133
-         */
-
-        /*
-         * here I just plaing around trying to see how it will work and what
-         * to do
-         *
-         *  0101
-         *	41 01 83 07 E5 A5 "
-         *	ATH1
-         *	OK"H1
-         *	03
-         *  48 6B 10 43 03 25 01 10 11 05 55
-         *  0325 0110 1105 55
-         */
 
         retval.replace(" ","");
         str = retval.replace(" ","");
@@ -230,21 +213,30 @@ namespace serial
 
         num_of_cods = (str_num_of_cods.toInt(&ok, 16)) - 128;
 
+        // cheking for error in retriving numbers of codes
+        if (num_of_cods < 1)
+        {
+            retval.append("\nnot correct namber of error cods\nNuber of cobs = ");
+            retval.append(QString::number(num_of_cods));
+            return retval;
+        }
+
         errors = new QString[num_of_cods];
-/*  turn the headers on if we have more then one error code *
+
+        /*  turn the headers on if we have more then one error code *
         if(num_of_cods>1)
         {
             sendCommand("ATH1");
             teststr = readLine();
             teststr.remove(0,5);
-            if(!teststr.contains("OK"))
-               qDebug() << "ERROR!!!";
+            if(!teststr.contains("OK"));
         }
-/* reading all errors *
+        // reading all errors
         sendCommand("03");
         teststr = readLine();
         teststr = teststr.remove(0,3);
-/* */
+        /* */
+
         teststr = teststr.replace(" ","");
         teststr = teststr.remove(0,8);
 
@@ -306,12 +298,10 @@ namespace serial
         }
         /*  */
 
-
         return newtest;
     }
 
-
-    int PortReaderWriter::decodeEnginLoad(const QByteArray line_data)
+      int PortReaderWriter::decodeEnginLoad(const QByteArray line_data)
     {
 
         //QString comm = "01 05 1"; // the code Enginr Tempereture
