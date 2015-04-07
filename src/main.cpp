@@ -1,6 +1,23 @@
+#include "CarCoreApp.h"
+#include "PortReaderWriter.h"
+
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDebug>
 #include <iostream>
 
-int main(void) {
-    std::cout << "It works!" << std::endl;
-    return 0;
+#include <QtWidgets/QApplication>
+#include "mainwindow.h"
+
+using namespace serial;
+
+int main(int argc, char **argv)
+{
+  #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    QApplication::setGraphicsSystem("raster");
+  #endif
+
+  QApplication a(argc, argv);
+  MainWindow w;
+  w.show();
+  return a.exec();
 }

@@ -1,5 +1,6 @@
+CMakeLists.txt.user
 CMakeCache.txt
-CmakeFiles/
+CMakeFiles/
 *.vcxproj
 *.vcxproj.filters
 *.cmake
