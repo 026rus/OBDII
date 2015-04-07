@@ -10,7 +10,7 @@ find_package(Qt5Test REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5PrintSupport REQUIRED)
 
-add_executable(carcomm src/main.cpp src/PortReaderWriter.cpp src/CarCoreApp.cpp src/mainwindow.cpp src/mainwindow.h src/ui_mainwindow.h src/mainwindow.ui src/qcustomplot.cpp src/qcustomplot.h)
+add_executable(carcomm src/main.cpp src/PortReaderWriter.cpp src/CarCoreApp.cpp src/mainwindow.cpp src/mainwindow.h src/mainwindow.ui src/qcustomplot.cpp src/qcustomplot.h)
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)
 target_link_libraries(carcomm Qt5::Core)
 target_link_libraries(carcomm Qt5::SerialPort)

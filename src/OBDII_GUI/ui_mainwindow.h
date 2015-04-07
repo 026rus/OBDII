@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -21,7 +20,6 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
-#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
@@ -36,13 +34,10 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout_4;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *label;
+    QPushButton *pushButton_4;
+    QLineEdit *lineEdit;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QHBoxLayout *horizontalLayout;
-    QSplitter *splitter;
     QTextBrowser *textBrowser;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
@@ -51,16 +46,14 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton_7;
     QWidget *tab_2;
-    QHBoxLayout *horizontalLayout_2;
-    QSplitter *splitter_3;
     QCustomPlot *customPlot;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_3;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
-    QSplitter *splitter_2;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton_4;
+    QWidget *layoutWidget2;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -69,43 +62,29 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1006, 606);
+        MainWindow->resize(1042, 544);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout_4 = new QVBoxLayout(centralWidget);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-
-        verticalLayout_4->addLayout(verticalLayout_2);
-
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-
-        verticalLayout_4->addWidget(label);
-
+        pushButton_4 = new QPushButton(centralWidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setGeometry(QRect(880, 440, 131, 31));
+        lineEdit = new QLineEdit(centralWidget);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(20, 440, 841, 31));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setGeometry(QRect(20, 30, 1011, 401));
         tabWidget->setAutoFillBackground(false);
         tabWidget->setTabPosition(QTabWidget::North);
         tabWidget->setTabShape(QTabWidget::Triangular);
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
-        horizontalLayout = new QHBoxLayout(tab);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        splitter = new QSplitter(tab);
-        splitter->setObjectName(QStringLiteral("splitter"));
-        splitter->setOrientation(Qt::Horizontal);
-        textBrowser = new QTextBrowser(splitter);
+        textBrowser = new QTextBrowser(tab);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        splitter->addWidget(textBrowser);
-        layoutWidget = new QWidget(splitter);
+        textBrowser->setGeometry(QRect(0, 0, 841, 371));
+        layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(860, 10, 131, 361));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -131,25 +110,15 @@ public:
 
         verticalLayout->addWidget(pushButton_7);
 
-        splitter->addWidget(layoutWidget);
-
-        horizontalLayout->addWidget(splitter);
-
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
-        horizontalLayout_2 = new QHBoxLayout(tab_2);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        splitter_3 = new QSplitter(tab_2);
-        splitter_3->setObjectName(QStringLiteral("splitter_3"));
-        splitter_3->setOrientation(Qt::Horizontal);
-        customPlot = new QCustomPlot(splitter_3);
+        customPlot = new QCustomPlot(tab_2);
         customPlot->setObjectName(QStringLiteral("customPlot"));
-        splitter_3->addWidget(customPlot);
-        layoutWidget1 = new QWidget(splitter_3);
+        customPlot->setGeometry(QRect(0, 0, 841, 371));
+        layoutWidget1 = new QWidget(tab_2);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(860, 20, 131, 341));
         verticalLayout_3 = new QVBoxLayout(layoutWidget1);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -165,30 +134,22 @@ public:
 
         verticalLayout_3->addWidget(radioButton_2);
 
-        splitter_3->addWidget(layoutWidget1);
-
-        horizontalLayout_2->addWidget(splitter_3);
-
         tabWidget->addTab(tab_2, QString());
-
-        verticalLayout_4->addWidget(tabWidget);
-
-        splitter_2 = new QSplitter(centralWidget);
-        splitter_2->setObjectName(QStringLiteral("splitter_2"));
-        splitter_2->setOrientation(Qt::Horizontal);
-        lineEdit = new QLineEdit(splitter_2);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        splitter_2->addWidget(lineEdit);
-        pushButton_4 = new QPushButton(splitter_2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        splitter_2->addWidget(pushButton_4);
-
-        verticalLayout_4->addWidget(splitter_2);
-
+        layoutWidget2 = new QWidget(centralWidget);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(0, 0, 2, 2));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget2);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(690, 10, 321, 31));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1006, 26));
+        menuBar->setGeometry(QRect(0, 0, 1042, 26));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -199,7 +160,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -208,7 +169,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Connection Status:</span></p><p><br/></p></body></html>", 0));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Submit", 0));
         pushButton->setText(QApplication::translate("MainWindow", "Error Code", 0));
         pushButton_2->setText(QApplication::translate("MainWindow", "Speed", 0));
         pushButton_3->setText(QApplication::translate("MainWindow", "RPM", 0));
@@ -217,7 +178,7 @@ public:
         radioButton->setText(QApplication::translate("MainWindow", "Speed", 0));
         radioButton_2->setText(QApplication::translate("MainWindow", "RPM", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Historic Data", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Submit", 0));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Connection Status:</span></p><p><br/></p></body></html>", 0));
     } // retranslateUi
 
 };
