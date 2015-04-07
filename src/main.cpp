@@ -12,12 +12,23 @@ using namespace serial;
 
 int main(int argc, char **argv)
 {
-  #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-    QApplication::setGraphicsSystem("raster");
-  #endif
+  if (argc < 2)
+    {
+        // GUI interfase by defolte if no argument passed
+        QApplication a(argc, argv);
+        MainWindow w;
+        w.show();
+        return a.exec();
+    }
+    else
+    {
+        CarCoreApp *app = new CarCoreApp(argc, &argv);
+        qDebug() << "Application has launched.";
+        app->run();
 
-  QApplication a(argc, argv);
-  MainWindow w;
-  w.show();
-  return a.exec();
+        #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+          QApplication::setGraphicsSystem("raster");
+        #endif
+        return app->exec();
+    }
 }

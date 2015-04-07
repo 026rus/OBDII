@@ -114,7 +114,7 @@ void MainWindow::on_pushButton_3_clicked()
     ui->textBrowser->setText( QString::number(rpmVal) );
     if (rpmVal < 0)
     {
-       vrpm.append(0);
+       vrpm.append(rpmCount);
        rpmCount++;
     }
     else
@@ -228,12 +228,13 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   // create graph and assign data to it:
   //ui->customPlot->replot();
   customPlot->addGraph();
-  customPlot->graph(0)->setData(a, b);
+  customPlot->graph(0)->setData(a, vrpm);
   // give the axes some labels:
   customPlot->xAxis->setLabel("Count");
   customPlot->yAxis->setLabel("RPM (x1000)");
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, rpmCount - 1);
+  // why from -2 ????
   customPlot->yAxis->setRange(-2, 10);
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
