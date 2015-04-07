@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     font.setPointSize(12);
     ui->label->setText("Connection Status: ");
     ui->label->setFont(font);
+    ui->progressBar->setValue(0);
 
 //    setupQuadraticDemo(ui->customPlot);
 }
@@ -233,4 +234,5 @@ void MainWindow::on_pushButton_7_clicked()
     font.setPointSize(12);
     ui->label->setText("Connection Status: (Dis)Connected");
     ui->label->setFont(font);
+    ui->progressBar->setValue(100);
 }
