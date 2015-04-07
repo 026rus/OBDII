@@ -49,6 +49,10 @@ private slots:
 
     void on_radioButton_2_clicked();
 
+    // this is function for usinf enter in the line stop plise deleting it !!!
+    void on_lineEdit_returnPressed();
+
+
 private:
     Ui::MainWindow *ui;
     serial::PortReaderWriter *conn;

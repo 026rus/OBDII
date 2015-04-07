@@ -226,3 +226,8 @@ void MainWindow::on_pushButton_7_clicked()
     ui->label->setText("Connection Status: (Dis)Connected");
     ui->label->setFont(font);
 }
+
+void MainWindow::on_lineEdit_returnPressed()
+{
+   sendcommand();
+}
