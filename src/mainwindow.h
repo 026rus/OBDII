@@ -58,6 +58,8 @@ private:
     serial::PortReaderWriter *conn;
     int speedCount;
     int rpmCount;
+    QVector<double> vspeed;
+    QVector<double> vrpm;
 };
 
 #endif // MAINWINDOW_H

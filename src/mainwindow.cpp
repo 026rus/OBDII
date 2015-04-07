@@ -39,7 +39,8 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
   for (int i=0; i<10; i++)
   {
       x[i] = i;
-      switch (i){
+      switch (i)
+      {
       case 0: y[i] = 0; break;
       case 1: y[i] = 0; break;
       case 2: y[i] = 1; break;
@@ -90,8 +91,16 @@ void MainWindow::on_pushButton_2_clicked()
        vehicleSpeed = conn->decodeVehicleSpeed(buff);
    }
    ui->textBrowser->setText(  QString::number(vehicleSpeed)  );
-   d[speedCount] = vehicleSpeed;
-   speedCount++;
+    if(vehicleSpeed < 0)
+    {
+        vspeed.append(0);
+        speedCount++;
+    }
+    else
+    {
+        vspeed.append(vehicleSpeed);
+        speedCount++;
+    }
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -103,8 +112,16 @@ void MainWindow::on_pushButton_3_clicked()
         rpmVal = conn->decodeRPM(buff);
     }
     ui->textBrowser->setText( QString::number(rpmVal) );
-    b[rpmCount] = rpmVal/1000;
-    rpmCount++;
+    if (rpmVal < 0)
+    {
+       vrpm.append(0);
+       rpmCount++;
+    }
+    else
+    {
+        vrpm.append(rpmVal/1000);
+        rpmCount++;
+    }
 }
 
 void MainWindow::on_pushButton_4_clicked()
@@ -179,17 +196,21 @@ void MainWindow::sendcommand()
 
 void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 {
+
   for (int i=0; i<=speedCount; i++)
   {
       c[i] = i;
   }
+
   // create graph and assign data to it:
   //ui->customPlot->replot();
   customPlot->addGraph();
-  customPlot->graph(0)->setData(c, d);
+  customPlot->graph(0)->setData(c,vspeed);
+
   // give the axes some labels:
   customPlot->xAxis->setLabel("Count");
   customPlot->yAxis->setLabel("Speed (MPH)");
+
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, speedCount - 1);
   customPlot->yAxis->setRange(-2, 80);
@@ -200,7 +221,7 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 
 void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
 {
-  for (int i=0; i<=speedCount; i++)
+  for (int i=0; i<=rpmCount; i++)
   {
       a[i] = i;
   }
