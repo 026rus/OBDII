@@ -41,9 +41,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>0</y>
+      <y>30</y>
       <width>1011</width>
-      <height>421</height>
+      <height>401</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -68,17 +68,17 @@
         <x>0</x>
         <y>0</y>
         <width>841</width>
-        <height>391</height>
+        <height>371</height>
        </rect>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>860</x>
-        <y>20</y>
+        <y>10</y>
         <width>131</width>
-        <height>351</height>
+        <height>361</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -103,6 +103,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Connect</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -116,17 +123,17 @@
         <x>0</x>
         <y>0</y>
         <width>841</width>
-        <height>391</height>
+        <height>371</height>
        </rect>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>860</x>
         <y>20</y>
         <width>131</width>
-        <height>351</height>
+        <height>341</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -148,7 +155,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -158,6 +165,19 @@
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2"/>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>10</y>
+      <width>321</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Connection Status:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
