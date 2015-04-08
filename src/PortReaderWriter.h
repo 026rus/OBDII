@@ -26,6 +26,9 @@ namespace serial {
         // Get the list of available ports
         static QVector<QSerialPortInfo> getAvailPorts(void);
 
+	// Set the connected port
+	bool setPort(string portName);
+
         // Sets up the Serial Connection
         bool serialConnect(void);
 

@@ -57,6 +57,30 @@ namespace serial
         return ports;
     }
 
+    bool PortReaderWriter::setPort(string portName) {
+	// Just try it!
+        this->port = new QSerialPort(QString(portName.c_str()));
+        // Default for the device under test is 10400 baud
+        this->port->open(QIODevice::ReadWrite);
+        port->setBaudRate(QSerialPort::Baud38400);
+
+        if (port->isOpen()){
+	    connect(port
+		    , SIGNAL( readyRead() )
+		    , SLOT( handleReadReady() )
+		    , Qt::QueuedConnection);
+
+	    connect(&m_timer
+		    , SIGNAL( timeout() )
+		    , SLOT( handleTimeout() )
+		    , Qt::QueuedConnection);
+
+	    return true;
+	}
+        return false;
+    }
+
+
     bool PortReaderWriter::serialConnect(void)
 	{ 
         string input_device = "";
@@ -83,26 +107,7 @@ namespace serial
             }
         }
 
-        // Just try it!
-        this->port = new QSerialPort(QString(input_device.c_str()));
-        // Default for the device under test is 10400 baud
-        this->port->open(QIODevice::ReadWrite);
-        port->setBaudRate(QSerialPort::Baud38400);
-
-        if (port->isOpen()){
-	    connect(port
-		    , SIGNAL( readyRead() )
-		    , SLOT( handleReadReady() )
-		    , Qt::QueuedConnection);
-
-	    connect(&m_timer
-		    , SIGNAL( timeout() )
-		    , SLOT( handleTimeout() )
-		    , Qt::QueuedConnection);
-
-	    return true;
-	}
-        return false;
+	return this->setPort(input_device);
     }
 
     bool PortReaderWriter::sendCommand(const QByteArray &data)
@@ -366,7 +371,7 @@ namespace serial
         return false;
     }
 
-    void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
+        void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
 	// What to do with this error?
 
     }

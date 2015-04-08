@@ -253,12 +253,31 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
 
 void MainWindow::on_pushButton_7_clicked()
 {
+    QString input_device = "";
     QVector<QSerialPortInfo> ports = serial::PortReaderWriter::getAvailPorts();
+
+    foreach (const QSerialPortInfo &info, ports) {
+	if (info.manufacturer().contains("FTDI")) {
+	    input_device = info.portName();
+	}
+    }
+
+    if (this->conn->setPort(input_device.toStdString())) {
+	QFont font;
+	font.setPointSize(12);
+	QString text = "Connection Status: " + input_device;
+	ui->label->setText(text);
+	ui->label->setFont(font);
+	ui->progressBar->setValue(100);
+	return;
+    }
+
     QFont font;
     font.setPointSize(12);
     ui->label->setText("Connection Status: (Dis)Connected");
     ui->label->setFont(font);
-    ui->progressBar->setValue(100);
+    ui->progressBar->setValue(0);
+    return;
 }
 
 void MainWindow::on_lineEdit_returnPressed()
