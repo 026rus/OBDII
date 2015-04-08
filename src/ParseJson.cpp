@@ -1,37 +1,48 @@
 #include "ParseJson.h"
-#include "rapidjson/filereadstream.h"
-#include "rapidjson/document.h"
+#include <QFile>
+#include <QString>
+#include <QDir>
+#include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 
-
-using namespace rapidjson;
+//using namespace QJsonObject;
 
 
 
 ParseJson::ParseJson()
 {
-   /* FILE* fp = fopen("src/data/sample.json", "r"); // non-Windows use "r" windows use "rb"
 
-    fseek(fp, 0, SEEK_END);
-    size_t filesize = (size_t)ftell(fp);
-    fseek(fp, 0, SEEK_SET);
 
-    char* buffer = (char*)malloc(filesize + 1);
-    size_t readLength = fread(buffer, 1, filesize, fp);
-    buffer[readLength] = '\0';
-    fclose(fp);
+    QFile file("data/sample.json");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        printf("Failed to read\n");
+        return;
+    }
+    QByteArray parsedJson = file.readAll();
+    /*while (!file.atEnd()) {
+        parsedJson.append(file.readLine());
 
-    // In situ parsing the buffer into d, buffer will also be modified
-    Document d;
-    d.ParseInsitu(buffer);
+    }*/
 
-    // Query/manipulate the DOM here...
-    assert(d.HasMember("P0001"));
-    assert(d["P0001"].IsString());
-    printf("P0001 : %s\n", d["P0001"].GetString());
+    printf(parsedJson.constData());
+    ParseJson(parsedJson, "hello");
+}
 
-    free(buffer);
+ParseJson::ParseJson(QByteArray parsedJson, char *code){
 
-    // Note: At this point, d may have dangling pointers pointed to the deallocated buffer.*/
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(parsedJson);
+    QJsonObject jsonObj = jsonDoc.object();
+    if (jsonDoc.isObject()){
+
+        //QJsonObject foundCode =
+        QJsonValue jsonVal = jsonObj.value(code);
+
+        qDebug() << jsonVal.toString();
+
+    }
+
 }
 
 ParseJson::~ParseJson()
