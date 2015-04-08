@@ -21,6 +21,12 @@ MainWindow::MainWindow(QWidget *parent) :
     c[0] = 0;
     d[0] = 0;
 
+    QFont font;
+    font.setPointSize(12);
+    ui->label->setText("Connection Status: ");
+    ui->label->setFont(font);
+    ui->progressBar->setValue(0);
+
 //    setupQuadraticDemo(ui->customPlot);
 }
 
@@ -67,6 +73,7 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
   customPlot->yAxis->setRange(0, 7);
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+  customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -217,6 +224,7 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
   customPlot->yAxis->setRange(-2, 80);
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+  customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   ui->customPlot->replot();
 }
 
@@ -239,7 +247,7 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   customPlot->yAxis->setRange(-2, 10);
   customPlot->graph(0)->setPen(QPen(Qt::red));
   // first graph will be filled with translucent blue
-  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
+  customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   ui->customPlot->replot();
 }
 
@@ -250,7 +258,7 @@ void MainWindow::on_pushButton_7_clicked()
     font.setPointSize(12);
     ui->label->setText("Connection Status: (Dis)Connected");
     ui->label->setFont(font);
-}
+    ui->progressBar->setValue(100);
 
 void MainWindow::on_lineEdit_returnPressed()
 {
