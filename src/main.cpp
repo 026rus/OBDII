@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
     //CarCoreApp *app = new CarCoreApp(argc, &argv);
     qDebug() << "Application has launched.";
     //app->run();
-    ParseJson *parser = new ParseJson();
+    ParseJson *parser = new ParseJson("U0001");
     //parse("P0002");
     //return app->exec();
     return 1;

@@ -10,12 +10,40 @@
 ParseJson::ParseJson()
 {
 
-    LoadFile();
+    LoadFile("B0001");
 
 }
 
-void ParseJson::LoadFile(){
-    QFile file("data/pcodes.json");
+ParseJson::ParseJson(QString code){
+    LoadFile(code);
+}
+
+
+void ParseJson::LoadFile(QString code){
+
+    QChar letter = code.at(0);
+    QString path;
+
+    switch(letter.toLatin1()){
+    case 'B':
+        path = "data/Bcodes.json";
+        break;
+    case 'C':
+        path = "data/ccodes.json";
+           break;
+    case 'U':
+        path = "data/ucodes.json";
+        break;
+    case 'P':
+        path = "data/pcodes.json";
+        break;
+    default:
+        path = "data/sample.json";
+        break;
+
+    }
+
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
         printf("Failed to read\n");
         return;
@@ -27,7 +55,7 @@ void ParseJson::LoadFile(){
     }*/
 
    // printf(parsedJson.constData());
-    SearchFile(parsedJson, "P0001");
+    SearchFile(parsedJson, code);
 }
 
 void ParseJson::SearchFile(QByteArray parsedJson, QString code){
@@ -41,7 +69,6 @@ void ParseJson::SearchFile(QByteArray parsedJson, QString code){
         if (itr == jsonObj.end()){
             qDebug() << "Code Not Found";
         }else{
-            qDebug() << "GOT HERE";
 
             QJsonValue jsonVal = jsonObj.value(code);
 

@@ -7,7 +7,8 @@ class ParseJson
 {
 public:
     ParseJson();
-    void LoadFile();
+    ParseJson(QString code);
+    void LoadFile(QString code);
     void SearchFile(QByteArray parsedJson, QString code);
 
     ~ParseJson();
