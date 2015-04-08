@@ -1,10 +1,12 @@
 #include "CarCoreApp.h"
+#include "mainwindow.h"
 #include "PortReaderWriter.h"
 #include "ParseJson.h"
 #include <cstdio>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
+#include <QApplication>
 #include <iostream>
 
 
@@ -17,7 +19,6 @@ int main(int argc, char** argv) {
     // !!!!!! please stop deliting it to :)
     if (argc < 2) {
         // GUI interfase by defolte if no argument passed
-	return;
         QApplication a(argc, argv);
         MainWindow w;
         w.show();
