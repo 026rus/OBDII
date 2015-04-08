@@ -17,32 +17,30 @@ void parse(char code[]){
 
     #if 0
         // "normal" parsing, decode strings to new buffers. Can use other input stream via ParseStream().
-        if (document.Parse(json).HasParseError())
+    // this is to choose if you want a command line or
+    // GUI so far if you pass antthing then it will bring command line
+    // and if you do not pass anything the you get GUI
+    // !!!!!! please stop deliting it to :)
+  if (argc < 2)
+    {
+        // GUI interfase by defolte if no argument passed
             return;
-    #else
-        // In-situ parsing, decode strings directly in the source string. Source must be string.
-        char buffer[sizeof(json)];
-        memcpy(buffer, json, sizeof(json));
-        if (document.ParseInsitu(buffer).HasParseError())
-            return;
-    #endif
+        QApplication a(argc, argv);
+        MainWindow w;
+        w.show();
+        return a.exec();
+    }
+    else
+    {
+        CarCoreApp *app = new CarCoreApp(argc, &argv);
+        qDebug() << "Application has launched.";
+        app->run();
 
-        printf("\nParsing to document succeeded.\n");
-
-        ////////////////////////////////////////////////////////////////////////////
-        // 2. Access values in document.
-
-        printf("\nAccess values in document:\n");
-        printf("%s = %s\n",code, document[code].GetString());
-
-*********************************************/
-
-}
-
-
-
-int main(int argc, char **argv) {
-
+        #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+          QApplication::setGraphicsSystem("raster");
+        #endif
+        return app->exec();
+    }
     //CarCoreApp *app = new CarCoreApp(argc, &argv);
     qDebug() << "Application has launched.";
     //app->run();

@@ -34,6 +34,11 @@ void CarCoreApp::run() {
         this->exit(2);
     }
 
+        /********************************************************/
+
+            cout << ":) => ";
+            qtin >> instr;
+
     int rpmVal = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0C");
@@ -41,6 +46,7 @@ void CarCoreApp::run() {
         rpmVal = conn->decodeRPM(buff);
     }
 
+/* *
     QString trobelCode = "";
     { // Try to get the Trouble Code
         conn->sendCommand("01 01");
@@ -48,7 +54,7 @@ void CarCoreApp::run() {
         QByteArray buff = conn->readLine();
         trobelCode = conn->decodeErr(buff);
     }
-/*  */
+/*  *
 //    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 
     emit done();
