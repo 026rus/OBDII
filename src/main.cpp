@@ -1,23 +1,53 @@
 #include "CarCoreApp.h"
 #include "PortReaderWriter.h"
+#include "ParseJson.h"
+#include <cstdio>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <iostream>
 
-#include <QtWidgets/QApplication>
-#include "mainwindow.h"
 
 using namespace serial;
+void parse(char code[]){
+/*****************************************************
+ //RapidJSON working search of char array
+    const char json[] = " { \"P0001\" : \"TEST 1\", \"P0002\" : \"TEST 2\", \"P0003\" : \"TEST 3\" } ";
+    rapidjson::Document document;  // Default template parameter uses UTF8 and MemoryPoolAllocator.
 
-int main(int argc, char **argv)
-{
-  #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-    QApplication::setGraphicsSystem("raster");
-  #endif
+    #if 0
+        // "normal" parsing, decode strings to new buffers. Can use other input stream via ParseStream().
+        if (document.Parse(json).HasParseError())
+            return;
+    #else
+        // In-situ parsing, decode strings directly in the source string. Source must be string.
+        char buffer[sizeof(json)];
+        memcpy(buffer, json, sizeof(json));
+        if (document.ParseInsitu(buffer).HasParseError())
+            return;
+    #endif
 
-  QApplication a(argc, argv);
-  MainWindow w;
-  w.show();
-  return a.exec();
+        printf("\nParsing to document succeeded.\n");
+
+        ////////////////////////////////////////////////////////////////////////////
+        // 2. Access values in document.
+
+        printf("\nAccess values in document:\n");
+        printf("%s = %s\n",code, document[code].GetString());
+
+*********************************************/
+
+}
+
+
+
+int main(int argc, char **argv) {
+
+    //CarCoreApp *app = new CarCoreApp(argc, &argv);
+    qDebug() << "Application has launched.";
+    //app->run();
+    ParseJson *parser = new ParseJson("U0001");
+    //parse("P0002");
+    //return app->exec();
+    return 1;
 }

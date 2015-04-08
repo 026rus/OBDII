@@ -1,0 +1,2553 @@
+{  
+     "P0001" :  
+	 "Fuel Volume Regulator Control Circuit/Open"
+      ,
+     "P0002" :  
+	 "Fuel Volume Regulator Control Circuit Range/Performance"
+      ,
+    "P0003" :  
+	 "Volume Regulator Control Circuit (Low)"
+      ,
+     "P0004" :  
+	 "Fuel volume Regulator Control Circuit (High)"
+      ,
+     "P0005" :  
+	 "Fuel Shutoff Valve ‘A’ Control Circuit/Open"
+      ,
+     "P0006" :  
+	 "Fuel Shutoff Valve ‘A’ Control Circuit (Low)"
+      ,
+     "P0007" :  
+	 "Fuel Shutoff Valve ‘A’ Control Circuit (High)"
+      ,
+     "P0008" :  
+	 "(Bank 1) Engine Positions System Performance"
+      ,
+     "P0009" :  
+	 "(Bank 2) Engine Positions System Performance"
+      ,
+     "P0010" :  
+	 "(Bank 1) 'A' Camshaft Voltage (Low)"
+      ,
+     "P0011" :  
+	 "(Bank 1) 'A' Camshaft Timing (Over Limit)"
+      ,
+     "P0012" :  
+	 "(Bank 1) 'A' Camshaft Timing (Over-retarded)"
+      ,
+     "P0013" :  
+	 "(Bank 1) 'B' Camshaft Voltage (Low)"
+      ,
+     "P0014" :  
+	 "(Bank 1) 'B' Camshaft Timing (Over Limit)"
+      ,
+     "P0015" :  
+	 "(Bank 1) 'B' Camshaft Timing (Over-retarded)"
+      ,
+     "P0016" :  
+	 "(Bank 1) Camshaft Positon Sensor (A) out of Sync"
+      ,
+     "P0017" :  
+	 "(Bank 1) Camshaft Positon Sensor (B) out of Sync"
+      ,
+     "P0018" :  
+	 "(Bank 2) Camshaft Positon Sensor (A) out of Sync"
+      ,
+     "P0019" :  
+	 "(Bank 2) Camshaft Positon Sensor (B) out of Sync"
+      ,
+     "P0020" :  
+	 "(Bank 2) 'B' Camshaft Voltage (Low)"
+      ,
+     "P0021" :  
+	 "(Bank 2) 'A' Camshaft Timing (Over Limit)"
+      ,
+     "P0022" :  
+	 "(Bank 2) 'A' Camshaft Timing (Over-retarded)"
+      ,
+     "P0023" :  
+	 "(Bank 2) 'B' Camshaft Voltage (Low)"
+      ,
+     "P0024" :  
+	 "(Bank 2) 'B' Camshaft Timing (Over Limit)"
+      ,
+     "P0025" :  
+	 "(Bank 2) 'B' Camshaft Timing (Over-retarded)"
+      ,
+     "P0026" :  
+	 "(Bank 1) Intake Valve Control Circuit Out of Spec"
+      ,
+     "P0027" :  
+	 "(Bank 1) Exhaust Valve Control Circuit Out of Spec"
+      ,
+     "P0028" :  
+	 "(Bank 2) Exhaust Valve Control Circuit Out of Spec"
+      ,
+     "P0029" :  
+	 "(Bank 2) Exhaust Valve Control Circuit Out of Spec"
+      ,
+     "P0030" :  
+	 "(Bank 1) Heated Oxygen Sensor Sensor 1 Fault"
+      ,
+     "P0031" :  
+	 "Oxygen Sensor Heater Voltage (Low) "
+      ,
+     "P0032" :  
+	 "Oxygen Sensor Heather Voltage (High)"
+      ,
+     "P0033" :  
+	 "Turbo Charge Bypass Valve Voltage (Fault)"
+      ,
+     "P0034" :  
+	 "Turbo Charge Bypass Valve Voltage (Low)"
+      ,
+     "P0035" :  
+	 "Turbo Charge Bypass Valve Voltage (High)"
+      ,
+     "P0036" :  
+	 "(Bank 1) Heated Oxygen (Heater) Sensor 2 Voltage Fault"
+      ,
+     "P0037" :  
+	 "(Bank 1) Heated Oxygen (Heater) Sensor 2 Voltage (Low)"
+      ,
+     "P0038" :  
+	 "(Bank 1) Heated Oxygen (Heater) Sensor 2 Voltage (High)"
+      ,
+     "P0039" :  
+	 "Turbo/Super Charger Bypass Valve Voltage (Range/Performace)"
+      ,
+     "P0040" :  
+	 "Upstream Oxygen Sensor (Swapped Banks)"
+      ,
+     "P0041" :  
+	 "Downstream Oxygen Sensors (Swapped Banks)"
+      ,
+     "P0042" :  
+	 "(Bank 1) Heated Oxygen Sensor (Heater) Sensor 3 Voltage Fault"
+      ,
+     "P0043" :  
+	 "(Bank 1) Heated Oxygen Sensor (Heater) Sensor 3 Voltage (Low)"
+      ,
+     "P0044" :  
+	 "(Bank 1) Heated Oxygen Sensor (Heater) Sensor 3 Voltage (High)"
+      ,
+     "P0050" :  
+	 "(Bank 2) Heated Oxygen Sensor (Heater) Sensor 1 Voltage "
+      ,
+     "P0051" :  
+	 "(Bank 2) Heated Oxygen Sensor (Heater) Sensor 1 Voltage (Low)"
+      ,
+     "P0052" :  
+	 "(Bank 2) Heated Oxygen Sensor (Heater) Sensor 1 Voltage (High)"
+      ,
+     "P0053" :  
+	 "(Bank 1) Heated Oxygen Sensor (Heater Resistance) Sensor 1 Fault"
+      ,
+     "P0054" :  
+	 "(Bank 1) Heated Oxygen Sensor (Heater Resistance) Sensor 2 Fault"
+      ,
+     "P0055" :  
+	 "(Bank 1) Heated Oxygen Sensor (Heater Resistance) Sensor 3 Fault"
+      ,
+     "P0056" :  
+	 "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage Fault"
+      ,
+     "P0057" :  
+	 "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage (Low)"
+      ,
+     "P0058" :  
+	 "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage (High)"
+      ,
+     "P0059" :  
+	 "(Bank 2) Heated Oxygen Sensor (Heater Resistance) Sensor 1 Fault"
+      ,
+     "P0060" :  
+	 "(Bank 2) Heated Oxygen Sensor (Heater Resistance) Sensor 2 Fault"
+      ,
+     "P0061" :  
+	 "(Bank 2) Heated Oxygen Sensor (Heater Resistance) Sensor 3 Fault"
+      ,
+     "P0062" :  
+	 "(Bank 2) Heated Oxygen Sensor Heater Sensor 3 Voltage Fault"
+      ,
+     "P0063" :  
+	 "(Bank 2) Heated Oxygen Sensor Heater Sensor 3 Voltage (Low)"
+      ,
+     "P0064" :  
+	 "(Bank 2) Heated Oxygen Sensor Heater Sensor 2 Voltage (High)"
+      ,
+     "P0065" :  
+	 "Air Assisted Injector Control (Range/Performance)"
+      ,
+     "P0066" :  
+	 "Air Assisted Injector Voltage (Low)"
+      ,
+     "P0067" :  
+	 "Air Assisted Injector Voltage (High)"
+      ,
+     "P0068" :  
+	 "Manifold Pressure Sensor Fault ****"
+      ,
+     "P0069" :  
+	 "Manifold Absolute Pressure (Barometric Pressur Correlation"
+      ,
+     "P0070" :  
+	 "Ambient Air Temperature Voltage Fault"
+      ,
+     "P0071" :  
+	 "Ambient Air Temperature Voltage (Range/Performance)"
+      ,
+     "P0072" :  
+	 "Ambient Air Temperature Sensor Voltage (Low)"
+      ,
+     "P0073" :  
+	 "Ambient Air Temperature Sensor Voltage (High)"
+      ,
+     "P0074" :  
+	 "Ambient Air Tempterature Sensor Voltage (Intermittent)"
+      ,
+     "P0075" :  
+	 "(Bank 1) Intake Valve Voltage Fault (Solenoid)"
+      ,
+     "P0076" :  
+	 "(Bank 1) Intake Valve Control Voltage (Low) (Solenoid)"
+      ,
+     "P0077" :  
+	 "(Bank 1) Intake Valve Control Voltage (High) (Solenoid)"
+      ,
+     "P0078" :  
+	 "(Bank 1) Exhaust Valve Circuit Fault (Solenoid)"
+      ,
+     "P0079" :  
+	 "(Bank 1) Exhaust Valve Voltage (Low) (Solenoid)"
+      ,
+     "P0080" :  
+	 "(Bank 1) Exhaust Valve Voltage (High) (Solenoid)"
+      ,
+     "P0081" :  
+	 "(Bank 2) Intake Valve Voltage Fault (Solenoid)"
+      ,
+     "P0082" :  
+	 "(Bank 2) Intake Valve Voltage (Low) (Solenoid)"
+      ,
+     "P0083" :  
+	 "(Bank 2) Intake Valve Voltage (High) (Solenoid)"
+      ,
+     "P0084" :  
+	 "(Bank 2) Exhaust Valve Voltage Fault (Solenoid)"
+      ,
+     "P0085" :  
+	 "(Bank 2) Exhaust Valve Voltage (Low) (Solenoid)"
+      ,
+     "P0086" :  
+	 "(Bank 2) Exhaust Valve Voltage (High) (Solenoid)"
+      ,
+     "P0087" :  
+	 "Fuel Rail/System Pressure (Low)"
+      ,
+     "P0088" :  
+	 "Fuel Rail/System Pressure (High)"
+      ,
+     "P0089" :  
+	 "Fuel Pressure Regulator 1 (Performance)"
+      ,
+     "P0090" :  
+	 "Fuel Pressure Regulator 1 Voltage Fault"
+      ,
+     "P0091" :  
+	 "Fuel Pressure Regulator 1 (Low)"
+      ,
+     "P0092" :  
+	 "Fuel Pressure Regulator 1 (High)"
+      ,
+     "P0093" :  
+	 "Fuel System Leak (Large)"
+      ,
+     "P0094" :  
+	 "Fuel System Leak (Small)"
+      ,
+     "P0095" :  
+	 "Intake Air Temperature Sensor 2 Voltage Fault"
+      ,
+     "P0096" :  
+	 "Intake Air Temperature Sensor 2 Voltage (Range/Performance)"
+      ,
+     "P0097" :  
+	 "Intake Air Temperature Sensor 2 Voltage (Low)"
+      ,
+     "P0098" :  
+	 "Intake Air Temperature Sensor 2 Voltage (High)"
+      ,
+     "P0099" :  
+	 "Intake Air Temperature Sensor 2 Voltage (Intermittent)"
+      ,
+     "P0100" :  
+	 "Mass of Volume Air Flow Circuit Malfunction"
+      ,
+     "P0101" :  
+	 "Mass or Volume Air Flow Circuit Range/Performance Problem"
+      ,
+     "P0102" :  
+	 "Mass or Volume Air Flow Circuit Low Input"
+      ,
+     "P0103" :  
+	 "Mass or Volume Air Flow Circuit High Input"
+      ,
+     "P0104" :  
+	 "Mass or Volume Air Flow Circuit Intermittent"
+      ,
+     "P0105" :  
+	 "Manifold Absolute Pressure/Barometric Pressure Circuit Malfunction"
+      ,
+     "P0106" :  
+	 "Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance Problem"
+      ,
+     "P0107" :  
+	 "Manifold Absolute Pressure/Barometric Pressure Circuit Low Input"
+      ,
+     "P0108" :  
+	 "Manifold Absolute Pressure/Barometric Pressure Circuit High Input"
+      ,
+     "P0109" :  
+	 "Manifold Absolute Pressure/Barometric Pressure Circuit Intermittent"
+      ,
+     "P0110" :  
+	 "Intake Air Temperature Circuit Malfunction"
+      ,
+     "P0111" :  
+	 "Intake Air Temperature Circuit Range/Performance Problem"
+      ,
+     "P0112" :  
+	 "Intake Air Temperature Circuit Low Input"
+      ,
+     "P0113" :  
+	 "Intake Air Temperature Circuit High Input"
+      ,
+     "P0114" :  
+	 "Intake Air Temperature Circuit Intermittent"
+      ,
+     "P0115" :  
+	 "Engine Coolant Temperature Circuit Malfunction"
+      ,
+     "P0116" :  
+	 "Engine Coolant Temperature Circuit Range/Performance Problem"
+      ,
+     "P0117" :  
+	 "Engine Coolant Temperature Circuit Low Input"
+      ,
+     "P0118" :  
+	 "Engine Coolant Temperature Circuit High Input"
+      ,
+     "P0119" :  
+	 "Engine Coolant Temperature Circuit Intermittent"
+      ,
+     "P0120" :  
+	 "Throttle Position Sensor/Switch A Circuit Malfunction"
+      ,
+     "P0121" :  
+	 "Throttle Position Sensor/Switch A Circuit Range/Performance 
+    Problem"
+      ,
+     "P0122" :  
+	 "Throttle Position Sensor/Switch A Circuit Low Input"
+      ,
+     "P0123" :  
+	 " Throttle Position Sensor/Switch A Circuit High Input"
+      ,
+     "P0124" :  
+	 "Throttle Position Sensor/Switch A Circuit Intermittent"
+      ,
+     "P0125" :  
+	 "Insufficient Coolant Temperature for Closed Loop Fuel Control"
+      ,
+     "P0126" :  
+	 "Insufficient Coolant Temperature for Stable Operation"
+      ,
+     "P0128" :  
+	 "Coolant Thermostat (Coolant Temperature Below Thermostat 
+    Regulating Temperature)"
+      ,
+     "P0130" :  
+	 "O2 Sensor Circuit Malfunction (Bank I Sensor 1)"
+      ,
+     "P0131" :  
+	 "O2 Sensor Circuit Low Voltage (Bank I Sensor I)"
+      ,
+     "P0132" :  
+	 "O2 Sensor Circuit High Voltage (Bank I Sensor 1)"
+      ,
+     "P0133" :  
+	 "O2 Sensor Circuit Slow Response (Bank 1 Sensor 1)"
+      ,
+     "P0134" :  
+	 "O2 Sensor Circuit No Activity Detected (Bank I Sensor 1)"
+      ,
+     "P0135" :  
+	 "O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 1)"
+      ,
+     "P0136" :  
+	 "O2 Sensor Circuit Malfunction (Bank I Sensor 2)"
+      ,
+     "P0137" :  
+	 "O2 Sensor Circuit Low Voltage (Bank I Sensor 2)"
+      ,
+     "P0138" :  
+	 "O2 Sensor Circuit High Voltage (Bank I Sensor 2)"
+      ,
+     "P0139" :  
+	 "O2 Sensor Circuit Slow Response (Bank 1 Sensor 2)"
+      ,
+     "P0140" :  
+	 "O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 
+    2)"
+      ,
+     "P0141" :  
+	 "O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 
+    2)"
+      ,
+     "P0142" :  
+	 "O2 Sensor Circuit Malfunction (Bank I Sensor 3)"
+      ,
+     "P0143" :  
+	 "O2 Sensor Circuit Low Voltage (Bank I Sensor 3)"
+      ,
+     "P0144" :  
+	 "O2 Sensor Circuit High Voltage (Bank I Sensor 3)"
+      ,
+     "P0146" :  
+	 "O2 Sensor Circuit No Activity Detected (Bank I Sensor 3)"
+      ,
+     "P0147" :  
+	 "O2 Sensor Heater Circuit Malfunction (Bank I Sensor 3)"
+      ,
+     "P0150" :  
+	 "O2 Sensor Circuit Malfunction (Bank 2 Sensor I)"
+      ,
+     "P0151" :  
+	 "O2 Sensor Circuit Low Voltage (Bank 2 Sensor I)"
+      ,
+     "P0152" :  
+	 "O2 Sensor Circuit High Voltage (Bank 2 Sensor 1)"
+      ,
+     "P0153" :  
+	 "O2 Sensor Circuit Slow Response (Bank 2 Sensor 1)"
+      ,
+     "P0154" :  
+	 "O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 1)"
+      ,
+     "P0155" :  
+	 "O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 1)"
+      ,
+     "P0156" :  
+	 "02 Sensor Circuit Malfunction (Bank 2 Sensor 2)"
+      ,
+     "P0157" :  
+	 "02 Sensor Circuit Low Voltage (Bank 2 Sensor 2)"
+      ,
+     "P0158" :  
+	 "02 Sensor Circuit High Voltage (Bank 2 Sensor 2)"
+      ,
+     "P0159" :  
+	 "02 Sensor Circuit Slow Response (Bank 2 Sensor 2)"
+      ,
+     "P0160" :  
+	 "02 Sensor Circuit No Activity Detected (Bank 2 Sensor 2)"
+      ,
+     "P0161" :  
+	 "02 Sensor Heater Circuit Malfunction (Bank 2 Sensor 2)"
+      ,
+     "P0162" :  
+	 "02 Sensor Circuit Malfunction (Bank 2 Sensor 3)"
+      ,
+     "P0163" :  
+	 "02 Sensor Circuit Low Voltage (Bank 2 Sensor 3)"
+      ,
+     "P0164" :  
+	 "02 Sensor Circuit High Voltage (Bank 2 Sensor 3"
+      ,
+     "P0165" :  
+	 "02 Sensor Circuit Slow Response (Bank 2 Sensor 3)"
+      ,
+     "P0166" :  
+	 "02 Sensor Circuit No Activity Detected (Bank 2 Sensor 3)"
+      ,
+     "P0167" :  
+	 "02 Sensor Heater Circuit Malfunction (Bank 2 Sensor 3)"
+      ,
+     "P0170" :  
+	 "Fuel Trim Malfunction (Bank 1)"
+      ,
+     "P0171" :  
+	 "System too Lean (Bank 1)"
+      ,
+     "P0172" :  
+	 "System too Rich (Bank 1)"
+      ,
+     "P0173" :  
+	 "Fuel Trim Malfunction (Bank 2)"
+      ,
+     "P0174" :  
+	 "System too Lean (Bank 2)"
+      ,
+     "P0175" :  
+	 "System too Rich (Bank 2)"
+      ,
+     "P0176" :  
+	 "Fuel Composition Sensor Circuit Malfunction"
+      ,
+     "P0177" :  
+	 "Fuel Composition Sensor Circuit Range/Performance"
+      ,
+     "P0178" :  
+	 "Fuel Composition Sensor Circuit Low Input"
+      ,
+     "P0179" :  
+	 "Fuel Composition Sensor Circuit High Input"
+      ,
+     "P0180" :  
+	 "Fuel Temperature Sensor A Circuit Malfunction"
+      ,
+     "P0181" :  
+	 "Fuel Temperature Sensor A Circuit Range/Performance"
+      ,
+     "P0182" :  
+	 "Fuel Temperature Sensor A Circuit Low Input"
+      ,
+     "P0183" :  
+	 "Fuel Temperature Sensor A Circuit High Input"
+      ,
+     "P0184" :  
+	 "Fuel Temperature Sensor A Circuit Intermittent"
+      ,
+     "P0185" :  
+	 "Fuel Temperature Sensor B Circuit Malfunction"
+      ,
+     "P0186" :  
+	 "Fuel Temperature Sensor B Circuit Range/Performance"
+      ,
+     "P0187" :  
+	 "Fuel Temperature Sensor B Circuit Low Input"
+      ,
+     "P0188" :  
+	 "Fuel Temperature Sensor B Circuit High Input"
+      ,
+     "P0189" :  
+	 "Fuel Temperature Sensor B Circuit Intermittent"
+      ,
+     "P0190" :  
+	 "Fuel Rail Pressure Sensor Circuit Malfunction"
+      ,
+     "P0191" :  
+	 "Fuel Rail Pressure Sensor Circuit Range/Performance"
+      ,
+     "P0192" :  
+	 "Fuel Rail Pressure Sensor Circuit Low Input"
+      ,
+     "P0193" :  
+	 "Fuel Rail Pressure Sensor Circuit High Input"
+      ,
+     "P0194" :  
+	 "Fuel Rail Pressure Sensor Circuit Intermittent"
+      ,
+     "P0195" :  
+	 "Engine Oil Temperature Sensor Malfunction"
+      ,
+     "P0196" :  
+	 "Engine Oil Temperature Sensor Range/Performance"
+      ,
+     "P0197" :  
+	 "Engine Oil Temperature Sensor Low"
+      ,
+     "P0198" :  
+	 "Engine Oil Temperature Sensor High"
+      ,
+     "P0199" :  
+	 "Engine Oil Temperature Sensor Intermittent"
+      ,
+     "P0200" :  
+	 "Injector Circuit Malfunction"
+      ,
+     "P0201" :  
+	 "Injector Circuit Malfunction - Cylinder 1"
+      ,
+     "P0202" :  
+	 "Injector Circuit Malfunction - Cylinder 2"
+      ,
+     "P0203" :  
+	 "Injector Circuit Malfunction - Cylinder 3"
+      ,
+     "P0204" :  
+	 "Injector Circuit Malfunction - Cylinder 4"
+      ,
+     "P0205" :  
+	 "Injector Circuit Malfunction - Cylinder 5"
+      ,
+     "P0206" :  
+	 "Injector Circuit Malfunction - Cylinder 6"
+      ,
+     "P0207" :  
+	 "Injector Circuit Malfunction - Cylinder 7"
+      ,
+     "P0208" :  
+	 "Injector Circuit Malfunction - Cylinder 8"
+      ,
+     "P0209" :  
+	 "Injector Circuit Malfunction - Cylinder 9"
+      ,
+     "P0210" :  
+	 "Injector Circuit Malfunction - Cylinder 10"
+      ,
+     "P0211" :  
+	 "Injector Circuit Malfunction - Cylinder 11"
+      ,
+     "P0212" :  
+	 "Injector Circuit Malfunction - Cylinder 12"
+      ,
+     "P0213" :  
+	 "Cold Start Injector 1 Malfunction"
+      ,
+     "P0214" :  
+	 "Cold Start Injector 2 Malfunction"
+      ,
+     "P0215" :  
+	 "Engine Shutoff Solenoid Malfunction"
+      ,
+     "P0216" :  
+	 "Injection Timing Control Circuit Malfunction"
+      ,
+     "P0217" :  
+	 "Engine Overtemp Condition"
+      ,
+     "P0218" :  
+	 "Transmission Over Temperature Condition"
+      ,
+     "P0219" :  
+	 "Engine Overspeed Condition"
+      ,
+     "P0220" :  
+	 "Throttle/Petal Position Sensor/Switch B Circuit Malfunction"
+      ,
+     "P0221" :  
+	 "Throttle/Petal Position Sensor/Switch B Circuit Range/Performance Problem"
+      ,
+     "P0222" :  
+	 "Throttle/Petal Position Sensor/Switch B Circuit Low Input"
+      ,
+     "P0223" :  
+	 "Throttle/Petal Position Sensor/Switch B Circuit High Input"
+      ,
+     "P0224" :  
+	 "Throttle/Petal Position Sensor/Switch B Circuit Intermittent"
+      ,
+     "P0225" :  
+	 "Throttle/Petal Position Sensor/Switch C Circuit Malfunction"
+      ,
+     "P0226" :  
+	 "Throttle/Petal Position Sensor/Switch C Circuit Range/Performance Problem"
+      ,
+     "P0227" :  
+	 "Throttle/Petal Position Sensor/Switch C Circuit Low Input"
+      ,
+     "P0228" :  
+	 "Throttle/Petal Position Sensor/Switch C Circuit High Input"
+      ,
+     "P0229" :  
+	 "Throttle/Petal Position Sensor/Switch C Circuit Intermittent"
+      ,
+     "P0230" :  
+	 "Fuel Pump Primary Circuit Malfunction"
+      ,
+     "P0231" :  
+	 "Fuel Pump Secondary Circuit Low"
+      ,
+     "P0232" :  
+	 "Fuel Pump Secondary Circuit High"
+      ,
+     "P0233" :  
+	 "Fuel Pump Secondary Circuit Intermittent"
+      ,
+     "P0234" :  
+	 "Engine Turbocharger/Supercharger Overboost Condition"
+      ,
+     "P0235" :  
+	 "Turbocharger Boost Sensor A Circuit Malfunction"
+      ,
+     "P0236" :  
+	 "Turbocharger Boost Sensor A Circuit Range/Performance"
+      ,
+     "P0237" :  
+	 "Turbocharger Boost Sensor A Circuit Low"
+      ,
+     "P0238" :  
+	 "Turbocharger Boost Sensor A Circuit High"
+      ,
+     "P0239" :  
+	 "Turbocharger Boost Sensor B Circuit Malfunction"
+      ,
+     "P0240" :  
+	 "Turbocharger Boost Sensor B Circuit Range/Performance"
+      ,
+     "P0241" :  
+	 "Turbocharger Boost Sensor B Circuit Low"
+      ,
+     "P0242" :  
+	 "Turbocharger Boost Sensor B Circuit High"
+      ,
+     "P0243" :  
+	 "Turbocharger Wastegate Solenoid A Malfunction"
+      ,
+     "P0244" :  
+	 "Turbocharger Wastegate Solenoid A Range/Performance"
+      ,
+     "P0245" :  
+	 "Turbocharger Wastegate Solenoid A Lo"
+      ,
+     "P0246" :  
+	 "Turbocharger Wastegate Solenoid A High"
+      ,
+     "P0247" :  
+	 "Turbocharger Wastegate Solenoid B Malfunction"
+      ,
+     "P0248" :  
+	 "Turbocharger Wastegate Solenoid B Range/Performance"
+      ,
+     "P0249" :  
+	 "Turbocharger Wastegate Solenoid B Low"
+      ,
+     "P0250" :  
+	 "Turbocharger Wastegate Solenoid B High"
+      ,
+     "P0251" :  
+	 "Injection Pump Fuel Metering Control "A" Malfunction (Cam/Rotor/Injector)"
+      ,
+     "P0252" :  
+	 "Injection Pump Fuel Metering Control "A" Range/Performance (Cam/Rotor/Injector)"
+      ,
+     "P0253" :  
+	 "Injection Pump Fuel Metering Control "A" Low (Cam/Rotor/Injector)"
+      ,
+     "P0254" :  
+	 "Injection Pump Fuel Metering Control "A" High (Cam/Rotor/Injector)"
+      ,
+     "P0255" :  
+	 "Injection Pump Fuel Metering Control "A" Intermittent (Cam/Rotor/Injector)"
+      ,
+     "P0256" :  
+	 "Injection Pump Fuel Metering Control "B" Malfunction (Cam/Rotor/Injector)"
+      ,
+     "P0257" :  
+	 "Injection Pump Fuel Metering Control "B" Range/Performance Injector)"
+      ,
+     "P0258" :  
+	 "Injection Pump Fuel Metering Control "B" Low (Cam/R)"
+      ,
+     "P0259" :  
+	 "Injection Pump Fuel Metering Control "B" High (Cam/R)"
+      ,
+     "P0260" :  
+	 "Injection Pump Fuel Metering Control "B" Intermittent Injector)"
+      ,
+     "P0261" :  
+	 "Cylinder 1 Injector Circuit Low"
+      ,
+     "P0262" :  
+	 "Cylinder 1 Injector Circuit High"
+      ,
+     "P0263" :  
+	 "Cylinder 1 Contribution/Balance Fault"
+      ,
+     "P0264" :  
+	 "Cylinder 2 Injector Circuit Low"
+      ,
+     "P0265" :  
+	 "Cylinder 2 Injector Circuit High"
+      ,
+     "P0266" :  
+	 "Cylinder 2 Contribution/Balance Fault"
+      ,
+     "P0267" :  
+	 "Cylinder 3 Injector Circuit Low"
+      ,
+     "P0268" :  
+	 "Cylinder 3 Injector Circuit High"
+      ,
+     "P0269" :  
+	 "Cylinder 3 Contribution/Balance Fault"
+      ,
+     "P0270" :  
+	 "Cylinder 4 Injector Circuit Low"
+      ,
+     "P0271" :  
+	 "Cylinder 4 Injector Circuit High"
+      ,
+     "P0272" :  
+	 "Cylinder 4 Contribution/Balance Fault"
+      ,
+     "P0273" :  
+	 "Cylinder 5 Injector Circuit Low"
+      ,
+     "P0274" :  
+	 "Cylinder 5 Injector Circuit High"
+      ,
+     "P0275" :  
+	 "Cylinder 5 Contribution/Balance Fault"
+      ,
+     "P0276" :  
+	 "Cylinder 6 Injector Circuit Low"
+      ,
+     "P0277" :  
+	 "Cylinder 6 Injector Circuit High"
+      ,
+     "P0278" :  
+	 "Cylinder 6 Contribution/Balance Fault"
+      ,
+     "P0279" :  
+	 "Cylinder 7 Injector Circuit Low"
+      ,
+     "P0280" :  
+	 "Cylinder 7 Injector Circuit High"
+      ,
+     "P0281" :  
+	 "Cylinder 7 Contribution/Balance Fault"
+      ,
+     "P0282" :  
+	 "Cylinder 8 Injector Circuit Low"
+      ,
+     "P0283" :  
+	 "Cylinder 8 Injector Circuit High"
+      ,
+     "P0284" :  
+	 "Cylinder 8 Contribution/Balance Fault"
+      ,
+     "P0285" :  
+	 "Cylinder 9 Injector Circuit Low"
+      ,
+     "P0286" :  
+	 "Cylinder 9 Injector Circuit High"
+      ,
+     "P0287" :  
+	 "Cylinder 9 Contribution/Balance Fault"
+      ,
+     "P0288" :  
+	 "Cylinder 10 Injector Circuit Lo"
+      ,
+     "P0289" :  
+	 "Cylinder 10 Injector Circuit High"
+      ,
+     "P0290" :  
+	 "Cylinder 10 Contribution/Balance Fault"
+      ,
+     "P0291" :  
+	 "Cylinder 11 Injector Circuit Low"
+      ,
+     "P0292" :  
+	 "Cylinder 11 Injector Circuit High"
+      ,
+     "P0293" :  
+	 "Cylinder 11 Contribution/Balance Fault"
+      ,
+     "P0294" :  
+	 "Cylinder 12 Injector Circuit Low"
+      ,
+     "P0295" :  
+	 "Cylinder 12 Injector Circuit High"
+      ,
+     "P0296" :  
+	 "Cylinder 12 Contribution/Range Fault"
+      ,
+     "P0297" :  
+	 "Vehicle Overspeed Condition"
+      ,
+     "P0298" :  
+	 "Engine Oil Over Temperature Condition"
+      ,
+     "P0299" :  
+	 "Turbocharger/Supercharger (Underboost Condition)"
+      ,
+     "P0300" :  
+	 ""
+      ,
+     "P0301" :  
+	 ""
+      ,
+     "P0302" :  
+	 ""
+      ,
+     "P0303" :  
+	 ""
+      ,
+     "P0304" :  
+	 ""
+      ,
+     "P0305" :  
+	 ""
+      ,
+     "P0306" :  
+	 ""
+      ,
+     "P0307" :  
+	 ""
+      ,
+     "P0308" :  
+	 ""
+      ,
+     "P0309" :  
+	 ""
+      ,
+     "P0310" :  
+	 ""
+      ,
+     "P0311" :  
+	 ""
+      ,
+     "P0312" :  
+	 ""
+      ,
+     "P0313" :  
+	 ""
+      ,
+     "P0314" :  
+	 ""
+      ,
+     "P0315" :  
+	 ""
+      ,
+     "P0316" :  
+	 ""
+      ,
+     "P0317" :  
+	 ""
+      ,
+     "P0318" :  
+	 ""
+      ,
+     "P0319" :  
+	 ""
+      ,
+     "P0320" :  
+	 ""
+      ,
+     "P0321" :  
+	 ""
+      ,
+     "P0322" :  
+	 ""
+      ,
+     "P0323" :  
+	 ""
+      ,
+     "P0324" :  
+	 ""
+      ,
+     "P0325" :  
+	 ""
+      ,
+     "P0326" :  
+	 ""
+      ,
+     "P0327" :  
+	 ""
+      ,
+     "P0328" :  
+	 ""
+      ,
+     "P0329" :  
+	 ""
+      ,
+     "P0330" :  
+	 ""
+      ,
+     "P0331" :  
+	 ""
+      ,
+     "P0332" :  
+	 ""
+      ,
+     "P0333" :  
+	 ""
+      ,
+     "P0334" :  
+	 ""
+      ,
+     "P0335" :  
+	 ""
+      ,
+     "P0336" :  
+	 ""
+      ,
+     "P0337" :  
+	 ""
+      ,
+     "P0338" :  
+	 ""
+      ,
+     "P0339" :  
+	 ""
+      ,
+     "P0340" :  
+	 ""
+      ,
+     "P0341" :  
+	 ""
+      ,
+     "P0342" :  
+	 ""
+      ,
+     "P0343" :  
+	 ""
+      ,
+     "P0344" :  
+	 ""
+      ,
+     "P0345" :  
+	 ""
+      ,
+     "P0346" :  
+	 ""
+      ,
+     "P0347" :  
+	 ""
+      ,
+     "P0348" :  
+	 ""
+      ,
+     "P0349" :  
+	 ""
+      ,
+     "P0350" :  
+	 ""
+      ,
+     "P0351" :  
+	 ""
+      ,
+     "P0352" :  
+	 ""
+      ,
+     "P0353" :  
+	 ""
+      ,
+     "P0354" :  
+	 ""
+      ,
+     "P0355" :  
+	 ""
+      ,
+     "P0356" :  
+	 ""
+      ,
+     "P0357" :  
+	 ""
+      ,
+     "P0358" :  
+	 ""
+      ,
+     "P0359" :  
+	 ""
+      ,
+     "P0360" :  
+	 ""
+      ,
+     "P0361" :  
+	 ""
+      ,
+     "P0362" :  
+	 ""
+      ,
+     "P0363" :  
+	 ""
+      ,
+     "P0364" :  
+	 ""
+      ,
+     "P0365" :  
+	 ""
+      ,
+     "P0366" :  
+	 ""
+      ,
+     "P0367" :  
+	 ""
+      ,
+     "P0368" :  
+	 ""
+      ,
+     "P0369" :  
+	 ""
+      ,
+     "P0370" :  
+	 ""
+      ,
+     "P0371" :  
+	 ""
+      ,
+     "P0372" :  
+	 ""
+      ,
+     "P0373" :  
+	 ""
+      ,
+     "P0374" :  
+	 ""
+      ,
+     "P0375" :  
+	 ""
+      ,
+     "P0376" :  
+	 ""
+      ,
+     "P0377" :  
+	 ""
+      ,
+     "P0378" :  
+	 ""
+      ,
+     "P0379" :  
+	 ""
+      ,
+     "P0380" :  
+	 ""
+      ,
+     "P0381" :  
+	 ""
+      ,
+     "P0382" :  
+	 ""
+      ,
+     "P0383" :  
+	 ""
+      ,
+     "P0384" :  
+	 ""
+      ,
+     "P0385" :  
+	 ""
+      ,
+     "P0386" :  
+	 ""
+      ,
+     "P0387" :  
+	 ""
+      ,
+     "P0388" :  
+	 ""
+      ,
+     "P0389" :  
+	 ""
+      ,
+     "P0391" :  
+	 ""
+      ,
+     "P0392" :  
+	 ""
+      ,
+     "P0393" :  
+	 ""
+      ,
+     "P0394" :  
+	 ""
+      ,
+     "P0400" :  
+	 ""
+      ,
+     "P0401" :  
+	 ""
+      ,
+     "P0402" :  
+	 ""
+      ,
+     "P0403" :  
+	 ""
+      ,
+     "P0404" :  
+	 ""
+      ,
+     "P0405" :  
+	 ""
+      ,
+     "P0406" :  
+	 ""
+      ,
+     "P0407" :  
+	 ""
+      ,
+     "P0408" :  
+	 ""
+      ,
+     "P0409" :  
+	 ""
+      ,
+     "P0410" :  
+	 ""
+      ,
+     "P0411" :  
+	 ""
+      ,
+     "P0412" :  
+	 ""
+      ,
+     "P0413" :  
+	 ""
+      ,
+     "P0414" :  
+	 ""
+      ,
+     "P0415" :  
+	 ""
+      ,
+     "P0416" :  
+	 ""
+      ,
+     "P0417" :  
+	 ""
+      ,
+     "P0418" :  
+	 ""
+      ,
+     "P0419" :  
+	 ""
+      ,
+     "P0420" :  
+	 ""
+      ,
+     "P0421" :  
+	 ""
+      ,
+     "P0422" :  
+	 ""
+      ,
+     "P0423" :  
+	 ""
+      ,
+     "P0424" :  
+	 ""
+      ,
+     "P0425" :  
+	 ""
+      ,
+     "P0426" :  
+	 ""
+      ,
+     "P0427" :  
+	 ""
+      ,
+     "P0428" :  
+	 ""
+      ,
+     "P0429" :  
+	 ""
+      ,
+     "P0430" :  
+	 ""
+      ,
+     "P0431" :  
+	 ""
+      ,
+     "P0432" :  
+	 ""
+      ,
+     "P0433" :  
+	 ""
+      ,
+     "P0434" :  
+	 ""
+      ,
+     "P0435" :  
+	 ""
+      ,
+     "P0436" :  
+	 ""
+      ,
+     "P0437" :  
+	 ""
+      ,
+     "P0438" :  
+	 ""
+      ,
+     "P0439" :  
+	 ""
+      ,
+     "P0440" :  
+	 ""
+      ,
+     "P0441" :  
+	 ""
+      ,
+     "P0442" :  
+	 ""
+      ,
+     "P0443" :  
+	 ""
+      ,
+     "P0444" :  
+	 ""
+      ,
+     "P0445" :  
+	 ""
+      ,
+     "P0446" :  
+	 ""
+      ,
+     "P0447" :  
+	 ""
+      ,
+     "P0448" :  
+	 ""
+      ,
+     "P0449" :  
+	 ""
+      ,
+     "P0450" :  
+	 ""
+      ,
+     "P0451" :  
+	 ""
+      ,
+     "P0452" :  
+	 ""
+      ,
+     "P0453" :  
+	 ""
+      ,
+     "P0454" :  
+	 ""
+      ,
+     "P0455" :  
+	 ""
+      ,
+     "P0456" :  
+	 ""
+      ,
+     "P0457" :  
+	 ""
+      ,
+     "P0458" :  
+	 ""
+      ,
+     "P0459" :  
+	 ""
+      ,
+     "P0460" :  
+	 ""
+      ,
+     "P0461" :  
+	 ""
+      ,
+     "P0462" :  
+	 ""
+      ,
+     "P0463" :  
+	 ""
+      ,
+     "P0464" :  
+	 ""
+      ,
+     "P0465" :  
+	 ""
+      ,
+     "P0466" :  
+	 ""
+      ,
+     "P0467" :  
+	 ""
+      ,
+     "P0468" :  
+	 ""
+      ,
+     "P0469" :  
+	 ""
+      ,
+     "P0470" :  
+	 ""
+      ,
+     "P0471" :  
+	 ""
+      ,
+     "P0472" :  
+	 ""
+      ,
+     "P0473" :  
+	 ""
+      ,
+     "P0474" :  
+	 ""
+      ,
+     "P0475" :  
+	 ""
+      ,
+     "P0476" :  
+	 ""
+      ,
+     "P0477" :  
+	 ""
+      ,
+     "P0478" :  
+	 ""
+      ,
+     "P0479" :  
+	 ""
+      ,
+     "P0480" :  
+	 ""
+      ,
+     "P0481" :  
+	 ""
+      ,
+     "P0482" :  
+	 ""
+      ,
+     "P0483" :  
+	 ""
+      ,
+     "P0484" :  
+	 ""
+      ,
+     "P0485" :  
+	 ""
+      ,
+     "P0486" :  
+	 ""
+      ,
+     "P0487" :  
+	 ""
+      ,
+     "P0488" :  
+	 ""
+      ,
+     "P0489" :  
+	 ""
+      ,
+     "P0490" :  
+	 ""
+      ,
+     "P0491" :  
+	 ""
+      ,
+     "P0492" :  
+	 ""
+      ,
+     "P0493" :  
+	 ""
+      ,
+     "P0494" :  
+	 ""
+      ,
+     "P0495" :  
+	 ""
+      ,
+     "P0496" :  
+	 ""
+      ,
+     "P0497" :  
+	 ""
+      ,
+     "P0498" :  
+	 ""
+      ,
+     "P0499" :  
+	 ""
+      ,
+     "P0500" :  
+	 ""
+      ,
+     "P0501" :  
+	 ""
+      ,
+     "P0502" :  
+	 ""
+      ,
+     "P0503" :  
+	 ""
+      ,
+     "P054" :  
+	 ""
+      ,
+     "P0505" :  
+	 ""
+      ,
+     "P0506" :  
+	 ""
+      ,
+     "P0507" :  
+	 ""
+      ,
+     "P0508" :  
+	 ""
+      ,
+     "P0509" :  
+	 ""
+      ,
+     "P0510" :  
+	 ""
+      ,
+     "P0511" :  
+	 ""
+      ,
+     "P0512" :  
+	 ""
+      ,
+     "P0513" :  
+	 ""
+      ,
+     "P0514" :  
+	 ""
+      ,
+     "P0515" :  
+	 ""
+      ,
+     "P0516" :  
+	 ""
+      ,
+     "P0517" :  
+	 ""
+      ,
+     "P0518" :  
+	 ""
+      ,
+     "P0519" :  
+	 ""
+      ,
+     "P0520" :  
+	 ""
+      ,
+     "P0521" :  
+	 ""
+      ,
+     "P0522" :  
+	 ""
+      ,
+     "P0523" :  
+	 ""
+      ,
+     "P0524" :  
+	 ""
+      ,
+     "P0525" :  
+	 ""
+      ,
+     "P0527" :  
+	 ""
+      ,
+     "P0527" :  
+	 ""
+      ,
+     "P0528" :  
+	 ""
+      ,
+     "P0529" :  
+	 ""
+      ,
+     "P0530" :  
+	 ""
+      ,
+     "P0531" :  
+	 ""
+      ,
+     "P0532" :  
+	 ""
+      ,
+     "P0533" :  
+	 ""
+      ,
+     "P0534" :  
+	 ""
+      ,
+     "P0535" :  
+	 ""
+      ,
+     "P0536" :  
+	 ""
+      ,
+     "P0537" :  
+	 ""
+      ,
+     "P0538" :  
+	 ""
+      ,
+     "P0539" :  
+	 ""
+      ,
+     "P0540" :  
+	 ""
+      ,
+     "P0541" :  
+	 ""
+      ,
+     "P0542" :  
+	 ""
+      ,
+     "P0543" :  
+	 ""
+      ,
+     "P0544" :  
+	 ""
+      ,
+     "P0545" :  
+	 ""
+      ,
+     "P0546" :  
+	 ""
+      ,
+     "P0547" :  
+	 ""
+      ,
+     "P0548" :  
+	 ""
+      ,
+     "P0549" :  
+	 ""
+      ,
+     "P0550" :  
+	 ""
+      ,
+     "P0551" :  
+	 ""
+      ,
+     "P0552" :  
+	 ""
+      ,
+     "P0553" :  
+	 ""
+      ,
+     "P0554" :  
+	 ""
+      ,
+     "P0555" :  
+	 ""
+      ,
+     "P0556" :  
+	 ""
+      ,
+     "P0557" :  
+	 ""
+      ,
+     "P0558" :  
+	 ""
+      ,
+     "P0559" :  
+	 ""
+      ,
+     "P0560" :  
+	 ""
+      ,
+     "P0561" :  
+	 ""
+      ,
+     "P0562" :  
+	 ""
+      ,
+     "P0563" :  
+	 ""
+      ,
+     "P0564" :  
+	 ""
+      ,
+     "P0565" :  
+	 ""
+      ,
+     "P0566" :  
+	 ""
+      ,
+     "P0567" :  
+	 ""
+      ,
+     "P0568" :  
+	 ""
+      ,
+     "P0569" :  
+	 ""
+      ,
+     "P0570" :  
+	 ""
+      ,
+     "P0571" :  
+	 ""
+      ,
+     "P0572" :  
+	 ""
+      ,
+     "P0573" :  
+	 ""
+      ,
+     "P0574" :  
+	 ""
+      ,
+     "P0575" :  
+	 ""
+      ,
+     "P0576" :  
+	 ""
+      ,
+     "P0577" :  
+	 ""
+      ,
+     "P0578" :  
+	 ""
+      ,
+     "P0579" :  
+	 ""
+      ,
+     "P0580" :  
+	 ""
+      ,
+     "P0581" :  
+	 ""
+      ,
+     "P0582" :  
+	 ""
+      ,
+     "P0583" :  
+	 ""
+      ,
+     "P0584" :  
+	 ""
+      ,
+     "P0585" :  
+	 ""
+      ,
+     "P0586" :  
+	 ""
+      ,
+     "P0587" :  
+	 ""
+      ,
+     "P0588" :  
+	 ""
+      ,
+     "P0589" :  
+	 ""
+      ,
+     "P0590" :  
+	 ""
+      ,
+     "P0591" :  
+	 ""
+      ,
+     "P0592" :  
+	 ""
+      ,
+     "P0593" :  
+	 ""
+      ,
+     "P0594" :  
+	 ""
+      ,
+     "P0595" :  
+	 ""
+      ,
+     "P0596" :  
+	 ""
+      ,
+     "P0597" :  
+	 ""
+      ,
+     "P0598" :  
+	 ""
+      ,
+     "P0599" :  
+	 ""
+      ,
+"P2600" :  
+	 "Coolant Pump Control Circuit Open"
+      ,
+     "P2601" :  
+	 "Coolant Pump Control Circuit Range/Performance"
+      ,
+     "P2602" :  
+	 "Coolant Pump Control Circuit Low"
+      ,
+     "P2603" :  
+	 "Coolant Pump Control Circuit High"
+      ,
+     "P2604" :  
+	 "Intake Air Heater A Circuit Range/Performance"
+      ,
+     "P2605" :  
+	 "Intake Air Heater B Circuit Open"
+      ,
+     "P2606" :  
+	 "Intake Air Heater B Circuit Range/Performance"
+      ,
+     "P2607" :  
+	 "Intake Air Heater B Circuit Low"
+      ,
+     "P2608" :  
+	 "Intake Air Heater B Circuit High"
+      ,
+     "P2609" :  
+	 "Intake Air Heater System Performance"
+      ,
+     "P2610" :  
+	 "ECM/PCM Internal Engine Off Timer Performance"
+      ,
+     "P2611" :  
+	 "A/C Refrigerant Distribution Valve Control Circuit Open"
+      ,
+     "P2612" :  
+	 "A/C Refrigerant Distribution Valve Control Circuit Low"
+      ,
+     "P2613" :  
+	 "A/C Refrigerant Distribution Valve Control Circuit High"
+      ,
+     "P2614" :  
+	 "Camshaft Position Signal Output Circuit Open"
+      ,
+     "P2615" :  
+	 "Camshaft Position Signal Output Circuit Low"
+      ,
+     "P2616" :  
+	 "Camshaft Position Signal Output Circuit High"
+      ,
+     "P2617" :  
+	 "Crank Position Signal Output Circuit Open"
+      ,
+     "P2618" :  
+	 "Crank Position Signal Output Circuit Low"
+      ,
+     "P2619" :  
+	 "Crank Position Signal Output Circuit High"
+      ,
+     "P2620" :  
+	 "Throttle Position Output Circuit Open"
+      ,
+     "P2621" :  
+	 "Throttle Position Output Circuit Low"
+      ,
+     "P2622" :  
+	 "Throttle Position Output Circuit High"
+      ,
+     "P2623" :  
+	 "Injector Control Pressure Regulator Circuit Open"
+      ,
+     "P2624" :  
+	 "Injector Control Pressure Regulator Circuit Low"
+      ,
+     "P2625" :  
+	 "Injector Control Pressure Regulator Circuit High"
+      ,
+     "P2626" :  
+	 "O2 Sensor Pumping Current Trim Circuit Open Bank1 Sensor 1"
+      ,
+     "P2627" :  
+	 "O2 Sensor Pumping Current Trim Circuit Low Bank1 Sensor 1"
+      ,
+     "P2628" :  
+	 "O2 Sensor Pumping Current Trim Circuit High Bank1 Sensor 1"
+      ,
+     "P2629" :  
+	 "O2 Sensor Pumping Current Trim Circuit Open Bank2 Sensor 1"
+      ,
+     "P2630" :  
+	 "O2 Sensor Pumping Current Trim Circuit Low Bank2 Sensor 1"
+      ,
+     "P2631" :  
+	 "O2 Sensor Pumping Current Trim Circuit High Bank2 Sensor 1"
+      ,
+     "P2632" :  
+	 "Fuel Pump B Control Circuit Open"
+      ,
+     "P2633" :  
+	 "Fuel Pump B Control Circuit Low"
+      ,
+     "P2634" :  
+	 "Fuel Pump B Control Circuit High"
+      ,
+     "P2635" :  
+	 "Fuel Pump A Low Flow/Performance"
+      ,
+     "P2636" :  
+	 "Fuel Pump B Low Flow/Performance"
+      ,
+     "P2637" :  
+	 "Torque Management Feedback Signal A"
+      ,
+     "P2638" :  
+	 "Torque Management Feedback Signal A Range/Performance"
+      ,
+     "P2639" :  
+	 "Torque Management Feedback Signal A Low"
+      ,
+     "P2640" :  
+	 "Torque Management Feedback Signal A High"
+      ,
+     "P2641" :  
+	 "Torque Management Feedback Signal B"
+      ,
+     "P2642" :  
+	 "Torque Management Feedback Signal B Range/Performance"
+      ,
+     "P2643" :  
+	 "Torque Management Feedback Signal B Low"
+      ,
+     "P2644" :  
+	 "Torque Management Feedback Signal B High"
+      ,
+     "P2645" :  
+	 "A Rocker Arm Actuator Control Circuit Open Bank1"
+      ,
+     "P2646" :  
+	 "A Rocker Arm Actuator System Performance or Stuck Off Bank1"
+      ,
+     "P2647" :  
+	 "A Rocker Arm Actuator System Stuck On Bank1"
+      ,
+     "P2648" :  
+	 "A Rocker Arm Actuator Control Circuit Low Bank1"
+      ,
+     "P2649" :  
+	 "A Rocker Arm Actuator Control Circuit High Bank1"
+      ,
+     "P2650" :  
+	 "B Rocker Arm Actuator Control Circuit Open Bank1"
+      ,
+     "P2651" :  
+	 "B Rocker Arm Actuator System Performance or Stuck Off Bank1"
+      ,
+     "P2652" :  
+	 "B Rocker Arm Actuator System Stuck On Bank1"
+      ,
+     "P2653" :  
+	 "B Rocker Arm Actuator Control Circuit Low Bank1"
+      ,
+     "P2654" :  
+	 "B Rocker Arm Actuator Control Circuit High Bank1"
+      ,
+     "P2655" :  
+	 "A Rocker Arm Actuator Control Circuit Open Bank2"
+      ,
+     "P2656" :  
+	 "A Rocker Arm Actuator System Performance or Stuck Off Bank2"
+      ,
+     "P2657" :  
+	 "A Rocker Arm Actuator System Stuck On Bank2"
+      ,
+     "P2658" :  
+	 "A Rocker Arm Actuator Control Circuit Low Bank2"
+      ,
+     "P2659" :  
+	 "A Rocker Arm Actuator Control Circuit High Bank2"
+      ,
+     "P2660" :  
+	 "B Rocker Arm Actuator Control Circuit Open Bank2"
+      ,
+     "P2661" :  
+	 "B Rocker Arm Actuator System Performance or Stuck Off Bank2"
+      ,
+     "P2662" :  
+	 "B Rocker Arm Actuator System Stuck On Bank2"
+      ,
+     "P2663" :  
+	 "B Rocker Arm Actuator Control Circuit Low Bank2"
+      ,
+     "P2664" :  
+	 "B Rocker Arm Actuator Control Circuit High Bank2"
+      ,
+     "P2665" :  
+	 "Fuel Shutoff Valve B Control Circuit Open"
+      ,
+     "P266" :  
+	 "Fuel Shutoff Valve B Control Circuit Low"
+      ,
+     "P2667" :  
+	 "Fuel Shutoff Valve B Control Circuit High"
+      ,
+     "P2668" :  
+	 "Fuel Mode Indicator Lamp Control Circuit"
+      ,
+     "P2669" :  
+	 "Actuator Supply Voltage B Circuit Open"
+      ,
+     "P2670" :  
+	 "Actuator Supply Voltage B Circuit Low"
+      ,
+     "P2671" :  
+	 "Actuator Supply Voltage B Circuit High"
+      ,
+     "P2700" :  
+	 "Transmission Friction Element A Apply Time Range/Performance"
+      ,
+     "P2701" :  
+	 "Transmission Friction Element B Apply Time Range/Performance"
+      ,
+     "P2702" :  
+	 "Transmission Friction Element C Apply Time Range/Performance"
+      ,
+     "P2703" :  
+	 "Transmission Friction Element D Apply Time Range/Performance"
+      ,
+     "P2704" :  
+	 "Transmission Friction Element E Apply Time Range/Performance"
+      ,
+     "P2705" :  
+	 "Transmission Friction Element F Apply Time Range/Performance"
+      ,
+     "P2706" :  
+	 "Shift Solenoid F"
+      ,
+     "P2707" :  
+	 "Shift Solenoid F Performance or Stuck Off"
+      ,
+     "P2708" :  
+	 "Shift Solenoid F Stuck On"
+      ,
+     "P2709" :  
+	 "Shift Solenoid F Electrical"
+      ,
+     "P2710" :  
+	 "Shift Solenoid F Intermittent"
+      ,
+     "P2711" :  
+	 "Unexpected Mechanical Gear Disengagement"
+      ,
+     "P2712" :  
+	 "Hydraulic Power Unit Leakage"
+      ,
+     "P2713" :  
+	 "Pressure Control Solenoid D"
+      ,
+     "P2714" :  
+	 "Pressure Control Solenoid D Performance or Stuck Off"
+      ,
+     "P2715" :  
+	 "Pressure Control Solenoid D Stuck On"
+      ,
+     "P2716" :  
+	 "Pressure Control Solenoid D Electrical"
+      ,
+     "P2717" :  
+	 "Pressure Control Solenoid D Intermittent"
+      ,
+     "P2718" :  
+	 "Pressure Control Solenoid D Control Circuit Open"
+      ,
+     "P2719" :  
+	 "Pressure Control Solenoid D Control Circuit Range/Performance"
+      ,
+     "P2720" :  
+	 "Pressure Control Solenoid D Control Circuit Low"
+      ,
+     "P2721" :  
+	 "Pressure Control Solenoid D Control Circuit High"
+      ,
+     "P2722" :  
+	 "Pressure Control Solenoid E"
+      ,
+     "P2723" :  
+	 "Pressure Control Solenoid E Performance or Stuck Off"
+      ,
+     "P2724" :  
+	 "Pressure Control Solenoid E Stuck On"
+      ,
+     "P2725" :  
+	 "Pressure Control Solenoid E Electrical"
+      ,
+     "P2726" :  
+	 "Pressure Control Solenoid E Intermittent"
+      ,
+     "P2727" :  
+	 "Pressure Control Solenoid E Control Circuit Open"
+      ,
+     "P2728" :  
+	 "Pressure Control Solenoid E Control Circuit Range/Performance"
+      ,
+     "P2729" :  
+	 "Pressure Control Solenoid E Control Circuit Low"
+      ,
+     "P2730" :  
+	 "Pressure Control Solenoid E Control Circuit High"
+      ,
+	 "P2731" :  
+	 "Pressure Control Solenoid F"
+      ,
+     "P2732" :  
+	 "Pressure Control Solenoid F Performance or Stuck On"
+      ,
+     "P2733" :  
+	 "Pressure Control Solenoid F Stuck On"
+      ,
+     "P2734" :  
+	 "Pressure Control Solenoid F Electrical"
+      ,
+     "P2735" :  
+	 "Pressure Control Solenoid F Intermittent"
+      ,
+     "P2736" :  
+	 "Pressure Control Solenoid F Control Circuit Open"
+      ,
+     "P2737" :  
+	 "Pressure Control Solenoid F Control Circuit Range/Performance"
+      ,
+     "P2738" :  
+	 "Pressure Control Solenoid F Control Circuit Low"
+      ,
+     "P2739" :  
+	 "Pressure Control Solenoid F Control Circuit High"
+      ,
+     "P2740" :  
+	 "Transmission Fluid Temperature Sensor B Circuit"
+      ,
+     "P2741" :  
+	 "Transmission Fluid Temperature Sensor B Circuit Range/Performance"
+      ,
+     "P2742" :  
+	 "Transmission Fluid Temperature Sensor B Circuit Low"
+      ,
+     "P2743" :  
+	 "Transmission Fluid Temperature Sensor B Circuit High"
+      ,
+     "P2744" :  
+	 "Transmission Fluid Temperature Sensor B Circuit Intermittent"
+      ,
+     "P2745" :  
+	 "Intermediate Shaft Speed Sensor B Circuit"
+      ,
+     "P2746" :  
+	 "Intermediate Shaft Speed Sensor B Circuit Range/Performance"
+      ,
+     "P2747" :  
+	 "Intermediate Shaft Speed Sensor B Circuit No Signal"
+      ,
+     "P2748" :  
+	 "Intermediate Shaft Speed Sensor B Circuit Intermittent"
+      ,
+     "P2749" :  
+	 "Intermediate Shaft Speed Sensor C Circuit"
+      ,
+     "P2750" :  
+	 "Intermediate Shaft Speed Sensor C Circuit Range/Performance"
+      ,
+     "P2751" :  
+	 "Intermediate Shaft Speed Sensor C Circuit No Signal"
+      ,
+     "P2752" :  
+	 "Intermediate Shaft Speed Sensor C Circuit Intermittent"
+      ,
+     "P2753" :  
+	 "Transmission Fluid Cooler Control Circuit Open"
+      ,
+     "P2754" :  
+	 "Transmission Fluid Cooler Control Circuit Low"
+      ,
+     "P2755" :  
+	 "Transmission Fluid Cooler Control Circuit High"
+      ,
+     "P2756" :  
+	 "Torque Converter Clutch Pressure Control Solenoid"
+      ,
+     "P2757" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Performance or Stuck Off"
+      ,
+     "P2758" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Stuck On"
+      ,
+     "P2759" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Electrical"
+      ,
+     "P2760" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Intermittent"
+      ,
+     "P2761" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Open"
+      ,
+     "P2762" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Range/Performance"
+      ,
+     "P2763" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit High"
+      ,
+     "P2764" :  
+	 "Torque Converter Clutch Pressure Control Solenoid Control Circuit Low"
+      ,
+     "P2765" :  
+	 "Input/Turbine Speed Sensor B Circuit"
+      ,
+     "P2766" :  
+	 "Input/Turbine Speed Sensor B Circuit Range/Performance"
+      ,
+     "P2767" :  
+	 "Input/Turbine Speed Sensor B Circuit No Signal"
+      ,
+     "P2768" :  
+	 "Input/Turbine Speed Sensor B Circuit Intermittent"
+      ,
+     "P2769" :  
+	 "Torque Converter Clutch Circuit Low"
+      ,
+     "P2770" :  
+	 "Torque Converter Clutch Circuit High"
+      ,
+     "P2771" :  
+	 "4WD Low Switch Circuit"
+      ,
+     "P2772" :  
+	 "4WD Low Switch Circuit Range/Performance"
+      ,
+     "P2773" :  
+	 "4WD Low Switch Circuit Low"
+      ,
+     "P2774" :  
+	 "4WD Low Switch Circuit High"
+      ,
+     "P2775" :  
+	 "Upshift Switch Circuit Range/Performance"
+      ,
+     "P2776" :  
+	 "Upshift Switch Circuit Low"
+      ,
+     "P2777" :  
+	 "Upshift Switch Circuit High"
+      ,
+     "P2778" :  
+	 "Upshift Switch Circuit Intermittent / Erratic"
+      ,
+     "P2779" :  
+	 "Downshift Switch Circuit Range/Performance"
+      ,
+     "P2780" :  
+	 "Downshift Switch Circuit Low"
+      ,
+     "P2781" :  
+	 "Downshift Switch Circuit High"
+      ,
+     "P2782" :  
+	 "Downshift Switch Circuit Intermittent / Erratic"
+      ,
+     "P2783" :  
+	 "Torque Converter Temperature Too High"
+      ,
+     "P2784" :  
+	 "Input/Turbine Speed Sensor A/B Correlation"
+      ,
+     "P2785" :  
+	 "Clutch Actuator Temperature Too High"
+      ,
+     "P2786" :  
+	 "Gear Shift Actuator Temperature Too High"
+      ,
+     "P2787" :  
+	 "Clutch Temperature Too High"
+      ,
+     "P2788" :  
+	 "Automatic Shift Manual Adaptive Learning Unit at Limit"
+      ,
+     "P2789" :  
+	 "Clutch Adaptive Learning Unit at Limit"
+      ,
+     "P2790" :  
+	 "Gate Select Direction Circuit"
+      ,
+     "P2791" :  
+	 "Gate Select Direction Circuit Low"
+      ,
+     "P2792" :  
+	 "Gate Select Direction Circuit High"
+      ,
+     "P2793" :  
+	 "Gear Shift Direction Circuit"
+      ,
+     "P2794" :  
+	 "Gear Shift Direction Circuit Low"
+      ,
+     "P2795" :  
+	 "Gear Shift Direction Circuit High"
+      ,
+     "P2A00" :  
+	 "O2 Sensor Circuit Range/Performance Bank1 Sensor 1"
+      ,
+     "P2A01" :  
+	 "O2 Sensor Circuit Range/Performance Bank1 Sensor 2"
+      ,
+     "P2A02" :  
+	 "O2 Sensor Circuit Range/Performance Bank1 Sensor 3"
+      ,
+     "P2A03" :  
+	 "O2 Sensor Circuit Range/Performance Bank2 Sensor 1"
+      ,
+     "P2A04" :  
+	 "O2 Sensor Circuit Range/Performance Bank2 Sensor 2"
+      ,
+     "P2A05" :  
+	 "O2 Sensor Circuit Range/Performance Bank2 Sensor 3"
+      ,
+     "P3400" :  
+	 "Cylinder Deactivation System Bank 1"
+      ,
+     "P3401" :  
+	 "Cylinder 1 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3402" :  
+	 "Cylinder 1 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3403" :  
+	 "Cylinder 1 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3404" :  
+	 "Cylinder 1 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3405" :  
+	 "Cylinder 1 Exhaust Valve Control Circuit Open"
+      ,
+     "P3406" :  
+	 "Cylinder 1 Exhaust Valve Control Performance"
+      ,
+     "P3407" :  
+	 "Cylinder 1 Exhaust Valve Control Circuit Low"
+      ,
+     "P3408" :  
+	 "Cylinder 1 Exhaust Valve Control Circuit High"
+      ,
+     "P3409" :  
+	 "Cylinder 2 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3410" :  
+	 "Cylinder 2 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3411" :  
+	 "Cylinder 2 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3412" :  
+	 "Cylinder 2 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3413" :  
+	 "Cylinder 2 Exhaust Valve Control Circuit Open"
+      ,
+     "P3414" :  
+	 "Cylinder 2 Exhaust Valve Control Performance"
+      ,
+     "P3415" :  
+	 "Cylinder 2 Exhaust Valve Control Circuit Low"
+      ,
+     "P3416" :  
+	 "Cylinder 2 Exhaust Valve Control Circuit High"
+      ,
+     "P3417" :  
+	 "Cylinder 3 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3418" :  
+	 "Cylinder 3 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3419" :  
+	 "Cylinder 3 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3420" :  
+	 "Cylinder 3 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3421" :  
+	 "Cylinder 3 Exhaust Valve Control Circuit Open"
+      ,
+     "P3422" :  
+	 "Cylinder 3 Exhaust Valve Control Performance"
+      ,
+     "P3423" :  
+	 "Cylinder 3 Exhaust Valve Control Circuit Low"
+      ,
+     "P3424" :  
+	 "Cylinder 3 Exhaust Valve Control Circuit High"
+      ,
+     "P3425" :  
+	 "Cylinder 4 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3426" :  
+	 "Cylinder 4 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3427" :  
+	 "Cylinder 4 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3428" :  
+	 "Cylinder 4 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3429" :  
+	 "Cylinder 4 Exhaust Valve Control Circuit Open"
+      ,
+     "P3430" :  
+	 "Cylinder 4 Exhaust Valve Control Performance"
+      ,
+     "P3431" :  
+	 "Cylinder 4 Exhaust Valve Control Circuit Low"
+      ,
+     "P3432" :  
+	 "Cylinder 4 Exhaust Valve Control Circuit High"
+      ,
+     "P3433" :  
+	 "Cylinder 5 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3434" :  
+	 "Cylinder 5 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3435" :  
+	 "Cylinder 5 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3436" :  
+	 "Cylinder 5 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3437" :  
+	 "Cylinder 5 Exhaust Valve Control Circuit Open"
+      ,
+     "P3438" :  
+	 "Cylinder 5 Exhaust Valve Control Performance"
+      ,
+     "P3439" :  
+	 "Cylinder 5 Exhaust Valve Control Circuit Low"
+      ,
+     "P3440" :  
+	 "Cylinder 5 Exhaust Valve Control Circuit High"
+      ,
+     "P3441" :  
+	 "Cylinder 6 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3442" :  
+	 "Cylinder 6 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3443" :  
+	 "Cylinder 6 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3444" :  
+	 "Cylinder 6 Deactivation/Intake Valve Control  Circuit High"
+      ,
+     "P3445" :  
+	 "Cylinder 6 Exhaust Valve Control Circuit Open"
+      ,
+     "P3446" :  
+	 "Cylinder 6 Exhaust Valve Control Performance"
+      ,
+     "P3447" :  
+	 "Cylinder 6 Exhaust Valve Control Circuit Low"
+      ,
+     "P3448" :  
+	 "Cylinder 6 Exhaust Valve Control Circuit High"
+      ,
+     "P3449" :  
+	 "Cylinder 7 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3450" :  
+	 "Cylinder 7 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3451" :  
+	 "Cylinder 7 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3452" :  
+	 "Cylinder 7 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3453" :  
+	 "Cylinder 7 Exhaust Valve Control Circuit Open"
+      ,
+     "P3454" :  
+	 "Cylinder 7 Exhaust Valve Control Performance"
+      ,
+     "P3455" :  
+	 "Cylinder 7 Exhaust Valve Control Circuit Low"
+      ,
+     "P3456" :  
+	 "Cylinder 7 Exhaust Valve Control Circuit High"
+      ,
+     "P3457" :  
+	 "Cylinder 8 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3458" :  
+	 "Cylinder 8 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3459" :  
+	 "Cylinder 8 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3460" :  
+	 "Cylinder 8 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3461" :  
+	 "Cylinder 8 Exhaust Valve Control Circuit Open"
+      ,
+     "P3462" :  
+	 "Cylinder 8 Exhaust Valve Control Performance"
+      ,
+     "P3463" :  
+	 "Cylinder 8 Exhaust Valve Control Circuit Low"
+      ,
+     "P3464" :  
+	 "Cylinder 8 Exhaust Valve Control Circuit High"
+      ,
+     "P3465" :  
+	 "Cylinder 9 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3466" :  
+	 "Cylinder 9 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3467" :  
+	 "Cylinder 9 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3468" :  
+	 "Cylinder 9 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3469" :  
+	 "Cylinder 9 Exhaust Valve Control Circuit Open"
+      ,
+     "P3470" :  
+	 "Cylinder 9 Exhaust Valve Control Performance"
+      ,
+     "P3471" :  
+	 "Cylinder 9 Exhaust Valve Control Circuit Low"
+      ,
+     "P3472" :  
+	 "Cylinder 9 Exhaust Valve Control Circuit High"
+      ,
+     "P3473" :  
+	 "Cylinder 10 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3474" :  
+	 "Cylinder 10 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3475" :  
+	 "Cylinder 10 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3476" :  
+	 "Cylinder 10 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3477" :  
+	 "Cylinder 10 Exhaust Valve Control Circuit Open"
+      ,
+     "P3478" :  
+	 "Cylinder 10 Exhaust Valve Control Performance"
+      ,
+     "P3479" :  
+	 "Cylinder 10 Exhaust Valve Control Circuit Low"
+      ,
+     "P3480" :  
+	 "Cylinder 10 Exhaust Valve Control Circuit High"
+      ,
+     "P3481" :  
+	 "Cylinder 11 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3482" :  
+	 "Cylinder 11 Deactivation/Intake Valve Control Performance"
+      ,
+     "P3483" :  
+	 "Cylinder 11 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3484" :  
+	 "Cylinder 11 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3485" :  
+	 "Cylinder 11 Exhaust Valve Control Circuit Open"
+      ,
+     "P3486" :  
+	 "Cylinder 11 Exhaust Valve Control Performance"
+      ,
+     "P3487" :  
+	 "Cylinder 11 Exhaust Valve Control Circuit Low"
+      ,
+     "P3488" :  
+	 "Cylinder 11 Exhaust Valve Control Circuit High"
+      ,
+     "P3489" :  
+	 "Cylinder 12 Deactivation/Intake Valve Control Circuit Open"
+      ,
+     "P3490" :  
+	 "Cylinder 12 Deactivation/Intake Valve Control Circuit Performance"
+      ,
+     "P3491" :  
+	 "Cylinder 12 Deactivation/Intake Valve Control Circuit Low"
+      ,
+     "P3492" :  
+	 "Cylinder 12 Deactivation/Intake Valve Control Circuit High"
+      ,
+     "P3493" :  
+	 "Cylinder 12 Exhaust Valve Control Circuit Open"
+      
+ }
