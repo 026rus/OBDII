@@ -192,7 +192,7 @@ void MainWindow::sendcommand()
 
     ui->textBrowser->append( tempstr );
 
-    ui->lineEdit->setText("");
+    ui->lineEdit->selectAll();
 }
 
 void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
@@ -237,13 +237,15 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   customPlot->xAxis->setRange(0, rpmCount - 1);
   // why from -2 ????
   customPlot->yAxis->setRange(-2, 10);
-  customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
-  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+  customPlot->graph(0)->setPen(QPen(Qt::red));
+  // first graph will be filled with translucent blue
+  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
   ui->customPlot->replot();
 }
 
 void MainWindow::on_pushButton_7_clicked()
 {
+    QVector<QSerialPortInfo> ports = serial::PortReaderWriter::getAvailPorts();
     QFont font;
     font.setPointSize(12);
     ui->label->setText("Connection Status: (Dis)Connected");

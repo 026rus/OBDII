@@ -49,6 +49,14 @@ namespace serial
         if (this->port != 0) { this->port->close(); }
     }
 
+    QVector<QSerialPortInfo> PortReaderWriter::getAvailPorts(){
+        QVector<QSerialPortInfo> ports = QVector<QSerialPortInfo>();
+        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
+            ports.append(info);
+        }
+        return ports;
+    }
+
     bool PortReaderWriter::serialConnect(void)
 	{ 
         string input_device = "";
@@ -128,15 +136,7 @@ namespace serial
            scratch +=  this->port->readAll();
         }
 
-/* *************************************************
-        for (int i=0; i<scratch.size(); i++)
-        {
-            qDebug()<<i<<"\t"<< scratch.toHex().at(i)<<"\t"<<strint[i] << "\t"<< strchar[i];
-        }
-**************************************************** */
-
         QByteArray qbr = scratch;
-//        qbr.remove(0,5);
         qbr.remove(qbr.size()-3,3);
 
         return qbr;
@@ -222,20 +222,6 @@ namespace serial
         }
 
         errors = new QString[num_of_cods];
-
-        /*  turn the headers on if we have more then one error code *
-        if(num_of_cods>1)
-        {
-            sendCommand("ATH1");
-            teststr = readLine();
-            teststr.remove(0,5);
-            if(!teststr.contains("OK"));
-        }
-        // reading all errors
-        sendCommand("03");
-        teststr = readLine();
-        teststr = teststr.remove(0,3);
-        /* */
 
         teststr = teststr.replace(" ","");
         teststr = teststr.remove(0,8);
@@ -393,4 +379,5 @@ namespace serial
     void PortReaderWriter::handleReadReady() {
 	// Read data
     }
+
 }
