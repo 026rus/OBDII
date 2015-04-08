@@ -38,7 +38,7 @@ void ParseJson::LoadFile(QString code){
         path = "data/pcodes.json";
         break;
     default:
-        path = "data/sample.json";
+        path = "";
         break;
 
     }

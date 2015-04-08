@@ -17,7 +17,8 @@ add_executable(carcomm src/main.cpp
     src/CarCoreApp.cpp
     src/mainwindow.cpp
     src/qcustomplot.cpp
-    src/ParseJson.cpp)
+    src/ParseJson.cpp
+)
 
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)
 
@@ -26,4 +27,20 @@ target_link_libraries(carcomm Qt5::Core
     Qt5::Bluetooth
     Qt5::Test
     Qt5::Widgets
-    Qt5::PrintSupport)
+    Qt5::PrintSupport
+)
+
+add_custom_command(TARGET carcomm PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+	${CMAKE_CURRENT_SOURCE_DIR}/data
+	$<TARGET_FILE_DIR:carcomm>/data
+    )
+
+install(TARGETS carcomm RUNTIME DESTINATION bin)
+install(FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/bcodes.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/ccodes.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/pcodes.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/ucodes.json
+  DESTINATION data
+)
