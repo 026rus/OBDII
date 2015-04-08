@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->conn = new serial::PortReaderWriter();
-    connect();
 
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
     speedCount = 1;
@@ -158,6 +157,8 @@ void MainWindow::connect()
     {
         ui->textBrowser->setText("Not connected to a serial port!");
     }
+    connect();
+
 
 }
 
