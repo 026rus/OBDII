@@ -1,5 +1,5 @@
 #include "CarCoreApp.h"
-#include "ParseJson.h"
+#include <iostream>
 
 CarCoreApp::CarCoreApp(int &argc, char** argv[]) : QCoreApplication(argc, *argv) {
     connect(this, SIGNAL( aboutToQuit() ), SLOT( cleanupProgramAtExit() ), Qt::QueuedConnection );
@@ -11,10 +11,8 @@ CarCoreApp::~CarCoreApp(){
 }
 
 void CarCoreApp::run() {
-
-    ParseJson *parser = new ParseJson();
     this->conn = new serial::PortReaderWriter();
-/* */
+
     if (!conn->serialConnect()) {
         qDebug() << "Could not connect!";
         this->exit(1);
@@ -34,22 +32,34 @@ void CarCoreApp::run() {
         this->exit(2);
     }
 
-    int rpmVal = 0;
-    { // Try to get the RPM
-        conn->sendCommand("01 0C");
-        QByteArray buff = conn->readLine();
-        rpmVal = conn->decodeRPM(buff);
-    }
+    {
+	QString instr="ATI";
+	QTextStream qtin(stdin);
 
-    QString trobelCode = "";
-    { // Try to get the Trouble Code
-        conn->sendCommand("01 01");
-        // TODO: Needs to be multiline aware
-        QByteArray buff = conn->readLine();
-        trobelCode = conn->decodeErr(buff);
+	bool go = true;
+	while (go) {
+	    std::cout << ":) => ";
+	    qtin >> instr;
+
+	    go = QString::compare(instr, "exit", Qt::CaseInsensitive);
+
+	    if (!go) QCoreApplication::quit();
+	    else
+	    {
+		QByteArray qbin = instr.toUtf8();
+		if(!conn->sendCommand( qbin ))
+		{
+		    qDebug() << "Problem writing !!!!";
+		}
+		cout << "_____________________________________\n";
+		QByteArray buff = conn->readLine();
+		cout <<"Buff size 1: "<<buff.size()<<endl;
+		buff.remove(0, instr.size()+1);
+		cout << "Buff size 2: "<<buff.size()<<endl;
+		cout <<"("<<buff.toStdString()<<")"<<endl;
+	    }
+	}
     }
-/*  */
-//    qDebug() << this->conn->decodeErr("41 01 83 07 65 04");
 
     emit done();
 }
