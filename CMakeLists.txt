@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.0.2)
 project(obdii-query)
 
 set(CMAKE_AUTOMOC ON)
@@ -18,10 +18,12 @@ add_executable(carcomm src/main.cpp
     src/CarCoreApp.cpp
     src/mainwindow.cpp
     src/qcustomplot.cpp)
+
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)
-target_link_libraries(carcomm Qt5::Core)
-target_link_libraries(carcomm Qt5::SerialPort)
-target_link_libraries(carcomm Qt5::Bluetooth)
-target_link_libraries(carcomm Qt5::Test)
-target_link_libraries(carcomm Qt5::Widgets)
-target_link_libraries(carcomm Qt5::PrintSupport)
+
+target_link_libraries(carcomm Qt5::Core
+    Qt5::SerialPort
+    Qt5::Bluetooth
+    Qt5::Test
+    Qt5::Widgets
+    Qt5::PrintSupport)
