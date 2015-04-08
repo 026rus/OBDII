@@ -1,12 +1,15 @@
 #ifndef PARSEJSON_H
 #define PARSEJSON_H
 #include <QByteArray>
+#include <QString>
 
 class ParseJson
 {
 public:
     ParseJson();
-    ParseJson(QByteArray parsedJson, char* code);
+    void LoadFile();
+    void SearchFile(QByteArray parsedJson, QString code);
+
     ~ParseJson();
 };
 
