@@ -235,7 +235,6 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   customPlot->yAxis->setLabel("RPM (x1000)");
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, rpmCount - 1);
-  // why from -2 ????
   customPlot->yAxis->setRange(0, 10);
   customPlot->graph(0)->setPen(QPen(Qt::red));
   // first graph will be filled with translucent blue
