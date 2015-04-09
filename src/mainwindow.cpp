@@ -205,7 +205,6 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
   }
 
   // create graph and assign data to it:
-  //ui->customPlot->replot();
   customPlot->addGraph();
   customPlot->graph(0)->setData(c,vspeed);
 
@@ -215,7 +214,7 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, speedCount - 1);
-  customPlot->yAxis->setRange(-2, 80);
+  customPlot->yAxis->setRange(0, 80);
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
   customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
@@ -229,7 +228,6 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
       a[i] = i;
   }
   // create graph and assign data to it:
-  //ui->customPlot->replot();
   customPlot->addGraph();
   customPlot->graph(0)->setData(a, vrpm);
   // give the axes some labels:
@@ -238,7 +236,7 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, rpmCount - 1);
   // why from -2 ????
-  customPlot->yAxis->setRange(-2, 10);
+  customPlot->yAxis->setRange(0, 10);
   customPlot->graph(0)->setPen(QPen(Qt::red));
   // first graph will be filled with translucent blue
   customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
