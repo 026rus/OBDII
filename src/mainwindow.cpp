@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label->setFont(font);
     ui->progressBar->setValue(0);
 
-//    setupQuadraticDemo(ui->customPlot);
 }
 
 MainWindow::~MainWindow()
@@ -35,12 +34,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// sample graph for testing demonstration
 void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
 {
-  //demoName = "Quadratic Demo";
   // generate some data:
   QVector<double> x(101), y(101); // initialize with entries 0..100
-//  for (int i=0; i<101; ++i)
+
   for (int i=0; i<10; i++)
   {
       x[i] = i;
@@ -57,11 +56,7 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
       case 8: y[i] = 1; break;
       case 9: y[i] = 0; break;
       }
-
-  //  x[i] = i/50.0 - 1; // x goes from -1 to 1
-  //  y[i] = x[i]*x[i];  // let's plot a quadratic function
   }
-//  y[11] = {0,0,1,2,4,6,5,6,4,3,0};
   // create graph and assign data to it:
   customPlot->addGraph();
   customPlot->graph(0)->setData(x, y);
@@ -274,7 +269,7 @@ void MainWindow::on_pushButton_7_clicked()
 
     QFont font;
     font.setPointSize(12);
-    ui->label->setText("Connection Status: (Dis)Connected");
+    ui->label->setText("Connection Status: Disconnected");
     ui->label->setFont(font);
     ui->progressBar->setValue(0);
     return;
