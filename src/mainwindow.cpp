@@ -124,11 +124,18 @@ void MainWindow::on_pushButton_3_clicked()
         vrpm.append(rpmVal/1000);
         rpmCount++;
     }
+
+/*
+    // not necessary now, but the code to set
+    // the other buttons to disabled while
+    // monitoring the RPM
     ui->pushButton->setDisabled(visibility);
     ui->pushButton_2->setDisabled(visibility);
     ui->pushButton_4->setDisabled(visibility);
     ui->pushButton_7->setDisabled(visibility);
     visibility = !visibility;
+*/
+
 }
 
 void MainWindow::on_pushButton_4_clicked()
@@ -205,7 +212,6 @@ void MainWindow::sendcommand()
 
 void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 {
-
   for (int i=0; i<=speedCount; i++)
   {
       c[i] = i;
