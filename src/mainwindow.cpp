@@ -170,9 +170,6 @@ void MainWindow::connect()
     {
         ui->outputBrowser->setText("Not connected to a serial port!");
     }
-    connect();
-
-
 }
 
 void MainWindow::sendcommand()
