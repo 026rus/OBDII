@@ -49,6 +49,38 @@ namespace serial
         if (this->port != 0) { this->port->close(); }
     }
 
+    QVector<QSerialPortInfo> PortReaderWriter::getAvailPorts(){
+        QVector<QSerialPortInfo> ports = QVector<QSerialPortInfo>();
+        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
+            ports.append(info);
+        }
+        return ports;
+    }
+
+    bool PortReaderWriter::setPort(string portName) {
+	// Just try it!
+        this->port = new QSerialPort(QString(portName.c_str()));
+        // Default for the device under test is 10400 baud
+        this->port->open(QIODevice::ReadWrite);
+        port->setBaudRate(QSerialPort::Baud38400);
+
+        if (port->isOpen()){
+	    connect(port
+		    , SIGNAL( readyRead() )
+		    , SLOT( handleReadReady() )
+		    , Qt::QueuedConnection);
+
+	    connect(&m_timer
+		    , SIGNAL( timeout() )
+		    , SLOT( handleTimeout() )
+		    , Qt::QueuedConnection);
+
+	    return true;
+	}
+        return false;
+    }
+
+
     bool PortReaderWriter::serialConnect(void)
 	{ 
         string input_device = "";
@@ -75,26 +107,7 @@ namespace serial
             }
         }
 
-        // Just try it!
-        this->port = new QSerialPort(QString(input_device.c_str()));
-        // Default for the device under test is 10400 baud
-        this->port->open(QIODevice::ReadWrite);
-        port->setBaudRate(QSerialPort::Baud38400);
-
-        if (port->isOpen()){
-	    connect(port
-		    , SIGNAL( readyRead() )
-		    , SLOT( handleReadReady() )
-		    , Qt::QueuedConnection);
-
-	    connect(&m_timer
-		    , SIGNAL( timeout() )
-		    , SLOT( handleTimeout() )
-		    , Qt::QueuedConnection);
-
-	    return true;
-	}
-        return false;
+	return this->setPort(input_device);
     }
 
     bool PortReaderWriter::sendCommand(const QByteArray &data)
@@ -128,15 +141,7 @@ namespace serial
            scratch +=  this->port->readAll();
         }
 
-/* *************************************************
-        for (int i=0; i<scratch.size(); i++)
-        {
-            qDebug()<<i<<"\t"<< scratch.toHex().at(i)<<"\t"<<strint[i] << "\t"<< strchar[i];
-        }
-**************************************************** */
-
         QByteArray qbr = scratch;
-//        qbr.remove(0,5);
         qbr.remove(qbr.size()-3,3);
 
         return qbr;
@@ -192,37 +197,20 @@ namespace serial
          * 	most segnificant bit indicate that the  Ceck Engine Light on or of.
          */
 
+
         QByteArray teststr = "48 6B 10 43 03 25 01 10 11 05 55";
         QString newtest;
         QString retval = line_data;
         QString str_num_of_cods;
 
+        // cheking if data was not found
+        if (retval.contains("unable", Qt::CaseInsensitive))
+            return retval;
+
         QString *errors;
         bool ok;
         QString str;
         int num_of_cods=0;
-
-
-        /*
-         * > 03 is will give you all the actual troble codes
-         *  like 01 33 00 00 00 00
-         *  most of it is junk we need only  0133
-         * 	and 0 = P0 and rest is as is
-         * 	 so the code will be P0133
-         */
-
-        /*
-         * here I just plaing around trying to see how it will work and what
-         * to do
-         *
-         *  0101
-         *	41 01 83 07 E5 A5 "
-         *	ATH1
-         *	OK"H1
-         *	03
-         *  48 6B 10 43 03 25 01 10 11 05 55
-         *  0325 0110 1105 55
-         */
 
         retval.replace(" ","");
         str = retval.replace(" ","");
@@ -230,21 +218,16 @@ namespace serial
 
         num_of_cods = (str_num_of_cods.toInt(&ok, 16)) - 128;
 
-        errors = new QString[num_of_cods];
-/*  turn the headers on if we have more then one error code *
-        if(num_of_cods>1)
+        // cheking for error in retriving numbers of codes
+        if (num_of_cods < 1)
         {
-            sendCommand("ATH1");
-            teststr = readLine();
-            teststr.remove(0,5);
-            if(!teststr.contains("OK"))
-               qDebug() << "ERROR!!!";
+            retval.append("\nnot correct namber of error cods\nNuber of cobs = ");
+            retval.append(QString::number(num_of_cods));
+            return retval;
         }
-/* reading all errors *
-        sendCommand("03");
-        teststr = readLine();
-        teststr = teststr.remove(0,3);
-/* */
+
+        errors = new QString[num_of_cods];
+
         teststr = teststr.replace(" ","");
         teststr = teststr.remove(0,8);
 
@@ -306,12 +289,10 @@ namespace serial
         }
         /*  */
 
-
         return newtest;
     }
 
-
-    int PortReaderWriter::decodeEnginLoad(const QByteArray line_data)
+      int PortReaderWriter::decodeEnginLoad(const QByteArray line_data)
     {
 
         //QString comm = "01 05 1"; // the code Enginr Tempereture
@@ -390,7 +371,7 @@ namespace serial
         return false;
     }
 
-    void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
+        void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
 	// What to do with this error?
 
     }
@@ -403,4 +384,5 @@ namespace serial
     void PortReaderWriter::handleReadReady() {
 	// Read data
     }
+
 }

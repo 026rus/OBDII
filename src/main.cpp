@@ -1,23 +1,37 @@
 #include "CarCoreApp.h"
+#include "mainwindow.h"
 #include "PortReaderWriter.h"
+#include "ParseJson.h"
+#include <cstdio>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
+#include <QApplication>
 #include <iostream>
 
-#include <QtWidgets/QApplication>
-#include "mainwindow.h"
 
 using namespace serial;
 
-int main(int argc, char **argv)
-{
-  #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-    QApplication::setGraphicsSystem("raster");
-  #endif
+int main(int argc, char** argv) {
+    // this is to choose if you want a command line or
+    // GUI so far if you pass antthing then it will bring command line
+    // and if you do not pass anything the you get GUI
+    // !!!!!! please stop deliting it to :)
+    if (argc < 2) {
+        // GUI interfase by defolte if no argument passed
+        QApplication a(argc, argv);
+        MainWindow w;
+        w.show();
+        return a.exec();
+    } else {
+        CarCoreApp *app = new CarCoreApp(argc, &argv);
+        qDebug() << "Application has launched.";
+        app->run();
 
-  QApplication a(argc, argv);
-  MainWindow w;
-  w.show();
-  return a.exec();
+        #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+          QApplication::setGraphicsSystem("raster");
+        #endif
+        return app->exec();
+    }
+    qDebug() << "Application has launched.";
 }

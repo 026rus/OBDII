@@ -1,0 +1,376 @@
+{ 
+    "B0001" :  
+	 "Driver Frontal Stage 1 Deployment Control"
+     ,
+    "B0002" :  
+	 "Driver Frontal Stage 2 Deployment Control"
+     ,
+	"B0003" :  
+	 "Driver Frontal Stage 3 Deployment Control"
+     ,
+	"B0004" :  
+	 "Driver Knee Bolster Deployment Control"
+     ,
+	"B0005" :  
+	 "Collapsible Steering Column Deployment Control"
+     ,
+	"B0010" :  
+	 "Passenger Frontal Stage 1 Deployment Control"
+     ,
+	"B0011" :  
+	 "Passenger Frontal Stage 2 Deployment Control"
+     ,
+	"B0012" :  
+	 "Passenger Frontal Stage 3 Deployment Control"
+     ,
+	"B0013" :  
+	 "Passenger Knee Bolster Deployment Control"
+     ,
+	"B0020" :  
+	 "Left Side Airbag Deployment Control"
+     ,
+	"B0021" :  
+	 "Left Curtain Deployment Control 1"
+     ,
+	"B0022" :  
+	 "Left Curtain Deployment Control 2"
+     ,
+	"B0028" :  
+	 "Right Side Airbag Deployment Control"
+     ,
+	"B0029" :  
+	 "Right Curtain Deployment Control 1"
+     ,
+	"B002a" :  
+	 "Right Curtain Deployment Control 2"
+     ,
+	"B0030" :  
+	 "Second Row Left Side Airbag Deployment Control"
+     ,
+	"B0031" :  
+	 "Second Row Left Frontal Stage 1 Deployment Control"
+     ,
+	"B0032" :  
+	 "Second Row Left Frontal Stage 2 Deployment Control"
+     ,
+	"B0033" :  
+	 "Second Row Left Frontal Stage 3 Deployment Control"
+     ,
+	"B0038" :  
+	 "Second Row Right Side Airbag Deployment Control"
+     ,
+	"B0039" :  
+	 "Second Row Right Frontal Stage 1 Deployment Control"
+     ,
+	"B003a" :  
+	 "Second Row Right Frontal Stage 2 Deployment Control"
+     ,
+	"B003b" :  
+	 "Second Row Right Frontal Stage 3 Deployment Control"
+     ,
+	"B0040" :  
+	 "Third Row Left Side Airbag Deployment Control"
+     ,
+	"B0041" :  
+	 "Third Row Left Frontal Stage 1 Deployment Control"
+     ,
+	"B0042" :  
+	 "Third Row Left Frontal Stage 2 Deployment Control"
+     ,
+	"B0043" :  
+	 "Third Row Left Frontal Stage 3 Deployment Control"
+     ,
+	"B0048" :  
+	 "Third Row Right Side Airbag Deployment Control"
+     ,
+	"B0049" :  
+	 "Third Row Right Frontal Stage 1 Deployment Control"
+     ,
+	"B004a" :  
+	 "Third Row Right Frontal Stage 2 Deployment Control"
+     ,
+	"B004b" :  
+	 "Third Row Right Frontal Stage 3 Deployment Control"
+     ,
+	"B0050" :  
+	 "Driver Seatbelt Sensor"
+     ,
+	"B0051" :  
+	 "First Row Center Seatbelt Sensor"
+     ,
+	"B0052" :  
+	 "Passenger Seatbelt Sensor"
+     ,
+	"B0053" :  
+	 "Second Row Left Seatbelt Sensor"
+     ,
+	"B0054" :  
+	 "Second Row Center Seatbelt Sensor"
+     ,
+	"B0055" :  
+	 "Second Row Right Seatbelt Sensor"
+     ,
+	"B0056" :  
+	 "Third Row Left Seatbelt Sensor"
+     ,
+	"B0057" :  
+	 "Third Row Center Seatbelt Sensor"
+     ,
+	"B0058" :  
+	 "Third Row Right Seatbelt Sensor"
+     ,
+	"B0060" :  
+	 "Driver Seatbelt Tension Sensor"
+     ,
+	"B0061" :  
+	 "Passenger Seatbelt Tension Sensor"
+     ,
+	"B0070" :  
+	 "Driver Seatbelt Pretensioner A Deployment Control"
+     ,
+	"B0071" :  
+	 "First Row Center Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0072" :  
+	 "Passenger Seatbelt Pretensioner A Deployment Control"
+     ,
+	"B0073" :  
+	 "Second Row Left Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0074" :  
+	 "Second Row Center Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0075" :  
+	 "Second Row Right Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0076" :  
+	 "Third Row Left Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0077" :  
+	 "Third Row Center Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0078" :  
+	 "Third Row Right Seatbelt Pretensioner Deployment Control"
+     ,
+	"B0079" :  
+	 "Driver Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B007a" :  
+	 "Passenger Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B007b" :  
+	 "Second Row Left Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B007c" :  
+	 "Second Row Right Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B007d" :  
+	 "Second Row Center Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B007e" :  
+	 "Driver Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B007f" :  
+	 "Driver Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B0080" :  
+	 "Driver Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0081" :  
+	 "First Row Center Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0082" :  
+	 "Passenger Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0083" :  
+	 "Second Row Left Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0084" :  
+	 "Second Row Center Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0085" :  
+	 "Second Row Right Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0086" :  
+	 "Third Row Left Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0087" :  
+	 "Third Row Center Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0088" :  
+	 "Third Row Right Seatbelt Load Limiter Deployment Control"
+     ,
+	"B0090" :  
+	 "Left Frontal Restraints Sensor"
+     ,
+	"B0091" :  
+	 "Left Side Restraints Sensor 1"
+     ,
+	"B0092" :  
+	 "Left Side Restraints Sensor 2"
+     ,
+	"B0093" :  
+	 "Left Side Restraints Sensor 3"
+     ,
+	"B0094" :  
+	 "Center Frontal Restraints Sensor"
+     ,
+	"B0095" :  
+	 "Right Frontal Restraints Sensor"
+     ,
+	"B0096" :  
+	 "Right Side Restraints Sensor 1"
+     ,
+	"B0097" :  
+	 "Right Side Restraints Sensor 2"
+     ,
+	"B0098" :  
+	 "Right Side Restraints Sensor 3"
+     ,
+	"B0099" :  
+	 "Roll Over Sensor"
+     ,
+	"B009a" :  
+	 "Left Side Restraints Sensor 4"
+     ,
+	"B009b" :  
+	 "Left Side Restraints Sensor 5"
+     ,
+	"B009c" :  
+	 "Left Side Restraints Sensor 6"
+     ,
+	"B009d" :  
+	 "Right Side Restraints Sensor 4"
+     ,
+	"B009e" :  
+	 "Right Side Restraints Sensor 5"
+     ,
+	"B009f" :  
+	 "Right Side Restraints Sensor 6"
+     ,
+	"B00a0" :  
+	 "Occupant Classification System"
+     ,
+	"B00a1" :  
+	 "Occupant Position System"
+     ,
+	"B00b0" :  
+	 "Driver Seat Occupant Classification Sensor A"
+     ,
+	"B00b1" :  
+	 "Driver Seat Occupant Classification Sensor B"
+     ,
+	"B00b2" :  
+	 "Driver Seat Occupant Classification Sensor C"
+     ,
+	"B00b3" :  
+	 "Driver Seat Occupant Classification Sensor D"
+     ,
+	"B00b4" :  
+	 "Driver Seat Occupant Classification Sensor E"
+     ,
+	"B00b5" :  
+	 "Driver Seat Track Position Restraints Sensor"
+     ,
+	"B00b6" :  
+	 "Driver Seat Recline Position Restraints Sensor"
+     ,
+	"B00b7" :  
+	 "Driver Seat Occupant Position Sensor A"
+     ,
+	"B00b8" :  
+	 "Driver Seat Occupant Position Sensor B"
+     ,
+	"B00b9" :  
+	 "Driver Seat Occupant Position Sensor C"
+     ,
+	"B00ba" :  
+	 "Driver Seat Occupant Position Sensor D"
+     ,
+	"B00bb" :  
+	 "Driver Seat Occupant Position Sensor E"
+     ,
+	"B00c0" :  
+	 "Passenger Seat Occupant Classification Sensor A"
+     ,
+	"B00c1" :  
+	 "Passenger Seat Occupant Classification Sensor B"
+     ,
+	"B00c2" :  
+	 "Passenger Seat Occupant Classification Sensor C"
+     ,
+	"B00c3" :  
+	 "Passenger Seat Occupant Classification Sensor D"
+     ,
+	"B00c4" :  
+	 "Passenger Seat Occupant Classification Sensor E"
+     ,
+	"B00c5" :  
+	 "Passenger Seat Track Position Restraints Sensor"
+     ,
+	"B00c6" :  
+	 "Passenger Seat Recline Position Restraints Sensor"
+     ,
+	"B00c7" :  
+	 "Passenger Seat Occupant Position Sensor A"
+     ,
+	"B00c8" :  
+	 "Passenger Seat Occupant Position Sensor B"
+     ,
+	"B00c9" :  
+	 "Passenger Seat Occupant Position Sensor C"
+     ,
+	"B00ca" :  
+	 "Passenger Seat Occupant Position Sensor D"
+     ,
+	"B00cb" :  
+	 "Passenger Seat Occupant Position Sensor E"
+     ,
+	"B00d0" :  
+	 "Driver Seatbelt Indicator"
+     ,
+	"B00d1" :  
+	 "Passenger Seatbelt Indicator"
+     ,
+	"B00d2" :  
+	 "Restraint System Malfunction Indicator 1"
+     ,
+	"B00d3" :  
+	 "Restraint System Malfunction Indicator 2"
+     ,
+	"B00d4" :  
+	 "Restraint System Malfunction Audible Indicator"
+     ,
+	"B00d5" :  
+	 "Restraint System Passenger Disable Indicator"
+     ,
+	"B00df" :  
+	 "Passenger Restraints Disable Switch"
+     ,
+	"B00e0" :  
+	 "Third Row Left Seatbelt Pretensioner B  Deployment Control"
+     ,
+	"B00e1" :  
+	 "Third Row Right Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B00e2" :  
+	 "Third Row Center Seatbelt Pretensioner B Deployment Control"
+     ,
+	"B00e3" :  
+	 "Second Row Left Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B00e4" :  
+	 "Second Row Right Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B00e5" :  
+	 "Second Row Center Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B00e6" :  
+	 "Third Row Right Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B00e7" :  
+	 "Third Row Left Seatbelt Pretensioner C Deployment Control"
+     ,
+	"B00e8" :  
+	 "Third Row Center Seatbelt Pretensioner C Deployment Control"
+}

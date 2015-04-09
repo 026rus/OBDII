@@ -2,6 +2,7 @@
 #define PORTREADERWRITER_H
 #include <QtSerialPort/QtSerialPort>
 #include <QString>
+#include <QVector>
 
 using namespace std;
 
@@ -21,6 +22,12 @@ namespace serial {
                         , QByteArray *data = 0
                         , QObject *parent = 0);
         ~PortReaderWriter();
+
+        // Get the list of available ports
+        static QVector<QSerialPortInfo> getAvailPorts(void);
+
+	// Set the connected port
+	bool setPort(string portName);
 
         // Sets up the Serial Connection
         bool serialConnect(void);

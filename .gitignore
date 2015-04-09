@@ -6,3 +6,4 @@ CMakeFiles/
 *.cmake
 *.sln
 *.user
+**/ui*.h
