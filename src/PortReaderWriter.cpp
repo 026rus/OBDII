@@ -221,7 +221,7 @@ namespace serial
         // cheking for error in retriving numbers of codes
         if (num_of_cods < 1)
         {
-            retval.append("\nnot correct namber of error codes\nNuber of codes = ");
+            retval.append("\nnot correct number of error codes\nNumber of codes = ");
             retval.append(QString::number(num_of_cods));
             return retval;
         }
