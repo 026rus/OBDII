@@ -5,6 +5,7 @@
 
 QVector<double> a(101), b(101);
 QVector<double> c(101), d(101);
+bool visibility;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     b[0] = 0;
     c[0] = 0;
     d[0] = 0;
+    visibility = true;
 
     QFont font;
     font.setPointSize(12);
@@ -122,6 +124,11 @@ void MainWindow::on_pushButton_3_clicked()
         vrpm.append(rpmVal/1000);
         rpmCount++;
     }
+    ui->pushButton->setDisabled(visibility);
+    ui->pushButton_2->setDisabled(visibility);
+    ui->pushButton_4->setDisabled(visibility);
+    ui->pushButton_7->setDisabled(visibility);
+    visibility = !visibility;
 }
 
 void MainWindow::on_pushButton_4_clicked()
