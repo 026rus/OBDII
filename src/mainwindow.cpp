@@ -25,9 +25,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QFont font;
     font.setPointSize(12);
-    ui->label->setText("Connection Status: ");
-    ui->label->setFont(font);
-    ui->progressBar->setValue(0);
+    ui->statusLabel->setText("Connection Status: ");
+    ui->statusLabel->setFont(font);
+    ui->connectStatus->setValue(0);
+    ui->customPlot->addGraph();
+    ui->customPlot->addGraph();
 }
 
 MainWindow::~MainWindow()
@@ -72,7 +74,7 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
   customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_checkEngineButton_clicked()
 {
     QString trobelCode = "";
     { // Try to get the Trouble Code
@@ -80,11 +82,11 @@ void MainWindow::on_pushButton_clicked()
         // TODO: Needs to be multiline aware
         QByteArray buff = conn->readLine();
         trobelCode = conn->decodeErr(buff);
-        ui->textBrowser->setText(trobelCode);
+        ui->outputBrowser->setText(trobelCode);
     }
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_monitorButton_clicked()
 {
     int vehicleSpeed = 0;
    { // Try to get the RPM
@@ -92,7 +94,7 @@ void MainWindow::on_pushButton_2_clicked()
        QByteArray buff = conn->readLine();
        vehicleSpeed = conn->decodeVehicleSpeed(buff);
    }
-   ui->textBrowser->setText(  QString::number(vehicleSpeed)  );
+   ui->outputBrowser->setText(  QString::number(vehicleSpeed)  );
     if(vehicleSpeed < 0)
     {
         vspeed.append(0);
@@ -103,17 +105,14 @@ void MainWindow::on_pushButton_2_clicked()
         vspeed.append(vehicleSpeed);
         speedCount++;
     }
-}
 
-void MainWindow::on_pushButton_3_clicked()
-{
     int rpmVal = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0C");
         QByteArray buff = conn->readLine();
         rpmVal = conn->decodeRPM(buff);
     }
-    ui->textBrowser->setText( QString::number(rpmVal) );
+    ui->outputBrowser->setText( QString::number(rpmVal) );
     if (rpmVal < 0)
     {
        vrpm.append(rpmCount);
@@ -125,30 +124,29 @@ void MainWindow::on_pushButton_3_clicked()
         rpmCount++;
     }
 
-/*
+
     // not necessary now, but the code to set
     // the other buttons to disabled while
     // monitoring the RPM
-    ui->pushButton->setDisabled(visibility);
-    ui->pushButton_2->setDisabled(visibility);
-    ui->pushButton_4->setDisabled(visibility);
-    ui->pushButton_7->setDisabled(visibility);
+    ui->checkEngineButton->setDisabled(visibility);
+    ui->submitButton->setDisabled(visibility);
+    ui->connectButton->setDisabled(visibility);
     visibility = !visibility;
-*/
+
 
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_submitButton_clicked()
 {
     sendcommand();
 }
 
-void MainWindow::on_radioButton_clicked()
+void MainWindow::on_speedBox_clicked()
 {
     setupSpeedGraph(ui->customPlot);
 }
 
-void MainWindow::on_radioButton_2_clicked()
+void MainWindow::on_rpmBox_clicked()
 {
     setupRPMGraph(ui->customPlot);
 }
@@ -159,18 +157,18 @@ void MainWindow::connect()
 
     if (!conn->serialConnect())
     {
-        ui->textBrowser->setText("Could not connect!");
+        ui->outputBrowser->setText("Could not connect!");
     }
 
 
     if (this->conn->isConnected())
     {
         infoout = "Connected to serial port!" +  this->conn->getConnectedPortName();
-        ui->textBrowser->setText(infoout);
+        ui->outputBrowser->setText(infoout);
     }
     else
     {
-        ui->textBrowser->setText("Not connected to a serial port!");
+        ui->outputBrowser->setText("Not connected to a serial port!");
     }
     connect();
 
@@ -182,32 +180,32 @@ void MainWindow::sendcommand()
 
     QString tempstr="";
 
-    QString instr = ui->lineEdit->text();
+    QString instr = ui->inputEdit->text();
     QByteArray qbin = instr.toUtf8();
 
     if(!conn->sendCommand( qbin ))
     {
-        ui->textBrowser->append( "Problem writing !!!!");
+        ui->outputBrowser->append( "Problem writing !!!!");
     }
     QByteArray buff = conn->readLine();
     tempstr = "Buff size 1: ";
     tempstr += QString::number(buff.size());
-    ui->textBrowser->append( tempstr );
+    ui->outputBrowser->append( tempstr );
 
     buff.remove(0, instr.size()+1);
 
     tempstr = "Buff size 2: ";
     tempstr += QString::number( buff.size() );
 
-    ui->textBrowser->append( tempstr );
+    ui->outputBrowser->append( tempstr );
 
     tempstr = "(";
     tempstr += buff;
     tempstr += ")" ;
 
-    ui->textBrowser->append( tempstr );
+    ui->outputBrowser->append( tempstr );
 
-    ui->lineEdit->selectAll();
+    ui->inputEdit->selectAll();
 }
 
 void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
@@ -218,8 +216,8 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
   }
 
   // create graph and assign data to it:
-  customPlot->addGraph();
-  customPlot->graph(0)->setData(c,vspeed);
+  //customPlot->addGraph();
+  customPlot->graph(1)->setData(c,vspeed);
 
   // give the axes some labels:
   customPlot->xAxis->setLabel("Count");
@@ -228,8 +226,8 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
   // set axes ranges, so we see all data:
   customPlot->xAxis->setRange(0, speedCount - 1);
   customPlot->yAxis->setRange(0, 80);
-  customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
-  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+  customPlot->graph(1)->setPen(QPen(Qt::red)); // line color blue for first graph
+  customPlot->graph(1)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
   customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   ui->customPlot->replot();
 }
@@ -241,7 +239,7 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
       a[i] = i;
   }
   // create graph and assign data to it:
-  customPlot->addGraph();
+  //customPlot->addGraph();
   customPlot->graph(0)->setData(a, vrpm);
   // give the axes some labels:
   customPlot->xAxis->setLabel("Count");
@@ -255,7 +253,7 @@ void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
   ui->customPlot->replot();
 }
 
-void MainWindow::on_pushButton_7_clicked()
+void MainWindow::on_connectButton_clicked()
 {
     QString input_device = "";
     QVector<QSerialPortInfo> ports = serial::PortReaderWriter::getAvailPorts();
@@ -270,23 +268,23 @@ void MainWindow::on_pushButton_7_clicked()
 	QFont font;
 	font.setPointSize(12);
 	QString text = "Connection Status: " + input_device;
-	ui->label->setText(text);
-	ui->label->setFont(font);
-	ui->progressBar->setValue(100);
-    ui->pushButton_7->setText(QApplication::translate("MainWindow", "Disconnect", 0));
+    ui->statusLabel->setText(text);
+    ui->statusLabel->setFont(font);
+    ui->connectStatus->setValue(100);
+    ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
 	return;
     }
 
     QFont font;
     font.setPointSize(12);
-    ui->label->setText("Connection Status: Disconnected");
-    ui->label->setFont(font);
-    ui->progressBar->setValue(0);
-    ui->pushButton_7->setText(QApplication::translate("MainWindow", "Connect", 0));
+    ui->statusLabel->setText("Connection Status: Disconnected");
+    ui->statusLabel->setFont(font);
+    ui->connectStatus->setValue(0);
+    ui->connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
     return;
 }
 
-void MainWindow::on_lineEdit_returnPressed()
+void MainWindow::on_inputEdit_returnPressed()
 {
    sendcommand();
 }
