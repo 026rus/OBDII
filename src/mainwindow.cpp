@@ -26,7 +26,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label->setText("Connection Status: ");
     ui->label->setFont(font);
     ui->progressBar->setValue(0);
-
 }
 
 MainWindow::~MainWindow()
@@ -264,6 +263,7 @@ void MainWindow::on_pushButton_7_clicked()
 	ui->label->setText(text);
 	ui->label->setFont(font);
 	ui->progressBar->setValue(100);
+    ui->pushButton_7->setText(QApplication::translate("MainWindow", "Disconnect", 0));
 	return;
     }
 
@@ -272,6 +272,7 @@ void MainWindow::on_pushButton_7_clicked()
     ui->label->setText("Connection Status: Disconnected");
     ui->label->setFont(font);
     ui->progressBar->setValue(0);
+    ui->pushButton_7->setText(QApplication::translate("MainWindow", "Connect", 0));
     return;
 }
 
