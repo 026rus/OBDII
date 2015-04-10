@@ -169,23 +169,17 @@ void MainWindow::on_rpmBox_clicked()
 
 void MainWindow::connect()
 {
-    QString infoout="";
+    QString infoMessage = "";
 
-    if (!conn->serialConnect())
-    {
-        ui->outputBrowser->setText("Could not connect!");
+    if (!conn->serialConnect()) {
+        infoMessage = QString(tr("Could not connect!"));
+    } else if (this->conn->isConnected()) {
+        infoMessage = "Connected to serial port!" +  this->conn->getConnectedPortName();
+    } else {
+        infoMessage = QString(tr("Not connected to a serial port!"));
     }
 
-
-    if (this->conn->isConnected())
-    {
-        infoout = "Connected to serial port!" +  this->conn->getConnectedPortName();
-        ui->outputBrowser->setText(infoout);
-    }
-    else
-    {
-        ui->outputBrowser->setText("Not connected to a serial port!");
-    }
+    ui->outputBrowser->setText(infoMessage);
 }
 
 void MainWindow::sendcommand()
