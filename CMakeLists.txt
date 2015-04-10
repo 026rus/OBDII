@@ -18,6 +18,7 @@ add_executable(carcomm src/main.cpp
     src/mainwindow.cpp
     src/qcustomplot.cpp
     src/ParseJson.cpp
+    src/qcpdocumentobject.cpp
 )
 
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)

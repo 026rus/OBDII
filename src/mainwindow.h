@@ -5,6 +5,9 @@
 #include <QTimer>
 #include "PortReaderWriter.h"
 #include "qcustomplot.h"
+#include <QTextDocument>
+#include <QFileDialog>
+#include "qcpdocumentobject.h"
 
 namespace Ui
 {
@@ -42,6 +45,10 @@ private slots:
     void on_speedBox_clicked();
 
     void on_rpmBox_clicked();
+
+    void on_addGraphButton_clicked();
+
+    void on_saveGraphButton_clicked();
 
     // this is function for usinf enter in the line stop plise deleting it !!!
     void on_inputEdit_returnPressed();
