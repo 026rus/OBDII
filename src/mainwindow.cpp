@@ -256,25 +256,24 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
 {
   if (rpmClicked == false){
-  for (int i=0; i<=rpmCount; i++)
-  {
-      a[i] = i;
-  }
-  // create graph and assign data to it:
-  //customPlot->addGraph();
-  customPlot->graph(0)->setData(a, vrpm);
-  // give the axes some labels:
-  customPlot->xAxis->setLabel("Count");
-  customPlot->yAxis->setLabel("RPM (x1000)");
-  // set axes ranges, so we see all data:
-  customPlot->xAxis->setRange(0, rpmCount - 1);
-  customPlot->yAxis->setRange(0, 10);
-  customPlot->graph(0)->setPen(QPen(Qt::red));
-  // first graph will be filled with translucent blue
-  customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
-  ui->customPlot->replot();
-  }
-  else{
+      for (int i=0; i<=rpmCount; i++)
+      {
+          a[i] = i;
+      }
+      // create graph and assign data to it:
+      //customPlot->addGraph();
+      customPlot->graph(0)->setData(a, vrpm);
+      // give the axes some labels:
+      customPlot->xAxis->setLabel("Count");
+      customPlot->yAxis->setLabel("RPM (x1000)");
+      // set axes ranges, so we see all data:
+      customPlot->xAxis->setRange(0, rpmCount - 1);
+      customPlot->yAxis->setRange(0, 10);
+      customPlot->graph(0)->setPen(QPen(Qt::red));
+      // first graph will be filled with translucent blue
+      customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
+      ui->customPlot->replot();
+  } else{
       ui->customPlot->removeGraph(0);
       ui->customPlot->addGraph();
       ui->customPlot->replot();
@@ -288,9 +287,9 @@ void MainWindow::on_connectButton_clicked()
     QVector<QSerialPortInfo> ports = serial::PortReaderWriter::getAvailPorts();
 
     foreach (const QSerialPortInfo &info, ports) {
-	if (info.manufacturer().contains("FTDI")) {
-	    input_device = info.portName();
-	}
+        if (info.manufacturer().contains("FTDI")) {
+            input_device = info.portName();
+        }
     }
 
     if (this->conn->setPort(input_device.toStdString())) {
