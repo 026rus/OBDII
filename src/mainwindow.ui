@@ -37,7 +37,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="commandTab">
        <attribute name="title">
@@ -54,24 +54,58 @@
             <enum>Qt::Horizontal</enum>
            </property>
            <widget class="QTextBrowser" name="outputBrowser"/>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <layout class="QVBoxLayout" name="verticalLayout">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetMaximumSize</enum>
+             </property>
              <item>
-              <widget class="QPushButton" name="connectButton">
-               <property name="text">
-                <string>Connect</string>
+              <spacer name="commandVertPadding">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
                </property>
-              </widget>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
              </item>
              <item>
               <widget class="QPushButton" name="checkEngineButton">
+               <property name="maximumSize">
+                <size>
+                 <width>128</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Check Engine</string>
                </property>
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="connectButton">
+               <property name="maximumSize">
+                <size>
+                 <width>128</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Connect</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QProgressBar" name="connectStatus">
+               <property name="maximumSize">
+                <size>
+                 <width>128</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="value">
                 <number>24</number>
                </property>
@@ -111,8 +145,30 @@
           <widget class="QCustomPlot" name="customPlot" native="true"/>
           <widget class="QWidget" name="layoutWidget">
            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <spacer name="dataVertPadding">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item>
              <widget class="QCheckBox" name="speedBox">
+              <property name="maximumSize">
+               <size>
+                <width>64</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Speed</string>
               </property>
@@ -120,6 +176,12 @@
             </item>
             <item>
              <widget class="QCheckBox" name="rpmBox">
+              <property name="maximumSize">
+               <size>
+                <width>64</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>RPM</string>
               </property>
@@ -127,6 +189,12 @@
             </item>
             <item>
              <widget class="QPushButton" name="monitorButton">
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Monitor Data</string>
               </property>
@@ -149,7 +217,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <widget class="QTextEdit" name="textEdit"/>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
              <widget class="QPushButton" name="addGraphButton">
@@ -181,7 +249,7 @@
      <x>0</x>
      <y>0</y>
      <width>972</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

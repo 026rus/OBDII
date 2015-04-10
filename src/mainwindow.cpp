@@ -8,29 +8,39 @@ QVector<double> c(101), d(101);
 bool visibility;
 bool speedClicked;
 bool rpmClicked;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
     this->conn = new serial::PortReaderWriter();
 
+    ui->setupUi(this);
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
+
+    /* disable these widgets when there is no connection present */
+    ui->submitButton->setDisabled(true);
+    ui->checkEngineButton->setDisabled(true);
+    ui->monitorButton->setDisabled(true);
+
     speedCount = 1;
     rpmCount = 1;
     a[0] = 0;
     b[0] = 0;
     c[0] = 0;
     d[0] = 0;
+
     visibility = true;
     speedClicked = false;
     rpmClicked = false;
 
     QFont font;
     font.setPointSize(12);
-    ui->statusLabel->setText("Connection Status: ");
     ui->statusLabel->setFont(font);
+    ui->statusLabel->setText("Connection Status: Disconnected");
+
     ui->connectStatus->setValue(0);
+
     ui->customPlot->addGraph();
     ui->customPlot->addGraph();
 }
@@ -159,23 +169,17 @@ void MainWindow::on_rpmBox_clicked()
 
 void MainWindow::connect()
 {
-    QString infoout="";
+    QString infoMessage = "";
 
-    if (!conn->serialConnect())
-    {
-        ui->outputBrowser->setText("Could not connect!");
+    if (!conn->serialConnect()) {
+        infoMessage = QString(tr("Could not connect!"));
+    } else if (this->conn->isConnected()) {
+        infoMessage = "Connected to serial port!" +  this->conn->getConnectedPortName();
+    } else {
+        infoMessage = QString(tr("Not connected to a serial port!"));
     }
 
-
-    if (this->conn->isConnected())
-    {
-        infoout = "Connected to serial port!" +  this->conn->getConnectedPortName();
-        ui->outputBrowser->setText(infoout);
-    }
-    else
-    {
-        ui->outputBrowser->setText("Not connected to a serial port!");
-    }
+    ui->outputBrowser->setText(infoMessage);
 }
 
 void MainWindow::sendcommand()
@@ -246,25 +250,24 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
 {
   if (rpmClicked == false){
-  for (int i=0; i<=rpmCount; i++)
-  {
-      a[i] = i;
-  }
-  // create graph and assign data to it:
-  //customPlot->addGraph();
-  customPlot->graph(0)->setData(a, vrpm);
-  // give the axes some labels:
-  customPlot->xAxis->setLabel("Count");
-  customPlot->yAxis->setLabel("RPM (x1000)");
-  // set axes ranges, so we see all data:
-  customPlot->xAxis->setRange(0, rpmCount - 1);
-  customPlot->yAxis->setRange(0, 10);
-  customPlot->graph(0)->setPen(QPen(Qt::red));
-  // first graph will be filled with translucent blue
-  customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
-  ui->customPlot->replot();
-  }
-  else{
+      for (int i=0; i<=rpmCount; i++)
+      {
+          a[i] = i;
+      }
+      // create graph and assign data to it:
+      //customPlot->addGraph();
+      customPlot->graph(0)->setData(a, vrpm);
+      // give the axes some labels:
+      customPlot->xAxis->setLabel("Count");
+      customPlot->yAxis->setLabel("RPM (x1000)");
+      // set axes ranges, so we see all data:
+      customPlot->xAxis->setRange(0, rpmCount - 1);
+      customPlot->yAxis->setRange(0, 10);
+      customPlot->graph(0)->setPen(QPen(Qt::red));
+      // first graph will be filled with translucent blue
+      customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
+      ui->customPlot->replot();
+  } else{
       ui->customPlot->removeGraph(0);
       ui->customPlot->addGraph();
       ui->customPlot->replot();
@@ -278,20 +281,25 @@ void MainWindow::on_connectButton_clicked()
     QVector<QSerialPortInfo> ports = serial::PortReaderWriter::getAvailPorts();
 
     foreach (const QSerialPortInfo &info, ports) {
-	if (info.manufacturer().contains("FTDI")) {
-	    input_device = info.portName();
-	}
+        if (info.manufacturer().contains("FTDI")) {
+            input_device = info.portName();
+        }
     }
 
     if (this->conn->setPort(input_device.toStdString())) {
-	QFont font;
-	font.setPointSize(12);
-	QString text = "Connection Status: " + input_device;
-    ui->statusLabel->setText(text);
-    ui->statusLabel->setFont(font);
-    ui->connectStatus->setValue(100);
-    ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
-	return;
+        QFont font;
+        font.setPointSize(12);
+        QString text = "Connected: " + input_device;
+        ui->statusLabel->setText(text);
+        ui->statusLabel->setFont(font);
+        ui->connectStatus->setValue(100);
+        ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
+
+        /* enable these widgets when there is a connection present */
+        ui->checkEngineButton->setEnabled(true);
+        ui->submitButton->setEnabled(true);
+        ui->monitorButton->setEnabled(true);
+        return;
     }
 
     QFont font;
@@ -300,6 +308,16 @@ void MainWindow::on_connectButton_clicked()
     ui->statusLabel->setFont(font);
     ui->connectStatus->setValue(0);
     ui->connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
+
+    /* We disconnected.  We should clean up the PortReaderWriter and get new buffers. */
+    delete this->conn;
+    this->conn = new serial::PortReaderWriter();
+
+    /* disable these widgets when there is no connection */
+    ui->checkEngineButton->setDisabled(true);
+    ui->submitButton->setDisabled(true);
+    ui->monitorButton->setDisabled(true);
+
     return;
 }
 
