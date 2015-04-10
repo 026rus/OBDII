@@ -1,16 +1,9 @@
 #include "CarCoreApp.h"
 #include "mainwindow.h"
-#include "PortReaderWriter.h"
-#include "ParseJson.h"
-#include <cstdio>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QApplication>
-#include <iostream>
-
-
-using namespace serial;
 
 int main(int argc, char** argv) {
     // this is to choose if you want a command line or
@@ -19,19 +12,15 @@ int main(int argc, char** argv) {
     // !!!!!! please stop deliting it to :)
     if (argc < 2) {
         // GUI interfase by defolte if no argument passed
-        QApplication a(argc, argv);
+        QApplication app(argc, argv);
         MainWindow w;
         w.show();
-        return a.exec();
-    } else {
-        CarCoreApp *app = new CarCoreApp(argc, &argv);
         qDebug() << "Application has launched.";
-        app->run();
-
-        #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-          QApplication::setGraphicsSystem("raster");
-        #endif
-        return app->exec();
+        return app.exec();
     }
+
+    CarCoreApp app(argc, &argv);
+    app.run();
     qDebug() << "Application has launched.";
+    return app.exec();
 }
