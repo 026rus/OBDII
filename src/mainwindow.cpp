@@ -135,8 +135,11 @@ void MainWindow::on_monitorButton_clicked()
     ui->submitButton->setDisabled(visibility);
     ui->connectButton->setDisabled(visibility);
     visibility = !visibility;
-    ui->customPlot->replot();
 
+    speedClicked = !speedClicked;
+    rpmClicked = !rpmClicked;
+    on_rpmBox_clicked();
+    on_speedBox_clicked();
 }
 
 void MainWindow::on_submitButton_clicked()
