@@ -8,29 +8,39 @@ QVector<double> c(101), d(101);
 bool visibility;
 bool speedClicked;
 bool rpmClicked;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
     this->conn = new serial::PortReaderWriter();
 
+    ui->setupUi(this);
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
+
+    /* disable these widgets when there is no connection present */
+    ui->submitButton->setDisabled(true);
+    ui->checkEngineButton->setDisabled(true);
+    ui->monitorButton->setDisabled(true);
+
     speedCount = 1;
     rpmCount = 1;
     a[0] = 0;
     b[0] = 0;
     c[0] = 0;
     d[0] = 0;
+
     visibility = true;
     speedClicked = false;
     rpmClicked = false;
 
     QFont font;
     font.setPointSize(12);
-    ui->statusLabel->setText("Connection Status: ");
     ui->statusLabel->setFont(font);
+    ui->statusLabel->setText("Connection Status: Disconnected");
+
     ui->connectStatus->setValue(0);
+
     ui->customPlot->addGraph();
     ui->customPlot->addGraph();
 }
@@ -284,14 +294,19 @@ void MainWindow::on_connectButton_clicked()
     }
 
     if (this->conn->setPort(input_device.toStdString())) {
-	QFont font;
-	font.setPointSize(12);
-	QString text = "Connection Status: " + input_device;
-    ui->statusLabel->setText(text);
-    ui->statusLabel->setFont(font);
-    ui->connectStatus->setValue(100);
-    ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
-	return;
+        QFont font;
+        font.setPointSize(12);
+        QString text = "Connected: " + input_device;
+        ui->statusLabel->setText(text);
+        ui->statusLabel->setFont(font);
+        ui->connectStatus->setValue(100);
+        ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
+
+        /* enable these widgets when there is a connection present */
+        ui->checkEngineButton->setEnabled(true);
+        ui->submitButton->setEnabled(true);
+        ui->monitorButton->setEnabled(true);
+        return;
     }
 
     QFont font;
@@ -300,6 +315,16 @@ void MainWindow::on_connectButton_clicked()
     ui->statusLabel->setFont(font);
     ui->connectStatus->setValue(0);
     ui->connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
+
+    /* We disconnected.  We should clean up the PortReaderWriter and get new buffers. */
+    delete this->conn;
+    this->conn = new serial::PortReaderWriter();
+
+    /* disable these widgets when there is no connection */
+    ui->checkEngineButton->setDisabled(true);
+    ui->submitButton->setDisabled(true);
+    ui->monitorButton->setDisabled(true);
+
     return;
 }
 
