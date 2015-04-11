@@ -34,6 +34,10 @@ MainWindow::MainWindow(QWidget *parent) :
     speedClicked = false;
     rpmClicked = false;
 
+    // register the plot document object (only needed once, no matter how many plots will be in the QTextDocument):
+    QCPDocumentObject *plotObjectHandler = new QCPDocumentObject(this);
+    ui->textEdit->document()->documentLayout()->registerHandler(QCPDocumentObject::PlotTextFormat, plotObjectHandler);
+
     QFont font;
     font.setPointSize(12);
     ui->statusLabel->setFont(font);
@@ -324,4 +328,33 @@ void MainWindow::on_connectButton_clicked()
 void MainWindow::on_inputEdit_returnPressed()
 {
    sendcommand();
+}
+
+void MainWindow::on_addGraphButton_clicked()
+{
+  QTextCursor cursor = ui->textEdit->textCursor();
+
+  // insert the current plot at the cursor position. QCPDocumentObject::generatePlotFormat creates a
+  // vectorized snapshot of the passed plot (with the specified width and height) which gets inserted
+  // into the text document.
+  double width = 480;
+  double height = 340;
+  cursor.insertText(QString(QChar::ObjectReplacementCharacter), QCPDocumentObject::generatePlotFormat(ui->customPlot, width, height));
+
+  ui->textEdit->setTextCursor(cursor);
+}
+
+void MainWindow::on_saveGraphButton_clicked()
+{
+  QString fileName = QFileDialog::getSaveFileName(this, "Save document...", qApp->applicationDirPath(), "*.pdf");
+  if (!fileName.isEmpty())
+  {
+    QPrinter printer;
+    printer.setFullPage(true);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOrientation(QPrinter::Portrait);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(fileName);
+    ui->textEdit->document()->print(&printer);
+  }
 }
