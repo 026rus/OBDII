@@ -86,6 +86,8 @@ namespace serial {
         const QByteArray queryThrottlePosition(void);
         const QByteArray queryVehicleSpeed(void);
 
+        void decodeMulty(const QByteArray line_data, int &codes);
+
     private slots:
         void handleReadReady(void);
         void handleTimeout(void);

@@ -383,38 +383,34 @@ namespace serial
         QString retval = line_data.mid(4);
         qDebug() << retval;
         int x = ((retval.toInt(&ok, 16))*100)/255;
-	return ok ? x : -1;
+        return ok ? x : -1;
     }
 
     // Distance traveled with malfunction indicator lamp (MIL) on in km
     const int PortReaderWriter::decodeDistanceTraveledMIL(const QByteArray line_data)
     {
-        //QString retval = line_data;
-
-        QString retval = "41 0C 0F A0";
+        //QString retval = "41 0C 0F A0";
+        bool oka = false;
+        bool okb = false;
+        QString retval =  line_data.mid(4);
         QString A = retval.left(2);
         QString B = retval.mid(2);
-
-
-        bool oka, okb;
-        bool ok = false;
-        QString retval =  line_data.mid(4);
         qDebug() << retval;
-        int x = ((retval.toInt(&ok, 16))*256) + Bs;
-	return ok ? x : -1;
+        int x = ((retval.toInt(&oka, 16))*256) + B.toInt(&okb, 16);
+        return (oka && okb) ? x : -1;
     }
 
     // Run time since engine starts in seconds.
     const int PortReaderWriter::decodeRunTimeEngineStart(const QByteArray line_data)
     {
+        QString retval = line_data.mid(4); 
         QString A = retval.left(2);
         QString B = retval.mid(2);
-
-        QString retval = line_data.mid(4); 
         qDebug() << retval;
-        bool ok = false;
-        int x = ((retval.toInt(&ok, 16))*256) + Bs;
-	return ok ? x : -1;
+        bool oka = false;
+        bool okb = false;
+        int x = ((retval.toInt(&oka, 16))*256) + B.toInt(&okb, 16);
+        return (oka && okb) ? x : -1;
     }
 
     const int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
@@ -441,18 +437,19 @@ namespace serial
         QString retval = line_data.mid(4);
         qDebug() << retval;
         int x = (retval.toInt(&ok, 16));
-	return ok ? x : -1;
+        return ok ? x : -1;
     }
 
     // Fuel/Air commanded equivalence ratio
     const int PortReaderWriter::decodeFuelAirRatio(const QByteArray line_data)
     {
-        QString B = retval.mid(2);
-        bool ok = false;
+        bool oka = false;
+        bool okb = false;
         QString retval = line_data.mid(4);
+        QString B = retval.mid(2);
         qDebug() << retval;
-        int x = ( ( (retval.toInt(&ok, 16)) * 256) + Bs)/32768 ;
-	return ok ? x : -1;
+        int x = ( ( (retval.toInt(&oka, 16)) * 256) + B.toInt(&okb, 16))/32768 ;
+        return (oka && okb) ? x : -1;
     }
 
     // Ethanol fule % ratio
@@ -462,13 +459,73 @@ namespace serial
         QString retval = line_data.mid(4);
         qDebug() << retval;
         int x =  ( (retval.toInt(&ok, 16)) * 100)/255 ;
-	return ok ? x : -1;
+        return ok ? x : -1;
     }
 
-    /* Ensure communications with the serial device are working */
-    bool PortReaderWriter::testSerial() {
-        if (!this->isConnected()) return false;
+    void PortReaderWriter::decodeMulty(const QByteArray line_data, int &codes)
+    {
+        // Only in connectionc is CAN (ISO 15765-4)
 
+        // send value will be like: 01 04 05 0B 0C
+        // 01 - mode
+        // -------------------------
+        // 04 - engine load
+        // 05 - coolant temperatur
+        // 0B - manifold pressure
+        // 0C - engine RPM
+
+        // QString retval = line_data;
+        QString retval = "00A 0: 41 04 3F 05 44 0B 1: 21 0C 17 B8 00 00 00";
+
+        QString temp;
+        const int maxcod = 6;
+        QString incode[maxcod] = {"04",
+                             "05",
+                             "0B",
+                             "0C",
+                             "",
+                             ""};
+
+        QString STRcodes[maxcod];
+        int x = 0,
+            y = 0;
+
+        int CC[6];
+
+        bool ok;
+
+        retval = retval.replace(" ","");
+        retval = retval.remove(0,3);
+
+        while (( x = retval.indexOf(":",0,Qt::CaseInsensitive) ) != -1)
+        {
+               retval = retval.remove(x-1,2);
+        }
+
+        for (int i=1; i<maxcod; i++)
+        {
+            x = retval.indexOf(incode[i-1], 0, Qt::CaseInsensitive);
+            y = retval.indexOf(incode[i], 0, Qt::CaseInsensitive);
+            if ( (y-x-2) > 4 || (y-x-2) < 0)
+                STRcodes[i-1] = retval.mid(x+2, 4);
+            else
+                STRcodes[i-1] = retval.mid(x+2, (y-x-2));
+            CC[i-1] = STRcodes[i-1].toInt(&ok, 16);
+        }
+
+
+        qDebug() << retval;
+        for (int i=0; i<maxcod; i++)
+        {
+            qDebug() << "In code: " <<incode[i];
+            qDebug() << "the value: " <<STRcodes[i];
+            qDebug() << "The desimal: " << CC[i];
+            qDebug() << "----------------------------";
+        }
+
+    }
+
+    bool PortReaderWriter::testSerial() {
         // Send AT I command, nearly every serial device will respond
         // sanely to the AT I command.  If your device does not work
         // with an AT I command, then you might want a better serial device
