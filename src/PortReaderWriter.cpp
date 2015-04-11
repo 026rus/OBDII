@@ -327,9 +327,6 @@ namespace serial
     // Temperature of engine coolant in C
     const int PortReaderWriter::decodeEngineCoolantTemp(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "41 05 7B";
         bool ok= false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
@@ -353,9 +350,6 @@ namespace serial
     // Fuel pressure kPa (gauge)
     const int PortReaderWriter::decodeFuelPressure(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "41 05 7B";
         bool ok = false;
         QString retval =  line_data.mid(4);
         qDebug() << retval;
@@ -366,9 +360,6 @@ namespace serial
     // Intake manifold absolute pressure kPa (gauge)
     const int PortReaderWriter::decodeIntakeManifoldAbsolutePressure(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "41 05 7B";
         bool ok = false;
         QString retval =  line_data.mid(4);
         int x = (retval.toInt(&ok, 16));
@@ -378,9 +369,6 @@ namespace serial
     // Temperature of the intake air in C
     const int PortReaderWriter::decodeIntakeAirTemp(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "41 05 7B";
         bool ok = false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
@@ -391,9 +379,6 @@ namespace serial
     // Throttle position in %
     const int PortReaderWriter::decodeThrottlePosition(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "41 05 7B";
         bool ok = false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
@@ -404,7 +389,14 @@ namespace serial
     // Distance traveled with malfunction indicator lamp (MIL) on in km
     const int PortReaderWriter::decodeDistanceTraveledMIL(const QByteArray line_data)
     {
-        int Bs = 27;
+        //QString retval = line_data;
+
+        QString retval = "41 0C 0F A0";
+        QString A = retval.left(2);
+        QString B = retval.mid(2);
+
+
+        bool oka, okb;
         bool ok = false;
         QString retval =  line_data.mid(4);
         qDebug() << retval;
@@ -415,7 +407,9 @@ namespace serial
     // Run time since engine starts in seconds.
     const int PortReaderWriter::decodeRunTimeEngineStart(const QByteArray line_data)
     {
-        int Bs = 27;
+        QString A = retval.left(2);
+        QString B = retval.mid(2);
+
         QString retval = line_data.mid(4); 
         qDebug() << retval;
         bool ok = false;
@@ -430,7 +424,6 @@ namespace serial
         qDebug() << retval;
         int x = (retval.toInt(&ok, 16));
         return ok ? x : -1;
-
     }
 
     const int PortReaderWriter::decodeFuelLevelIntake(const QByteArray line_data) {
@@ -444,9 +437,6 @@ namespace serial
     // Barometric pressure kPa (Absolute)
     const int PortReaderWriter::decodeBarrometricPressure(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "01 04 f8";
         bool ok = false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
@@ -457,10 +447,7 @@ namespace serial
     // Fuel/Air commanded equivalence ratio
     const int PortReaderWriter::decodeFuelAirRatio(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "01 04 f8";
-        int Bs = 138;
+        QString B = retval.mid(2);
         bool ok = false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
@@ -471,9 +458,6 @@ namespace serial
     // Ethanol fule % ratio
     const int PortReaderWriter::decodeEthanolFuelP(const QByteArray line_data)
     {
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "01 04 f8";
         bool ok = false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
