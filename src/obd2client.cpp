@@ -1,11 +1,11 @@
 #include "obd2client.h"
 
-
-OBD2Client::OBD2Client(QObject* parent): QObject(parent)
+OBD2Client::OBD2Client(QObject* parent): QThread(parent)
 {
-  massage = "Test connection";
-  connect(&client, SIGNAL(connected()),
-    this, SLOT( sendData() ));
+
+    massage = "Test connection";
+    HostAddres = "127.0.0.1";
+    HostPort = 16383;
 }
 
 OBD2Client::~OBD2Client()
@@ -23,12 +23,14 @@ void OBD2Client::start()
 {
   QHostAddress addr(HostAddres);
   client.connectToHost(addr, HostPort);
+  sendData();
 }
 
 void OBD2Client::sendData()
 {
+    QByteArray bm= massage.toUtf8();
 
-  client.write( massage.toLatin1(), (qint64)(massage.length()) );
+  client.write( bm );
 }
 
 

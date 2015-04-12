@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 #include "qcustomplot.h"
+#include "obd2client.h"
 
 QVector<double> a(101), b(101);
 QVector<double> c(101), d(101);
@@ -283,6 +284,7 @@ void MainWindow::on_addGraphButton_clicked()
   cursor.insertText(QString(QChar::ObjectReplacementCharacter), QCPDocumentObject::generatePlotFormat(ui->customPlot, width, height));
 
   ui->textEdit->setTextCursor(cursor);
+
 }
 
 void MainWindow::on_saveGraphButton_clicked()

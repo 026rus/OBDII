@@ -9,7 +9,7 @@
 
 
 
-class OBD2Client: public QObject
+class OBD2Client: public QThread
 {
 Q_OBJECT
 public:
@@ -19,6 +19,7 @@ public:
 
     void start(QString address, quint16 port);
     void start();
+//    void run() Q_DECL_OVERRIDE;
 
     void setHostAddres(QString a);
     void setHostPort(quint16 p);
@@ -39,6 +40,9 @@ private:
     QString HostAddres;
     quint16 HostPort;
     QTcpSocket socet;
+    QMutex mutex;
+    QWaitCondition cond;
+    bool quit;
 };
 
 #endif // OBD2CLIENT_H
