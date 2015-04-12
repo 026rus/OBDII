@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>972</width>
-    <height>568</height>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="commandTab">
        <attribute name="title">
@@ -169,8 +169,8 @@
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>0</y>
-                 <width>421</width>
+                 <y>-48</y>
+                 <width>615</width>
                  <height>427</height>
                 </rect>
                </property>
@@ -189,93 +189,99 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="checkBox">
-                  <property name="text">
-                   <string>Ethanol Fuel Percentage</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_11">
-                  <property name="text">
-                   <string>Fuel/Air Ratio</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_12">
+                 <widget class="QCheckBox" name="barometricPressureBox">
                   <property name="text">
                    <string>Barometric Pressure</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="checkBox_14">
-                  <property name="text">
-                   <string>Fuel Level Percentage</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_2">
+                 <widget class="QCheckBox" name="distanceTraveledBox">
                   <property name="text">
                    <string>Distance Traveled with MIL</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="checkBox_13">
-                  <property name="text">
-                   <string>Run Time</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_4">
-                  <property name="text">
-                   <string>Throtle Positon Percentage</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_5">
-                  <property name="text">
-                   <string>Intake Air Temperature</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_6">
-                  <property name="text">
-                   <string>Intake Manifold Pressure</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_7">
-                  <property name="text">
-                   <string>Fuel Pressure</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_8">
-                  <property name="text">
-                   <string>Engine Oil Temperature</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_9">
+                 <widget class="QCheckBox" name="engineCoolantBox">
                   <property name="text">
                    <string>Engine Coolant Temperature</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="checkBox_3">
+                 <widget class="QCheckBox" name="engineLoadBox">
                   <property name="text">
                    <string>Engine Load Value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="engineOilBox">
+                  <property name="text">
+                   <string>Engine Oil Temperature</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="ethanolFuelBox">
+                  <property name="text">
+                   <string>Ethanol Fuel Percentage</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="fuelAirBox">
+                  <property name="text">
+                   <string>Fuel/Air Ratio</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="fuelLevelBox">
+                  <property name="text">
+                   <string>Fuel Level Percentage</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="fuelPressureBox">
+                  <property name="text">
+                   <string>Fuel Pressure</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="intakeAirBox">
+                  <property name="text">
+                   <string>Intake Air Temperature</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="intakeManifoldBox">
+                  <property name="text">
+                   <string>Intake Manifold Pressure</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="rpmBox">
+                  <property name="maximumSize">
+                   <size>
+                    <width>64</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>RPM</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="runTimeBox">
+                  <property name="text">
+                   <string>Run Time</string>
                   </property>
                  </widget>
                 </item>
@@ -293,15 +299,9 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="rpmBox">
-                  <property name="maximumSize">
-                   <size>
-                    <width>64</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
+                 <widget class="QCheckBox" name="throtlePositionBox">
                   <property name="text">
-                   <string>RPM</string>
+                   <string>Throtle Positon Percentage</string>
                   </property>
                  </widget>
                 </item>
