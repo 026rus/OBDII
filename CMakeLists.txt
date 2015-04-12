@@ -19,6 +19,7 @@ add_executable(carcomm src/main.cpp
     src/qcustomplot.cpp
     src/ParseJson.cpp
     src/qcpdocumentobject.cpp
+	src/obd2client.cpp
 )
 
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)
