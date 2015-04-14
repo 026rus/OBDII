@@ -349,7 +349,7 @@ void MainWindow::on_saveGraphButton_clicked()
   QString fileName = QFileDialog::getSaveFileName(this, "Save document...", qApp->applicationDirPath(), "*.pdf");
   if (!fileName.isEmpty())
   {
-    QPrinter printer;
+    QPrinter printer(QPrinter::HighResolution);
     printer.setFullPage(true);
     printer.setPaperSize(QPrinter::A4);
     printer.setOrientation(QPrinter::Portrait);

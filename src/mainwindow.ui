@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>972</width>
-    <height>568</height>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="commandTab">
        <attribute name="title">
@@ -149,42 +149,164 @@
              <enum>QLayout::SetMaximumSize</enum>
             </property>
             <item>
-             <spacer name="dataVertPadding">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
+             <widget class="QScrollArea" name="scrollArea">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
               </property>
-              <property name="sizeHint" stdset="0">
+              <property name="minimumSize">
                <size>
-                <width>20</width>
-                <height>40</height>
+                <width>230</width>
+                <height>0</height>
                </size>
               </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="speedBox">
-              <property name="maximumSize">
-               <size>
-                <width>64</width>
-                <height>16777215</height>
-               </size>
+              <property name="widgetResizable">
+               <bool>true</bool>
               </property>
-              <property name="text">
-               <string>Speed</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="rpmBox">
-              <property name="maximumSize">
-               <size>
-                <width>64</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>RPM</string>
-              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_2">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>-48</y>
+                 <width>615</width>
+                 <height>427</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <spacer name="dataVertPadding">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="barometricPressureBox">
+                  <property name="text">
+                   <string>Barometric Pressure</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="distanceTraveledBox">
+                  <property name="text">
+                   <string>Distance Traveled with MIL</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="engineCoolantBox">
+                  <property name="text">
+                   <string>Engine Coolant Temperature</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="engineLoadBox">
+                  <property name="text">
+                   <string>Engine Load Value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="engineOilBox">
+                  <property name="text">
+                   <string>Engine Oil Temperature</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="ethanolFuelBox">
+                  <property name="text">
+                   <string>Ethanol Fuel Percentage</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="fuelAirBox">
+                  <property name="text">
+                   <string>Fuel/Air Ratio</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="fuelLevelBox">
+                  <property name="text">
+                   <string>Fuel Level Percentage</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="fuelPressureBox">
+                  <property name="text">
+                   <string>Fuel Pressure</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="intakeAirBox">
+                  <property name="text">
+                   <string>Intake Air Temperature</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="intakeManifoldBox">
+                  <property name="text">
+                   <string>Intake Manifold Pressure</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="rpmBox">
+                  <property name="maximumSize">
+                   <size>
+                    <width>64</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>RPM</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="runTimeBox">
+                  <property name="text">
+                   <string>Run Time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="speedBox">
+                  <property name="maximumSize">
+                   <size>
+                    <width>64</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Speed</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="throtlePositionBox">
+                  <property name="text">
+                   <string>Throtle Positon Percentage</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
              </widget>
             </item>
             <item>
@@ -249,7 +371,7 @@
      <x>0</x>
      <y>0</y>
      <width>972</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
