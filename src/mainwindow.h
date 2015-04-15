@@ -36,9 +36,7 @@ private slots:
 
     void on_submitButton_clicked();
 
-    void connect();
-
-    void sendcommand();
+    void sendRawData();
 
     void on_connectButton_clicked();
 

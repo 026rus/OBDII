@@ -183,7 +183,7 @@ namespace serial
 
     /* Query for the current vehicle speed */
     const QByteArray PortReaderWriter::queryVehicleSpeed() {
-        if (!this->sendCommand("01 05 1")) { return QByteArray(); }
+        if (!this->sendCommand("01 0D")) { return QByteArray(); }
         return this->readAll();
     }
 
