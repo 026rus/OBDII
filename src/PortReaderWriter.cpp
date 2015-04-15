@@ -166,6 +166,7 @@ namespace serial
 
     /* Query the fuel intake amount */
     const QByteArray PortReaderWriter::queryFuelLevelIntake() {
+        if (!this->sendCommand("01 2F 1")) { return QByteArray(); }
         return this->readAll();
     }
 
@@ -189,7 +190,7 @@ namespace serial
 
     /* Query the current engine load */
     const QByteArray PortReaderWriter::queryEngineLoad() {
-        if (!this->sendCommand("01 05 1")) { return QByteArray(); }
+        if (!this->sendCommand("01 04 1")) { return QByteArray(); }
         return this->readAll();
     }
 
