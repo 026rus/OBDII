@@ -91,16 +91,9 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
   customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
 }
 
-void MainWindow::on_checkEngineButton_clicked()
-{
-    QString trobelCode = "";
-    { // Try to get the Trouble Code
-        conn->sendCommand("01 01");
-        // TODO: Needs to be multiline aware
-        QByteArray buff = conn->readLine();
-        trobelCode = conn->decodeErr(buff);
-        ui->outputBrowser->setText(trobelCode);
-    }
+void MainWindow::on_checkEngineButton_clicked() {
+    QByteArray trobelCode = this->conn->queryOBDErrorCodes();
+    ui->outputBrowser->setText(this->conn->decodeOBDErrors(trobelCode).toCaseFolded());
 }
 
 void MainWindow::on_monitorButton_clicked()
