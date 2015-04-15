@@ -91,56 +91,33 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
   customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
 }
 
-void MainWindow::on_checkEngineButton_clicked()
-{
-    QString trobelCode = "";
-    { // Try to get the Trouble Code
-        conn->sendCommand("01 01");
-        // TODO: Needs to be multiline aware
-        QByteArray buff = conn->readLine();
-        trobelCode = conn->decodeErr(buff);
-        ui->outputBrowser->setText(trobelCode);
-    }
+void MainWindow::on_checkEngineButton_clicked() {
+    QByteArray trobelCode = this->conn->queryOBDErrorCodes();
+    ui->outputBrowser->setText(this->conn->decodeOBDErrors(trobelCode).toCaseFolded());
 }
 
-void MainWindow::on_monitorButton_clicked()
-{
-    int vehicleSpeed = 0;
-   { // Try to get the RPM
-       conn->sendCommand("01 0D");
-       QByteArray buff = conn->readLine();
-       vehicleSpeed = conn->decodeVehicleSpeed(buff);
-   }
-   ui->outputBrowser->setText(  QString::number(vehicleSpeed)  );
-    if(vehicleSpeed < 0)
-    {
+void MainWindow::on_monitorButton_clicked() {
+    int vehicleSpeed = conn->decodeVehicleSpeed(conn->queryVehicleSpeed());
+    ui->outputBrowser->setText(  QString::number(vehicleSpeed)  );
+
+    if(vehicleSpeed < 0) {
         vspeed.append(0);
         speedCount++;
-    }
-    else
-    {
+    } else {
         vspeed.append(vehicleSpeed);
         speedCount++;
     }
 
-    int rpmVal = 0;
-    { // Try to get the RPM
-        conn->sendCommand("01 0C");
-        QByteArray buff = conn->readLine();
-        rpmVal = conn->decodeRPM(buff);
-    }
+    int rpmVal = conn->decodeRPM(conn->queryRPM());
     ui->outputBrowser->setText( QString::number(rpmVal) );
-    if (rpmVal < 0)
-    {
+
+    if (rpmVal < 0) {
        vrpm.append(rpmCount);
        rpmCount++;
-    }
-    else
-    {
+    } else {
         vrpm.append(rpmVal/1000);
         rpmCount++;
     }
-
 
     // not necessary now, but the code to set
     // the other buttons to disabled while
@@ -156,50 +133,20 @@ void MainWindow::on_monitorButton_clicked()
     on_speedBox_clicked();
 }
 
-void MainWindow::on_submitButton_clicked()
-{
-    sendcommand();
-}
+void MainWindow::on_submitButton_clicked() { sendRawData(); }
 
-void MainWindow::on_speedBox_clicked()
-{
-    setupSpeedGraph(ui->customPlot);
-}
+void MainWindow::on_speedBox_clicked() { setupSpeedGraph(ui->customPlot); }
 
-void MainWindow::on_rpmBox_clicked()
-{
-    setupRPMGraph(ui->customPlot);
-}
+void MainWindow::on_rpmBox_clicked() { setupRPMGraph(ui->customPlot); }
 
-void MainWindow::connect()
-{
-    QString infoMessage = "";
-
-    if (!conn->serialConnect()) {
-        infoMessage = QString(tr("Could not connect!"));
-    } else if (this->conn->isConnected()) {
-        infoMessage = "Connected to serial port!" +  this->conn->getConnectedPortName();
-    } else {
-        infoMessage = QString(tr("Not connected to a serial port!"));
-    }
-
-    ui->outputBrowser->setText(infoMessage);
-}
-
-void MainWindow::sendcommand()
-{
-
-    QString tempstr="";
-
+void MainWindow::sendRawData() {
     QString instr = ui->inputEdit->text();
-    QByteArray qbin = instr.toUtf8();
 
-    if(!conn->sendCommand( qbin ))
-    {
+    if(!conn->sendCommand( instr.toUtf8() )) {
         ui->outputBrowser->append( "Problem writing !!!!");
     }
-    QByteArray buff = conn->readLine();
-    tempstr = "Buff size 1: ";
+    QByteArray buff = conn->readAll();
+    QString tempstr = "Buff size 1: ";
     tempstr += QString::number(buff.size());
     ui->outputBrowser->append( tempstr );
 
@@ -207,15 +154,12 @@ void MainWindow::sendcommand()
 
     tempstr = "Buff size 2: ";
     tempstr += QString::number( buff.size() );
-
     ui->outputBrowser->append( tempstr );
 
     tempstr = "(";
     tempstr += buff;
     tempstr += ")" ;
-
     ui->outputBrowser->append( tempstr );
-
     ui->inputEdit->selectAll();
 }
 
@@ -325,10 +269,7 @@ void MainWindow::on_connectButton_clicked()
     return;
 }
 
-void MainWindow::on_inputEdit_returnPressed()
-{
-   sendcommand();
-}
+void MainWindow::on_inputEdit_returnPressed() { sendRawData(); }
 
 void MainWindow::on_addGraphButton_clicked()
 {

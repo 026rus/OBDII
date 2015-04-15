@@ -24,38 +24,52 @@ namespace serial {
         ~PortReaderWriter();
 
         // Get the list of available ports
-        static QVector<QSerialPortInfo> getAvailPorts(void);
+        static const QVector<QSerialPortInfo> getAvailPorts(void);
 
-	// Set the connected port
-	bool setPort(string portName);
+        // Decoding functions for line data retrieved from query functions
+        // These functions do not perform I/O actions.
+        static const int decodeRPM(const QByteArray line_data);
+        static const int decodeTempEngine(const QByteArray line_data);
+        static const int decodeEngineLoad(const QByteArray line_data);
+        static const int decodeVehicleSpeed(const QByteArray line_data);
+        static const int decodeFuelLevelIntake(const QByteArray line_data);
+        static const QString decodeOBDErrors(const QByteArray line_data);
+
+        // Set the connected port
+        bool setPort(string portName);
 
         // Sets up the Serial Connection
         bool serialConnect(void);
 
         // Convieniece functions for determining state
-        bool isConnected();
-        QString getConnectedPortName();
+        bool isConnected(void);
+
+        // Test the serial interface of the connection
+        bool testSerial(void);
+
+        // Returns the OS specific name of the port
+        QString const getConnectedPortName(void);
 
         // Low-Level interfaces to communicate via serial
         bool sendCommand(const QByteArray &data);
-        QByteArray readLine();
-
+        QByteArray readAll();
 
         // High-Lever interfaces for specific OBDII data
-        int decodeRPM(const QByteArray line_data);
-        int decodeTempEngin(const QByteArray line_data);
-        int decodeEnginLoad(const QByteArray line_data);
-        int decodeVehicleSpeed(const QByteArray line_data);
-        int decodeFuelLevelin(const QByteArray line_data);
-        QString decodeErr(const QByteArray line_data);
+        // These functions do perform I/O to get data
+        const QByteArray queryOBDErrorCodes(void);
+        const QByteArray queryRPM(void);
+        const QByteArray queryTempEngine(void);
+        const QByteArray queryVehicleSpeed(void);
+        const QByteArray queryFuelLevelIntake(void);
+        const QByteArray queryEngineLoad(void);
 
     private slots:
-        void handleReadReady();
-        void handleTimeout();
+        void handleReadReady(void);
+        void handleTimeout(void);
         void handleError(QSerialPort::SerialPortError err);
 
     private:
-        QList<QString> errorCodes;
+        QList<QString> OBDErrorCodes;
 
 
     };

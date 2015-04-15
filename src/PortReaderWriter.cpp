@@ -49,7 +49,7 @@ namespace serial
         if (this->port != 0) { this->port->close(); }
     }
 
-    QVector<QSerialPortInfo> PortReaderWriter::getAvailPorts(){
+    const QVector<QSerialPortInfo> PortReaderWriter::getAvailPorts(){
         QVector<QSerialPortInfo> ports = QVector<QSerialPortInfo>();
         foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
             ports.append(info);
@@ -112,84 +112,109 @@ namespace serial
 
     bool PortReaderWriter::sendCommand(const QByteArray &data)
     {
-        QByteArray tend = data + "\r\n";
+        QByteArray lineEnding = data + "\r\n";
 
         if (0 == this->port) { return false; }
 
         this->port->open(QIODevice::ReadWrite);
 
         if (!this->port->isOpen()) { return false; }
-        if (-1 < port->write(tend)) { return true; }
+        if (-1 < port->write(lineEnding)) { return true; }
         port->flush();
         if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
 
         return false;
     }
 
-    QByteArray PortReaderWriter::readLine()
+    QByteArray PortReaderWriter::readAll()
     {
-
-
         if (0 == this->port) { return "No port set!"; }
         this->port->open(QIODevice::ReadWrite);
             if (!this->port->isOpen()) { return "Could not open port for write"; }
-        this->port->waitForReadyRead(timeoutMillis);
-        QByteArray scratch = this->port->readAll();
 
-        while (this->port->waitForReadyRead(timeoutMillis) )
-        {
-           scratch +=  this->port->readAll();
+        /* This should always happen outside the main GUI thread, no problem at cmdline */
+        this->port->waitForReadyRead(timeoutMillis);
+
+
+        QByteArray lineData = QByteArray();
+        while (!this->port->atEnd()) {
+            QByteArray scratch = QByteArray();
+           if (0 < this->port->bytesAvailable()) {
+               scratch +=  this->port->readAll();
+           }
         }
 
-        QByteArray qbr = scratch;
-        qbr.remove(qbr.size()-3,3);
-
-        return qbr;
+        /*
+         * All hex digits are crammed together with no spaces.
+         * Any multiline response will be captured.  Unfortunately,
+         * they are all run together.  This could be problematic.
+         * Suggest moving to QVector<QByteArray> for return type.
+         *
+         * Return the now pristine line data.
+         */
+        QByteArray retval = lineData;
+        retval = retval.remove(retval.size()-3, 3);
+        retval.replace(" ", "");
+        return retval;
     }
 
-    /***********************************************/
-    int PortReaderWriter::decodeRPM(const QByteArray line_data)
-    {
-        //QString comm = "01 0C"; // the code for rpm
-        sendCommand(line_data);
-
-        // QString retval = "1af8";
-        QString retval = line_data;
-
-        int x = 0;
-        bool ok;
-        x = (retval.toInt(&ok, 16))/4;
-
-        if(ok) return x;
-
-        else return -1;
+    /* Query the current RPM of the engine */
+    const QByteArray PortReaderWriter::queryRPM() {
+        if (!this->sendCommand("01 0C")) { return QByteArray(); }
+        return this->readAll();
     }
 
-    int PortReaderWriter::decodeTempEngin(const QByteArray line_data) {
+    /* Query the fuel intake amount */
+    const QByteArray PortReaderWriter::queryFuelLevelIntake() {
+        if (!this->sendCommand("01 2F 1")) { return QByteArray(); }
+        return this->readAll();
+    }
 
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
+    /* Query the list of error codes */
+    const QByteArray PortReaderWriter::queryOBDErrorCodes() {
+        if (!this->sendCommand("01 01")) { return QByteArray(); }
+        return this->readAll();
+    }
 
-        //QString retval = "41 05 7B";
-        QString retval = line_data;
+    /* Query the temperature of the engine */
+    const QByteArray PortReaderWriter::queryTempEngine() {
+        if (!this->sendCommand("01 05 1")) { return QByteArray(); }
+        return this->readAll();
+    }
 
-        // get rid of all the spases in the onput
-        retval = retval.replace(" ","");
+    /* Query for the current vehicle speed */
+    const QByteArray PortReaderWriter::queryVehicleSpeed() {
+        if (!this->sendCommand("01 0D")) { return QByteArray(); }
+        return this->readAll();
+    }
 
-        retval =  retval.mid(4);
+    /* Query the current engine load */
+    const QByteArray PortReaderWriter::queryEngineLoad() {
+        if (!this->sendCommand("01 04 1")) { return QByteArray(); }
+        return this->readAll();
+    }
 
+
+    /* Decode data from queryRPM() */
+    const int PortReaderWriter::decodeRPM(const QByteArray line_data) {
         int x = 0;
-        bool ok;
+        bool ok = false;
+        x = line_data.toInt(&ok, 16) / 4;
+        return ok ? x : -1;
+    }
 
+    /* Decode data from queryTempEngine() */
+    const int PortReaderWriter::decodeTempEngine(const QByteArray line_data) {
+        // Example data: 41057b
+        int x = 0;
+        bool ok = false;
+        QString retval =  line_data.mid(4);
         x = (retval.toInt(&ok, 16)) - 40;
-
-        if(ok) return x;
-        else return -1;
+        return ok ? x : -1;
     }
 
-    QString PortReaderWriter::decodeErr(const QByteArray line_data)
+    const QString PortReaderWriter::decodeOBDErrors(const QByteArray line_data)
     {
-
-        //QString comm = "01 01"; // the code for Error code
         /*
          *  41 01 respons to the request
          *  81 number of corrent troble codes
@@ -292,97 +317,83 @@ namespace serial
         return newtest;
     }
 
-      int PortReaderWriter::decodeEnginLoad(const QByteArray line_data)
-    {
-
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "01 04 f8";
-        QString retval = line_data;
-        retval = retval.replace(" ","");
-        retval = retval.mid(4);
-
-        //qDebug() << retval;
+    /* Decode data from queryEngineLoad() */
+    const int PortReaderWriter::decodeEngineLoad(const QByteArray line_data) {
+        // Example: 0104f8
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
 
         int x = 0;
         bool ok;
-
         x = ( (retval.toInt(&ok, 16)) * 100)/255 ;
-
-        if(ok) return x;
-        else return -1;
+        return ok ? x : -1;
     }
 
-
-    int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
+    /* Decode data from queryVehicleSpeed() */
+    const int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
     {
-
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "01 04 f8";
         QString retval = line_data;
         retval = retval.replace(" ","");
         retval = retval.mid(4);
-
-        //qDebug() << retval;
+        qDebug() << retval;
 
         int x = 0;
         bool ok;
-
         x = (retval.toInt(&ok, 16));
+        return ok ? x : -1;
 
-        if(ok) return x;
-        else return -1;
     }
 
-    int PortReaderWriter::decodeFuelLevelin(const QByteArray line_data)
-    {
-
-        //QString comm = "01 05 1"; // the code Enginr Tempereture
-
-        //QString retval = "01 04 f8";
-        QString retval = line_data;
-        retval = retval.replace(" ","");
+    const int PortReaderWriter::decodeFuelLevelIntake(const QByteArray line_data) {
+        QString retval = retval.replace(" ","");
         retval = retval.mid(4);
-
-        //qDebug() << retval;
+        qDebug() << retval;
 
         int x = 0;
         bool ok;
-
-        x = ( (retval.toInt(&ok, 16)) * 100)/255 ;
-
-        if(ok) return x;
-        else return -1;
+        x = ((retval.toInt(&ok, 16)) * 100) / 255 ;
+        return ok ? x : -1;
     }
 
+    /* Ensure communications with the serial device are working */
+    bool PortReaderWriter::testSerial() {
+        if (!this->isConnected()) return false;
 
-    /********************************************************/
+        // Send AT I command, nearly every serial device will respond
+        // sanely to the AT I command.  If your device does not work
+        // with an AT I command, then you might want a better serial device
+        sendCommand(QByteArray("AT I"));
+        QByteArray buff = this->readAll();
+        qDebug() << buff << endl;
+        return buff.size() > 0 ? true : false;
+    }
 
-    QString PortReaderWriter::getConnectedPortName() {
+    /* If we are connected, give the OS specific port name */
+    const QString PortReaderWriter::getConnectedPortName() {
         if (0 == port) return "";
         if (!this->port->isOpen()) return "";
         return this->port->portName();
     }
 
+    /* Check to see if we are connected */
     bool PortReaderWriter::isConnected(){
         if (0 == port) return false;
         if (this->port->isOpen()) return true;
         return false;
     }
 
-        void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
-	// What to do with this error?
-
+    /* Connected to the QSerialPort error signal */
+    void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
+        // What to do with this error?
     }
 
+    /* Connected to the QSerialPort timeout signal */
     void PortReaderWriter::handleTimeout() {
-	// Hrm...  A Timeout
-
+        // Hrm...  A Timeout
     }
 
+    /* Connected to the QSerialPort readyRead signal */
     void PortReaderWriter::handleReadReady() {
-	// Read data
+        // Read data
     }
-
 }
