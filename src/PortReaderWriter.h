@@ -24,7 +24,7 @@ namespace serial {
         ~PortReaderWriter();
 
         // Get the list of available ports
-        static QVector<QSerialPortInfo> getAvailPorts(void);
+        static const QVector<QSerialPortInfo> getAvailPorts(void);
 
 	// Set the connected port
 	bool setPort(string portName);
@@ -33,13 +33,17 @@ namespace serial {
         bool serialConnect(void);
 
         // Convieniece functions for determining state
-        bool isConnected();
-        QString getConnectedPortName();
+        bool isConnected(void);
+
+        // Test the serial interface of the connection
+        bool testSerial(void);
+
+        // Returns the OS specific name of the port
+        QString const getConnectedPortName(void);
 
         // Low-Level interfaces to communicate via serial
         bool sendCommand(const QByteArray &data);
-        QByteArray readLine();
-
+        QByteArray readAll();
 
         // High-Lever interfaces for specific OBDII data
         int decodeRPM(const QByteArray line_data);
@@ -50,8 +54,8 @@ namespace serial {
         QString decodeErr(const QByteArray line_data);
 
     private slots:
-        void handleReadReady();
-        void handleTimeout();
+        void handleReadReady(void);
+        void handleTimeout(void);
         void handleError(QSerialPort::SerialPortError err);
 
     private:

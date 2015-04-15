@@ -108,7 +108,7 @@ void MainWindow::on_monitorButton_clicked()
     int vehicleSpeed = 0;
    { // Try to get the RPM
        conn->sendCommand("01 0D");
-       QByteArray buff = conn->readLine();
+       QByteArray buff = conn->readAll();
        vehicleSpeed = conn->decodeVehicleSpeed(buff);
    }
    ui->outputBrowser->setText(  QString::number(vehicleSpeed)  );
@@ -126,7 +126,7 @@ void MainWindow::on_monitorButton_clicked()
     int rpmVal = 0;
     { // Try to get the RPM
         conn->sendCommand("01 0C");
-        QByteArray buff = conn->readLine();
+        QByteArray buff = conn->readAll();
         rpmVal = conn->decodeRPM(buff);
     }
     ui->outputBrowser->setText( QString::number(rpmVal) );
@@ -198,7 +198,7 @@ void MainWindow::sendcommand()
     {
         ui->outputBrowser->append( "Problem writing !!!!");
     }
-    QByteArray buff = conn->readLine();
+    QByteArray buff = conn->readAll();
     tempstr = "Buff size 1: ";
     tempstr += QString::number(buff.size());
     ui->outputBrowser->append( tempstr );

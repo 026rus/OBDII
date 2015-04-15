@@ -126,25 +126,38 @@ namespace serial
         return false;
     }
 
-    QByteArray PortReaderWriter::readLine()
+    QByteArray PortReaderWriter::readAll()
     {
 
 
         if (0 == this->port) { return "No port set!"; }
         this->port->open(QIODevice::ReadWrite);
             if (!this->port->isOpen()) { return "Could not open port for write"; }
-        this->port->waitForReadyRead(timeoutMillis);
-        QByteArray scratch = this->port->readAll();
 
-        while (this->port->waitForReadyRead(timeoutMillis) )
-        {
-           scratch +=  this->port->readAll();
+        /* This should always happen outside the main GUI thread, no problem at cmdline */
+        this->port->waitForReadyRead(timeoutMillis);
+
+
+        QByteArray lineData = QByteArray();
+        while (!this->port->atEnd()) {
+            QByteArray scratch = QByteArray();
+           if (0 < this->port->bytesAvailable()) {
+               scratch +=  this->port->readAll();
+           }
         }
 
-        QByteArray qbr = scratch;
-        qbr.remove(qbr.size()-3,3);
-
-        return qbr;
+        /*
+         * All hex digits are crammed together with no spaces.
+         * Any multiline response will be captured.  Unfortunately,
+         * they are all run together.  This could be problematic.
+         * Suggest moving to QVector<QByteArray> for return type.
+         *
+         * Return the now pristine line data.
+         */
+        QByteArray retval = lineData;
+        retval = retval.remove(retval.size()-3, 3);
+        retval.replace(" ", "");
+        return retval;
     }
 
     /***********************************************/
@@ -323,8 +336,7 @@ namespace serial
         QString retval = line_data;
         retval = retval.replace(" ","");
         retval = retval.mid(4);
-
-        //qDebug() << retval;
+        qDebug() << retval;
 
         int x = 0;
         bool ok;
@@ -344,8 +356,7 @@ namespace serial
         QString retval = line_data;
         retval = retval.replace(" ","");
         retval = retval.mid(4);
-
-        //qDebug() << retval;
+        qDebug() << retval;
 
         int x = 0;
         bool ok;
@@ -356,33 +367,45 @@ namespace serial
         else return -1;
     }
 
+    /* Ensure communications with the serial device are working */
+    bool PortReaderWriter::testSerial() {
+        if (!this->isConnected()) return false;
 
-    /********************************************************/
+        // Send AT I command, nearly every serial device will respond
+        // sanely to the AT I command.  If your device does not work
+        // with an AT I command, then you might want a better serial device
+        sendCommand(QByteArray("AT I"));
+        QByteArray buff = this->readAll();
+        qDebug() << buff << endl;
+        return buff.size() > 0 ? true : false;
+    }
 
-    QString PortReaderWriter::getConnectedPortName() {
+    /* If we are connected, give the OS specific port name */
+    const QString PortReaderWriter::getConnectedPortName() {
         if (0 == port) return "";
         if (!this->port->isOpen()) return "";
         return this->port->portName();
     }
 
+    /* Check to see if we are connected */
     bool PortReaderWriter::isConnected(){
         if (0 == port) return false;
         if (this->port->isOpen()) return true;
         return false;
     }
 
-        void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
-	// What to do with this error?
-
+    /* Connected to the QSerialPort error signal */
+    void PortReaderWriter::handleError(QSerialPort::SerialPortError err) {
+        // What to do with this error?
     }
 
+    /* Connected to the QSerialPort timeout signal */
     void PortReaderWriter::handleTimeout() {
-	// Hrm...  A Timeout
-
+        // Hrm...  A Timeout
     }
 
+    /* Connected to the QSerialPort readyRead signal */
     void PortReaderWriter::handleReadReady() {
-	// Read data
+        // Read data
     }
-
 }
