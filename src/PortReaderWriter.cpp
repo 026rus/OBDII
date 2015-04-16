@@ -126,7 +126,7 @@ namespace serial
         return false;
     }
 
-    QByteArray PortReaderWriter::readAll()
+    QByteArray PortReaderWriter::readAll(int echo_chars)
     {
         if (0 == this->port) { return "No port set!"; }
         this->port->open(QIODevice::ReadWrite);
@@ -153,7 +153,7 @@ namespace serial
          * Return the now pristine line data.
          */
         QByteArray retval = lineData;
-        retval = retval.remove(retval.size()-3, 3);
+        retval = retval.remove(retval.size()- echo_chars, echo_chars);
         retval.replace(" ", "");
         return retval;
     }
@@ -161,55 +161,52 @@ namespace serial
     /* Query the current RPM of the engine */
     const QByteArray PortReaderWriter::queryRPM() {
         if (!this->sendCommand("01 0C")) { return QByteArray(); }
-        return this->readAll();
+        return this->readAll(4);
     }
 
     /* Query the fuel intake amount */
     const QByteArray PortReaderWriter::queryFuelLevelIntake() {
         if (!this->sendCommand("01 2F 1")) { return QByteArray(); }
-        return this->readAll();
+        return this->readAll(5);
     }
 
     /* Query the list of error codes */
     const QByteArray PortReaderWriter::queryOBDErrorCodes() {
         if (!this->sendCommand("01 01")) { return QByteArray(); }
-        return this->readAll();
+        return this->readAll(4);
     }
 
     /* Query the temperature of the engine */
     const QByteArray PortReaderWriter::queryTempEngine() {
         if (!this->sendCommand("01 05 1")) { return QByteArray(); }
-        return this->readAll();
+        return this->readAll(5);
     }
 
     /* Query for the current vehicle speed */
     const QByteArray PortReaderWriter::queryVehicleSpeed() {
         if (!this->sendCommand("01 0D")) { return QByteArray(); }
-        return this->readAll();
+        return this->readAll(4);
     }
 
     /* Query the current engine load */
     const QByteArray PortReaderWriter::queryEngineLoad() {
         if (!this->sendCommand("01 04 1")) { return QByteArray(); }
-        return this->readAll();
+        return this->readAll(5);
     }
-
 
     /* Decode data from queryRPM() */
     const int PortReaderWriter::decodeRPM(const QByteArray line_data) {
-        int x = 0;
         bool ok = false;
-        x = line_data.toInt(&ok, 16) / 4;
+        int x = line_data.toInt(&ok, 16) / 4;
         return ok ? x : -1;
     }
 
     /* Decode data from queryTempEngine() */
     const int PortReaderWriter::decodeTempEngine(const QByteArray line_data) {
         // Example data: 41057b
-        int x = 0;
         bool ok = false;
         QString retval =  line_data.mid(4);
-        x = (retval.toInt(&ok, 16)) - 40;
+        int x = retval.toInt(&ok, 16) / 4;
         return ok ? x : -1;
     }
 
@@ -317,48 +314,218 @@ namespace serial
         return newtest;
     }
 
-    /* Decode data from queryEngineLoad() */
+    // Calculated engine load value in %
     const int PortReaderWriter::decodeEngineLoad(const QByteArray line_data) {
         // Example: 0104f8
+        bool ok = false;
         QString retval = line_data.mid(4);
         qDebug() << retval;
-
-        int x = 0;
-        bool ok;
-        x = ( (retval.toInt(&ok, 16)) * 100)/255 ;
+        int x = ( (retval.toInt(&ok, 16)) * 100)/255 ;
         return ok ? x : -1;
     }
 
-    /* Decode data from queryVehicleSpeed() */
+    // Temperature of engine coolant in C
+    const int PortReaderWriter::decodeEngineCoolantTemp(const QByteArray line_data)
+    {
+        bool ok= false;
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
+        int x = (retval.toInt(&ok, 16)) - 40;
+	return ok ? x : -1;
+    }
+
+    // Temperature of engine oil in C
+    const int PortReaderWriter::decodeEngineOilTemp(const QByteArray line_data)
+    {
+        //QString comm = "01 05 1"; // the code Enginr Tempereture
+
+        //QString retval = "41 05 7B";
+        bool ok = false;
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
+        int x = (retval.toInt(&ok, 16)) - 40;
+	return ok ? x : -1;
+    }
+
+    // Fuel pressure kPa (gauge)
+    const int PortReaderWriter::decodeFuelPressure(const QByteArray line_data)
+    {
+        bool ok = false;
+        QString retval =  line_data.mid(4);
+        qDebug() << retval;
+        int x = (retval.toInt(&ok, 16)) * 3;
+	return ok ? x : -1;
+    }
+
+    // Intake manifold absolute pressure kPa (gauge)
+    const int PortReaderWriter::decodeIntakeManifoldAbsolutePressure(const QByteArray line_data)
+    {
+        bool ok = false;
+        QString retval =  line_data.mid(4);
+        int x = (retval.toInt(&ok, 16));
+	return ok ? x : -1;
+    }
+
+    // Temperature of the intake air in C
+    const int PortReaderWriter::decodeIntakeAirTemp(const QByteArray line_data)
+    {
+        bool ok = false;
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
+        int x = (retval.toInt(&ok, 16)) - 40;
+	return ok ? x : -1;
+    }
+
+    // Throttle position in %
+    const int PortReaderWriter::decodeThrottlePosition(const QByteArray line_data)
+    {
+        bool ok = false;
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
+        int x = ((retval.toInt(&ok, 16))*100)/255;
+        return ok ? x : -1;
+    }
+
+    // Distance traveled with malfunction indicator lamp (MIL) on in km
+    const int PortReaderWriter::decodeDistanceTraveledMIL(const QByteArray line_data)
+    {
+        //QString retval = "41 0C 0F A0";
+        bool oka = false;
+        bool okb = false;
+        QString retval =  line_data.mid(4);
+        QString A = retval.left(2);
+        QString B = retval.mid(2);
+        qDebug() << retval;
+        int x = ((retval.toInt(&oka, 16))*256) + B.toInt(&okb, 16);
+        return (oka && okb) ? x : -1;
+    }
+
+    // Run time since engine starts in seconds.
+    const int PortReaderWriter::decodeRunTimeEngineStart(const QByteArray line_data)
+    {
+        QString retval = line_data.mid(4); 
+        QString A = retval.left(2);
+        QString B = retval.mid(2);
+        qDebug() << retval;
+        bool oka = false;
+        bool okb = false;
+        int x = ((retval.toInt(&oka, 16))*256) + B.toInt(&okb, 16);
+        return (oka && okb) ? x : -1;
+    }
+
     const int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
     {
-        QString retval = line_data;
-        retval = retval.replace(" ","");
-        retval = retval.mid(4);
+        bool ok = false;
+        QString retval = line_data.mid(4);
         qDebug() << retval;
-
-        int x = 0;
-        bool ok;
-        x = (retval.toInt(&ok, 16));
+        int x = (retval.toInt(&ok, 16));
         return ok ? x : -1;
-
     }
 
     const int PortReaderWriter::decodeFuelLevelIntake(const QByteArray line_data) {
-        QString retval = retval.replace(" ","");
-        retval = retval.mid(4);
+        bool ok = false;
+        QString retval = line_data.mid(4);
         qDebug() << retval;
-
-        int x = 0;
-        bool ok;
-        x = ((retval.toInt(&ok, 16)) * 100) / 255 ;
+        int x = ((retval.toInt(&ok, 16)) * 100) / 255 ;
         return ok ? x : -1;
     }
 
-    /* Ensure communications with the serial device are working */
-    bool PortReaderWriter::testSerial() {
-        if (!this->isConnected()) return false;
+    // Barometric pressure kPa (Absolute)
+    const int PortReaderWriter::decodeBarrometricPressure(const QByteArray line_data)
+    {
+        bool ok = false;
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
+        int x = (retval.toInt(&ok, 16));
+        return ok ? x : -1;
+    }
 
+    // Fuel/Air commanded equivalence ratio
+    const int PortReaderWriter::decodeFuelAirRatio(const QByteArray line_data)
+    {
+        bool oka = false;
+        bool okb = false;
+        QString retval = line_data.mid(4);
+        QString B = retval.mid(2);
+        qDebug() << retval;
+        int x = ( ( (retval.toInt(&oka, 16)) * 256) + B.toInt(&okb, 16))/32768 ;
+        return (oka && okb) ? x : -1;
+    }
+
+    // Ethanol fule % ratio
+    const int PortReaderWriter::decodeEthanolFuelP(const QByteArray line_data)
+    {
+        bool ok = false;
+        QString retval = line_data.mid(4);
+        qDebug() << retval;
+        int x =  ( (retval.toInt(&ok, 16)) * 100)/255 ;
+        return ok ? x : -1;
+    }
+
+    void PortReaderWriter::decodeMulty(const QByteArray line_data, int &codes)
+    {
+        // Only in connectionc is CAN (ISO 15765-4)
+
+        // send value will be like: 01 04 05 0B 0C
+        // 01 - mode
+        // -------------------------
+        // 04 - engine load
+        // 05 - coolant temperatur
+        // 0B - manifold pressure
+        // 0C - engine RPM
+
+        // QString retval = line_data;
+        QString retval = "00A 0: 41 04 3F 05 44 0B 1: 21 0C 17 B8 00 00 00";
+
+        QString temp;
+        const int maxcod = 6;
+        QString incode[maxcod] = {"04",
+                             "05",
+                             "0B",
+                             "0C",
+                             "",
+                             ""};
+
+        QString STRcodes[maxcod];
+        int x = 0,
+            y = 0;
+
+        int CC[6];
+
+        bool ok;
+
+        retval = retval.replace(" ","");
+        retval = retval.remove(0,3);
+
+        while (( x = retval.indexOf(":",0,Qt::CaseInsensitive) ) != -1)
+        {
+               retval = retval.remove(x-1,2);
+        }
+
+        for (int i=1; i<maxcod; i++)
+        {
+            x = retval.indexOf(incode[i-1], 0, Qt::CaseInsensitive);
+            y = retval.indexOf(incode[i], 0, Qt::CaseInsensitive);
+            if ( (y-x-2) > 4 || (y-x-2) < 0)
+                STRcodes[i-1] = retval.mid(x+2, 4);
+            else
+                STRcodes[i-1] = retval.mid(x+2, (y-x-2));
+            CC[i-1] = STRcodes[i-1].toInt(&ok, 16);
+        }
+
+
+        qDebug() << retval;
+        for (int i=0; i<maxcod; i++)
+        {
+            qDebug() << "In code: " <<incode[i];
+            qDebug() << "the value: " <<STRcodes[i];
+            qDebug() << "The desimal: " << CC[i];
+            qDebug() << "----------------------------";
+        }
+
+    }
+
+    bool PortReaderWriter::testSerial() {
         // Send AT I command, nearly every serial device will respond
         // sanely to the AT I command.  If your device does not work
         // with an AT I command, then you might want a better serial device
