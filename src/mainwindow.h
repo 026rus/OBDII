@@ -8,6 +8,8 @@
 #include <QTextDocument>
 #include <QFileDialog>
 #include "qcpdocumentobject.h"
+#include "obd2client.h"
+
 
 namespace Ui
 {
@@ -36,9 +38,7 @@ private slots:
 
     void on_submitButton_clicked();
 
-    void connect();
-
-    void sendcommand();
+    void sendRawData();
 
     void on_connectButton_clicked();
 
@@ -61,6 +61,8 @@ private:
     int rpmCount;
     QVector<double> vspeed;
     QVector<double> vrpm;
+    OBD2Client clientsocet;
+
 };
 
 #endif // MAINWINDOW_H

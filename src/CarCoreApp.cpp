@@ -12,19 +12,13 @@ CarCoreApp::~CarCoreApp(){
 
 void CarCoreApp::run() {
     this->conn = new serial::PortReaderWriter();
-
+/*
     if (!conn->serialConnect()) {
         qDebug() << "Could not connect!";
         this->exit(1);
     }
 
-    { // Test sending characters, The device should identify itself
-        conn->sendCommand(QByteArray("AT I"));
-        QByteArray buff = conn->readLine();
-        qDebug() << buff << endl;
-    }
-
-    if (this->conn->isConnected()) {
+    if (conn->testSerial()) {
         qDebug() << "Connected to serial port "
                  << this->conn->getConnectedPortName();
     } else {
@@ -32,10 +26,9 @@ void CarCoreApp::run() {
         this->exit(2);
     }
 
-    {
+    /*
 	QString instr="ATI";
 	QTextStream qtin(stdin);
-
 	bool go = true;
 	while (go) {
 	    std::cout << ":) => ";
@@ -46,21 +39,23 @@ void CarCoreApp::run() {
 	    if (!go) QCoreApplication::quit();
 	    else
 	    {
-		QByteArray qbin = instr.toUtf8();
-		if(!conn->sendCommand( qbin ))
-		{
-		    qDebug() << "Problem writing !!!!";
-		}
-		cout << "_____________________________________\n";
-		QByteArray buff = conn->readLine();
-		cout <<"Buff size 1: "<<buff.size()<<endl;
-		buff.remove(0, instr.size()+1);
-		cout << "Buff size 2: "<<buff.size()<<endl;
-		cout <<"("<<buff.toStdString()<<")"<<endl;
+            QByteArray qbin = instr.toUtf8();
+            if(!conn->sendCommand( qbin )) {
+                qDebug() << "Problem writing !!!!";
+            }
+            cout << "_____________________________________\n";
+            QByteArray buff = conn->readAll(instr.replace(" ", "").size());
+            cout <<"Buff size 1: "<<buff.size()<<endl;
+            cout <<"("<<buff.toStdString()<<")"<<endl;
 	    }
 	}
-    }
-
+*/
+    /*  */
+     QString instr = "";
+     int xxx=0;
+      conn->decodeMulty("  ", xxx);
+      qDebug() << xxx;
+    /*  */
     emit done();
 }
 
