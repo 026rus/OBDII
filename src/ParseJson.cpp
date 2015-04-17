@@ -59,26 +59,29 @@ QString ParseJson::LoadFile(QString code){
 
 QString ParseJson::SearchFile(QByteArray parsedJson, QString code){
 
-    QJsonDocument jsonDoc = QJsonDocument::fromJson(parsedJson);
-    QJsonObject jsonObj = jsonDoc.object();
+    try {
+	QJsonDocument jsonDoc = QJsonDocument::fromJson(parsedJson);
+	QJsonObject jsonObj = jsonDoc.object();
 
-    if (jsonDoc.isObject()){
+	if (jsonDoc.isObject()){
 
-        QJsonObject::iterator itr = jsonObj.find(code);
-        if (itr == jsonObj.end()){
-            qDebug() << "Code Not Found";
-            return "Code Not Found";
-        }else{
+	    QJsonObject::iterator itr = jsonObj.find(code);
+	    if (itr == jsonObj.end()){
+		qDebug() << "Code Not Found";
+		return "Code Not Found";
+	    }else{
 
-            QJsonValue jsonVal = jsonObj.value(code);
-
-
-          //QJsonValue jsonVal = *itr.value()->toObject()->find(code);
-            qDebug() << "Jason :) " <<jsonVal.toString();
-            return jsonVal.toString();
-        }
+		QJsonValue jsonVal = jsonObj.value(code);
 
 
+	      //QJsonValue jsonVal = *itr.value()->toObject()->find(code);
+		qDebug() << "Jason :) " <<jsonVal.toString();
+		return jsonVal.toString();
+	    }
+	}
+    } catch (...) {
+	QString foo = "Problem Parsing JSON, raw code: " + code;
+	return foo;
     }
 }
 
