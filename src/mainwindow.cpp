@@ -43,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->customPlot->addGraph();
     ui->customPlot->addGraph();
+    ui->customPlot->legend->setVisible(true);
+    QFont legendFont;  // start out with MainWindow's font..
+    legendFont.setPointSize(9); // and make a bit smaller for legend
+    ui->customPlot->legend->setFont(legendFont);
 
     ui->distanceTraveledBox->setDisabled(true);
     ui->engineCoolantBox->setDisabled(true);
@@ -154,6 +158,8 @@ void MainWindow::on_monitorButton_clicked() {
     rpmClicked = !rpmClicked;
     on_rpmBox_clicked();
     on_speedBox_clicked();
+    ui->customPlot->graph(0)->setName("RPM");
+    ui->customPlot->graph(1)->setName("Speed");
 }
 
 void MainWindow::on_submitButton_clicked() { sendRawData(); }
@@ -221,7 +227,7 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
 
       // give the axes some labels:
       customPlot->xAxis->setLabel("Count");
-//      customPlot->yAxis->setLabel("Speed (MPH)");
+      customPlot->yAxis->setLabel("Speed (MPH) and RPMx100");
 
       // set axes ranges, so we see all data:
       customPlot->xAxis->setRange(0, count - 1);
@@ -229,14 +235,15 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
       customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
       customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
-      ui->customPlot->replot();
   }
   else{
       ui->customPlot->removeGraph(graphNumb);
       ui->customPlot->addGraph();
-      ui->customPlot->replot();
   }
   dataClicked = !dataClicked;
+  customPlot->graph(0)->setName("RPM");
+  customPlot->graph(1)->setName("Speed");
+  customPlot->replot();
 }
 
 void MainWindow::on_connectButton_clicked()
