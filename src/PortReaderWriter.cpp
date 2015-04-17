@@ -218,7 +218,7 @@ namespace serial
          */
 
 
-        QByteArray teststr = "48 6B 10 43 03 25 01 10 11 05 55";
+        QString teststr = "48 6B 10 43 03 25 01 10 11 05 55";
         QString newtest;
         QString retval = line_data;
         QString str_num_of_cods;
@@ -227,6 +227,7 @@ namespace serial
         if (retval.contains("unable", Qt::CaseInsensitive))
             return retval;
 
+        qDebug() << "Trobel code: " <<line_data;
         QString *errors;
         bool ok;
         QString str;
@@ -417,6 +418,7 @@ namespace serial
         QString retval = line_data;
         retval = retval.mid(9,2);
         int x = retval.toInt(&ok, 16);
+        qDebug() << "Speed: "<<x<<" hex: " << retval;
         if (!ok) qDebug() << "ERROR: "<< retval;
         return ok ? x : -1;
     }
