@@ -141,6 +141,16 @@ namespace serial
             }
         }
 
+        /* Clean the binary data out of the read data */
+        lineData = lineData.simplified();
+        int size = lineData.size();
+        QByteArray transData = QByteArray();
+        for (int i = 0; i < size;i++) {
+            if (std::isalnum(lineData[i])) {
+                transData += lineData[i];
+            }
+        }
+
         /*
          * All hex digits are crammed together with no spaces.
          * Any multiline response will be captured.  Unfortunately,
@@ -149,10 +159,12 @@ namespace serial
          *
          * Return the now pristine line data.
          */
-        QString retval = lineData;
-        retval = retval.mid(0, echo_chars);
+        QString retval = transData;
+//        qDebug() <<"Line Data: " << retval << "size: "<< retval.size()<< " echo: "<< echo_chars;
+        if (echo_chars > 0)
+           retval = retval.mid(echo_chars);
         retval = retval.remove(retval.size()-3,3);
-        retval.replace(" ", "");
+//        qDebug() << "Retval: " <<retval;
         return retval;
     }
 
@@ -170,7 +182,7 @@ namespace serial
 
     /* Query the list of error codes */
     const QString PortReaderWriter::queryOBDErrorCodes() {
-        if (!this->sendCommand("01 01")) { return QByteArray(); }
+        if (!this->sendCommand("01 01")) { return QString(); }
         return this->readAll(4);
     }
 
@@ -217,6 +229,11 @@ namespace serial
          * 	most segnificant bit indicate that the  Ceck Engine Light on or of.
          */
 
+        if(line_data.size() < 4)
+        {
+            qDebug() << line_data;
+            return "";
+        }
 
         QString teststr = "48 6B 10 43 03 25 01 10 11 05 55";
         QString newtest;
@@ -302,13 +319,13 @@ namespace serial
                 //qDebug() << newtest;
         }
 
-        /*   Just testing */
+        /* remove the scratch codes from newtest */
         newtest ="";
-        for (int i=0; i<num_of_cods; i++)
-        {
+
+        /* build up the return string from the errors array */
+        for (int i=0; i<num_of_cods; i++) {
             newtest += errors[i] + "\n";
         }
-        /*  */
 
         return newtest;
     }

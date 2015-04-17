@@ -94,11 +94,12 @@ void MainWindow::on_checkEngineButton_clicked() {
     /*Use Commented rawCodes if above code is not working. Hard codes literal codes if decode broken.
     Example decoded value = "B0001\r\nC0035";*/
     //Code below takes rawCodes, seperates them, and iterates them to find descriptions.
-    QStringList deliminatedCodes = rawCodes.split("\r\n", QString::SkipEmptyParts);
+    QStringList deliminatedCodes = rawCodes.split("\n", QString::SkipEmptyParts);
     ParseJson parser = ParseJson();
     foreach(const QString &data, deliminatedCodes){
-            qDebug() << qPrintable(data);
-            ui->outputBrowser->append(parser.getDesc(data));
+            qDebug() << "code: " <<qPrintable(data);
+            qDebug() << "Some thinfg: "<< parser.getDesc( qPrintable(data) );
+            ui->outputBrowser->append("Some string");
     }
 
 

@@ -22,8 +22,11 @@ ParseJson::ParseJson(QString code){
 
 QString ParseJson::LoadFile(QString code){
 
+    qDebug().noquote() << "Inside 1: "<< code;
     QChar letter = code.at(0);
     QString path;
+
+    qDebug() << "Inside 1: "<< code.at(0);
 
     switch(letter.toLatin1()){
     case 'B':
@@ -71,7 +74,7 @@ QString ParseJson::SearchFile(QByteArray parsedJson, QString code){
 
 
           //QJsonValue jsonVal = *itr.value()->toObject()->find(code);
-            qDebug() << jsonVal.toString();
+            qDebug() << "Jason :) " <<jsonVal.toString();
             return jsonVal.toString();
         }
 
