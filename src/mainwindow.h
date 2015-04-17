@@ -30,6 +30,8 @@ public:
 
     void setupRPMGraph(QCustomPlot *customPlot);
 
+    void setupGraph(QCustomPlot *customPlot, QString dataName, bool &dataClicked);
+
 private slots:
 
     void on_checkEngineButton_clicked();

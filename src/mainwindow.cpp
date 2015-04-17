@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /* disable these widgets when there is no connection present */
     ui->submitButton->setDisabled(true);
     ui->checkEngineButton->setDisabled(true);
-    ui->monitorButton->setDisabled(true);
+    //ui->monitorButton->setDisabled(true);
 
     speedCount = 1;
     rpmCount = 1;
@@ -124,7 +124,7 @@ void MainWindow::on_monitorButton_clicked() {
        vrpm.append(rpmCount);
        rpmCount++;
     } else {
-        vrpm.append(rpmVal/1000);
+        vrpm.append(rpmVal/10);
         rpmCount++;
     }
 
@@ -144,9 +144,13 @@ void MainWindow::on_monitorButton_clicked() {
 
 void MainWindow::on_submitButton_clicked() { sendRawData(); }
 
-void MainWindow::on_speedBox_clicked() { setupSpeedGraph(ui->customPlot); }
+void MainWindow::on_speedBox_clicked() {
+    QString name = "speed";
+    setupGraph(ui->customPlot, name, speedClicked); }
 
-void MainWindow::on_rpmBox_clicked() { setupRPMGraph(ui->customPlot); }
+void MainWindow::on_rpmBox_clicked() {
+    QString name = "rpm";
+    setupGraph(ui->customPlot, name, rpmClicked); }
 
 void MainWindow::sendRawData() {
     QString instr = ui->inputEdit->text();
@@ -172,66 +176,50 @@ void MainWindow::sendRawData() {
     ui->inputEdit->selectAll();
 }
 
-void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
+void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dataClicked)
 {
+    QVector<double> data;
+    int count;
+    int graphNumb;
+    if("rpm" == dataName){
+        data = vrpm;
+        count = rpmCount;
+        graphNumb = 0;
+    }
+    else if ("speed" == dataName){
+        data = vspeed;
+        count = speedCount;
+        graphNumb = 1;
+    }
     QVector<double> c;
-  if (speedClicked == false){
-      for (int i=0; i<=speedCount; i++)
+  if (dataClicked == false){
+      for (int i=0; i<=count; i++)
       {
           c.append(i);
       }
 
       // create graph and assign data to it:
       //customPlot->addGraph();
-      customPlot->graph(1)->setData(c,vspeed);
+      customPlot->graph(graphNumb)->setData(c,data);
 
       // give the axes some labels:
       customPlot->xAxis->setLabel("Count");
-      customPlot->yAxis->setLabel("Speed (MPH)");
+//      customPlot->yAxis->setLabel("Speed (MPH)");
 
       // set axes ranges, so we see all data:
-      customPlot->xAxis->setRange(0, speedCount - 1);
-      customPlot->yAxis->setRange(0, 80);
-      customPlot->graph(1)->setPen(QPen(Qt::red)); // line color blue for first graph
-      customPlot->graph(1)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
-      customPlot->graph(1)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
+      customPlot->xAxis->setRange(0, count - 1);
+      customPlot->yAxis->setRange(0, 100);
+      customPlot->graph(graphNumb)->setPen(QPen(Qt::red)); // line color blue for first graph
+      customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
       ui->customPlot->replot();
   }
   else{
-      ui->customPlot->removeGraph(1);
+      ui->customPlot->removeGraph(graphNumb);
       ui->customPlot->addGraph();
       ui->customPlot->replot();
   }
-  speedClicked = !speedClicked;
-}
-
-void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
-{
-    QVector<double> c;
-  if (rpmClicked == false){
-      for (int i=0; i<=rpmCount; i++)
-      {
-          c.append(i);
-      }
-      // create graph and assign data to it:
-      //customPlot->addGraph();
-      customPlot->graph(0)->setData(c, vrpm);
-      // give the axes some labels:
-      customPlot->xAxis->setLabel("Count");
-      customPlot->yAxis->setLabel("RPM (x1000)");
-      // set axes ranges, so we see all data:
-      customPlot->xAxis->setRange(0, rpmCount - 1);
-      customPlot->yAxis->setRange(0, 10);
-      customPlot->graph(0)->setPen(QPen(Qt::red));
-      // first graph will be filled with translucent blue
-      customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
-      ui->customPlot->replot();
-  } else{
-      ui->customPlot->removeGraph(0);
-      ui->customPlot->addGraph();
-      ui->customPlot->replot();
-  }
-  rpmClicked = !rpmClicked;
+  dataClicked = !dataClicked;
 }
 
 void MainWindow::on_connectButton_clicked()
