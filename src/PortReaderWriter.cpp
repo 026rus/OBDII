@@ -133,15 +133,11 @@ namespace serial
             if (!this->port->isOpen()) { return "Could not open port for write"; }
 
         /* This should always happen outside the main GUI thread, no problem at cmdline */
-        this->port->waitForReadyRead(timeoutMillis);
-
-
         QByteArray lineData = QByteArray();
-        while (!this->port->atEnd()) {
-            QByteArray scratch = QByteArray();
-           if (0 < this->port->bytesAvailable()) {
-               scratch +=  this->port->readAll();
-           }
+        while (this->port->waitForReadyRead(timeoutMillis)) {
+            if (0 < this->port->bytesAvailable()) {
+                lineData +=  this->port->readAll();
+            }
         }
 
         /*
