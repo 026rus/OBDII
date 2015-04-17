@@ -12,7 +12,7 @@ namespace serial {
         Q_OBJECT
 
     public:
-	static const int timeoutMillis = 5000;
+    static const int timeoutMillis = 1000;
         QSerialPort *port;
         QByteArray  readData;
         QByteArray  *writeData;
