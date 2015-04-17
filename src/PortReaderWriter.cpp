@@ -150,7 +150,7 @@ namespace serial
          * Return the now pristine line data.
          */
         QByteArray retval = lineData;
-        retval = retval.remove(retval.size()- echo_chars, echo_chars);
+        retval = retval.remove(retval.size()-3,3);
         retval.replace(" ", "");
         return retval;
     }
