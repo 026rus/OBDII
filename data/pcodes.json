@@ -718,34 +718,34 @@
 	 "Turbocharger Wastegate Solenoid B High"
       ,
      "P0251" :  
-	 "Injection Pump Fuel Metering Control "A" Malfunction (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Malfunction (Cam/Rotor/Injector)"
       ,
      "P0252" :  
-	 "Injection Pump Fuel Metering Control "A" Range/Performance (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Range/Performance (Cam/Rotor/Injector)"
       ,
      "P0253" :  
-	 "Injection Pump Fuel Metering Control "A" Low (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Low (Cam/Rotor/Injector)"
       ,
      "P0254" :  
-	 "Injection Pump Fuel Metering Control "A" High (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A High (Cam/Rotor/Injector)"
       ,
      "P0255" :  
-	 "Injection Pump Fuel Metering Control "A" Intermittent (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Intermittent (Cam/Rotor/Injector)"
       ,
      "P0256" :  
-	 "Injection Pump Fuel Metering Control "B" Malfunction (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control B Malfunction (Cam/Rotor/Injector)"
       ,
      "P0257" :  
-	 "Injection Pump Fuel Metering Control "B" Range/Performance Injector)"
+	 "Injection Pump Fuel Metering Control B Range/Performance Injector)"
       ,
      "P0258" :  
-	 "Injection Pump Fuel Metering Control "B" Low (Cam/R)"
+	 "Injection Pump Fuel Metering Control B Low (Cam/R)"
       ,
      "P0259" :  
-	 "Injection Pump Fuel Metering Control "B" High (Cam/R)"
+	 "Injection Pump Fuel Metering Control B High (Cam/R)"
       ,
      "P0260" :  
-	 "Injection Pump Fuel Metering Control "B" Intermittent Injector)"
+	 "Injection Pump Fuel Metering Control B Intermittent Injector)"
       ,
      "P0261" :  
 	 "Cylinder 1 Injector Circuit Low"
@@ -865,886 +865,886 @@
 	 "Turbocharger/Supercharger (Underboost Condition)"
       ,
      "P0300" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0301" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0302" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0303" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0304" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0305" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0306" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0307" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0308" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0309" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0310" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0311" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0312" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0313" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0314" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0315" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0316" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0317" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0318" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0319" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0320" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0321" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0322" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0323" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0324" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0325" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0326" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0327" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0328" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0329" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0330" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0331" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0332" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0333" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0334" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0335" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0336" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0337" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0338" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0339" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0340" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0341" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0342" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0343" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0344" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0345" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0346" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0347" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0348" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0349" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0350" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0351" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0352" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0353" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0354" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0355" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0356" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0357" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0358" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0359" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0360" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0361" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0362" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0363" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0364" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0365" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0366" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0367" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0368" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0369" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0370" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0371" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0372" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0373" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0374" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0375" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0376" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0377" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0378" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0379" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0380" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0381" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0382" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0383" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0384" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0385" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0386" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0387" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0388" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0389" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0391" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0392" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0393" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0394" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0400" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0401" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0402" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0403" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0404" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0405" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0406" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0407" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0408" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0409" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0410" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0411" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0412" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0413" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0414" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0415" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0416" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0417" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0418" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0419" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0420" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0421" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0422" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0423" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0424" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0425" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0426" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0427" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0428" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0429" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0430" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0431" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0432" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0433" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0434" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0435" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0436" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0437" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0438" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0439" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0440" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0441" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0442" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0443" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0444" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0445" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0446" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0447" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0448" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0449" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0450" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0451" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0452" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0453" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0454" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0455" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0456" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0457" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0458" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0459" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0460" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0461" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0462" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0463" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0464" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0465" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0466" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0467" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0468" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0469" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0470" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0471" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0472" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0473" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0474" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0475" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0476" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0477" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0478" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0479" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0480" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0481" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0482" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0483" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0484" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0485" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0486" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0487" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0488" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0489" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0490" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0491" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0492" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0493" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0494" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0495" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0496" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0497" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0498" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0499" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0500" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0501" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0502" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0503" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P054" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0505" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0506" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0507" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0508" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0509" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0510" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0511" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0512" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0513" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0514" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0515" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0516" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0517" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0518" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0519" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0520" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0521" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0522" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0523" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0524" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0525" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0527" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0527" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0528" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0529" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0530" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0531" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0532" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0533" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0534" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0535" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0536" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0537" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0538" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0539" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0540" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0541" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0542" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0543" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0544" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0545" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0546" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0547" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0548" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0549" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0550" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0551" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0552" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0553" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0554" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0555" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0556" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0557" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0558" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0559" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0560" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0561" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0562" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0563" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0564" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0565" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0566" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0567" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0568" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0569" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0570" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0571" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0572" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0573" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0574" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0575" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0576" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0577" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0578" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0579" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0580" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0581" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0582" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0583" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0584" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0585" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0586" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0587" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0588" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0589" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0590" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0591" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0592" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0593" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0594" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0595" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0596" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0597" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0598" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
      "P0599" :  
-	 ""
+	 "Code Unknown ATM, Sorry"
       ,
 "P2600" :  
 	 "Coolant Pump Control Circuit Open"

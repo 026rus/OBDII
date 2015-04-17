@@ -3,9 +3,8 @@
 #include <iostream>
 #include "qcustomplot.h"
 #include "obd2client.h"
+#include "ParseJson.h"
 
-QVector<double> a(101), b(101);
-QVector<double> c(101), d(101);
 bool visibility;
 bool speedClicked;
 bool rpmClicked;
@@ -26,10 +25,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     speedCount = 1;
     rpmCount = 1;
-    a[0] = 0;
-    b[0] = 0;
-    c[0] = 0;
-    d[0] = 0;
 
     visibility = true;
     speedClicked = false;
@@ -48,6 +43,24 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->customPlot->addGraph();
     ui->customPlot->addGraph();
+    ui->customPlot->legend->setVisible(true);
+    QFont legendFont;  // start out with MainWindow's font..
+    legendFont.setPointSize(9); // and make a bit smaller for legend
+    ui->customPlot->legend->setFont(legendFont);
+
+    ui->distanceTraveledBox->setDisabled(true);
+    ui->engineCoolantBox->setDisabled(true);
+    ui->engineLoadBox->setDisabled(true);
+    ui->engineOilBox->setDisabled(true);
+    ui->ethanolFuelBox->setDisabled(true);
+    ui->fuelAirBox->setDisabled(true);
+    ui->fuelLevelBox->setDisabled(true);
+    ui->fuelPressureBox->setDisabled(true);
+    ui->intakeAirBox->setDisabled(true);
+    ui->intakeManifoldBox->setDisabled(true);
+    ui->runTimeBox->setDisabled(true);
+    ui->throtlePositionBox->setDisabled(true);
+    ui->barometricPressureBox->setDisabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -93,8 +106,22 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
 }
 
 void MainWindow::on_checkEngineButton_clicked() {
-    QByteArray trobelCode = this->conn->queryOBDErrorCodes();
-    ui->outputBrowser->setText(this->conn->decodeOBDErrors(trobelCode).toCaseFolded());
+    QString trobelCode = this->conn->queryOBDErrorCodes();
+    QString rawCodes = this->conn->decodeOBDErrors(trobelCode);
+
+    /*Use Commented rawCodes if above code is not working. Hard codes literal codes if decode broken.
+    Example decoded value = "B0001\r\nC0035";*/
+    //Code below takes rawCodes, seperates them, and iterates them to find descriptions.
+    QStringList deliminatedCodes = rawCodes.split("\n", QString::SkipEmptyParts);
+    ParseJson parser = ParseJson();
+    foreach(const QString &data, deliminatedCodes){
+            qDebug() << "code: " <<qPrintable(data);
+            qDebug() << "Some thinfg: "<< parser.getDesc(data);
+            ui->outputBrowser->append("Some string");
+    }
+
+
+    //ui->outputBrowser->setText();
 }
 
 void MainWindow::on_monitorButton_clicked() {
@@ -103,22 +130,21 @@ void MainWindow::on_monitorButton_clicked() {
 
     if(vehicleSpeed < 0) {
         vspeed.append(0);
-        speedCount++;
     } else {
         vspeed.append(vehicleSpeed);
-        speedCount++;
     }
+    speedCount++;
 
     int rpmVal = conn->decodeRPM(conn->queryRPM());
+    qDebug() << "Actual rpmVal: " << rpmVal;
     ui->outputBrowser->setText( QString::number(rpmVal) );
 
     if (rpmVal < 0) {
        vrpm.append(rpmCount);
-       rpmCount++;
     } else {
-        vrpm.append(rpmVal/1000);
-        rpmCount++;
+        vrpm.append(rpmVal/100);
     }
+   rpmCount++;
 
     // not necessary now, but the code to set
     // the other buttons to disabled while
@@ -132,13 +158,19 @@ void MainWindow::on_monitorButton_clicked() {
     rpmClicked = !rpmClicked;
     on_rpmBox_clicked();
     on_speedBox_clicked();
+    ui->customPlot->graph(0)->setName("RPM");
+    ui->customPlot->graph(1)->setName("Speed");
 }
 
 void MainWindow::on_submitButton_clicked() { sendRawData(); }
 
-void MainWindow::on_speedBox_clicked() { setupSpeedGraph(ui->customPlot); }
+void MainWindow::on_speedBox_clicked() {
+    QString name = "speed";
+    setupGraph(ui->customPlot, name, speedClicked); }
 
-void MainWindow::on_rpmBox_clicked() { setupRPMGraph(ui->customPlot); }
+void MainWindow::on_rpmBox_clicked() {
+    QString name = "rpm";
+    setupGraph(ui->customPlot, name, rpmClicked); }
 
 void MainWindow::sendRawData() {
     QString instr = ui->inputEdit->text();
@@ -146,7 +178,7 @@ void MainWindow::sendRawData() {
     if(!conn->sendCommand( instr.toUtf8() )) {
         ui->outputBrowser->append( "Problem writing !!!!");
     }
-    QByteArray buff = conn->readAll();
+    QString buff = conn->readAll();
     QString tempstr = "Buff size 1: ";
     tempstr += QString::number(buff.size());
     ui->outputBrowser->append( tempstr );
@@ -164,64 +196,54 @@ void MainWindow::sendRawData() {
     ui->inputEdit->selectAll();
 }
 
-void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
+void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dataClicked)
 {
-  if (speedClicked == false){
-      for (int i=0; i<=speedCount; i++)
+    QVector<double> data;
+    int count;
+    int graphNumb;
+    QPen graphColor = QPen(Qt::red);
+    if("rpm" == dataName){
+        data = vrpm;
+        count = rpmCount;
+        graphNumb = 0;
+    }
+    else if ("speed" == dataName){
+        data = vspeed;
+        count = speedCount;
+        graphNumb = 1;
+	graphColor = QPen(Qt::blue);
+    }
+
+    QVector<double> c;
+  if (dataClicked == false){
+      for (int i=0; i<=count; i++)
       {
-        c[i] = i;
+          c.append(i);
       }
 
       // create graph and assign data to it:
       //customPlot->addGraph();
-      customPlot->graph(1)->setData(c,vspeed);
+      customPlot->graph(graphNumb)->setData(c,data);
 
       // give the axes some labels:
       customPlot->xAxis->setLabel("Count");
-      customPlot->yAxis->setLabel("Speed (MPH)");
+      customPlot->yAxis->setLabel("Speed (MPH) and RPMx100");
 
       // set axes ranges, so we see all data:
-      customPlot->xAxis->setRange(0, speedCount - 1);
-      customPlot->yAxis->setRange(0, 80);
-      customPlot->graph(1)->setPen(QPen(Qt::red)); // line color blue for first graph
-      customPlot->graph(1)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
-      customPlot->graph(1)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
-      ui->customPlot->replot();
+      customPlot->xAxis->setRange(0, count - 1);
+      customPlot->yAxis->setRange(0, 100);
+      customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
+      customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
   else{
-      ui->customPlot->removeGraph(1);
+      ui->customPlot->removeGraph(graphNumb);
       ui->customPlot->addGraph();
-      ui->customPlot->replot();
   }
-  speedClicked = !speedClicked;
-}
-
-void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
-{
-  if (rpmClicked == false){
-      for (int i=0; i<=rpmCount; i++)
-      {
-          a[i] = i;
-      }
-      // create graph and assign data to it:
-      //customPlot->addGraph();
-      customPlot->graph(0)->setData(a, vrpm);
-      // give the axes some labels:
-      customPlot->xAxis->setLabel("Count");
-      customPlot->yAxis->setLabel("RPM (x1000)");
-      // set axes ranges, so we see all data:
-      customPlot->xAxis->setRange(0, rpmCount - 1);
-      customPlot->yAxis->setRange(0, 10);
-      customPlot->graph(0)->setPen(QPen(Qt::red));
-      // first graph will be filled with translucent blue
-      customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
-      ui->customPlot->replot();
-  } else{
-      ui->customPlot->removeGraph(0);
-      ui->customPlot->addGraph();
-      ui->customPlot->replot();
-  }
-  rpmClicked = !rpmClicked;
+  dataClicked = !dataClicked;
+  customPlot->graph(0)->setName("RPM");
+  customPlot->graph(1)->setName("Speed");
+  customPlot->replot();
 }
 
 void MainWindow::on_connectButton_clicked()
@@ -274,6 +296,7 @@ void MainWindow::on_inputEdit_returnPressed() { sendRawData(); }
 
 void MainWindow::on_addGraphButton_clicked()
 {
+  ui->textEdit->setText("");
   QTextCursor cursor = ui->textEdit->textCursor();
 
   // insert the current plot at the cursor position. QCPDocumentObject::generatePlotFormat creates a
@@ -282,7 +305,6 @@ void MainWindow::on_addGraphButton_clicked()
   double width = 480;
   double height = 340;
   cursor.insertText(QString(QChar::ObjectReplacementCharacter), QCPDocumentObject::generatePlotFormat(ui->customPlot, width, height));
-
   ui->textEdit->setTextCursor(cursor);
 
 }

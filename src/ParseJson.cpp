@@ -7,10 +7,11 @@
 #include <QJsonObject>
 
 
+
 ParseJson::ParseJson()
 {
 
-    LoadFile("B0001");
+   // LoadFile("B0001");
 
 }
 
@@ -19,10 +20,13 @@ ParseJson::ParseJson(QString code){
 }
 
 
-void ParseJson::LoadFile(QString code){
+QString ParseJson::LoadFile(QString code){
 
+    qDebug().noquote() << "Inside 1: "<< code;
     QChar letter = code.at(0);
     QString path;
+
+    qDebug() << "Inside 1: "<< code.at(0);
 
     switch(letter.toLatin1()){
     case 'B':
@@ -46,19 +50,14 @@ void ParseJson::LoadFile(QString code){
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
         printf("Failed to read\n");
-        return;
+        return("Failed to read\n");
     }
     QByteArray parsedJson = file.readAll();
-    /*while (!file.atEnd()) {
-        parsedJson.append(file.readLine());
 
-    }*/
-
-   // printf(parsedJson.constData());
-    SearchFile(parsedJson, code);
+    return SearchFile(parsedJson, code);
 }
 
-void ParseJson::SearchFile(QByteArray parsedJson, QString code){
+QString ParseJson::SearchFile(QByteArray parsedJson, QString code){
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(parsedJson);
     QJsonObject jsonObj = jsonDoc.object();
@@ -68,18 +67,24 @@ void ParseJson::SearchFile(QByteArray parsedJson, QString code){
         QJsonObject::iterator itr = jsonObj.find(code);
         if (itr == jsonObj.end()){
             qDebug() << "Code Not Found";
+            return "Code Not Found";
         }else{
 
             QJsonValue jsonVal = jsonObj.value(code);
 
 
           //QJsonValue jsonVal = *itr.value()->toObject()->find(code);
-            qDebug() << jsonVal.toString();
-
+            qDebug() << "Jason :) " <<jsonVal.toString();
+            return jsonVal.toString();
         }
 
 
     }
+}
+
+QString ParseJson::getDesc(QString code){
+    return LoadFile(code);
+
 }
 
 ParseJson::~ParseJson()
