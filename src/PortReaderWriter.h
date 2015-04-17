@@ -43,7 +43,7 @@ namespace serial {
         static const int decodeRunTimeEngineStart(const QByteArray line_data);
         static const int decodeTempEngine(const QByteArray line_data);
         static const int decodeThrottlePosition(const QByteArray line_data);
-        static const int decodeVehicleSpeed(const QByteArray line_data);
+        static const int decodeVehicleSpeed(QByteArray line_data);
 
         static const QString decodeOBDErrors(const QByteArray line_data);
         
