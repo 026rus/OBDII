@@ -53,8 +53,35 @@ private:
     serial::PortReaderWriter *conn;
     int speedCount;
     int rpmCount;
+    int pressCount;
+    int distanceCount;
+    int coolCount;
+    int loadCount;
+    int oilTempCount;
+    int ethPercCount;
+    int ratioCount;
+    int fuelPercCount;
+    int fuelPressCount;
+    int airTempCount;
+    int manPressCount;
+    int runTimeCount;
+    int throtlePercCount;
+
     QVector<double> vspeed;
     QVector<double> vrpm;
+    QVector<double> vpressure;
+    QVector<double> vdistance;
+    QVector<double> vcooltemp;
+    QVector<double> vload;
+    QVector<double> voiltemp;
+    QVector<double> vethanolpercent;
+    QVector<double> vratio;
+    QVector<double> vfuelpercent;
+    QVector<double> vfuelpressure;
+    QVector<double> vairtemp;
+    QVector<double> vmanifoldpressure;
+    QVector<double> vruntime;
+    QVector<double> vthrotlepercent;
     OBD2Client clientsocet;
 
 };

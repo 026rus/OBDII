@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /* disable these widgets when there is no connection present */
     ui->submitButton->setDisabled(true);
     ui->checkEngineButton->setDisabled(true);
-    //ui->monitorButton->setDisabled(true);
+    ui->monitorButton->setDisabled(true);
 
     speedCount = 1;
     rpmCount = 1;
@@ -43,6 +43,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->customPlot->addGraph();
     ui->customPlot->addGraph();
+
+    ui->distanceTraveledBox->setDisabled(true);
+    ui->engineCoolantBox->setDisabled(true);
+    ui->engineLoadBox->setDisabled(true);
+    ui->engineOilBox->setDisabled(true);
+    ui->ethanolFuelBox->setDisabled(true);
+    ui->fuelAirBox->setDisabled(true);
+    ui->fuelLevelBox->setDisabled(true);
+    ui->fuelPressureBox->setDisabled(true);
+    ui->intakeAirBox->setDisabled(true);
+    ui->intakeManifoldBox->setDisabled(true);
+    ui->runTimeBox->setDisabled(true);
+    ui->throtlePositionBox->setDisabled(true);
+    ui->barometricPressureBox->setDisabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -275,6 +289,7 @@ void MainWindow::on_inputEdit_returnPressed() { sendRawData(); }
 
 void MainWindow::on_addGraphButton_clicked()
 {
+  ui->textEdit->setText("");
   QTextCursor cursor = ui->textEdit->textCursor();
 
   // insert the current plot at the cursor position. QCPDocumentObject::generatePlotFormat creates a
@@ -283,7 +298,6 @@ void MainWindow::on_addGraphButton_clicked()
   double width = 480;
   double height = 340;
   cursor.insertText(QString(QChar::ObjectReplacementCharacter), QCPDocumentObject::generatePlotFormat(ui->customPlot, width, height));
-
   ui->textEdit->setTextCursor(cursor);
 
 }
