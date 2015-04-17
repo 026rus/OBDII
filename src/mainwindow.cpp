@@ -112,22 +112,21 @@ void MainWindow::on_monitorButton_clicked() {
 
     if(vehicleSpeed < 0) {
         vspeed.append(0);
-        speedCount++;
     } else {
         vspeed.append(vehicleSpeed);
-        speedCount++;
     }
+    speedCount++;
 
     int rpmVal = conn->decodeRPM(conn->queryRPM());
+    qDebug() << "Actual rpmVal: " << rpmVal;
     ui->outputBrowser->setText( QString::number(rpmVal) );
 
     if (rpmVal < 0) {
        vrpm.append(rpmCount);
-       rpmCount++;
     } else {
-        vrpm.append(rpmVal/10);
-        rpmCount++;
+        vrpm.append(rpmVal/100);
     }
+   rpmCount++;
 
     // not necessary now, but the code to set
     // the other buttons to disabled while
@@ -182,6 +181,7 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
     QVector<double> data;
     int count;
     int graphNumb;
+    QPen graphColor = QPen(Qt::red);
     if("rpm" == dataName){
         data = vrpm;
         count = rpmCount;
@@ -191,7 +191,9 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
         data = vspeed;
         count = speedCount;
         graphNumb = 1;
+	graphColor = QPen(Qt::blue);
     }
+
     QVector<double> c;
   if (dataClicked == false){
       for (int i=0; i<=count; i++)
@@ -210,7 +212,7 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
       // set axes ranges, so we see all data:
       customPlot->xAxis->setRange(0, count - 1);
       customPlot->yAxis->setRange(0, 100);
-      customPlot->graph(graphNumb)->setPen(QPen(Qt::red)); // line color blue for first graph
+      customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
       customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
       ui->customPlot->replot();

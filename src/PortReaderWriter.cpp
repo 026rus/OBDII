@@ -166,7 +166,7 @@ namespace serial
         QString retval = transData;
 //        qDebug() <<"Line Data: " << retval << "size: "<< retval.size()<< " echo: "<< echo_chars;
         if (echo_chars > 0)
-           retval = retval.mid(echo_chars);
+           retval = retval.mid(echo_chars+1);
         retval = retval.remove(retval.size()-2,2);
         qDebug() << "Retval in ReadALL: " <<retval;
         return retval;
@@ -210,8 +210,10 @@ namespace serial
 
     /* Decode data from queryRPM() */
     const int PortReaderWriter::decodeRPM(const QString line_data) {
+	qDebug() << "Raw RPM: " <<line_data;
         bool ok = false;
-        int x = line_data.toInt(&ok, 16) / 4;
+        QString retval =  line_data.mid(4);
+        int x = retval.toInt(&ok, 16) / 4;
         return ok ? x : -1;
     }
 
