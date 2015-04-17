@@ -43,7 +43,7 @@ void CarCoreApp::run() {
                 qDebug() << "Problem writing !!!!";
             }
             cout << "_____________________________________\n";
-            QByteArray buff = conn->readAll(instr.replace(" ", "").size());
+            QString buff = conn->readAll(instr.replace(" ", "").size());
             cout <<"Buff size 1: "<<buff.size()<<endl;
             cout <<"("<<buff.toStdString()<<")"<<endl;
 	    }

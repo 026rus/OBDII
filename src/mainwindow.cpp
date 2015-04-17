@@ -88,7 +88,7 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
 }
 
 void MainWindow::on_checkEngineButton_clicked() {
-    QByteArray trobelCode = this->conn->queryOBDErrorCodes();
+    QString trobelCode = this->conn->queryOBDErrorCodes();
     QString rawCodes = this->conn->decodeOBDErrors(trobelCode);
 
     /*Use Commented rawCodes if above code is not working. Hard codes literal codes if decode broken.
@@ -158,7 +158,7 @@ void MainWindow::sendRawData() {
     if(!conn->sendCommand( instr.toUtf8() )) {
         ui->outputBrowser->append( "Problem writing !!!!");
     }
-    QByteArray buff = conn->readAll();
+    QString buff = conn->readAll();
     QString tempstr = "Buff size 1: ";
     tempstr += QString::number(buff.size());
     ui->outputBrowser->append( tempstr );
