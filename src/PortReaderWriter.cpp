@@ -410,14 +410,16 @@ namespace serial
         return (oka && okb) ? x : -1;
     }
 
-    const int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
+    const int PortReaderWriter::decodeVehicleSpeed(QByteArray line_data)
     {
         bool ok = false;
-        qDebug() << line_data;
-        QString retval = line_data.mid(4);
+        QString retval = line_data;
+        qDebug() << "R; "<< retval;
+        retval = retval.mid(9,2);
+        int x = retval.toInt(&ok, 16);
         qDebug() << retval;
-        retval = line_data.mid(4,2);
-        int x = (retval.toInt(&ok, 16));
+        qDebug() <<"Speed: "<<x;
+        if (!ok) qDebug() << "ERROR: "<< retval;
         return ok ? x : -1;
     }
 
