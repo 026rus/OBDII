@@ -3,6 +3,7 @@
 #include <iostream>
 #include "qcustomplot.h"
 #include "obd2client.h"
+#include "ParseJson.h"
 
 bool visibility;
 bool speedClicked;
@@ -88,7 +89,20 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
 
 void MainWindow::on_checkEngineButton_clicked() {
     QByteArray trobelCode = this->conn->queryOBDErrorCodes();
-    ui->outputBrowser->setText(this->conn->decodeOBDErrors(trobelCode).toCaseFolded());
+    QString rawCodes = this->conn->decodeOBDErrors(trobelCode);
+
+    /*Use Commented rawCodes if above code is not working. Hard codes literal codes if decode broken.
+    Example decoded value = "B0001\r\nC0035";*/
+    //Code below takes rawCodes, seperates them, and iterates them to find descriptions.
+    QStringList deliminatedCodes = rawCodes.split("\r\n", QString::SkipEmptyParts);
+    ParseJson parser = ParseJson();
+    foreach(const QString &data, deliminatedCodes){
+            qDebug() << qPrintable(data);
+            ui->outputBrowser->append(parser.getDesc(data));
+    }
+
+
+    //ui->outputBrowser->setText();
 }
 
 void MainWindow::on_monitorButton_clicked() {

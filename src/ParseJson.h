@@ -8,8 +8,9 @@ class ParseJson
 public:
     ParseJson();
     ParseJson(QString code);
-    void LoadFile(QString code);
-    void SearchFile(QByteArray parsedJson, QString code);
+    QString LoadFile(QString code);
+    QString SearchFile(QByteArray parsedJson, QString code);
+    QString getDesc(QString code);
 
     ~ParseJson();
 };
