@@ -4,8 +4,6 @@
 #include "qcustomplot.h"
 #include "obd2client.h"
 
-QVector<double> a(101), b(101);
-QVector<double> c(101), d(101);
 bool visibility;
 bool speedClicked;
 bool rpmClicked;
@@ -26,10 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     speedCount = 1;
     rpmCount = 1;
-    a[0] = 0;
-    b[0] = 0;
-    c[0] = 0;
-    d[0] = 0;
 
     visibility = true;
     speedClicked = false;
@@ -166,10 +160,11 @@ void MainWindow::sendRawData() {
 
 void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 {
+    QVector<double> c;
   if (speedClicked == false){
       for (int i=0; i<=speedCount; i++)
       {
-        c[i] = i;
+          c.append(i);
       }
 
       // create graph and assign data to it:
@@ -198,14 +193,15 @@ void MainWindow::setupSpeedGraph(QCustomPlot *customPlot)
 
 void MainWindow::setupRPMGraph(QCustomPlot *customPlot)
 {
+    QVector<double> c;
   if (rpmClicked == false){
       for (int i=0; i<=rpmCount; i++)
       {
-          a[i] = i;
+          c.append(i);
       }
       // create graph and assign data to it:
       //customPlot->addGraph();
-      customPlot->graph(0)->setData(a, vrpm);
+      customPlot->graph(0)->setData(c, vrpm);
       // give the axes some labels:
       customPlot->xAxis->setLabel("Count");
       customPlot->yAxis->setLabel("RPM (x1000)");

@@ -33,21 +33,13 @@ public:
 private slots:
 
     void on_checkEngineButton_clicked();
-
     void on_monitorButton_clicked();
-
     void on_submitButton_clicked();
-
     void sendRawData();
-
     void on_connectButton_clicked();
-
     void on_speedBox_clicked();
-
     void on_rpmBox_clicked();
-
     void on_addGraphButton_clicked();
-
     void on_saveGraphButton_clicked();
 
     // this is function for usinf enter in the line stop plise deleting it !!!

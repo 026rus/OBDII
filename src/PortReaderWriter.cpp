@@ -129,6 +129,7 @@ namespace serial
     QByteArray PortReaderWriter::readAll(int echo_chars)
     {
         if (0 == this->port) { return "No port set!"; }
+
         this->port->open(QIODevice::ReadWrite);
             if (!this->port->isOpen()) { return "Could not open port for write"; }
 
