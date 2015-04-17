@@ -98,7 +98,7 @@ void MainWindow::on_checkEngineButton_clicked() {
     ParseJson parser = ParseJson();
     foreach(const QString &data, deliminatedCodes){
             qDebug() << "code: " <<qPrintable(data);
-            qDebug() << "Some thinfg: "<< parser.getDesc( qPrintable(data) );
+            qDebug() << "Some thinfg: "<< parser.getDesc(data);
             ui->outputBrowser->append("Some string");
     }
 

@@ -142,11 +142,15 @@ namespace serial
         }
 
         /* Clean the binary data out of the read data */
-        lineData = lineData.simplified();
+        //lineData = lineData.simplified();
+        lineData = lineData.replace(" ","");
         int size = lineData.size();
         QByteArray transData = QByteArray();
         for (int i = 0; i < size;i++) {
             if (std::isalnum(lineData[i])) {
+                transData += lineData[i];
+            }
+            if ('\r' == lineData[i] || '\n' == lineData[i]) {
                 transData += lineData[i];
             }
         }
@@ -163,8 +167,8 @@ namespace serial
 //        qDebug() <<"Line Data: " << retval << "size: "<< retval.size()<< " echo: "<< echo_chars;
         if (echo_chars > 0)
            retval = retval.mid(echo_chars);
-        retval = retval.remove(retval.size()-3,3);
-//        qDebug() << "Retval: " <<retval;
+        retval = retval.remove(retval.size()-2,2);
+        qDebug() << "Retval in ReadALL: " <<retval;
         return retval;
     }
 
@@ -434,7 +438,8 @@ namespace serial
     {
         bool ok = false;
         QString retval = line_data;
-        retval = retval.mid(9,2);
+        qDebug() << "RS: "<<line_data;
+        retval = retval.mid(4);
         int x = retval.toInt(&ok, 16);
         qDebug() << "Speed: "<<x<<" hex: " << retval;
         if (!ok) qDebug() << "ERROR: "<< retval;
