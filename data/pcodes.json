@@ -718,34 +718,34 @@
 	 "Turbocharger Wastegate Solenoid B High"
       ,
      "P0251" :  
-	 "Injection Pump Fuel Metering Control "A" Malfunction (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Malfunction (Cam/Rotor/Injector)"
       ,
      "P0252" :  
-	 "Injection Pump Fuel Metering Control "A" Range/Performance (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Range/Performance (Cam/Rotor/Injector)"
       ,
      "P0253" :  
-	 "Injection Pump Fuel Metering Control "A" Low (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Low (Cam/Rotor/Injector)"
       ,
      "P0254" :  
-	 "Injection Pump Fuel Metering Control "A" High (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A High (Cam/Rotor/Injector)"
       ,
      "P0255" :  
-	 "Injection Pump Fuel Metering Control "A" Intermittent (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control A Intermittent (Cam/Rotor/Injector)"
       ,
      "P0256" :  
-	 "Injection Pump Fuel Metering Control "B" Malfunction (Cam/Rotor/Injector)"
+	 "Injection Pump Fuel Metering Control B Malfunction (Cam/Rotor/Injector)"
       ,
      "P0257" :  
-	 "Injection Pump Fuel Metering Control "B" Range/Performance Injector)"
+	 "Injection Pump Fuel Metering Control B Range/Performance Injector)"
       ,
      "P0258" :  
-	 "Injection Pump Fuel Metering Control "B" Low (Cam/R)"
+	 "Injection Pump Fuel Metering Control B Low (Cam/R)"
       ,
      "P0259" :  
-	 "Injection Pump Fuel Metering Control "B" High (Cam/R)"
+	 "Injection Pump Fuel Metering Control B High (Cam/R)"
       ,
      "P0260" :  
-	 "Injection Pump Fuel Metering Control "B" Intermittent Injector)"
+	 "Injection Pump Fuel Metering Control B Intermittent Injector)"
       ,
      "P0261" :  
 	 "Cylinder 1 Injector Circuit Low"
