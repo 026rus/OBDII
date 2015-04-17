@@ -413,8 +413,10 @@ namespace serial
     const int PortReaderWriter::decodeVehicleSpeed(const QByteArray line_data)
     {
         bool ok = false;
+        qDebug() << line_data;
         QString retval = line_data.mid(4);
         qDebug() << retval;
+        retval = line_data.mid(4,2);
         int x = (retval.toInt(&ok, 16));
         return ok ? x : -1;
     }
