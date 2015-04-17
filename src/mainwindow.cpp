@@ -115,13 +115,15 @@ void MainWindow::on_checkEngineButton_clicked() {
     QStringList deliminatedCodes = rawCodes.split("\n", QString::SkipEmptyParts);
     ParseJson parser = ParseJson();
     foreach(const QString &data, deliminatedCodes){
+	    QString description = parser.getDesc(data);
+	    if (description.contains("Code Unknown")) {
+		description += " " + data;
+	    }
+
             qDebug() << "code: " <<qPrintable(data);
-            qDebug() << "Some thinfg: "<< parser.getDesc(data);
-            ui->outputBrowser->append("Some string");
+            qDebug() << "Some thinfg: "<< description;
+            ui->outputBrowser->append(description);
     }
-
-
-    //ui->outputBrowser->setText();
 }
 
 void MainWindow::on_monitorButton_clicked() {
