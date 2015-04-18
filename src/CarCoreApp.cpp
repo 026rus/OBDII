@@ -12,7 +12,7 @@ CarCoreApp::~CarCoreApp(){
 
 void CarCoreApp::run() {
     this->conn = new serial::PortReaderWriter();
-/*
+
     if (!conn->serialConnect()) {
         qDebug() << "Could not connect!";
         this->exit(1);
@@ -26,7 +26,6 @@ void CarCoreApp::run() {
         this->exit(2);
     }
 
-    /*
 	QString instr="ATI";
 	QTextStream qtin(stdin);
 	bool go = true;
@@ -44,18 +43,16 @@ void CarCoreApp::run() {
                 qDebug() << "Problem writing !!!!";
             }
             cout << "_____________________________________\n";
-            QByteArray buff = conn->readAll(instr.replace(" ", "").size());
+            QString buff = conn->readAll(instr.replace(" ", "").size());
             cout <<"Buff size 1: "<<buff.size()<<endl;
             cout <<"("<<buff.toStdString()<<")"<<endl;
 	    }
 	}
-*/
-    /*  */
-     QString instr = "";
-     int xxx=0;
-      conn->decodeMulty("  ", xxx);
-      qDebug() << xxx;
-    /*  */
+
+    int xxx=0;
+    conn->decodeMulty("  ", xxx);
+    qDebug() << xxx;
+
     emit done();
 }
 
