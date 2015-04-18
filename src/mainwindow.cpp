@@ -142,7 +142,7 @@ void MainWindow::on_monitorButton_clicked() {
     ui->outputBrowser->setText( QString::number(rpmVal) );
 
     if (rpmVal < 0) {
-       vrpm.append(rpmCount);
+       vrpm.append(0);
     } else {
         vrpm.append(rpmVal/100);
     }
@@ -236,6 +236,7 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
       customPlot->yAxis->setRange(0, 100);
       customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+//      customPlot->graph(graphNumb)->setBrush(QBrush(Qt::lightGray)); // first graph will be filled with translucent blue
       customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
   else{
