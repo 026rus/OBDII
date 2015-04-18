@@ -314,6 +314,9 @@ void MainWindow::on_addGraphButton_clicked()
 void MainWindow::on_saveGraphButton_clicked()
 {
   QString fileName = QFileDialog::getSaveFileName(this, "Save document...", qApp->applicationDirPath(), "*.pdf");
+  if ((!fileName.endsWith(".pdf")) && (!fileName.isEmpty())){
+      fileName.append(".pdf");
+  }
   if (!fileName.isEmpty())
   {
     QPrinter printer(QPrinter::HighResolution);
@@ -324,4 +327,7 @@ void MainWindow::on_saveGraphButton_clicked()
     printer.setOutputFileName(fileName);
     ui->textEdit->document()->print(&printer);
   }
+}
+
+void MainWindow::on_uploadButton_clicked(){
 }

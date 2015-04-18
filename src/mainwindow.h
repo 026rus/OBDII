@@ -43,6 +43,7 @@ private slots:
     void on_rpmBox_clicked();
     void on_addGraphButton_clicked();
     void on_saveGraphButton_clicked();
+    void on_uploadButton_clicked();
 
     // this is function for usinf enter in the line stop plise deleting it !!!
     void on_inputEdit_returnPressed();
