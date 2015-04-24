@@ -7,3 +7,4 @@ CMakeFiles/
 *.sln
 *.user
 **/ui*.h
+**/*.autosave

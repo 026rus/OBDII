@@ -865,169 +865,169 @@
 	 "Turbocharger/Supercharger (Underboost Condition)"
       ,
      "P0300" :  
-	 "Code Unknown ATM, Sorry"
+	 "Random/Multiple Cylinder Misfire Detected"
       ,
      "P0301" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 1 Misfire Detected"
       ,
      "P0302" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 2 Misfire Detected"
       ,
      "P0303" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 3 Misfire Detected"
       ,
      "P0304" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 4 Misfire Detected"
       ,
      "P0305" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 5 Misfire Detected"
       ,
      "P0306" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 6 Misfire Detected"
       ,
      "P0307" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 7 Misfire Detected"
       ,
      "P0308" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 8 Misfire Detected"
       ,
      "P0309" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 9 Misfire Detected"
       ,
      "P0310" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 10 Misfire Detected"
       ,
      "P0311" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 11 Misfire Detected"
       ,
      "P0312" :  
-	 "Code Unknown ATM, Sorry"
+	 "Cylinder 12 Misfire Detected"
       ,
      "P0313" :  
-	 "Code Unknown ATM, Sorry"
+	 "Misfire Detected with Low Fuel"
       ,
      "P0314" :  
-	 "Code Unknown ATM, Sorry"
+	 "Single Cylinder Misfire (Cylinder not Specified)"
       ,
      "P0315" :  
-	 "Code Unknown ATM, Sorry"
+	 "Crankshaft Position System Variation Not Learned"
       ,
      "P0316" :  
-	 "Code Unknown ATM, Sorry"
+	 "Misfire Detected On Startup (First 1000 Revolutions)"
       ,
      "P0317" :  
-	 "Code Unknown ATM, Sorry"
+	 "Rough Road Hardware Not Present"
       ,
      "P0318" :  
-	 "Code Unknown ATM, Sorry"
+	 "Rough Road Sensor A Signal Circuit"
       ,
      "P0319" :  
-	 "Code Unknown ATM, Sorry"
+	 "Rough Road Sensor B Signal Circuit"
       ,
      "P0320" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition/Distributor Engine Speed Input Circuit Malfunction"
       ,
      "P0321" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition/Distributor Engine Speed Input Circuit Range/Performance"
       ,
      "P0322" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition/Distributor Engine Speed Input Circuit No Signal"
       ,
      "P0323" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition/Distributor Engine Speed Input Circuit Intermittent"
       ,
      "P0324" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Control System Error"
       ,
      "P0325" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 1 Circuit Malfunction (Bank I or Single Sensor)"
       ,
      "P0326" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 1 Circuit Range/Performance (Bank 1 or Single Sensor)"
       ,
      "P0327" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 1 Circuit Low Input (Bank I or Single Sensor)"
       ,
      "P0328" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 1 Circuit High Input (Bank I or Single Sensor)"
       ,
      "P0329" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 1 Circuit Intermittent (Bank 1 or Single Sensor)"
       ,
      "P0330" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 2 Circuit Malfunction (Bank 2)"
       ,
      "P0331" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 2 Circuit Range/Performance (Bank 2)"
       ,
      "P0332" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 2 Circuit Low Input (Bank 2)"
       ,
      "P0333" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 2 Circuit High Input (Bank 2)"
       ,
      "P0334" :  
-	 "Code Unknown ATM, Sorry"
+	 "Knock Sensor 2 Circuit Intermittent (Bank 2)"
       ,
      "P0335" :  
-	 "Code Unknown ATM, Sorry"
+	 "Crankshaft Position Sensor A Circuit Malfunction"
       ,
      "P0336" :  
-	 "Code Unknown ATM, Sorry"
+	 "Crankshaft Position Sensor A Circuit Range/Performance"
       ,
      "P0337" :  
-	 "Code Unknown ATM, Sorry"
+	 "Crankshaft Position Sensor A Circuit Low Input"
       ,
      "P0338" :  
-	 "Code Unknown ATM, Sorry"
+	 "Crankshaft Position Sensor A Circuit High Input"
       ,
      "P0339" :  
-	 "Code Unknown ATM, Sorry"
+	 "Crankshaft Position Sensor A Circuit Intermittent"
       ,
      "P0340" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor Circuit Malfunction"
       ,
      "P0341" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor Circuit Range/Performance (Bank 1)"
       ,
      "P0342" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit Low Input (Bank 1)"
       ,
      "P0343" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit High Input (Bank 1)"
       ,
      "P0344" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit Intermittent (Bank 1)"
       ,
      "P0345" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit Malfunction (Bank 2)"
       ,
      "P0346" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit Range/Performance (Bank 2)"
       ,
      "P0347" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit Low Input (Bank 2)"
       ,
      "P0348" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit High Input (Bank 2)"
       ,
      "P0349" :  
-	 "Code Unknown ATM, Sorry"
+	 "Camshaft Position Sensor A Circuit Intermittent (Bank 2)"
       ,
      "P0350" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition Coil Primary/Secondary Circuit Malfunction"
       ,
      "P0351" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition Coil A Primary/Secondary Circuit Malfunction"
       ,
      "P0352" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition Coil B Primary/Secondary Circuit Malfunction"
       ,
      "P0353" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition Coil C Primary/Secondary Circuit Malfunction"
       ,
      "P0354" :  
-	 "Code Unknown ATM, Sorry"
+	 "Ignition Coil D Primary/Secondary Circuit Malfunction"
       ,
      "P0355" :  
 	 "Code Unknown ATM, Sorry"
