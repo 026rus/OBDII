@@ -5,9 +5,6 @@
 #include "obd2client.h"
 #include "ParseJson.h"
 
-bool visibility;
-bool speedClicked;
-bool rpmClicked;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
