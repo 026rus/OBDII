@@ -176,10 +176,10 @@ namespace serial
          * Return the now pristine line data.
          */
         QString retval = transData;
-//        qDebug() <<"Line Data: " << retval << "size: "<< retval.size()<< " echo: "<< echo_chars;
         if (echo_chars > 0)
            retval = retval.mid(echo_chars+1);
         retval = retval.remove(retval.size()-2,2);
+
         qDebug() << "Retval in ReadALL: " <<retval;
         return retval;
     }
