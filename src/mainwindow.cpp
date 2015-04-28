@@ -253,48 +253,59 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
 
 void MainWindow::on_connectButton_clicked()
 {
+    if (this->connected) {
+        // Disconnecting from the port.  We should clean up and get new buffers. */
+        this->conn->port->close();
+        delete this->conn;
+        this->connected = false;
+        this->conn = new serial::PortReaderWriter();
+
+        QFont font;
+        font.setPointSize(12);
+        ui->statusLabel->setText("Connection Status: Disconnected");
+        ui->statusLabel->setFont(font);
+        ui->connectStatus->setValue(0);
+        ui->connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
+
+        /* disable these widgets when there is no connection */
+        ui->checkEngineButton->setDisabled(true);
+        ui->submitButton->setDisabled(true);
+        ui->monitorButton->setDisabled(true);
+        return;
+    }
+
+    // Connecting to the port
     QString input_device = "";
     QVector<QSerialPortInfo> ports = serial::PortReaderWriter::getAvailPorts();
 
+    // Dirty dirty HACK!!!  Needs to be moved to a GUI Dialog
     foreach (const QSerialPortInfo &info, ports) {
         if (info.manufacturer().contains("FTDI")) {
             input_device = info.portName();
         }
     }
 
-    if (this->conn->setPort(input_device.toStdString())) {
-        QFont font;
-        font.setPointSize(12);
-        QString text = "Connected: " + input_device;
-        ui->statusLabel->setText(text);
-        ui->statusLabel->setFont(font);
-        ui->connectStatus->setValue(100);
-        ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
+    // We try using the port anyway.  If all is working we can enable the buttons
+    if (0 < input_device.length()) {
+        if (this->conn->setPort(input_device.toStdString())) {
+            this->connected = true;
+            QFont font;
+            font.setPointSize(12);
+            QString text = "Connected: " + input_device;
+            ui->statusLabel->setText(text);
+            ui->statusLabel->setFont(font);
+            ui->connectStatus->setValue(100);
+            ui->connectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
 
-        /* enable these widgets when there is a connection present */
-        ui->checkEngineButton->setEnabled(true);
-        ui->submitButton->setEnabled(true);
-        ui->monitorButton->setEnabled(true);
-        return;
+            /* enable these widgets when there is a connection present */
+            ui->checkEngineButton->setEnabled(true);
+            ui->submitButton->setEnabled(true);
+            ui->monitorButton->setEnabled(true);
+            return;
+        }
     }
 
-    QFont font;
-    font.setPointSize(12);
-    ui->statusLabel->setText("Connection Status: Disconnected");
-    ui->statusLabel->setFont(font);
-    ui->connectStatus->setValue(0);
-    ui->connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
-
-    /* We disconnected.  We should clean up the PortReaderWriter and get new buffers. */
-    delete this->conn;
-    this->conn = new serial::PortReaderWriter();
-
-    /* disable these widgets when there is no connection */
-    ui->checkEngineButton->setDisabled(true);
-    ui->submitButton->setDisabled(true);
-    ui->monitorButton->setDisabled(true);
-
-    return;
+    this->connected = false;
 }
 
 void MainWindow::on_inputEdit_returnPressed() { sendRawData(); }
