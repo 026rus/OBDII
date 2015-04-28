@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+#include <cctype>
 #include "qcustomplot.h"
 #include "obd2client.h"
 #include "ParseJson.h"
@@ -14,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     this->conn = new serial::PortReaderWriter();
+    this->connected = false;
 
     ui->setupUi(this);
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
