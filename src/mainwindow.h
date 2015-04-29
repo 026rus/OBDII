@@ -63,11 +63,16 @@ private slots:
     void on_inputEdit_returnPressed();
 
 
+    void on_actionAbout_triggered();
+
+    void on_timeoutSpin_editingFinished();
+
 private:
 
     bool visibility;
     bool speedClicked;
     bool rpmClicked;
+    bool loadClicked;
 
     Ui::MainWindow *ui;
     serial::PortReaderWriter *conn;

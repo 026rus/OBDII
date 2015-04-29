@@ -21,6 +21,7 @@ namespace serial
         , port(reqPort)
         , writeData(dataForWrite)
     {
+        this->timeoutMillis = 1000;
     if ( 0 == this->port )
     {
 	    this->m_timer.start(timeoutMillis);
@@ -41,7 +42,6 @@ namespace serial
                 , SIGNAL( timeout() )
                 , SLOT( handleTimeout() )
                 , Qt::QueuedConnection);
-
 	this->m_timer.start(timeoutMillis);
     }
 

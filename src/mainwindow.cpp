@@ -6,8 +6,6 @@
 #include "obd2client.h"
 #include "ParseJson.h"
 
-bool loadClicked;
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -292,7 +290,7 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
     }
     else if ("load" == dataName){
         data = vload;
-        count = loadCount;
+        count = rpmCount;
         graphNumb = 2;
     graphColor = QPen(Qt::green);
     }
@@ -494,4 +492,14 @@ void MainWindow::on_saveGraphButton_clicked()
 }
 
 void MainWindow::on_uploadButton_clicked(){
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this,"About","Authors:\nZac Slade, Zac Wisdom, Vitaly Borodin, Joseph Jenkins\n\nCreated:\nSpring 2015");
+}
+
+void MainWindow::on_timeoutSpin_editingFinished()
+{
+    this->conn->timeoutMillis = ui->sbTimeout->value();
 }
