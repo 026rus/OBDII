@@ -42,7 +42,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->connectStatus->setValue(0);
 
-    ui->customPlot->legend->setVisible(true);
     QFont legendFont;  // start out with MainWindow's font..
     legendFont.setPointSize(9); // and make a bit smaller for legend
     ui->customPlot->legend->setFont(legendFont);
@@ -262,6 +261,8 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
     int count;
     int graphNumb;
     QPen graphColor = QPen(Qt::red);
+
+    // determine which set of data to use
     if("rpm" == dataName){
         data = vrpm;
         count = rpmCount;
@@ -353,7 +354,9 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
     }
 
     QVector<double> c;
-  if (dataClicked == false){
+
+    // if the checkbox is clicked, graph the data
+    if (dataClicked == false){
       for (int i=0; i<=count; i++)
       {
           c.append(i);
@@ -373,23 +376,25 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
       customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
       customPlot->graph(graphNumb)->addToLegend();
-//      customPlot->graph(graphNumb)->setBrush(QBrush(Qt::lightGray)); // first graph will be filled with translucent blue
-//      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
+
+  // else set the data to invisible
   else{
       ui->customPlot->graph(graphNumb)->setVisible(false);
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 0, 0)));
       customPlot->graph(graphNumb)->removeFromLegend();
-      //      ui->customPlot->addGraph();
   }
   dataClicked = !dataClicked;
+
+  // Set graph names and colors
   customPlot->graph(0)->setName("RPM");
   customPlot->graph(1)->setName("Speed");
   customPlot->graph(2)->setName("Load Value");
   customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
   customPlot->graph(1)->setPen(QPen(Qt::blue)); // line color blue for first graph
   customPlot->graph(2)->setPen(QPen(Qt::green)); // line color blue for first graph
-    // setup legend for later development
+
+  // setup legend for later development
   /*  customPlot->graph(5)->setName("Barometric Pressure");
   customPlot->graph(3)->setName("Distance Traveled");
   customPlot->graph(4)->setName("Coolant Temperature");
@@ -402,6 +407,16 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
   customPlot->graph(12)->setName("Intake Pressure");
   customPlot->graph(13)->setName("Run Time");
   customPlot->graph(14)->setName("Throttle Position");*/
+
+  // Set the legend invisible unless there is something being graphed
+  if (ui->customPlot->legend->itemCount() == 0){
+      customPlot->legend->setVisible(false);
+  }
+  else {
+      customPlot->legend->setVisible(true);
+  }
+
+  //plot all changes
   customPlot->replot();
 }
 
