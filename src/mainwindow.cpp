@@ -6,6 +6,7 @@
 #include "obd2client.h"
 #include "ParseJson.h"
 
+bool loadClicked;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     visibility = true;
     speedClicked = false;
     rpmClicked = false;
+    loadClicked = false;
 
     // register the plot document object (only needed once, no matter how many plots will be in the QTextDocument):
     QCPDocumentObject *plotObjectHandler = new QCPDocumentObject(this);
@@ -40,8 +42,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->connectStatus->setValue(0);
 
-    ui->customPlot->addGraph();
-    ui->customPlot->addGraph();
+    for (int i = 0; i < 3; i++){
+        ui->customPlot->addGraph();
+    }
     ui->customPlot->legend->setVisible(true);
     QFont legendFont;  // start out with MainWindow's font..
     legendFont.setPointSize(9); // and make a bit smaller for legend
@@ -49,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->distanceTraveledBox->setDisabled(true);
     ui->engineCoolantBox->setDisabled(true);
-    ui->engineLoadBox->setDisabled(true);
+    ui->engineLoadBox->setDisabled(false);
     ui->engineOilBox->setDisabled(true);
     ui->ethanolFuelBox->setDisabled(true);
     ui->fuelAirBox->setDisabled(true);
@@ -145,7 +148,7 @@ void MainWindow::on_monitorButton_clicked() {
     } else {
         vrpm.append(rpmVal/100);
     }
-   rpmCount++;
+    rpmCount++;
 
     // not necessary now, but the code to set
     // the other buttons to disabled while
@@ -161,9 +164,64 @@ void MainWindow::on_monitorButton_clicked() {
     on_speedBox_clicked();
     ui->customPlot->graph(0)->setName("RPM");
     ui->customPlot->graph(1)->setName("Speed");
+    ui->customPlot->graph(2)->setName("Engine Load");
 }
 
 void MainWindow::on_submitButton_clicked() { sendRawData(); }
+
+void MainWindow::on_barometricPressureBox_clicked(){
+
+}
+
+void MainWindow::on_distanceTraveledBox_clicked(){
+
+}
+
+void MainWindow::on_engineCoolantBox_clicked(){
+
+}
+
+void MainWindow::on_engineLoadBox_clicked(){
+    QString name = "load";
+    setupGraph(ui->customPlot, name, loadClicked);
+
+}
+
+void MainWindow::on_engineOilBox_clicked(){
+
+}
+
+void MainWindow::on_ethanolFuelBox_clicked(){
+
+}
+
+void MainWindow::on_fuelAirBox_clicked(){
+
+}
+
+void MainWindow::on_fuelLevelBox_clicked(){
+
+}
+
+void MainWindow::on_fuelPressureBox_clicked(){
+
+}
+
+void MainWindow::on_intakeAirBox_clicked(){
+
+}
+
+void MainWindow::on_intakeManifoldBox_clicked(){
+
+}
+
+void MainWindow::on_runTimeBox_clicked(){
+
+}
+
+void MainWindow::on_throtlePositionBox_clicked(){
+
+}
 
 void MainWindow::on_speedBox_clicked() {
     QString name = "speed";
@@ -214,6 +272,84 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
         graphNumb = 1;
 	graphColor = QPen(Qt::blue);
     }
+    else if ("barometric" == dataName){
+        data = vpressure;
+        count = pressCount;
+        graphNumb = 5;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("distance" == dataName){
+        data = vdistance;
+        count = distanceCount;
+        graphNumb = 3;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("coolant" == dataName){
+        data = vcooltemp;
+        count = coolCount;
+        graphNumb = 4;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("load" == dataName){
+        data = vload;
+        count = loadCount;
+        graphNumb = 2;
+    graphColor = QPen(Qt::green);
+    }
+    else if ("oil" == dataName){
+        data = voiltemp;
+        count = oilTempCount;
+        graphNumb = 6;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("fuelPercent" == dataName){
+        data = vfuelpercent;
+        count = fuelPercCount;
+        graphNumb = 7;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("fuelAir" == dataName){
+        data = vratio;
+        count = ratioCount;
+        graphNumb = 8;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("fuelLevel" == dataName){
+        data = vlevel;
+        count = levelCount;
+        graphNumb = 9;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("fuelPressure" == dataName){
+        data = vfuelpressure;
+        count = fuelPressCount;
+        graphNumb = 10;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("intakeTemp" == dataName){
+        data = vairtemp;
+        count = airTempCount;
+        graphNumb = 11;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("intakePress" == dataName){
+        data = vmanifoldpressure;
+        count = manPressCount;
+        graphNumb = 12;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("runTime" == dataName){
+        data = vruntime;
+        count = runTimeCount;
+        graphNumb = 13;
+    graphColor = QPen(Qt::blue);
+    }
+    else if ("throttlePos" == dataName){
+        data = vthrotlepercent;
+        count = throtlePercCount;
+        graphNumb = 14;
+    graphColor = QPen(Qt::blue);
+    }
 
     QVector<double> c;
   if (dataClicked == false){
@@ -232,11 +368,11 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
 
       // set axes ranges, so we see all data:
       customPlot->xAxis->setRange(0, count - 1);
-      customPlot->yAxis->setRange(0, 100);
+      customPlot->yAxis->setRange(0, 150);
       customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
 //      customPlot->graph(graphNumb)->setBrush(QBrush(Qt::lightGray)); // first graph will be filled with translucent blue
-      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
+//      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
   else{
       ui->customPlot->removeGraph(graphNumb);
@@ -245,6 +381,23 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
   dataClicked = !dataClicked;
   customPlot->graph(0)->setName("RPM");
   customPlot->graph(1)->setName("Speed");
+  customPlot->graph(2)->setName("Load Value");
+  customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
+  customPlot->graph(1)->setPen(QPen(Qt::blue)); // line color blue for first graph
+  customPlot->graph(2)->setPen(QPen(Qt::green)); // line color blue for first graph
+    // setup legend for later development
+  /*  customPlot->graph(5)->setName("Barometric Pressure");
+  customPlot->graph(3)->setName("Distance Traveled");
+  customPlot->graph(4)->setName("Coolant Temperature");
+  customPlot->graph(6)->setName("Oil Temperature");
+  customPlot->graph(7)->setName("Ethanol Percentage");
+  customPlot->graph(8)->setName("Fuel/Air Ratio");
+  customPlot->graph(9)->setName("Fuel Percentage");
+  customPlot->graph(10)->setName("Fuel Pressure");
+  customPlot->graph(11)->setName("Intake Temperature");
+  customPlot->graph(12)->setName("Intake Pressure");
+  customPlot->graph(13)->setName("Run Time");
+  customPlot->graph(14)->setName("Throttle Position");*/
   customPlot->replot();
 }
 
