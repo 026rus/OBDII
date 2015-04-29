@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
+    this->conn->timeoutMillis = ui->sbTimeout->value();
 
     /* disable these widgets when there is no connection present */
     ui->submitButton->setDisabled(true);
@@ -41,13 +42,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->connectStatus->setValue(0);
 
-    for (int i = 0; i < 3; i++){
-        ui->customPlot->addGraph();
-    }
     ui->customPlot->legend->setVisible(true);
     QFont legendFont;  // start out with MainWindow's font..
     legendFont.setPointSize(9); // and make a bit smaller for legend
     ui->customPlot->legend->setFont(legendFont);
+
+    for (int i = 0; i < 3; i++){
+        ui->customPlot->addGraph();
+        ui->customPlot->graph(i)->removeFromLegend();
+    }
 
     ui->distanceTraveledBox->setDisabled(true);
     ui->engineCoolantBox->setDisabled(true);
@@ -362,19 +365,21 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
 
       // give the axes some labels:
       customPlot->xAxis->setLabel("Count");
-      customPlot->yAxis->setLabel("Speed (MPH) and RPMx100");
+      customPlot->yAxis->setLabel("Speed (KPH) and RPMx100");
 
       // set axes ranges, so we see all data:
       customPlot->xAxis->setRange(0, count - 1);
       customPlot->yAxis->setRange(0, 150);
       customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+      customPlot->graph(graphNumb)->addToLegend();
 //      customPlot->graph(graphNumb)->setBrush(QBrush(Qt::lightGray)); // first graph will be filled with translucent blue
 //      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
   else{
       ui->customPlot->graph(graphNumb)->setVisible(false);
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 0, 0)));
+      customPlot->graph(graphNumb)->removeFromLegend();
       //      ui->customPlot->addGraph();
   }
   dataClicked = !dataClicked;
@@ -408,6 +413,7 @@ void MainWindow::on_connectButton_clicked()
         delete this->conn;
         this->connected = false;
         this->conn = new serial::PortReaderWriter();
+        this->conn->timeoutMillis = ui->sbTimeout->value();
 
         QFont font;
         font.setPointSize(12);
@@ -533,7 +539,11 @@ void MainWindow::on_actionAbout_triggered()
     QMessageBox::information(this,"About","Authors:\nZac Slade, Zac Wisdom, Vitaly Borodin, Joseph Jenkins\n\nCreated:\nSpring 2015");
 }
 
-void MainWindow::on_timeoutSpin_editingFinished()
+void MainWindow::on_sbTimeout_valueChanged(int newVal)
 {
-    this->conn->timeoutMillis = ui->sbTimeout->value();
+    this->conn->timeoutMillis = newVal;
+}
+
+void MainWindow::on_jsonSave_clicked(){
+    qDebug() << "Clicked the save to file button.";
 }
