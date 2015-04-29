@@ -504,3 +504,7 @@ void MainWindow::on_sbTimeout_valueChanged(int newVal)
 {
     this->conn->timeoutMillis = newVal;
 }
+
+void MainWindow::on_jsonSave_clicked(){
+    qDebug() << "Clicked the save to file button.";
+}

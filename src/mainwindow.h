@@ -66,6 +66,7 @@ private slots:
     void on_actionAbout_triggered();
 
     void on_sbTimeout_valueChanged(int newVal);
+    void on_jsonSave_clicked();
 
 private:
 
