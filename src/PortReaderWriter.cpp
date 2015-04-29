@@ -21,6 +21,7 @@ namespace serial
         , port(reqPort)
         , writeData(dataForWrite)
     {
+        this->timeoutMillis = 1000;
     if ( 0 == this->port )
     {
 	    this->m_timer.start(timeoutMillis);
@@ -41,7 +42,6 @@ namespace serial
                 , SIGNAL( timeout() )
                 , SLOT( handleTimeout() )
                 , Qt::QueuedConnection);
-
 	this->m_timer.start(timeoutMillis);
     }
 
@@ -58,7 +58,12 @@ namespace serial
     }
 
     bool PortReaderWriter::setPort(string portName) {
-	// Just try it!
+        if (0 != this->port) {
+            this->port->flush();
+            delete this->port;
+        }
+
+        // Just try it!
         this->port = new QSerialPort(QString(portName.c_str()));
         // Default for the device under test is 10400 baud
         this->port->open(QIODevice::ReadWrite);
@@ -74,10 +79,10 @@ namespace serial
 		    , SIGNAL( timeout() )
 		    , SLOT( handleTimeout() )
 		    , Qt::QueuedConnection);
-
-	    return true;
         }
-        return false;
+
+        // Test the serial device to ensure connection
+        return this->testSerial();
     }
 
 
@@ -113,16 +118,23 @@ namespace serial
     bool PortReaderWriter::sendCommand(const QByteArray &data)
     {
         QByteArray lineEnding = data + "\r\n";
-
         if (0 == this->port) { return false; }
 
         this->port->open(QIODevice::ReadWrite);
-
         if (!this->port->isOpen()) { return false; }
-        if (-1 < port->write(lineEnding)) { return true; }
-        port->flush();
-        if (this->port->waitForBytesWritten(timeoutMillis)) { return true; }
 
+	// Write the bytes and wait for completion
+        if (-1 < port->write(lineEnding)) {
+	    if (this->port->waitForBytesWritten(timeoutMillis)) {
+		// Be sure to flush the port after completing the write
+		port->flush();
+		return true;
+	    }
+	}
+
+	// Port failed to write or write completely
+	// Flush the buffer and signal failure
+	port->flush();
         return false;
     }
 
@@ -147,7 +159,7 @@ namespace serial
         int size = lineData.size();
         QByteArray transData = QByteArray();
         for (int i = 0; i < size;i++) {
-            if (std::isalnum(lineData[i])) {
+            if (isalnum(lineData[i])) {
                 transData += lineData[i];
             }
             if ('\r' == lineData[i] || '\n' == lineData[i]) {

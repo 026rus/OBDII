@@ -7,3 +7,9 @@ CMakeFiles/
 *.sln
 *.user
 **/ui*.h
+**/*.autosave
+**/*.orig
+**/*.BACKUP.*
+**/*.BASE.*
+**/*.LOCAL.*
+**/*.REMOTE.*

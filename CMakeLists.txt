@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.1.0)
 project(obdii-query)
 
 set(CMAKE_AUTOMOC ON)
@@ -22,6 +22,7 @@ add_executable(carcomm src/main.cpp
     src/ParseJson.cpp
     src/qcpdocumentobject.cpp
     src/obd2client.cpp
+    src/DataOut.cpp
 )
 
 set_property(TARGET carcomm PROPERTY CXX_STANDARD 11)

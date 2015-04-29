@@ -44,19 +44,40 @@ private slots:
     void on_addGraphButton_clicked();
     void on_saveGraphButton_clicked();
     void on_uploadButton_clicked();
+    void on_barometricPressureBox_clicked();
+    void on_distanceTraveledBox_clicked();
+    void on_engineCoolantBox_clicked();
+    void on_engineLoadBox_clicked();
+    void on_engineOilBox_clicked();
+    void on_ethanolFuelBox_clicked();
+    void on_fuelAirBox_clicked();
+    void on_fuelLevelBox_clicked();
+    void on_fuelPressureBox_clicked();
+    void on_intakeAirBox_clicked();
+    void on_intakeManifoldBox_clicked();
+    void on_runTimeBox_clicked();
+    void on_throtlePositionBox_clicked();
+
 
     // this is function for usinf enter in the line stop plise deleting it !!!
     void on_inputEdit_returnPressed();
 
+
+    void on_actionAbout_triggered();
+
+    void on_sbTimeout_valueChanged(int newVal);
+    void on_jsonSave_clicked();
 
 private:
 
     bool visibility;
     bool speedClicked;
     bool rpmClicked;
+    bool loadClicked;
 
     Ui::MainWindow *ui;
     serial::PortReaderWriter *conn;
+    bool connected;
     int speedCount;
     int rpmCount;
     int pressCount;
@@ -72,6 +93,7 @@ private:
     int manPressCount;
     int runTimeCount;
     int throtlePercCount;
+    int levelCount;
 
     QVector<double> vspeed;
     QVector<double> vrpm;
@@ -83,12 +105,15 @@ private:
     QVector<double> vethanolpercent;
     QVector<double> vratio;
     QVector<double> vfuelpercent;
+    QVector<double> vlevel;
     QVector<double> vfuelpressure;
     QVector<double> vairtemp;
     QVector<double> vmanifoldpressure;
     QVector<double> vruntime;
     QVector<double> vthrotlepercent;
     OBD2Client clientsocet;
+
+    QVector<QPair<QString,QVector<double> > > CollectData();
 
 };
 

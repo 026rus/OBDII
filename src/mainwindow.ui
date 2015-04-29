@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>972</width>
-    <height>634</height>
+    <height>682</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -100,7 +100,7 @@
          <enum>QTabWidget::Triangular</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="commandTab">
          <attribute name="title">
@@ -254,8 +254,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>614</width>
-                   <height>427</height>
+                   <width>629</width>
+                   <height>432</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -426,6 +426,46 @@
             <widget class="QWidget" name="layoutWidget">
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QLabel" name="timeoutLabel">
+                  <property name="text">
+                   <string>Timeout in Milliseconds</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="sbTimeout">
+                  <property name="minimum">
+                   <number>100</number>
+                  </property>
+                  <property name="maximum">
+                   <number>2000</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>50</number>
+                  </property>
+                  <property name="value">
+                   <number>1000</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <widget class="QPushButton" name="addGraphButton">
                 <property name="text">
                  <string>Add Current Graph</string>
@@ -436,6 +476,13 @@
                <widget class="QPushButton" name="saveGraphButton">
                 <property name="text">
                  <string>Save Graph</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="jsonSave">
+                <property name="text">
+                 <string>Save Live Data to JSON File</string>
                 </property>
                </widget>
               </item>
@@ -464,9 +511,16 @@
      <x>0</x>
      <y>0</y>
      <width>972</width>
-     <height>26</height>
+     <height>30</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>He&amp;lp!</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -477,6 +531,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

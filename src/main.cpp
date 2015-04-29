@@ -1,5 +1,6 @@
 #include "CarCoreApp.h"
 #include "mainwindow.h"
+#include "DataOut.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
