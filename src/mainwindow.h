@@ -64,8 +64,14 @@ private slots:
 
 
 private:
+
+    bool visibility;
+    bool speedClicked;
+    bool rpmClicked;
+
     Ui::MainWindow *ui;
     serial::PortReaderWriter *conn;
+    bool connected;
     int speedCount;
     int rpmCount;
     int pressCount;
