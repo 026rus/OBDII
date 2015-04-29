@@ -356,7 +356,7 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
       }
 
       // create graph and assign data to it:
-      //customPlot->addGraph();
+      customPlot->graph(graphNumb)->setVisible(true);
       customPlot->graph(graphNumb)->setData(c,data);
 
       // give the axes some labels:
@@ -372,8 +372,9 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
 //      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
   else{
-      ui->customPlot->removeGraph(graphNumb);
-      ui->customPlot->addGraph();
+      ui->customPlot->graph(graphNumb)->setVisible(false);
+      customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 0, 0)));
+      //      ui->customPlot->addGraph();
   }
   dataClicked = !dataClicked;
   customPlot->graph(0)->setName("RPM");
