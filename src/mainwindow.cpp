@@ -529,7 +529,7 @@ QVector<QPair<QString,QVector<double> > > MainWindow::CollectData(){
 void MainWindow::on_uploadButton_clicked(){
 
     QVector<QPair<QString,QVector<double> > > collectedData = CollectData();
-    DataOut *testThread = new DataOut(collectedData, false);
+    DataOut *testThread = new DataOut(collectedData, true);
     testThread->start();
 
 }
@@ -546,4 +546,7 @@ void MainWindow::on_sbTimeout_valueChanged(int newVal)
 
 void MainWindow::on_jsonSave_clicked(){
     qDebug() << "Clicked the save to file button.";
+    QVector<QPair<QString,QVector<double> > > collectedData = CollectData();
+    DataOut *testThread = new DataOut(collectedData, false);
+    testThread->start();
 }

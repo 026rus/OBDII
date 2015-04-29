@@ -15,9 +15,8 @@ DataOut::DataOut(QVector<QPair<QString,QVector<double> > > data, bool toServer){
 void DataOut::run(){
 
    QJsonObject collectedData = Collector();
-    QByteArray test = "{\"Example 1\" : \" Example 1 Description \" }";
     if (toServer) Send(ToByteArray(collectedData));
-    else if(!toServer) Save(test); //Save(ToByteArray(collectedData));
+    else if(!toServer) Save(ToByteArray(collectedData));
 }
 
 
@@ -48,8 +47,7 @@ QByteArray DataOut::ToByteArray(QJsonObject input){
 }
 
 void DataOut::Save(QByteArray toSave){
-    qDebug() << toSave;
-    QString currentDate = QDateTime::currentDateTime().toString();
+    QString currentDate = QDateTime::currentDateTime().toString("yyyy-mm-dd_h_m_s");
     QFile saveFile(currentDate.append(".json"));
 
     if (!saveFile.open(QIODevice::WriteOnly)) {
