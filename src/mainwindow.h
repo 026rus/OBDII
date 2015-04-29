@@ -113,6 +113,8 @@ private:
     QVector<double> vthrotlepercent;
     OBD2Client clientsocet;
 
+    QVector<QPair<QString,QVector<double> > > CollectData();
+
 };
 
 #endif // MAINWINDOW_H
