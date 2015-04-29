@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     setWindowTitle("Group 2 Software Engineering ODBII Reader");
+    this->conn->timeoutMillis = ui->sbTimeout->value();
 
     /* disable these widgets when there is no connection present */
     ui->submitButton->setDisabled(true);
@@ -406,6 +407,7 @@ void MainWindow::on_connectButton_clicked()
         delete this->conn;
         this->connected = false;
         this->conn = new serial::PortReaderWriter();
+        this->conn->timeoutMillis = ui->sbTimeout->value();
 
         QFont font;
         font.setPointSize(12);
@@ -498,7 +500,7 @@ void MainWindow::on_actionAbout_triggered()
     QMessageBox::information(this,"About","Authors:\nZac Slade, Zac Wisdom, Vitaly Borodin, Joseph Jenkins\n\nCreated:\nSpring 2015");
 }
 
-void MainWindow::on_timeoutSpin_editingFinished()
+void MainWindow::on_sbTimeout_valueChanged(int newVal)
 {
-    this->conn->timeoutMillis = ui->sbTimeout->value();
+    this->conn->timeoutMillis = newVal;
 }
