@@ -14,16 +14,18 @@ class DataOut : public QThread
     Q_OBJECT
 
 public:
-    DataOut(QVector<QPair<QString,QVector<double> > > data);
+    DataOut(QVector<QPair<QString,QVector<double> > > data, bool toServer);
     void run() Q_DECL_OVERRIDE;
     ~DataOut();
 
 private:
     QByteArray ToByteArray(QJsonObject input);
+    void Save(QByteArray toSend);
     void Send(QByteArray toSend);
-    void Collector();
+    QJsonObject Collector();
 
     QVector<QPair<QString,QVector<double> > > input;
+    bool toServer;
 
 };
 

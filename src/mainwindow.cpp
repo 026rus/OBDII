@@ -492,7 +492,7 @@ void MainWindow::on_saveGraphButton_clicked()
   }
 
   QVector<QPair<QString,QVector<double> > > collectedData = CollectData();
-  DataOut *testThread = new DataOut(collectedData);
+  DataOut *testThread = new DataOut(collectedData, false);
   testThread->start();
 
 
@@ -521,6 +521,11 @@ QVector<QPair<QString,QVector<double> > > MainWindow::CollectData(){
 }
 
 void MainWindow::on_uploadButton_clicked(){
+
+    QVector<QPair<QString,QVector<double> > > collectedData = CollectData();
+    DataOut *testThread = new DataOut(collectedData, false);
+    testThread->start();
+
 }
 
 void MainWindow::on_actionAbout_triggered()

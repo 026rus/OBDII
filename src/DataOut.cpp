@@ -2,21 +2,26 @@
 #include <QJsonDocument>
 #include <QDebug>
 #include <QJsonArray>
+#include <QFile>
+#include <QDateTime>
 
 using namespace std;
 
-DataOut::DataOut(QVector<QPair<QString,QVector<double> > > data){
+DataOut::DataOut(QVector<QPair<QString,QVector<double> > > data, bool toServer){
     this->input = data;
-
+    this->toServer = toServer;
 }
 
 void DataOut::run(){
 
-    Collector();
+   QJsonObject collectedData = Collector();
+    QByteArray test = "{\"Example 1\" : \" Example 1 Description \" }";
+    if (toServer) Send(ToByteArray(collectedData));
+    else if(!toServer) Save(test); //Save(ToByteArray(collectedData));
 }
 
 
-void DataOut::Collector(){
+QJsonObject DataOut::Collector(){
     //TODO: Create data collection function for app. Figure out how to seperate data required. Maybe do it in
     //      different class -> pass finished QJsonObject to here.
 
@@ -31,7 +36,7 @@ void DataOut::Collector(){
         qDebug() << ToByteArray(CollectedData);
     }
 
-
+    return CollectedData;
 
 }
 
@@ -42,10 +47,25 @@ QByteArray DataOut::ToByteArray(QJsonObject input){
     return array;
 }
 
+void DataOut::Save(QByteArray toSave){
+    qDebug() << toSave;
+    QString currentDate = QDateTime::currentDateTime().toString();
+    QFile saveFile(currentDate.append(".json"));
+
+    if (!saveFile.open(QIODevice::WriteOnly)) {
+        qWarning("Couldn't open save file.");
+    }
+
+
+    QJsonDocument saveDoc = QJsonDocument::fromJson(toSave);
+    saveFile.write(saveDoc.toJson());
+
+
+}
+
 void DataOut::Send(QByteArray toSend){
     qDebug() << "\n TEST \n";
 }
-
 
 
 DataOut::~DataOut()
