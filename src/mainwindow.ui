@@ -428,7 +428,7 @@
               <item>
                <widget class="QSpinBox" name="sbTimeout">
                 <property name="minimum">
-                 <number>500</number>
+                 <number>100</number>
                 </property>
                 <property name="maximum">
                  <number>2000</number>

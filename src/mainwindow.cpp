@@ -153,7 +153,6 @@ void MainWindow::on_monitorButton_clicked() {
     // monitoring the RPM
     ui->checkEngineButton->setDisabled(visibility);
     ui->submitButton->setDisabled(visibility);
-    ui->connectButton->setDisabled(visibility);
     visibility = !visibility;
 
     speedClicked = !speedClicked;
