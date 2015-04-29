@@ -42,13 +42,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->connectStatus->setValue(0);
 
-    for (int i = 0; i < 3; i++){
-        ui->customPlot->addGraph();
-    }
     ui->customPlot->legend->setVisible(true);
     QFont legendFont;  // start out with MainWindow's font..
     legendFont.setPointSize(9); // and make a bit smaller for legend
     ui->customPlot->legend->setFont(legendFont);
+
+    for (int i = 0; i < 3; i++){
+        ui->customPlot->addGraph();
+        ui->customPlot->graph(i)->removeFromLegend();
+    }
 
     ui->distanceTraveledBox->setDisabled(true);
     ui->engineCoolantBox->setDisabled(true);
@@ -363,19 +365,21 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
 
       // give the axes some labels:
       customPlot->xAxis->setLabel("Count");
-      customPlot->yAxis->setLabel("Speed (MPH) and RPMx100");
+      customPlot->yAxis->setLabel("Speed (KPH) and RPMx100");
 
       // set axes ranges, so we see all data:
       customPlot->xAxis->setRange(0, count - 1);
       customPlot->yAxis->setRange(0, 150);
       customPlot->graph(graphNumb)->setPen(graphColor); // line color blue for first graph
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+      customPlot->graph(graphNumb)->addToLegend();
 //      customPlot->graph(graphNumb)->setBrush(QBrush(Qt::lightGray)); // first graph will be filled with translucent blue
 //      customPlot->graph(graphNumb)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
   }
   else{
       ui->customPlot->graph(graphNumb)->setVisible(false);
       customPlot->graph(graphNumb)->setBrush(QBrush(QColor(0, 0, 0, 0)));
+      customPlot->graph(graphNumb)->removeFromLegend();
       //      ui->customPlot->addGraph();
   }
   dataClicked = !dataClicked;
