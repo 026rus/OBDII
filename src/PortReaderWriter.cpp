@@ -601,4 +601,17 @@ namespace serial
     void PortReaderWriter::handleReadReady() {
         // Read data
     }
+
+
+    QString PortReaderWriter::connectToCar()
+    {
+        QString str="";
+        if (!this->sendCommand("AT SP 0")) { return "Can not aoutomaticly set protocol"; }
+        str += this->readAll(5);
+        str += " | ";
+        if (!this->sendCommand("AT TP A1")) { return "Can not connect to lowes protocol"; }
+        str += this->readAll(6);
+        str += " | ";
+        return str;
+    }
 }

@@ -480,6 +480,11 @@ void MainWindow::on_connectButton_clicked()
             ui->checkEngineButton->setEnabled(true);
             ui->submitButton->setEnabled(true);
             ui->monitorButton->setEnabled(true);
+
+            /* set connection to the car */
+
+            text = this->conn->connectToCar();
+            ui->statusLabel->setText(text);
             return;
         }
     }
