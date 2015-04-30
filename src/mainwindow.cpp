@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /* disable these widgets when there is no connection present */
     ui->submitButton->setDisabled(true);
     ui->checkEngineButton->setDisabled(true);
-    // ui->monitorButton->setDisabled(true);
+    ui->monitorButton->setDisabled(true);
 
     speedCount = 1;
     rpmCount = 1;
@@ -66,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->runTimeBox->setDisabled(true);
     ui->throtlePositionBox->setDisabled(true);
     ui->barometricPressureBox->setDisabled(true);
+        t = new QThread();
 }
 
 MainWindow::~MainWindow()
@@ -96,41 +97,23 @@ void MainWindow::on_checkEngineButton_clicked() {
 
 void MainWindow::on_monitorButton_clicked()
 {
+    monitorData();
 
-    qDebug() << "Monotor presed!";
-    if (!monitorDataLoop)
-    {
-        t = new QThread();
-        qDebug() << "YES if ";
-        mtx.lock();
-        monitorDataLoop = false;
-        mtx.unlock();
-
-        qDebug() << "Before the thread!";
-        connect(t, SIGNAL(started()) , this, SLOT( testData() ) );
-        qDebug() << "Before the thread STARTED! ";
-
-        t->start();
-        qDebug() << "AFTER the thread!";
-    }
-    else
-    {
-        qDebug() << "NO IF!";
-        mtx.lock();
-        monitorDataLoop = true;
-        mtx.unlock();
-
-        t->terminate();
-        delete t;
-//        monitorData();
-    }
 }
+/* ********************************* */
+
+
+
 void MainWindow::testData()
 {
     int x=0;
-    while (!monitorDataLoop)
+    while (true)
     {
-//	    qDebug() << "In side TEST Thred! x = "<<x++;
+        mtx.lock();
+        if (monitorDataLoop) break;
+        mtx.unlock();
+        QThread::sleep(3);
+        qDebug() << "In side TEST Thred! x = "<<x++;
     }
 }
 void MainWindow::monitorData()
