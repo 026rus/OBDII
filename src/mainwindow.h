@@ -7,6 +7,8 @@
 #include "qcustomplot.h"
 #include <QTextDocument>
 #include <QFileDialog>
+#include <QThread>
+#include <QMutex>
 #include "qcpdocumentobject.h"
 #include "obd2client.h"
 
@@ -24,15 +26,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void setupQuadraticDemo(QCustomPlot *customPlot);
-
     void setupSpeedGraph(QCustomPlot *customPlot);
-
     void setupRPMGraph(QCustomPlot *customPlot);
-
     void setupGraph(QCustomPlot *customPlot, QString dataName, bool &dataClicked);
 
 private slots:
+
+    void monitorData();
+    void testData();
 
     void on_checkEngineButton_clicked();
     void on_monitorButton_clicked();
@@ -59,21 +60,21 @@ private slots:
     void on_throtlePositionBox_clicked();
 
 
-    // this is function for usinf enter in the line stop plise deleting it !!!
     void on_inputEdit_returnPressed();
-
-
     void on_actionAbout_triggered();
 
     void on_sbTimeout_valueChanged(int newVal);
     void on_jsonSave_clicked();
 
 private:
+    QThread * t;
+    QMutex mtx;
 
     bool visibility;
     bool speedClicked;
     bool rpmClicked;
     bool loadClicked;
+    bool monitorDataLoop;
 
     Ui::MainWindow *ui;
     serial::PortReaderWriter *conn;
