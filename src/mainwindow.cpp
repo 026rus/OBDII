@@ -101,21 +101,6 @@ void MainWindow::on_monitorButton_clicked()
 
 }
 /* ********************************* */
-
-
-
-void MainWindow::testData()
-{
-    int x=0;
-    while (true)
-    {
-        mtx.lock();
-        if (monitorDataLoop) break;
-        mtx.unlock();
-        QThread::sleep(3);
-        qDebug() << "In side TEST Thred! x = "<<x++;
-    }
-}
 void MainWindow::monitorData()
 {
 
@@ -228,17 +213,23 @@ void MainWindow::on_runTimeBox_clicked(){
 
 }
 
-void MainWindow::on_throtlePositionBox_clicked(){
-
+void MainWindow::on_throtlePositionBox_clicked()
+{
+//    QString name = "throtleposition";
+//    setupGraph(ui->customPlot, name, speedClicked);
 }
 
-void MainWindow::on_speedBox_clicked() {
+void MainWindow::on_speedBox_clicked()
+{
     QString name = "speed";
-    setupGraph(ui->customPlot, name, speedClicked); }
+    setupGraph(ui->customPlot, name, speedClicked);
+}
 
-void MainWindow::on_rpmBox_clicked() {
+void MainWindow::on_rpmBox_clicked()
+{
     QString name = "rpm";
-    setupGraph(ui->customPlot, name, rpmClicked); }
+    setupGraph(ui->customPlot, name, rpmClicked);
+}
 
 void MainWindow::sendRawData() {
     QString instr = ui->inputEdit->text();
@@ -365,7 +356,8 @@ void MainWindow::setupGraph(QCustomPlot *customPlot, QString dataName, bool &dat
     QVector<double> c;
 
     // if the checkbox is clicked, graph the data
-    if (dataClicked == false){
+    if (!dataClicked)
+    {
       for (int i=0; i<=count; i++)
       {
           c.append(i);

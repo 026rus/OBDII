@@ -33,7 +33,6 @@ public:
 private slots:
 
     void monitorData();
-    void testData();
 
     void on_checkEngineButton_clicked();
     void on_monitorButton_clicked();

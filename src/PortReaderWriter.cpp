@@ -197,9 +197,31 @@ namespace serial
     }
 
     /* Query the list of error codes */
-    const QString PortReaderWriter::queryOBDErrorCodes() {
+    const QString PortReaderWriter::queryOBDErrorCodes()
+    {
+        QString teststr,
+                str;
+        int num_of_cods;
+        bool ok;
+
         if (!this->sendCommand("01 01")) { return QString(); }
-        return this->readAll(4);
+        teststr = this->readAll(4);
+
+        str = teststr.replace(" ","");
+        str = str.mid(4,2);
+
+        num_of_cods = (str.toInt(&ok, 16)) - 128;
+
+        if (num_of_cods > 1)
+        {
+            if (!this->sendCommand("AT H1")) { return QString(); }
+            teststr = this->readAll(4);
+
+            if (!this->sendCommand("03")) { return QString(); }
+            teststr = this->readAll(2);
+        }
+
+        return teststr;
     }
 
     /* Query the temperature of the engine */
@@ -261,6 +283,7 @@ namespace serial
         QString retval = line_data;
         QString str_num_of_cods;
 
+
         qDebug() << retval;
         // cheking if data was not found
         if (retval.contains("unable", Qt::CaseInsensitive))
@@ -277,14 +300,14 @@ namespace serial
         str_num_of_cods = str.mid(4,2);
 
         num_of_cods = (str_num_of_cods.toInt(&ok, 16)) - 128;
-
+        teststr = line_data;
         // cheking for error in retriving numbers of codes
-        if (num_of_cods < 1)
-        {
-            retval.append("\nnot correct number of error codes\nNumber of codes = ");
-            retval.append(QString::number(num_of_cods));
-            return retval;
-        }
+            if (num_of_cods < 1)
+            {
+                retval.append("\nnot correct number of error codes\nNumber of codes = ");
+                retval.append(QString::number(num_of_cods));
+                return retval;
+            }
 
         errors = new QString[num_of_cods];
 
