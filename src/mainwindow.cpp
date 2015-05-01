@@ -6,6 +6,7 @@
 #include "obd2client.h"
 #include "ParseJson.h"
 #include "DataOut.h"
+#include <QThread>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     speedClicked = false;
     rpmClicked = false;
     loadClicked = false;
+    monitorDataLoop = false;
 
     // register the plot document object (only needed once, no matter how many plots will be in the QTextDocument):
     QCPDocumentObject *plotObjectHandler = new QCPDocumentObject(this);
@@ -64,48 +66,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->runTimeBox->setDisabled(true);
     ui->throtlePositionBox->setDisabled(true);
     ui->barometricPressureBox->setDisabled(true);
+        t = new QThread();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-// sample graph for testing demonstration
-void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
-{
-  // generate some data:
-  QVector<double> x(101), y(101); // initialize with entries 0..100
-
-  for (int i=0; i<10; i++)
-  {
-      x[i] = i;
-      switch (i)
-      {
-      case 0: y[i] = 0; break;
-      case 1: y[i] = 0; break;
-      case 2: y[i] = 1; break;
-      case 3: y[i] = 2; break;
-      case 4: y[i] = 4; break;
-      case 5: y[i] = 6; break;
-      case 6: y[i] = 5; break;
-      case 7: y[i] = 4; break;
-      case 8: y[i] = 1; break;
-      case 9: y[i] = 0; break;
-      }
-  }
-  // create graph and assign data to it:
-  customPlot->addGraph();
-  customPlot->graph(0)->setData(x, y);
-  // give the axes some labels:
-  customPlot->xAxis->setLabel("Time");
-  customPlot->yAxis->setLabel("Value");
-  // set axes ranges, so we see all data:
-  customPlot->xAxis->setRange(0, 10);
-  customPlot->yAxis->setRange(0, 7);
-  customPlot->graph(0)->setPen(QPen(Qt::red)); // line color blue for first graph
-  customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
-  customPlot->graph()->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10));
 }
 
 void MainWindow::on_checkEngineButton_clicked() {
@@ -129,28 +95,69 @@ void MainWindow::on_checkEngineButton_clicked() {
     }
 }
 
-void MainWindow::on_monitorButton_clicked() {
-    int vehicleSpeed = conn->decodeVehicleSpeed(conn->queryVehicleSpeed());
-    ui->outputBrowser->setText(  QString::number(vehicleSpeed)  );
+void MainWindow::on_monitorButton_clicked()
+{
+    monitorData();
 
-    if(vehicleSpeed < 0) {
-        vspeed.append(0);
-    } else {
-        vspeed.append(vehicleSpeed);
+}
+/* ********************************* */
+
+
+
+void MainWindow::testData()
+{
+    int x=0;
+    while (true)
+    {
+        mtx.lock();
+        if (monitorDataLoop) break;
+        mtx.unlock();
+        QThread::sleep(3);
+        qDebug() << "In side TEST Thred! x = "<<x++;
     }
-    speedCount++;
+}
+void MainWindow::monitorData()
+{
 
-    int rpmVal = conn->decodeRPM(conn->queryRPM());
-    qDebug() << "Actual rpmVal: " << rpmVal;
-    ui->outputBrowser->setText( QString::number(rpmVal) );
+    if (ui->speedBox->isChecked())
+    {
+        int vehicleSpeed = conn->decodeVehicleSpeed(conn->queryVehicleSpeed());
+        ui->outputBrowser->setText(  QString::number(vehicleSpeed)  );
 
-    if (rpmVal < 0) {
-       vrpm.append(0);
-    } else {
-        vrpm.append(rpmVal/100);
+        if(vehicleSpeed < 0)
+            vspeed.append(0);
+        else
+            vspeed.append(vehicleSpeed);
+        speedCount++;
     }
-    rpmCount++;
 
+    if (ui->rpmBox->isChecked())
+    {
+        int rpmVal = conn->decodeRPM(conn->queryRPM());
+        qDebug() << "Actual rpmVal: " << rpmVal;
+        ui->outputBrowser->setText( QString::number(rpmVal) );
+
+        if (rpmVal < 0)
+            vrpm.append(0);
+        else
+            vrpm.append(rpmVal/100);
+
+        rpmCount++;
+    }
+
+    if (ui->engineLoadBox->isChecked())
+    {
+        int eload = conn->decodeRPM(conn->queryRPM());
+        qDebug() << "Engine Load %: " << eload;
+        ui->outputBrowser->setText( QString::number(eload) );
+
+        if (eload < 0)
+            vload.append(0);
+        else
+            vload.append(eload);
+
+        loadCount++;
+    }
     // not necessary now, but the code to set
     // the other buttons to disabled while
     // monitoring the RPM
@@ -160,8 +167,10 @@ void MainWindow::on_monitorButton_clicked() {
 
     speedClicked = !speedClicked;
     rpmClicked = !rpmClicked;
+    loadClicked = !loadClicked;
     on_rpmBox_clicked();
     on_speedBox_clicked();
+    on_engineLoadBox_clicked();
     ui->customPlot->graph(0)->setName("RPM");
     ui->customPlot->graph(1)->setName("Speed");
     ui->customPlot->graph(2)->setName("Engine Load");
@@ -471,6 +480,11 @@ void MainWindow::on_connectButton_clicked()
             ui->checkEngineButton->setEnabled(true);
             ui->submitButton->setEnabled(true);
             ui->monitorButton->setEnabled(true);
+
+            /* set connection to the car */
+
+            text = this->conn->connectToCar();
+            ui->statusLabel->setText(text);
             return;
         }
     }
@@ -565,3 +579,4 @@ void MainWindow::on_jsonSave_clicked(){
     DataOut *testThread = new DataOut(collectedData, false);
     testThread->start();
 }
+

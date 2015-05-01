@@ -53,6 +53,8 @@ namespace serial {
         // Sets up the Serial Connection
         bool serialConnect(void);
 
+        QString connectToCar();
+
         // Convieniece functions for determining state
         bool isConnected(void);
 
